@@ -4,7 +4,7 @@ namespace backend\controllers\comp;
 
 use Yii;
 use backend\models\Admin;
-use backend\models\AdminSearch;
+use backend\models\AdminForm;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -29,52 +29,33 @@ class AdminController extends Controller
         ];
     }
 
+
+
+    
+
     /**
      * Lists all Admin models.
      * @return mixed
      */
     public function actionIndex()
     {
-
-        $searchModel = new AdminSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
-    }
-
-    /**
-     * Displays a single Admin model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
-
-    /**
-     * Creates a new Admin model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate()
-    {
-        $model = new Admin();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $this->layout = 'login';
+        if (!Yii::$app->admin->isGuest) {
+            return $this->goHome();
         }
 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        $model = new AdminForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->goBack();
+        } else {
+            $model->password = '';
+
+            return $this->render('index', [
+                'model' => $model,
+            ]);
+        }
     }
+
 
     /**
      * Updates an existing Admin model.
@@ -96,19 +77,6 @@ class AdminController extends Controller
         ]);
     }
 
-    /**
-     * Deletes an existing Admin model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
 
     /**
      * Finds the Admin model based on its primary key value.

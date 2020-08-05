@@ -1,38 +1,15 @@
+<h1>Логин</h1>
 <?php
-
-use yii\helpers\Html;
-use yii\grid\GridView;
-
-/* @var $this yii\web\View */
-/* @var $searchModel app\models\AdminSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-
-$this->title = Yii::t('app', 'Admins');
-$this->params['breadcrumbs'][] = $this->title;
+use yii\widgets\ActiveForm;
 ?>
-<div class="admin-index">
+<?php $form = ActiveForm::begin();?>
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<?= $form->field($model,'username')->textInput()?>
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Admin'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+<?= $form->field($model,'password')->passwordInput()?>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'username',
-            'password',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-
-
+<div>
+    <button class="btn btn-success" type="submit">Login</button>
 </div>
+
+<?php $form = ActiveForm::end();?>
