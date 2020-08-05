@@ -1,10 +1,10 @@
 <?php
 
-namespace app\models;
+namespace backend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Cardtype;
+use backend\models\Cardtype;
 
 /**
  * CardtypeSearch represents the model behind the search form of `app\models\Cardtype`.

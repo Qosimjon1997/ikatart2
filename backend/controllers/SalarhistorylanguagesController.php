@@ -1,10 +1,10 @@
 <?php
 
-namespace app\controllers;
+namespace backend\controllers;
 
 use Yii;
-use app\models\Salarhistorylanguages;
-use app\models\SalarhistorylanguagesSearch;
+use backend\models\Salarhistorylanguages;
+use backend\models\SalarhistorylanguagesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

@@ -1,10 +1,10 @@
 <?php
 
-namespace app\models;
+namespace backend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Mass;
+use backend\models\Mass;
 
 /**
  * MassSearch represents the model behind the search form of `app\models\Mass`.

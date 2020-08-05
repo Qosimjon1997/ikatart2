@@ -1,10 +1,10 @@
 <?php
 
-namespace app\controllers;
+namespace backend\controllers;
 
 use Yii;
-use app\models\Salerhistory;
-use app\models\SalerhistorySearch;
+use backend\models\Salerhistory;
+use backend\models\SalerhistorySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

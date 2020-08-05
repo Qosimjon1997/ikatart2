@@ -1,18 +1,18 @@
 <?php
 
-namespace app\controllers;
+namespace backend\controllers\comp;
 
 use Yii;
-use app\models\Admin;
-use app\models\AdminSearch;
+use backend\models\Workers;
+use backend\models\WorkersSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * AdminController implements the CRUD actions for Admin model.
+ * WorkersController implements the CRUD actions for Workers model.
  */
-class AdminController extends Controller
+class WorkersController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class AdminController extends Controller
     }
 
     /**
-     * Lists all Admin models.
+     * Lists all Workers models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new AdminSearch();
+        $searchModel = new WorkersSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Displays a single Admin model.
+     * Displays a single Workers model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,13 +58,13 @@ class AdminController extends Controller
     }
 
     /**
-     * Creates a new Admin model.
+     * Creates a new Workers model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Admin();
+        $model = new Workers();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -76,7 +76,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Updates an existing Admin model.
+     * Updates an existing Workers model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,7 +96,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Deletes an existing Admin model.
+     * Deletes an existing Workers model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,15 +110,15 @@ class AdminController extends Controller
     }
 
     /**
-     * Finds the Admin model based on its primary key value.
+     * Finds the Workers model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Admin the loaded model
+     * @return Workers the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Admin::findOne($id)) !== null) {
+        if (($model = Workers::findOne($id)) !== null) {
             return $model;
         }
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace app\controllers;
+namespace backend\controllers;
 
 use Yii;
-use app\models\Productlanguages;
-use app\models\ProductlanguagesSearch;
+use backend\models\Productlanguages;
+use backend\models\ProductlanguagesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
