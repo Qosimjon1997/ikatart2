@@ -8,17 +8,25 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
+    'language' => 'en',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
+            'baseUrl' => '',
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'backend\models\User',
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
+        ],
+        'saler' => [
+            'class'=>'yii\web\User',
+            'identityClass' => 'backend\models\Saler',
+            'enableAutoLogin' => true,
+            'identityCookie' => ['name' => '_identity-frontend-saler', 'httpOnly' => true],
         ],
         'session' => [
             // this is the name of the session cookie used for login on the frontend
@@ -36,14 +44,13 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '<alias:\w+>' => 'site/<alias>',
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
