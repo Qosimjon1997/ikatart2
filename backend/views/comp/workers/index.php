@@ -1,38 +1,30 @@
 <?php
-
 use yii\helpers\Html;
-use yii\grid\GridView;
-
+use yii\bootstrap\ActiveForm;
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\WorkersSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Workers');
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'My Yii Application';
 ?>
-<div class="workers-index">
-
+<div class="site-index">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Workers'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <p>Please fill out the following fields to login:</p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <div class="row">
+        <div class="col-lg-5">
+            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
-            'id',
-            'username',
-            'password',
+                <?= $form->field($model, 'password')->passwordInput() ?>
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+                <?= $form->field($model, 'rememberMe')->checkbox() ?>
 
+                <div class="form-group">
+                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                </div>
 
+            <?php ActiveForm::end(); ?>
+        </div>
+    </div>
 </div>
