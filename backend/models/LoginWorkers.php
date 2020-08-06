@@ -14,7 +14,7 @@ class LoginWorkers extends Model
     public $oldpassword;
     public $rememberMe = true;
 
-    private $_user;
+    private $_workers;
 
 
     /**
@@ -43,7 +43,7 @@ class LoginWorkers extends Model
     public function validatePassword($attribute, $params)
     {
         if (!$this->hasErrors()) {
-            $user = $this->getUser();
+            $user = $this->getWorkers();
             if (!$user || !$user->validatePassword($this->password)) {
                 $this->addError($attribute, 'Incorrect username or password.');
             }
@@ -58,7 +58,7 @@ class LoginWorkers extends Model
     public function login()
     {
         if ($this->validate()) {
-            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
+            return Yii::$app->workers->login($this->getWorkers(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         }
 
         return false;
@@ -69,12 +69,12 @@ class LoginWorkers extends Model
      *
      * @return User|null
      */
-    protected function getUser()
+    protected function getWorkers()
     {
-        if ($this->_user === null) {
-            $this->_user = Workers::findByUsername($this->username);
+        if ($this->_workers === null) {
+            $this->_workers = Workers::findByUsername($this->username);
         }
 
-        return $this->_user;
+        return $this->_workers;
     }
 }

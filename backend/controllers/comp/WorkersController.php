@@ -4,16 +4,19 @@ namespace backend\controllers\comp;
 
 use Yii;
 use backend\models\Workers;
+use backend\models\WorkersSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use backend\models\LoginWorkers;
+use yii\filters\AccessControl;
 
 /**
  * WorkersController implements the CRUD actions for Workers model.
  */
 class WorkersController extends Controller
 {
+    public $layout;
     /**
      * {@inheritdoc}
      */
@@ -29,21 +32,49 @@ class WorkersController extends Controller
         ];
     }
 
-    public function actions()
+    public function beforeAction($action)
     {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-        ];
-    }
+        // your custom code here, if you want the code to run before action filters,
+        // which are triggered on the [[EVENT_BEFORE_ACTION]] event, e.g. PageCache or AccessControl
 
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+
+        if(Yii::$app->admin->isGuest && $this->action->id != 'login') {
+            $this->redirect(['login']);
+        } else {
+            $this->redirect(['index']);
+        }
+
+        // other custom code here
+
+        return true; // or false to not run the action
+    }
     /**
      * Lists all Workers models.
      * @return mixed
      */
     public function actionIndex()
     {
+        $searchModel = new WorkersSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
+     * Login action.
+     *
+     * @return string
+     */
+    public function actionLogin()
+    {
+        $this->layout = 'login';
+
         if (!Yii::$app->workers->isGuest) {
             $this->redirect(['category/index']);
         }
@@ -54,12 +85,50 @@ class WorkersController extends Controller
         } else {
             $model->password = '';
 
-            return $this->render('index', [
+            return $this->render('login', [
                 'model' => $model,
             ]);
         }
     }
 
+    /**
+     * Displays a single Workers model.
+     * @param integer $id
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionView($id)
+    {
+        return $this->render('view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
+    /**
+     * Creates a new Workers model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
+    public function actionCreate()
+    {
+        $model = new Workers();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+    }
+
+    /**
+     * Updates an existing Workers model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -73,6 +142,27 @@ class WorkersController extends Controller
         ]);
     }
 
+    /**
+     * Deletes an existing Workers model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionDelete($id)
+    {
+        $this->findModel($id)->delete();
+
+        return $this->redirect(['index']);
+    }
+
+    /**
+     * Finds the Workers model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return Workers the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
     protected function findModel($id)
     {
         if (($model = Workers::findOne($id)) !== null) {
