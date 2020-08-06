@@ -9,6 +9,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
+use common\widgets\SidebarWidget;
 
 AppAsset::register($this);
 ?>
@@ -38,13 +39,13 @@ AppAsset::register($this);
         $menuItems = [
             ['label' => 'Home', 'url' => ['/site/index']],
         ];
-        if (Yii::$app->user->isGuest) {
+        if (Yii::$app->workers->isGuest) {
             $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
         } else {
             $menuItems[] = '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
+                    'Logout (' . Yii::$app->workers->identity->username . ')',
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()
@@ -56,13 +57,57 @@ AppAsset::register($this);
         ]);
         NavBar::end();
         ?>
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        <div>
+            <?= SidebarWidget::widget([
+                'header' => Yii::t('app', 'header'),
+                'items' => [
+                    [
+                        'label' => Yii::t('app', 'category'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'category/index',
+                    ],
+                    [
+                        'label' => Yii::t('app', 'product'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'product/index',
+                    ],
+                    [
+                        'label' => Yii::t('app', 'top products'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'site/index',
+                    ],
+                    [
+                        'label' => Yii::t('app', 'orders'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'site/index',
+                    ],
+                    [
+                        'label' => Yii::t('app', 'aksiya'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'site/index',
+                    ],
+                    [
+                        'label' => Yii::t('app', 'adverts'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'site/index',
+                    ],
+                    [
+                        'label' => Yii::t('app', 'users'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'site/index',
+                    ],
+                ]
             ]) ?>
-            <?= Alert::widget() ?>
-        <?= $content ?>
-    </div>
+            <div class="content">
+                <div class="container">
+                    <?= Breadcrumbs::widget([
+                        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                        ]) ?>
+                        <?= Alert::widget() ?>
+                    <?= $content ?>
+                </div>
+            </div>
+        </div>
 
 </div>
 
