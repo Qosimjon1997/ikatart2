@@ -7,12 +7,15 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\WorkersSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
+
 $this->title = Yii::t('app', 'Workers');
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="workers-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
+
 
     <p>
         <?= Html::a(Yii::t('app', 'Create Workers'), ['create'], ['class' => 'btn btn-success']) ?>
