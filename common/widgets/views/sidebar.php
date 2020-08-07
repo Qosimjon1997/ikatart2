@@ -13,7 +13,7 @@ SidebarAsset::register($this);
         <?php
         foreach($items as $item) {
             echo '<li class="item">';
-            echo Html::a('<i class="'. $item['icon'] .'" aria-hidden="true"></i>&nbsp'.$item['label'], Url::to(Yii::$app->request->baseUrl.'/'.$item['url'], true));
+            echo Html::a('<i class="'. $item['icon'] .'" aria-hidden="true"></i>&nbsp'.$item['label'], Url::to([$item['url'], 'params' => json_encode($item['params'])]));
             echo '</li>';
         }
 

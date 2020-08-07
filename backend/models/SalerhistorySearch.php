@@ -40,7 +40,7 @@ class SalerhistorySearch extends Salerhistory
      */
     public function search($params)
     {
-        $query = Salerhistory::find();
+        $query = Salerhistory::find()->with('salarhistorylanguages');
 
         // add conditions that should always apply here
 

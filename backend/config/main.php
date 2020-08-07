@@ -49,7 +49,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '' => 'comp/workers/index',
+                '' => 'comp/workers/login',
                 'admin' => 'comp/admin/index',
                 'workers' => 'comp/workers/login',
                 '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',

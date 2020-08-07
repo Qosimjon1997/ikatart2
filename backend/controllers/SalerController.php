@@ -3,6 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
+use backend\models\Language;
+use backend\models\Salarhistorylanguages;
 use backend\models\Saler;
 use backend\models\SalerSearch;
 use yii\web\Controller;
@@ -14,6 +16,7 @@ use yii\filters\VerbFilter;
  */
 class SalerController extends Controller
 {
+    public $layout = 'operator';
     /**
      * {@inheritdoc}
      */
@@ -27,6 +30,48 @@ class SalerController extends Controller
                 ],
             ],
         ];
+    }
+
+    public function actions()
+    {
+        return [
+            'browse-images' => [
+                'class' => 'bajadev\ckeditor\actions\BrowseAction',
+                'quality' => 80,
+                'maxWidth' => 800,
+                'maxHeight' => 800,
+                'useHash' => true,
+                'url' => '@web/contents/',
+                'path' => '@frontend/web/contents/',
+            ],
+            'upload-images' => [
+                'class' => 'bajadev\ckeditor\actions\UploadAction',
+                'quality' => 80,
+                'maxWidth' => 800,
+                'maxHeight' => 800,
+                'useHash' => true,
+                'url' => '@web/contents/',
+                'path' => '@frontend/web/contents/',
+            ],
+        ];
+    }
+
+    public function beforeAction($action)
+    {
+        // your custom code here, if you want the code to run before action filters,
+        // which are triggered on the [[EVENT_BEFORE_ACTION]] event, e.g. PageCache or AccessControl
+
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+
+        if(Yii::$app->workers->isGuest) {
+            $this->redirect(['/workers']);
+        }
+
+        // other custom code here
+
+        return true; // or false to not run the action
     }
 
     /**
@@ -65,13 +110,25 @@ class SalerController extends Controller
     public function actionCreate()
     {
         $model = new Saler();
+        $lang = new Language;
+        $lang->getInfoLanguages();
+        $salerHistory;
+
+        if(isset($_POST['Language'])) {
+            $salerHistory = $this->encode($_POST['Language']['info'], $lang->languages);
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            foreach ($salerHistory as $history) {
+                $history->saler_id = $model->id;
+                $history->save();
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'lang' => $lang,
         ]);
     }
 
@@ -107,6 +164,17 @@ class SalerController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function encode($json, $languages) {
+        $salerHistory = [];
+        foreach ($languages as $lan) {
+            $history = new Salarhistorylanguages();
+            $history->language_id = $lan['id'];
+            $history->name = $json[$lan['shortname']];
+            array_push($salerHistory, $history);
+        }
+        return $salerHistory;
     }
 
     /**
