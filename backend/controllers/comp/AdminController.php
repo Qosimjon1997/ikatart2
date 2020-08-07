@@ -47,12 +47,23 @@ class AdminController extends Controller
         $model = new AdminForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
-        } else {
+        } 
+        else {
             $model->password = '';
 
             return $this->render('index', [
                 'model' => $model,
             ]);
+        }
+    }
+
+
+    public function actionLogout()
+    {
+        if(!Yii::$app->admin->isGuest)
+        {
+            Yii::$app->admin->logout();
+            return $this->redirect(['login']);
         }
     }
 

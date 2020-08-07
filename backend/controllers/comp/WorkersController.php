@@ -44,6 +44,7 @@ class WorkersController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = 'login';
         if (!Yii::$app->workers->isGuest) {
             $this->redirect(['category/index']);
         }

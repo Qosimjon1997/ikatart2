@@ -1,15 +1,30 @@
-<h1>Логин</h1>
 <?php
-use yii\widgets\ActiveForm;
+use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
+/* @var $this yii\web\View */
+
+$this->title = 'My Admin Form';
 ?>
-<?php $form = ActiveForm::begin();?>
+<div class="site-index">
+    <h1><?= Html::encode($this->title) ?></h1>
 
-<?= $form->field($model,'username')->textInput()?>
+    <p>Admin login page</p>
 
-<?= $form->field($model,'password')->passwordInput()?>
+    <div class="row">
+        <div class="col-lg-5">
+            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
-<div>
-    <button class="btn btn-success" type="submit">Login</button>
+                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+
+                <?= $form->field($model, 'password')->passwordInput() ?>
+
+                <?= $form->field($model, 'rememberMe')->checkbox() ?>
+
+                <div class="form-group">
+                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                </div>
+
+            <?php ActiveForm::end(); ?>
+        </div>
+    </div>
 </div>
-
-<?php $form = ActiveForm::end();?>
