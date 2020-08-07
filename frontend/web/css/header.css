@@ -1,0 +1,53 @@
+.header-new{
+  width: 1200px !important;
+  margin: auto;
+}
+.header-new .logo{
+  max-width: 180px;
+  /* max-height: 100px; */
+  display: inline-block;
+
+}
+ .header-info
+{
+  /* float: right; */
+  width: 500px;
+  top: 40px;
+  position: relative;
+  display: inline-block;
+}
+.header-info ul
+{
+  /* float: right; */
+}
+.header-info ul li{
+  display: inline-block;
+  padding-left: 11px;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+.header-info ul a{
+  color: rgb(114, 83, 172);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+.header-info ul a:hover{
+  color: rgb(87, 0, 250);
+  text-decoration: none;
+  font-size: 14.5px;
+  display: inline-block;
+  text-align: center;
+}
+.header-info ul li img{
+  top: -3px;
+  right: -15px;
+  max-width: 25px;
+  position: relative;
+  display: inline-block;
+  text-transform: capitalize;
+}
+.header-info .flag img{
+ right: -5px;
+ top: -2px;
+}

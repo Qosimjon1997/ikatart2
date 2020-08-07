@@ -1,0 +1,250 @@
+.owl-carousel .owl-nav button.owl-next{
+  color: inherit;
+  border: none;
+  padding: 0 !important;
+  font: inherit;
+  position: absolute;
+  top: 30%;
+  width: 10px;
+  height: 10px;
+  font-size: 55px;
+  font-weight: 200;
+  line-height: 40%;
+  color: #390bb9;
+  transition: 0.4s;
+  right: -35px;
+}
+
+.owl-carousel .owl-nav button.owl-next:hover{
+  border-radius: 50%;
+}
+.owl-carousel .owl-nav button.owl-prev{
+  color: inherit;
+  border: none;
+  padding: 0 !important;
+  font: inherit;
+  position: absolute;
+  top: 28%;
+  width: 50px;
+  height: 50px;
+  font-size: 55px;
+  font-weight: 200;
+  line-height: 40%;
+  color: #1709da;
+  transition: 0.4s;
+  left: -60px;
+}
+.owl-carousel .owl-nav button.owl-prev:hover{
+  border-radius: 50%;
+}
+button:focus{
+  outline: none;
+}
+.autoplay
+{
+	position: absolute;
+	color: #000;
+	font: 100% arial, sans-serif;
+	right: 15px;
+	text-decoration: none;
+	text-shadow: 0 1px 0 rgb(56, 30, 207);
+	top: 0px;
+	width:auto;
+	height:auto;
+	opacity:0.4;
+	transition: opacity .1s ease-in, transform .1s ease-out; 
+	animation: fade_close 3s ease-out;
+}
+.autoplay:active
+{
+  transform:scale(0.8);
+}
+
+.stop
+{
+  right: 15px;
+}
+
+.play
+{
+  right: 90px;
+}
+
+.slider-box{
+  height: 303px;
+  width: 265px;
+  position: relative;
+  background-size: cover;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* border:  1px solid rgba(187, 187, 187, 0.40); */
+  overflow: hidden;
+}
+ span{
+   float: right;
+ }
+ p{
+   font-size: 14px;
+ }
+.slider-box a{
+  text-decoration: none;
+  /* text-align: center; */
+}
+.img-box{
+ top: 0;
+ margin-top: 0;
+}
+.img-box img{
+  border-radius: 5px;
+  margin-top : -15px;
+  background-size: cover !important;
+}
+.img-box  p{
+  color: rgb(74, 18, 100); 
+  font-size: 18px;
+  padding-top: 0px; 
+}
+.new{
+  position: absolute;
+  top: 0;
+  height: 35px;
+  width: 60px;
+  right: 0;
+  color: rgb(255, 6, 6);
+  font-weight: 500;
+  display: flex;
+  border-radius: 10%;
+  justify-content: center;
+  align-items: center;
+}
+.product{
+  position: absolute;
+  bottom: 16px;
+  right: 15px;
+  color: #581374;
+  font-size: 14px;
+  font-style: initial;
+  display: flex;
+ 
+}
+.cart{
+  position: absolute;
+  bottom: 0px;
+  height: 35px;
+  left: 0;
+  width: 33.3%;
+  border-radius: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart a{
+  color: #1a2ff0;
+  font-size: 16px;
+}
+.cart:hover{
+  transform: scale(1.01);
+  font-size: 24px;
+  transition: all ease 0.1s;
+}
+.buy{
+  position: absolute;
+  bottom: 0px;
+  height: 35px;
+  right: 0;
+  width: 33.3%;
+  display: flex;
+  border-radius: 5%;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+.buy a{
+  color: #5b0463;
+  font-size: 15px !important;
+}
+.buy:hover{
+  transform: scale(1.01);
+  font-size: 15px;
+  transition: all ease 0.1s;
+}
+
+.heart{
+  position: absolute;
+  bottom: 0px;
+  height: 35px;
+  width: 33%;
+  font-size: 18px;
+  left: 33.5%;
+  border-radius: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.heart a{
+  color: #f54e4e;
+}
+.heart:hover{
+  transform: scale(1.01);
+  font-size: 22px;
+  transition: all ease 0.1s;
+}
+.icon-panel{
+  position: absolute;
+  bottom: -40px;
+  width: 100%;
+  transition-duration: 0.4s;
+}
+.slider-box:hover .icon-panel{
+  bottom: 0px;
+}
+.slider-box:hover{
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.4);
+}
+.slider-box:hover .img-box img{
+  transform: scale(1.01);
+  transition: all ease 0.3s;
+}
+.owl-carousel .owl-nav div {
+  background: rgba(255, 255, 255, 0.8) none repeat scroll 0 0;
+  height: 40px;
+  left: 20px;
+  line-height: 40px;
+  font-size: 22px;
+  color: #646464;
+  opacity: 1;
+  visibility: visible;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease 0s;
+  width: 40px;
+}
+.owl-carousel .owl-nav div.owl-next {
+  left: auto;
+  right: -30px;
+}
+.owl-carousel .owl-nav div.owl-next i {
+  position: relative;
+  right: 0;
+  top: 1px;
+}
+.owl-carousel .owl-nav div.owl-prev i {
+  position: relative;
+  right: 1px;
+  top: 0px;
+}
+.owl-carousel:hover .owl-nav div {
+  opacity: 1;
+  visibility: visible;
+}
+.owl-carousel:hover .owl-nav div:hover {
+  color: rgb(102, 6, 212);
+  background: #ff3500;
+}
+
