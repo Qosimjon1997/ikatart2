@@ -48,6 +48,11 @@ class AdminForm extends Model
         }
     }
 
+    public function setPassword($passw)
+    {
+        return $this->password = sha1($passw);
+    }
+
     /**
      * Logs in a user using the provided username and password.
      *
@@ -56,7 +61,7 @@ class AdminForm extends Model
     public function login()
     {
         if ($this->validate()) {
-            return Yii::$app->amdin->login($this->getAdmin(), $this->rememberMe ? 3600 * 24 * 30 : 0);
+            return Yii::$app->admin->login($this->getAdmin(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         }
         
         return false;

@@ -17,11 +17,17 @@ return [
             'csrfParam' => '_csrf-backend',
             //'baseUrl' => '/comp',
         ],
-        'admin' => [
+        'user' => [
             'class' => 'yii\web\User',
             'identityClass' => 'backend\models\Admin',
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+        ],
+        'admin' => [
+            'class' => 'yii\web\User',
+            'identityClass' => 'backend\models\Admin',
+            'enableAutoLogin' => true,
+            'identityCookie' => ['name' => '_identity-backend-admin', 'httpOnly' => true],
         ],
         'workers' => [
             'class' => 'yii\web\User',

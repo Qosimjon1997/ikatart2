@@ -36,12 +36,9 @@ AppAsset::register($this);
                 'class' => 'navbar navbar-inverse navbar-fixed-top p-1',
             ],
         ]);
-        $menuItems = [
-            ['label' => 'Home', 'url' => ['/admin']],
-        ];
-
+        
             $menuItems[] = '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
+                . Html::beginForm(['comp/admin/logout'], 'post')
                 . Html::submitButton(
                     'Logout (' . Yii::$app->admin->identity->username . ')',
                     ['class' => 'btn btn-link logout']
@@ -59,17 +56,26 @@ AppAsset::register($this);
                 'header' => Yii::t('app', 'header'),
                 'items' => [
                     [
-                        'label' => Yii::t('app', 'workers'),
+                        'label' => Yii::t('app', 'Operatories'),
                         'icon' => 'fa fa-list',
-                        'url' => 'workers',
+                        'url' => 'comp/workers/index',
                     ],
                     [
-                        'label' => Yii::t('app', 'product'),
+                        'label' => Yii::t('app', 'Statistic'),
                         'icon' => 'fa fa-list',
-                        'url' => 'product/index',
+                        'url' => '#',
+                    ],
+                    [
+                        'label' => Yii::t('app', 'settings'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'comp/admin/settings',
+                        'params' => [
+                            'id' => Yii::$app->admin->identity->id,
+                        ]
                     ],
                 ]
             ]) ?>
+            
             <div class="content">
                 <div class="container">
                     <?= Breadcrumbs::widget([
@@ -79,6 +85,7 @@ AppAsset::register($this);
                     <?= $content ?>
                 </div>
             </div>
+            
         </div>
 
 </div>

@@ -86,12 +86,18 @@ class Workers extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         return $this->auth_key;
     }
 
+
     /**
      * {@inheritdoc}
      */
     public function validateAuthKey($authKey)
     {
         return $this->getAuthKey() === $authKey;
+    }
+
+    public function setPassword($passw)
+    {
+        return $this->password = Yii::$app->security->generatePasswordHash($passw);
     }
 
     /**

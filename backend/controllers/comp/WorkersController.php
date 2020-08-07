@@ -94,7 +94,7 @@ class WorkersController extends Controller
     {
         Yii::$app->workers->logout();
 
-        $this->redirect(['index']);
+        $this->redirect(['comp/workers/index']);
     }
 
     /**
@@ -117,9 +117,10 @@ class WorkersController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Workers();
+        $model = new LoginWorkers();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+        if ($model->load(Yii::$app->request->post()) && $model->register()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -135,6 +136,7 @@ class WorkersController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
+    /*
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -146,7 +148,7 @@ class WorkersController extends Controller
         return $this->render('update', [
             'model' => $model,
         ]);
-    }
+    }*/
 
     /**
      * Deletes an existing Workers model.

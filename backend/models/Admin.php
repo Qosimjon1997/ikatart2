@@ -85,6 +85,9 @@ class Admin extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     /**
      * {@inheritdoc}
      */
+
+     public $auth_key;
+
     public function getAuthKey()
     {
         return $this->auth_key;

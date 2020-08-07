@@ -63,7 +63,7 @@ class AdminController extends Controller
         if(!Yii::$app->admin->isGuest)
         {
             Yii::$app->admin->logout();
-            return $this->redirect(['login']);
+            return $this->redirect(['comp/admin/index']);
         }
     }
 

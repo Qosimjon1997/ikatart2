@@ -3,7 +3,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'My Workers Application';
 ?>
 <div class="site-index">
     <h1><?= Html::encode($this->title) ?></h1>

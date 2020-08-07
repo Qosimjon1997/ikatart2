@@ -9,6 +9,7 @@ use yii\base\Model;
  */
 class LoginWorkers extends Model
 {
+    public $id;
     public $username;
     public $password;
     public $oldpassword;
@@ -25,6 +26,7 @@ class LoginWorkers extends Model
         return [
             // username and password are both required
             [['username', 'password'], 'required'],
+            ['id','integer'],
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             ['oldpassword', 'string'],
@@ -63,6 +65,20 @@ class LoginWorkers extends Model
 
         return false;
     }
+
+    public function register()
+    {
+        $model = new Workers();
+        $model->username = strtolower($this->username);
+        $model->setPassword($this->password);
+        if($model->save())
+        {
+            $this->id = $model->id;
+            return true;
+        }
+        return false;
+    }
+
 
     /**
      * Finds user by [[username]]
