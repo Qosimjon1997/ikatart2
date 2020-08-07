@@ -27,7 +27,7 @@ return [
             'class' => 'yii\web\User',
             'identityClass' => 'backend\models\Workers',
             'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+            'identityCookie' => ['name' => '_identity-backend-workers', 'httpOnly' => true],
         ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
@@ -52,7 +52,7 @@ return [
             'rules' => [
                 '' => 'comp/workers/index',
                 'admin' => 'comp/admin/index',
-                'workers' => 'comp/workers/index',
+                'workers' => 'comp/workers/login',
                 '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
             ],
         ],*/

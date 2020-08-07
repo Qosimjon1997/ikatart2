@@ -125,3 +125,18 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+.content {
+    width: 85%;
+    top: 50px;
+    position: relative;
+    /*margin-left: 15%;*/
+    margin-left: 15%;
+    padding: 1em;
+}
+
+.container {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+}
