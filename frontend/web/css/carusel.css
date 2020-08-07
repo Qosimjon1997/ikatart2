@@ -1,18 +1,23 @@
+.owl-carousel-blog{
+  /* max-width: 1160px !important;  */
+  /* margin-left: 15px; */
+}
 .owl-carousel .owl-nav button.owl-next{
   color: inherit;
   border: none;
   padding: 0 !important;
   font: inherit;
   position: absolute;
-  top: 30%;
-  width: 10px;
-  height: 10px;
+  top: 28% !important;
+  font: inherit;
+  width: 50px;
+  height: 50px;
   font-size: 55px;
   font-weight: 200;
   line-height: 40%;
   color: #390bb9;
   transition: 0.4s;
-  right: -35px;
+  right: -25px;
 }
 
 .owl-carousel .owl-nav button.owl-next:hover{
@@ -30,7 +35,7 @@
   font-size: 55px;
   font-weight: 200;
   line-height: 40%;
-  color: #1709da;
+  color: #390bb9;
   transition: 0.4s;
   left: -60px;
 }
@@ -139,12 +144,13 @@ button:focus{
   width: 33.3%;
   border-radius: 5%;
   display: flex;
+  font-size: 15px !important;
   justify-content: center;
   align-items: center;
 }
 .cart a{
-  color: #1a2ff0;
-  font-size: 16px;
+  color: #1a2ff0 !important;
+  font-size: 16px !important;
 }
 .cart:hover{
   transform: scale(1.01);
@@ -164,7 +170,7 @@ button:focus{
   font-weight: 500;
 }
 .buy a{
-  color: #5b0463;
+  color: #5b0463 !important;
   font-size: 15px !important;
 }
 .buy:hover{
@@ -186,7 +192,7 @@ button:focus{
   align-items: center;
 }
 .heart a{
-  color: #f54e4e;
+  color: #f54e4e !important;
 }
 .heart:hover{
   transform: scale(1.01);

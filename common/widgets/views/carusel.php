@@ -4,8 +4,8 @@ CaruselAsset::register($this);
 ?>
 <body>
             <p style="margin: auto; max-width: 1000px; color: rgb(8, 2, 83); font-size: 30px;
-         margin-bottom: 20px; font-weight: 500; text-shadow: rgb(128, 253, 11);"> New Collection</p>
-  <div class="owl-slide owl-carousel owl-theme">
+        margin-top: 10px; text-align: center; font-weight: 500; text-shadow: rgb(128, 253, 11);"> New Collection</p>
+  <div class="owl-slide owl-carousel owl-theme owl-carousel-blog">
                 <div class="slider-box">
                     <div class="img-box">
                      <a href="ikat-art.html">
@@ -326,16 +326,16 @@ CaruselAsset::register($this);
                         items:1,
                         nav:true
                     },
-                    480:{  // breakpoint from 480 up - smartphones // landscape
+                    570:{  // breakpoint from 480 up - smartphones // landscape
                         items:2,
                         nav:false
                     },
-                    768:{ // breakpoint from 768 up - tablets
+                    990:{ // breakpoint from 768 up - tablets
                         items:3,
                         nav:true,
                         loop:true
                     },
-                    992:{ // breakpoint from 992 up - desktop
+                    1130:{ // breakpoint from 992 up - desktop
                         items:4,
                         nav:true,
                         loop:true

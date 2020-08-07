@@ -12,7 +12,8 @@ HeaderAsset::register($this);
         </div>
       <div class="header-info col-lg-5 col-md-6 col-sm-7 col-xl-9 ">
         <ul>
-        
+            <li><a href="#"><i class="fa fa-sign-in-alt" aria-hidden="true" style="margin-right: 5px;" ></i>Sign in</a></li>
+            <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true" style="margin-right: 5px;" ></i>Sign up</a></li>
             <li><a href="#"><i class="fa fa-user-cog" aria-hidden="true" style="margin-right: 5px;" ></i>Operator</a></li>
             <li><a href="#"> <img src="img/mony.png" ></a></li>
             <li>

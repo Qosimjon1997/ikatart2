@@ -6,12 +6,12 @@ CategoryAsset::register($this);
 <body>
         <!-- </section> -->
     <p style="margin: auto; color: rgb(8, 2, 83); font-size: 30px;
-         margin-bottom: 20px; font-weight: 500; text-shadow: rgb(128, 253, 11);">Works by regions</p>
+        text-align: center; font-weight: 500; text-shadow: rgb(128, 253, 11);">Works by regions</p>
 
     <div class="interior container clearfix" >
       <div class="row">
         <div class="col-lg-3 col-md-4 col-sm-6 col-xl-12 blogBox moreBox">
-        <div class="slider-box1 c-right">
+        <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/1.jpg">
                       <p >Uzbek picture</p>

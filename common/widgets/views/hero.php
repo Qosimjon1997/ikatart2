@@ -4,16 +4,13 @@
 ?>
 
 <body>
-    <div class="row" style="margin-top: 20px">
     <div class="hero-blog">
-      <div class="col-lg-8 col-md-8">
       <div class="row">
-      <div class="col-md-6 ">
-        <!-- slider Area Start -->
-        <section class="hero-section" >
-            <div class="hero-slider owl-carousel owl-loaded owl-drag" style="z-index: -3;">
+        <div class="col-lg-9 col-md-7 col-sm-5">
+       
+            <div class="hero-slider owl-carousel owl-loaded owl-drag">
               <div class="owl-stage-outer">
-                <div class="owl-stage" style="transform: translate3d(-4749px, 0px, 0px); transition: all 0s ease 0s;">
+                <div class="owl-stage">
              <div class="owl-item">
                <div class="hs-item set-bg" data-setbg="img/hero/1.1.jpg" style="background-image: url('assets/img/hero/1.1.jpg');">
                 <div class="container">
@@ -61,21 +58,21 @@
                 </div>
             </div>
           </div>
-          
-          </section>
         </div>
-        </div>
-        </div>
-          <div class="col-lg-4 col-md-4">
-            <div class="row">
-          <div class="hero-top col-sm-12">
-            <img src="img/hero/top/1.jpg" alt="">
-            <img src="img/hero/top/2.jpg" alt="">
-          </div>
+          <div class="col-lg-3 col-md-5 col-sm-7">
+            <div class="hero-top" style="float: left">
+              <div class="row">
+                <div claas="col-lg-12 col-md-6 col-sm-6 col-xl-6">
+                  <img src="img/hero/top/1.jpg" alt="">
+                </div>
+                <div claas="col-lg-12 col-md-6 col-sm-6 col-xl-12">
+                  <img src="img/hero/top/2.jpg" alt="">
+                </div>
+              </div>
             </div>
-         </div>
-         </div>
-        </div>
+          </div>
+      </div>
+  </div>
         <!-- new scriptes -->
         <script src="js/jquery-3.2.1.min.js.download" type="text/javascript"></script>
         <script src="js/jquery.slicknav.min.js.download" type="text/javascript"></script>
