@@ -10,19 +10,16 @@
 }
  .header-info
 {
+  /* background: #654332; */
   /* float: right; */
   width: 500px;
   top: 40px;
   position: relative;
   display: inline-block;
 }
-.header-info ul
-{
-  /* float: right; */
-}
 .header-info ul li{
   display: inline-block;
-  padding-left: 11px;
+  padding-left: 10px;
   font-size: 14px;
   text-transform: capitalize;
 }
