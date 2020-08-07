@@ -31,7 +31,7 @@ class AdminController extends Controller
 
 
 
-    
+
 
     /**
      * Lists all Admin models.
@@ -47,7 +47,7 @@ class AdminController extends Controller
         $model = new AdminForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
-        } 
+        }
         else {
             $model->password = '';
 
@@ -63,7 +63,7 @@ class AdminController extends Controller
         if(!Yii::$app->admin->isGuest)
         {
             Yii::$app->admin->logout();
-            return $this->redirect(['login']);
+            return $this->redirect(['comp/admin/login']);
         }
     }
 

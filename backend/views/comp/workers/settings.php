@@ -9,7 +9,11 @@ use yii\widgets\ActiveForm;
 ?>
 <h1><?= Yii::t('app', 'Password Reset') ?></h1>
 <div class="topproduct-form">
-
+	<?php
+		if($success) {
+			echo '<div class="alert alert-success">'.Yii::t('app', 'Password has been changed successfuly!').'</div>';
+		}
+	?>
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'oldpassword')->textInput() ?>

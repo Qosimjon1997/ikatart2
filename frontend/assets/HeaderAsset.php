@@ -14,10 +14,8 @@ class HeaderAsset extends AssetBundle
         'https://use.fontawesome.com/releases/v5.8.1/css/all.css'
     ];
     public $js = [
-        
+
     ];
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
     ];
 }

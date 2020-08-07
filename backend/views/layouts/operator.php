@@ -5,9 +5,9 @@
 
 use backend\assets\AppAsset;
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
+use yii\bootstrap4\Nav;
+use yii\bootstrap4\NavBar;
+use yii\bootstrap4\Breadcrumbs;
 use common\widgets\Alert;
 use common\widgets\SidebarWidget;
 
@@ -30,32 +30,33 @@ AppAsset::register($this);
 <div class="wrap">
         <?php
         NavBar::begin([
-            'brandLabel' => Yii::$app->name,
+            'brandLabel' => '',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
-                'class' => 'navbar navbar-inverse navbar-fixed-top p-1',
+                'class' => 'navbar navbar-expand navbar-dark m-0 w-100 justify-content-end bg-primary',
             ],
         ]);
-        $menuItems = [
-            ['label' => 'Home', 'url' => ['/workers']],
-        ];
-        $menuItems[] = '<li>'
+        $menuItems [] = '<li class="nav-item">'
+            . Html::a(Yii::t('app', 'Home'), ['/workers'], ['class' => 'text-white nav-link p-3'])
+            . '</li>';
+            // ['label' => 'Home', 'url' => ['/workers'], 'class' => 'nav-link'],
+        $menuItems[] = '<li class="nav-item">'
             . Html::beginForm(['comp/workers/logout'], 'post')
             . Html::submitButton(
-                'Logout (' . Yii::$app->workers->identity->username . ')',
-                ['class' => 'btn btn-link logout']
+                'Logout',
+                ['class' => 'text-white nav-link btn btn-link logout p-3']
             )
             . Html::endForm()
             . '</li>';
         echo Nav::widget([
-            'options' => ['class' => 'navbar-nav navbar-right'],
+            'options' => ['class' => 'navbar-nav ml-auto'],
             'items' => $menuItems,
         ]);
         NavBar::end();
         ?>
         <div>
             <?= SidebarWidget::widget([
-                'header' => Yii::t('app', 'header'),
+                'header' => Yii::t('app', Yii::$app->workers->identity->username),
                 'items' => [
                     [
                         'label' => Yii::t('app', 'category'),
@@ -114,6 +115,7 @@ AppAsset::register($this);
                 <div class="container">
                     <?= Breadcrumbs::widget([
                         'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                        'options' => [],
                         ]) ?>
                         <?= Alert::widget() ?>
                     <?= $content ?>

@@ -14,10 +14,8 @@ class CategoryAsset extends AssetBundle
         'css/load-more-button.css',
     ];
     public $js = [
-        
+
     ];
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
     ];
 }

@@ -10,7 +10,6 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use backend\models\LoginWorkers;
-use yii\filters\AccessControl;
 
 /**
  * WorkersController implements the CRUD actions for Workers model.
@@ -181,6 +180,7 @@ class WorkersController extends Controller
         }
 
         $model->password = '';
+        $model->oldpassword = '';
 
         return $this->render('settings', [
             'model' => $model,

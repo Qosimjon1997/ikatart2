@@ -56,9 +56,9 @@ class AdminForm extends Model
     public function login()
     {
         if ($this->validate()) {
-            return Yii::$app->amdin->login($this->getAdmin(), $this->rememberMe ? 3600 * 24 * 30 : 0);
+            return Yii::$app->admin->login($this->getAdmin(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         }
-        
+
         return false;
     }
 

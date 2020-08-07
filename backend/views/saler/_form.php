@@ -11,35 +11,7 @@ use bajadev\ckeditor\CKEditor;
 
 <div class="saler-form">
 
-    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
-
-    <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <?= $form->field($model, 'firstname')->textInput(['maxlength' => true]) ?>
-    </div>
-
-    <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <?= $form->field($model, 'secondname')->textInput(['maxlength' => true]) ?>
-    </div>
-
-    <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <?= $form->field($model, 'passport')->textInput(['maxlength' => true]) ?>
-    </div>
-
-    <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <?= $form->field($model, 'inn')->textInput(['maxlength' => true]) ?>
-    </div>
-
-    <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
-    </div>
-
-    <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <?= $form->field($model, 'password')->textInput(['maxlength' => true]) ?>
-    </div>
-
-    <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
-    </div>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]);?>
     <?php
         foreach ($lang->info as $key => $value) {
             echo '<div class="form-group col-12" style="padding: 0 15px; clear: both">';
@@ -48,7 +20,6 @@ use bajadev\ckeditor\CKEditor;
                 'rows' => 6,
                 'value' => $value,
                 'required' => true,
-                // 'class' => 'form-control',
             ])
             ->label(Yii::t('app', 'Info('.$key.')'));
             echo '</div>';

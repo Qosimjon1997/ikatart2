@@ -19,14 +19,12 @@ class HeroAsset extends AssetBundle
     ];
     public $js = [
         // 'js/jquery-3.2.1.min.js.download',
-        // 'js/jquery.slicknav.min.js.download' ,  
+        // 'js/jquery.slicknav.min.js.download' ,
         // 'js/owl.carousel.min.js.download',
         // 'js/jquery.nicescroll.min.js.download',
         // 'js/main.js.download',
-        
+
     ];
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
     ];
 }

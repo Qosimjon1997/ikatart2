@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+            // 'id',
             'firstname',
             'secondname',
             'passport',
@@ -45,5 +45,16 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'password_reset_token',
         ],
     ]) ?>
+
+    <div class="row">
+        <?php
+            foreach ($lang->info as $key => $value) {
+        ?>
+        <div class="col-12 col-md-6 form-group">
+            <label class="col-12 d-block" for="<?= $key ?>"><?= Yii::t('app', 'Info('. $key .')') ?></label>
+            <textarea class="form-control" style="resize: none" class=" p-2 col-12" id="<?= $key ?>" rows="6" cols="74" readonly><?=$value?></textarea>
+        </div>
+        <?php } ?>
+    </div>
 
 </div>

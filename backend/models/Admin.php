@@ -13,6 +13,7 @@ use Yii;
  */
 class Admin extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
+    public $auth_key;
     /**
      * {@inheritdoc}
      */

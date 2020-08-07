@@ -12,6 +12,7 @@ use common\models\LoginForm;
  */
 class SiteController extends Controller
 {
+    public $layout = 'login';
     /**
      * {@inheritdoc}
      */
@@ -46,6 +47,12 @@ class SiteController extends Controller
      */
     public function actions()
     {
+        if(!Yii::$app->admin->isGuest){
+            $this->layout = 'main';
+        } else if(!Yii::$app->workers->isGuest) {
+            $this->layout = 'operator';
+        }
+
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
@@ -70,20 +77,20 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
+        // if (!Yii::$app->user->isGuest) {
+        //     return $this->goHome();
+        // }
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            $model->password = '';
+        // $model = new LoginForm();
+        // if ($model->load(Yii::$app->request->post()) && $model->login()) {
+        //     return $this->goBack();
+        // } else {
+        //     $model->password = '';
 
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
+        //     return $this->render('login', [
+        //         'model' => $model,
+        //     ]);
+        // }
     }
 
     /**
@@ -93,7 +100,7 @@ class SiteController extends Controller
      */
     public function actionLogout()
     {
-        Yii::$app->user->logout();
+        // Yii::$app->user->logout();
 
         return $this->goHome();
     }
