@@ -17,12 +17,20 @@ use Yii;
  */
 class Language extends \yii\db\ActiveRecord
 {
+    public $names = [];
+    public $info = [];
+    public $languages;
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
         return 'language';
+    }
+
+    public function init() {
+        parent::init();
+        $this->languages = self::find()->asArray()->all();
     }
 
     /**
@@ -76,5 +84,19 @@ class Language extends \yii\db\ActiveRecord
     public function getSalarhistorylanguages()
     {
         return $this->hasMany(Salarhistorylanguages::className(), ['language_id' => 'id']);
+    }
+
+    public function getNameLanguages($name = null) {
+        $names = json_decode($name, true);
+        foreach ($this->languages as $lang) {
+            $this->names[$lang['shortname']] = isset($names[$lang['shortname']]) ? $names[$lang['shortname']]: null;
+        }
+    }
+
+    public function getInfoLanguages($info = null) {
+        $infos = json_decode($info, true);
+        foreach ($this->languages as $lang) {
+            $this->info[$lang['shortname']] = isset($infos[$lang['shortname']]) ? $infos[$lang['shortname']]: null;
+        }
     }
 }

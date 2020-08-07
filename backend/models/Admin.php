@@ -11,7 +11,7 @@ use Yii;
  * @property string $username
  * @property string $password
  */
-class Admin extends \yii\db\ActiveRecord
+class Admin extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     /**
      * {@inheritdoc}
@@ -46,13 +46,13 @@ class Admin extends \yii\db\ActiveRecord
     }
 
 
-    
+
     /**
      * {@inheritdoc}
      */
     public static function findIdentity($id)
     {
-        return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
+        return static::findOne(['id' => $id]);
     }
 
     /**
@@ -71,7 +71,7 @@ class Admin extends \yii\db\ActiveRecord
      */
     public static function findByUsername($username)
     {
-        return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+        return static::findOne(['username' => $username]);
     }
 
     /**
@@ -106,10 +106,10 @@ class Admin extends \yii\db\ActiveRecord
      */
     public function validatePassword($password)
     {
-        return Yii::$app->security->validatePassword($password, $this->password_hash);
+        return Yii::$app->security->validatePassword($password, $this->password);
     }
 
 
 
-    
+
 }

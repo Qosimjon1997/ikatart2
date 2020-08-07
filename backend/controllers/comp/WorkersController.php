@@ -5,6 +5,7 @@ namespace backend\controllers\comp;
 use Yii;
 use backend\models\Workers;
 use backend\models\WorkersSearch;
+use backend\models\PasswordReset;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -43,8 +44,6 @@ class WorkersController extends Controller
 
         if(Yii::$app->admin->isGuest && $this->action->id != 'login') {
             $this->redirect(['login']);
-        } else {
-            $this->redirect(['index']);
         }
 
         // other custom code here
@@ -89,6 +88,13 @@ class WorkersController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+
+    public function actionLogout()
+    {
+        Yii::$app->workers->logout();
+
+        $this->redirect(['index']);
     }
 
     /**
@@ -154,6 +160,32 @@ class WorkersController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionSettings($params) {
+
+        $this->layout = 'operator';
+
+        $id = json_decode($params, true)['id'];
+
+        $oldmodel = $this->findModel($id);
+        $model = new PasswordReset();
+        $success = false;
+
+        if ($model->load(Yii::$app->request->post()) && $model->valid($oldmodel)) {
+            $oldmodel->password = $model->password;
+
+            if($oldmodel->save()){
+                $success = true;
+            }
+        }
+
+        $model->password = '';
+
+        return $this->render('settings', [
+            'model' => $model,
+            'success' => $success,
+        ]);
     }
 
     /**

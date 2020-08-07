@@ -37,20 +37,16 @@ AppAsset::register($this);
             ],
         ]);
         $menuItems = [
-            ['label' => 'Home', 'url' => ['/site/index']],
+            ['label' => 'Home', 'url' => ['/workers']],
         ];
-        if (Yii::$app->workers->isGuest) {
-            $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-        } else {
-            $menuItems[] = '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->workers->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>';
-        }
+        $menuItems[] = '<li>'
+            . Html::beginForm(['comp/workers/logout'], 'post')
+            . Html::submitButton(
+                'Logout (' . Yii::$app->workers->identity->username . ')',
+                ['class' => 'btn btn-link logout']
+            )
+            . Html::endForm()
+            . '</li>';
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav navbar-right'],
             'items' => $menuItems,
@@ -72,29 +68,45 @@ AppAsset::register($this);
                         'url' => 'product/index',
                     ],
                     [
-                        'label' => Yii::t('app', 'top products'),
+                        'label' => Yii::t('app', 'topproducts'),
                         'icon' => 'fa fa-list',
-                        'url' => 'site/index',
+                        'url' => 'topproduct/index',
                     ],
                     [
-                        'label' => Yii::t('app', 'orders'),
+                        'label' => Yii::t('app', 'toptypes'),
                         'icon' => 'fa fa-list',
-                        'url' => 'site/index',
-                    ],
-                    [
-                        'label' => Yii::t('app', 'aksiya'),
-                        'icon' => 'fa fa-list',
-                        'url' => 'site/index',
+                        'url' => 'toptype/index',
                     ],
                     [
                         'label' => Yii::t('app', 'adverts'),
                         'icon' => 'fa fa-list',
-                        'url' => 'site/index',
+                        'url' => 'advert/index',
                     ],
                     [
-                        'label' => Yii::t('app', 'users'),
+                        'label' => Yii::t('app', 'languages'),
                         'icon' => 'fa fa-list',
-                        'url' => 'site/index',
+                        'url' => 'language/index',
+                    ],
+                    [
+                        'label' => Yii::t('app', 'salers'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'saler/index',
+                    ],
+                    [
+                        'label' => Yii::t('app', 'archive products'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'product/index',
+                        'params' => [
+                            'isActive' => 0,
+                        ]
+                    ],
+                    [
+                        'label' => Yii::t('app', 'settings'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'comp/workers/settings',
+                        'params' => [
+                            'id' => Yii::$app->workers->identity->id,
+                        ]
                     ],
                 ]
             ]) ?>

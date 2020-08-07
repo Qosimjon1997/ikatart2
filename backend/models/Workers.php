@@ -11,8 +11,9 @@ use Yii;
  * @property string $username
  * @property string $password
  */
-class Workers extends \yii\db\ActiveRecord
+class Workers extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
+    public $auth_key;
     /**
      * {@inheritdoc}
      */
@@ -101,6 +102,6 @@ class Workers extends \yii\db\ActiveRecord
      */
     public function validatePassword($password)
     {
-        return Yii::$app->security->validatePassword($password, $this->password_hash);
+        return Yii::$app->security->validatePassword($password, $this->password);
     }
 }

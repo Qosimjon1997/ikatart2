@@ -43,7 +43,7 @@ class Saler extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['email', 'password', 'auth_key', 'status', 'created_at', 'updated_at'], 'required'],
+            [['email', 'password'], 'required'],
             [['status', 'created_at', 'updated_at'], 'integer'],
             [['firstname', 'secondname', 'passport', 'inn', 'email', 'phone'], 'string', 'max' => 45],
             [['password', 'verification_token', 'password_reset_token'], 'string', 'max' => 255],
