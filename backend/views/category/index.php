@@ -30,7 +30,24 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'category_id',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {update}',
+                'buttons' => [
+                    //view button
+                    'view' => function ($url, $model) {
+                        return Html::a('<span class="far fa-eye"></span>', $url, [
+                                    'title' => Yii::t('app', 'View'),
+                        ]);
+                    },
+
+                    'update' => function ($url, $model) {
+                        return Html::a('<span class="fa fa-pen"></span>', $url, [
+                                    'title' => Yii::t('app', 'Update'),
+                        ]);
+                    },
+                ],
+            ],
         ],
     ]); ?>
 

@@ -35,23 +35,9 @@ class SalerController extends Controller
     public function actions()
     {
         return [
-            'browse-images' => [
-                'class' => 'bajadev\ckeditor\actions\BrowseAction',
-                'quality' => 80,
-                'maxWidth' => 800,
-                'maxHeight' => 800,
-                'useHash' => true,
-                'url' => '@web/contents/',
-                'path' => '@frontend/web/contents/',
-            ],
-            'upload-images' => [
-                'class' => 'bajadev\ckeditor\actions\UploadAction',
-                'quality' => 80,
-                'maxWidth' => 800,
-                'maxHeight' => 800,
-                'useHash' => true,
-                'url' => '@web/contents/',
-                'path' => '@frontend/web/contents/',
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+                'layout' => 'operator',
             ],
         ];
     }
@@ -62,14 +48,12 @@ class SalerController extends Controller
         // which are triggered on the [[EVENT_BEFORE_ACTION]] event, e.g. PageCache or AccessControl
 
         if (!parent::beforeAction($action)) {
-            return false;
+            return $this->redirect(['index']);
         }
 
         if(Yii::$app->workers->isGuest) {
-            $this->redirect(['/workers']);
+            return $this->redirect(['/workers']);
         }
-
-        // other custom code here
 
         return true; // or false to not run the action
     }
@@ -97,8 +81,14 @@ class SalerController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $lang = new Language();
+        $salerHistory = Salarhistorylanguages::find()->with('language')->where(['saler_id' => $id])->all();
+        $lang->getInfoLanguages($salerHistory);
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'lang' => $lang,
         ]);
     }
 
@@ -107,30 +97,30 @@ class SalerController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
-        $model = new Saler();
-        $lang = new Language;
-        $lang->getInfoLanguages();
-        $salerHistory;
+    // public function actionCreate()
+    // {
+    //     $model = new Saler();
+    //     $lang = new Language;
+    //     $lang->getInfoLanguages();
+    //     $salerHistory;
 
-        if(isset($_POST['Language'])) {
-            $salerHistory = $this->encode($_POST['Language']['info'], $lang->languages);
-        }
+    //     if(isset($_POST['Language'])) {
+    //         $salerHistory = $this->encode($_POST['Language']['info'], $lang->languages);
+    //     }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            foreach ($salerHistory as $history) {
-                $history->saler_id = $model->id;
-                $history->save();
-            }
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+    //     if ($model->load(Yii::$app->request->post()) && $model->save()) {
+    //         foreach ($salerHistory as $history) {
+    //             $history->saler_id = $model->id;
+    //             $history->save();
+    //         }
+    //         return $this->redirect(['view', 'id' => $model->id]);
+    //     }
 
-        return $this->render('create', [
-            'model' => $model,
-            'lang' => $lang,
-        ]);
-    }
+    //     return $this->render('create', [
+    //         'model' => $model,
+    //         'lang' => $lang,
+    //     ]);
+    // }
 
     /**
      * Updates an existing Saler model.
@@ -142,13 +132,22 @@ class SalerController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $lang = new Language();
+        $salerHistory = Salarhistorylanguages::find()->with('language')->where(['saler_id' => $id])->all();
+        $lang->getInfoLanguages($salerHistory);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if(isset($_POST['Language'])) {
+            $salerHistory = $this->encode($_POST['Language']['info'], $lang->languages);
+            foreach ($salerHistory as $history) {
+                $history->saler_id = $model->id;
+                $history->save();
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'lang' => $lang,
         ]);
     }
 

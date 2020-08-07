@@ -93,10 +93,17 @@ class Language extends \yii\db\ActiveRecord
         }
     }
 
-    public function getInfoLanguages($info = null) {
-        $infos = json_decode($info, true);
+    public function getInfoLanguages($infos = null) {
         foreach ($this->languages as $lang) {
-            $this->info[$lang['shortname']] = isset($infos[$lang['shortname']]) ? $infos[$lang['shortname']]: null;
+
+            $this->info[$lang['shortname']] = null;
+
+            foreach ($infos as $info) {
+
+                if($info->language->shortname == $lang['shortname']){
+                    $this->info[$lang['shortname']] = $info->name;
+                }
+            }
         }
     }
 }

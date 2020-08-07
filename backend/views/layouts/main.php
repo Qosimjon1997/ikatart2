@@ -5,8 +5,8 @@
 
 use backend\assets\AppAsset;
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
+use yii\bootstrap4\Nav;
+use yii\bootstrap4\NavBar;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
 use common\widgets\SidebarWidget;
@@ -33,7 +33,7 @@ AppAsset::register($this);
             'brandLabel' => Yii::$app->name,
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
-                'class' => 'navbar navbar-inverse navbar-fixed-top p-1',
+                'class' => 'navbar-nav d-flex justify-content-between w-100',
             ],
         ]);
         $menuItems = [

@@ -13,10 +13,8 @@ class FooterAsset extends AssetBundle
         'css/fontawesome-all.min.css',
     ];
     public $js = [
-      
+
        ];
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
     ];
 }
