@@ -4,12 +4,12 @@ namespace backend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Category;
+use backend\models\Productnamelanguages;
 
 /**
- * CategorySearch represents the model behind the search form of `app\models\Category`.
+ * ProductnamelanguagesSearch represents the model behind the search form of `backend\models\Productnamelanguages`.
  */
-class CategorySearch extends Category
+class ProductnamelanguagesSearch extends Productnamelanguages
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class CategorySearch extends Category
     public function rules()
     {
         return [
-            [['id', 'category_id'], 'integer'],
-            [['name', 'categoryFilter'], 'safe'],
+            [['id', 'product_id', 'language_id'], 'integer'],
+            [['name'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class CategorySearch extends Category
      */
     public function search($params)
     {
-        $query = Category::find()->with('category');
+        $query = Productnamelanguages::find();
 
         // add conditions that should always apply here
 
@@ -49,11 +49,6 @@ class CategorySearch extends Category
         ]);
 
         $this->load($params);
-
-        $dataProvider->sort->attributes['category.name'] = [
-            'asc' => ['category.name' => SORT_ASC],
-            'desc' => ['category.name' => SORT_DESC]
-        ];
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
@@ -64,11 +59,11 @@ class CategorySearch extends Category
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'category_id' => $this->category_id,
+            'product_id' => $this->product_id,
+            'language_id' => $this->language_id,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'category.name', $this->category->name]);
+        $query->andFilterWhere(['like', 'name', $this->name]);
 
         return $dataProvider;
     }

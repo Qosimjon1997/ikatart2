@@ -32,14 +32,37 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'price',
-            'oldprice',
-            'percent',
-            'Saler_id',
-            'category_id',
+            // 'oldprice',
+            // 'percent',
+            'saler.email',
+            'category.name',
             'isActive',
             'info:ntext',
             'mass',
         ],
     ]) ?>
+
+    <table class="table table-striped table-bordered detail-view">
+        <tbody>
+            <?php
+                foreach ($lang->names as $key => $value) {
+                    echo '<tr><td><b>';
+                    echo 'Name ('. $key .')</b></td><td>'.$value;
+                    echo '</td></tr>';
+                }
+            ?>
+        </tbody>
+    </table>
+
+    <div class="row">
+        <?php
+            foreach ($lang->info as $key => $value) {
+        ?>
+        <div class="col-12 col-md-6 form-group">
+            <label class="col-12 d-block" for="<?= $key ?>"><?= Yii::t('app', 'Info('. $key .')') ?></label>
+            <textarea class="form-control" style="resize: none" class=" p-2 col-12" id="<?= $key ?>" rows="6" cols="74" readonly><?=$value?></textarea>
+        </div>
+        <?php } ?>
+    </div>
 
 </div>

@@ -13,13 +13,13 @@ use Yii;
  */
 class Workers extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
-    public $auth_key;
+    public $auth_key = 'lkjhkgjsdfnksdhfjksd';
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'workers';
+        return '{{%workers}}';
     }
 
     /**

@@ -40,7 +40,7 @@ class ProductSearch extends Product
      */
     public function search($params)
     {
-        $query = Product::find();
+        $query = Product::find()->with(['saler', 'category']);
 
         // add conditions that should always apply here
 
@@ -49,6 +49,16 @@ class ProductSearch extends Product
         ]);
 
         $this->load($params);
+
+        $dataProvider->sort->attributes['saler.email'] = [
+            'asc' => ['saler.email' => SORT_ASC],
+            'desc' => ['saler.email' => SORT_DESC]
+        ];
+
+        $dataProvider->sort->attributes['category.name'] = [
+            'asc' => ['category.name' => SORT_ASC],
+            'desc' => ['category.name' => SORT_DESC]
+        ];
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
@@ -69,7 +79,9 @@ class ProductSearch extends Product
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'info', $this->info]);
+            ->andFilterWhere(['like', 'info', $this->info])
+            ->andFilterWhere(['like', 'saler.email', $this->saler->email])
+            ->andFilterWhere(['like', 'category.name', $this->name]);
 
         return $dataProvider;
     }

@@ -15,29 +15,45 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Product'), ['create'], ['class' => 'btn btn-success']) ?>
+        <!-- <?= Html::a(Yii::t('app', 'Create Product'), ['create'], ['class' => 'btn btn-success']) ?> -->
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        // 'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            // 'id',
             'name',
             'price',
-            'oldprice',
-            'percent',
-            //'Saler_id',
-            //'category_id',
-            //'isActive',
-            //'info:ntext',
-            //'mass',
+            // 'oldprice',
+            // 'percent',
+            'saler.email',
+            'category.name',
+            'isActive',
+            'info:ntext',
+            'mass',
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {update}',
+                'buttons' => [
+                    //view button
+                    'view' => function ($url, $model) {
+                        return Html::a('<span class="far fa-eye"></span>', $url, [
+                                    'title' => Yii::t('app', 'View'),
+                        ]);
+                    },
 
-            ['class' => 'yii\grid\ActionColumn'],
+                    'update' => function ($url, $model) {
+                        return Html::a('<span class="fa fa-pen"></span>', $url, [
+                                    'title' => Yii::t('app', 'Update'),
+                        ]);
+                    },
+                ],
+            ],
         ],
     ]); ?>
 
