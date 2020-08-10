@@ -75,6 +75,20 @@ class AdminController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
+    public function actionUpdate()
+    {
+        $model = $this->findModel(Yii::$app->admin->id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
+    }
+
+    /*
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -86,7 +100,7 @@ class AdminController extends Controller
         return $this->render('update', [
             'model' => $model,
         ]);
-    }
+    } */
 
 
     /**
