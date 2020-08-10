@@ -4,17 +4,15 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Postcountry */
+/* @var $model backend\models\Country */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="postcountry-form">
+<div class="country-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'country_id')->textInput() ?>
 
     <?= $form->field($model, 'zone_id')->textInput() ?>
 

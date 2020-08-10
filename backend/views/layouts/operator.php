@@ -84,14 +84,24 @@ AppAsset::register($this);
                         'url' => 'advert/index',
                     ],
                     [
-                        'label' => Yii::t('app', 'languages'),
+                        'label' => Yii::t('app', 'customers'),
                         'icon' => 'fa fa-list',
-                        'url' => 'language/index',
+                        'url' => 'user/index',
                     ],
                     [
                         'label' => Yii::t('app', 'salers'),
                         'icon' => 'fa fa-list',
                         'url' => 'saler/index',
+                    ],
+                    [
+                        'label' => Yii::t('app', 'orders'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'order/index',
+                    ],
+                    [
+                        'label' => Yii::t('app', 'delivery'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'delivery/index',
                     ],
                     [
                         'label' => Yii::t('app', 'archive products'),
@@ -113,11 +123,6 @@ AppAsset::register($this);
             ]) ?>
             <div class="content">
                 <div class="container">
-                    <?= Breadcrumbs::widget([
-                        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                        'options' => [],
-                        ]) ?>
-                        <?= Alert::widget() ?>
                     <?= $content ?>
                 </div>
             </div>

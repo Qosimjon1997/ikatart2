@@ -4,12 +4,12 @@ namespace backend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Salerhistory;
+use backend\models\Country;
 
 /**
- * SalerhistorySearch represents the model behind the search form of `app\models\Salerhistory`.
+ * CountrySearch represents the model behind the search form of `backend\models\Country`.
  */
-class SalerhistorySearch extends Salerhistory
+class CountrySearch extends Country
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class SalerhistorySearch extends Salerhistory
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['info'], 'safe'],
+            [['id', 'zone_id'], 'integer'],
+            [['name'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class SalerhistorySearch extends Salerhistory
      */
     public function search($params)
     {
-        $query = Salerhistory::find()->with('salarhistorylanguages');
+        $query = Country::find();
 
         // add conditions that should always apply here
 
@@ -59,9 +59,10 @@ class SalerhistorySearch extends Salerhistory
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'zone_id' => $this->zone_id,
         ]);
 
-        $query->andFilterWhere(['like', 'info', $this->info]);
+        $query->andFilterWhere(['like', 'name', $this->name]);
 
         return $dataProvider;
     }

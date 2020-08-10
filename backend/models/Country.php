@@ -5,23 +5,22 @@ namespace backend\models;
 use Yii;
 
 /**
- * This is the model class for table "postcountry".
+ * This is the model class for table "country".
  *
  * @property int $id
  * @property string $name
- * @property int|null $country_id
  * @property int $zone_id
  *
  * @property Zone $zone
  */
-class Postcountry extends \yii\db\ActiveRecord
+class Country extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'postcountry';
+        return 'country';
     }
 
     /**
@@ -31,8 +30,8 @@ class Postcountry extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'zone_id'], 'required'],
-            [['country_id', 'zone_id'], 'integer'],
-            [['name'], 'string', 'max' => 255],
+            [['zone_id'], 'integer'],
+            [['name'], 'string', 'max' => 45],
             [['zone_id'], 'exist', 'skipOnError' => true, 'targetClass' => Zone::className(), 'targetAttribute' => ['zone_id' => 'id']],
         ];
     }
@@ -45,7 +44,6 @@ class Postcountry extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'name' => Yii::t('app', 'Name'),
-            'country_id' => Yii::t('app', 'Country ID'),
             'zone_id' => Yii::t('app', 'Zone ID'),
         ];
     }

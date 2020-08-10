@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\BasketSearch */
+/* @var $model backend\models\CountrySearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="basket-search">
+<div class="country-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -17,11 +17,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'count') ?>
+    <?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'product_id') ?>
-
-    <?= $form->field($model, 'user_id') ?>
+    <?= $form->field($model, 'zone_id') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
