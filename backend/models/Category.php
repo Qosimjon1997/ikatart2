@@ -18,6 +18,7 @@ use Yii;
  */
 class Category extends \yii\db\ActiveRecord
 {
+    public $categoryFilter;
     /**
      * {@inheritdoc}
      */
@@ -34,7 +35,7 @@ class Category extends \yii\db\ActiveRecord
         return [
             [['name'], 'required'],
             [['category_id'], 'integer'],
-            [['name'], 'string', 'max' => 255],
+            [['name', 'categoryFilter'], 'string', 'max' => 255],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
         ];
     }
@@ -47,7 +48,9 @@ class Category extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'name' => Yii::t('app', 'Name'),
-            'category_id' => Yii::t('app', 'Category ID'),
+            'category_id' => Yii::t('app', 'Parent Category'),
+            'categoryFilter' => Yii::t('app', 'Parent category'),
+            'category.name' => Yii::t('app', 'Parent category'),
         ];
     }
 

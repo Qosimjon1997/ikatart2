@@ -1,22 +1,19 @@
 <?php
 
-namespace backend\controllers\comp;
+namespace backend\controllers;
 
 use Yii;
-use backend\models\Workers;
-use backend\models\WorkersSearch;
-use backend\models\PasswordReset;
+use backend\models\Productnamelanguages;
+use backend\models\ProductnamelanguagesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use backend\models\LoginWorkers;
 
 /**
- * WorkersController implements the CRUD actions for Workers model.
+ * ProductnamelanguagesController implements the CRUD actions for Productnamelanguages model.
  */
-class WorkersController extends Controller
+class ProductnamelanguagesController extends Controller
 {
-    public $layout;
     /**
      * {@inheritdoc}
      */
@@ -32,30 +29,13 @@ class WorkersController extends Controller
         ];
     }
 
-    public function beforeAction($action)
-    {
-        // your custom code here, if you want the code to run before action filters,
-        // which are triggered on the [[EVENT_BEFORE_ACTION]] event, e.g. PageCache or AccessControl
-
-        if (!parent::beforeAction($action)) {
-            return false;
-        }
-
-        if(Yii::$app->admin->isGuest && $this->action->id != 'login') {
-            $this->redirect(['login']);
-        }
-
-        // other custom code here
-
-        return true; // or false to not run the action
-    }
     /**
-     * Lists all Workers models.
+     * Lists all Productnamelanguages models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new WorkersSearch();
+        $searchModel = new ProductnamelanguagesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -65,39 +45,7 @@ class WorkersController extends Controller
     }
 
     /**
-     * Login action.
-     *
-     * @return string
-     */
-    public function actionLogin()
-    {
-        $this->layout = 'login';
-
-        if (!Yii::$app->workers->isGuest) {
-            $this->redirect(['category/index']);
-        }
-
-        $model = new LoginWorkers();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            $this->redirect(['category/index']);
-        } else {
-            $model->password = '';
-
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    public function actionLogout()
-    {
-        Yii::$app->workers->logout();
-
-        return $this->redirect(['index']);
-    }
-
-    /**
-     * Displays a single Workers model.
+     * Displays a single Productnamelanguages model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -110,13 +58,13 @@ class WorkersController extends Controller
     }
 
     /**
-     * Creates a new Workers model.
+     * Creates a new Productnamelanguages model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Workers();
+        $model = new Productnamelanguages();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -128,7 +76,7 @@ class WorkersController extends Controller
     }
 
     /**
-     * Updates an existing Workers model.
+     * Updates an existing Productnamelanguages model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -148,7 +96,7 @@ class WorkersController extends Controller
     }
 
     /**
-     * Deletes an existing Workers model.
+     * Deletes an existing Productnamelanguages model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -161,43 +109,16 @@ class WorkersController extends Controller
         return $this->redirect(['index']);
     }
 
-    public function actionSettings($params) {
-
-        $this->layout = 'operator';
-
-        $id = json_decode($params, true)['id'];
-
-        $oldmodel = $this->findModel($id);
-        $model = new PasswordReset();
-        $success = false;
-
-        if ($model->load(Yii::$app->request->post()) && $model->valid($oldmodel)) {
-            $oldmodel->password = $model->password;
-
-            if($oldmodel->save()){
-                $success = true;
-            }
-        }
-
-        $model->password = '';
-        $model->oldpassword = '';
-
-        return $this->render('settings', [
-            'model' => $model,
-            'success' => $success,
-        ]);
-    }
-
     /**
-     * Finds the Workers model based on its primary key value.
+     * Finds the Productnamelanguages model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Workers the loaded model
+     * @return Productnamelanguages the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Workers::findOne($id)) !== null) {
+        if (($model = Productnamelanguages::findOne($id)) !== null) {
             return $model;
         }
 

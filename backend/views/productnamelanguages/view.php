@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Category */
+/* @var $model backend\models\Productnamelanguages */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Categories'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Productnamelanguages'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="category-view">
+<div class="productnamelanguages-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -31,20 +31,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-            'category.name'
+            'product_id',
+            'language_id',
         ],
     ]) ?>
-
-    <table class="table table-striped table-bordered detail-view">
-        <tbody>
-            <?php
-                foreach ($lang->names as $key => $value) {
-                    echo '<tr><td><b>';
-                    echo 'Name ('. $key .')</b></td><td>'.$value;
-                    echo '</td></tr>';
-                }
-            ?>
-        </tbody>
-    </table>
 
 </div>

@@ -17,22 +17,19 @@ return [
             'csrfParam' => '_csrf-backend',
             //'baseUrl' => '/comp',
         ],
-        'user' => [
-            'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
-        ],
         'admin' => [
             'class' => 'yii\web\User',
             'identityClass' => 'backend\models\Admin',
+            'loginUrl' => ['comp/admin/index'],
             'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-backend-admin', 'httpOnly' => true],
+            'identityCookie' => ['name' => '_identity-backend-admin'],
         ],
         'workers' => [
             'class' => 'yii\web\User',
             'identityClass' => 'backend\models\Workers',
+            'loginUrl' => ['comp/workers/index'],
             'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-backend-workers', 'httpOnly' => true],
+            'identityCookie' => ['name' => '_identity-backend-workers'],
         ],
         'session' => [
             // this is the name of the session cookie used for login on the backend

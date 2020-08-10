@@ -66,6 +66,8 @@ class Product extends \yii\db\ActiveRecord
             'percent' => Yii::t('app', 'Percent'),
             'Saler_id' => Yii::t('app', 'Saler ID'),
             'category_id' => Yii::t('app', 'Category ID'),
+            'saler.email' => Yii::t('app', 'Saler Email'),
+            'category.name' => Yii::t('app', 'Category'),
             'isActive' => Yii::t('app', 'Is Active'),
             'info' => Yii::t('app', 'Info'),
             'mass' => Yii::t('app', 'Mass'),

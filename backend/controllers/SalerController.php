@@ -137,10 +137,21 @@ class SalerController extends Controller
         $lang->getInfoLanguages($salerHistory);
 
         if(isset($_POST['Language'])) {
-            $salerHistory = $this->encode($_POST['Language']['info'], $lang->languages);
-            foreach ($salerHistory as $history) {
-                $history->saler_id = $model->id;
-                $history->save();
+            $history = $this->encode($_POST['Language']['info'], $lang->languages);
+            foreach ($history as $hist) {
+                $new = true;
+                foreach ($salerHistory as $salerHist) {
+                    if($hist->language_id == $salerHist->language_id)
+                    {
+                        $salerHist->name = $hist->name;
+                        $salerHist->save();
+                        $new = false;
+                    }
+                }
+                if($new == true) {
+                    $hist->saler_id = $model->id;
+                    $hist->save();
+                }
             }
             return $this->redirect(['view', 'id' => $model->id]);
         }

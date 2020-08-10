@@ -3,6 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
+use backend\models\Language;
+use backend\models\Categorylanguages;
 use backend\models\Category;
 use backend\models\CategorySearch;
 use yii\web\Controller;
@@ -30,24 +32,6 @@ class CategoryController extends Controller
         ];
     }
 
-    public function beforeAction($action)
-    {
-        // your custom code here, if you want the code to run before action filters,
-        // which are triggered on the [[EVENT_BEFORE_ACTION]] event, e.g. PageCache or AccessControl
-
-        if (!parent::beforeAction($action)) {
-            return false;
-        }
-
-        if(Yii::$app->workers->isGuest) {
-            $this->redirect(['/workers']);
-        }
-
-        // other custom code here
-
-        return true; // or false to not run the action
-    }
-
     /**
      * Lists all Category models.
      * @return mixed
@@ -71,8 +55,14 @@ class CategoryController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $lang = new Language();
+        $category = Categorylanguages::find()->with('language')->where(['category_id' => $id])->all();
+        $lang->getNameLanguages($category);
+        // print_r($lang->names);
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'lang' => $lang,
         ]);
     }
 
@@ -84,13 +74,39 @@ class CategoryController extends Controller
     public function actionCreate()
     {
         $model = new Category();
+        $lang = new Language;
+        $lang->getNameLanguages();
+        $category;
+        $id;
+        foreach ($lang->languages as $value) {
+            if($value['shortname'] == 'en') {
+                $id = $value['id'];
+            }
+        }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if(isset($_POST['Language'])) {
+            $category = $this->encode($_POST['Language']['names'], $lang->languages);
+        }
+
+        if ($model->load(Yii::$app->request->post())) {
+
+            foreach ($category as $cat) {
+                if($cat->language_id == $id) {
+                    $model->name = $cat->name;
+                    $model->save();
+                }
+            }
+
+            foreach ($category as $cat) {
+                $cat->category_id = $model->id;
+                $cat->save();
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'lang' => $lang,
         ]);
     }
 
@@ -104,13 +120,44 @@ class CategoryController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $lang = new Language();
+        $category = Categorylanguages::find()->with('language')->where(['category_id' => $id])->all();
+        $lang->getNameLanguages($category);
+        $id;
+        $categories;
+        foreach ($lang->languages as $value) {
+            if($value['shortname'] == 'en') {
+                $id = $value['id'];
+            }
+        }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if(isset($_POST['Language'])) {
+            $categories = $this->encode($_POST['Language']['names'], $lang->languages);
+        }
+
+        if ($model->load(Yii::$app->request->post())) {
+
+            foreach ($categories as $cat) {
+                if($cat->language_id == $id) {
+                    $model->name = $cat->name;
+                    $model->save();
+                }
+            }
+
+            foreach ($categories as $cats) {
+                foreach ($category as $cat) {
+                    if($cats->language_id == $cat->language_id) {
+                        $cat->name = $cats->name;
+                        $cat->save();
+                    }
+                }
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'lang' => $lang,
         ]);
     }
 
@@ -142,5 +189,16 @@ class CategoryController extends Controller
         }
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+    }
+
+    public function encode($json, $languages) {
+        $category = [];
+        foreach ($languages as $lan) {
+            $cat = new Categorylanguages();
+            $cat->language_id = $lan['id'];
+            $cat->name = $json[$lan['shortname']];
+            array_push($category, $cat);
+        }
+        return $category;
     }
 }
