@@ -14,6 +14,7 @@ use yii\filters\VerbFilter;
  */
 class DeliveryController extends Controller
 {
+    public $layout = 'operator';
     /**
      * {@inheritdoc}
      */

@@ -60,32 +60,60 @@ AppAsset::register($this);
 
                 'items' => [
                     [
-                        'label' => Yii::t('app', 'ishchilar'),
+                        'label' => Yii::t('app', 'workers'),
                         'icon' => 'fa fa-list',
                         'url' => 'comp/workers/index',
-
-
                     ],
                     [
-                        'label' => Yii::t('app', 'statistika'),
+                        'label' => Yii::t('app', 'Sale Statistics'),
                         'icon' => 'fa fa-list',
                         'url' => 'product/index',
 
                     ],
                     [
-                        'label' => Yii::t('app', 'nastroyka'),
+                        'label' => Yii::t('app', 'zone'),
                         'icon' => 'fa fa-list',
-                        'url' => 'comp/admin/update
+                        'url' => 'zone/index',
+                    ],
+                    [
+                        'label' => Yii::t('app', 'post type'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'posttype/index',
+                    ],
+                    [
+                        'label' => Yii::t('app', 'country'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'country/index'
+                    ],
+                    [
+                        'label' => Yii::t('app', 'pricelist'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'pricelist/index',
+                    ],
+                    [
+                        'label' => Yii::t('app', 'wieght'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'mass/index'
+                    ],
+                    [
+                        'label' => Yii::t('app', 'languages'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'language/index'
+                    ],
+                    [
+                        'label' => Yii::t('app', 'card type'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'cardtype/index'
+                    ],
+                    [
+                        'label' => Yii::t('app', 'Settings'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'comp/admin/update'
                     ],
                 ]
             ]) ?>
             <div class="content">
                 <div class="container">
-                    <?= Breadcrumbs::widget([
-                        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                        'options' => [],
-                        ]) ?>
-                        <?= Alert::widget() ?>
                     <?= $content ?>
                 </div>
             </div>

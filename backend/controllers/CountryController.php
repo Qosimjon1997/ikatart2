@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Cards;
-use backend\models\CardsSearch;
+use backend\models\Country;
+use backend\models\CountrySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CardsController implements the CRUD actions for Cards model.
+ * CountryController implements the CRUD actions for Country model.
  */
-class CardsController extends Controller
+class CountryController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class CardsController extends Controller
     }
 
     /**
-     * Lists all Cards models.
+     * Lists all Country models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new CardsSearch();
+        $searchModel = new CountrySearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class CardsController extends Controller
     }
 
     /**
-     * Displays a single Cards model.
+     * Displays a single Country model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,13 +58,13 @@ class CardsController extends Controller
     }
 
     /**
-     * Creates a new Cards model.
+     * Creates a new Country model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Cards();
+        $model = new Country();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -76,7 +76,7 @@ class CardsController extends Controller
     }
 
     /**
-     * Updates an existing Cards model.
+     * Updates an existing Country model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,7 +96,7 @@ class CardsController extends Controller
     }
 
     /**
-     * Deletes an existing Cards model.
+     * Deletes an existing Country model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,15 +110,15 @@ class CardsController extends Controller
     }
 
     /**
-     * Finds the Cards model based on its primary key value.
+     * Finds the Country model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Cards the loaded model
+     * @return Country the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Cards::findOne($id)) !== null) {
+        if (($model = Country::findOne($id)) !== null) {
             return $model;
         }
 
