@@ -1,17 +1,7 @@
 .men{
   max-width: 1200px;
+  margin: auto;
 }
-/* line 53, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
-.f-left {
-  float: left;
-}
-
-/* line 56, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
-.f-right {
-  float: right;
-}
-
-/* line 59, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
 .fix {
   overflow: hidden;
 }
@@ -599,5 +589,5 @@ button:focus, input:focus, input:focus, textarea, textarea:focus {
 
 /* line 373, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_headerMenu.scss */
 .header-bottom .header-right .form-box input::placeholder {
-  font-size: 13px;
+  font-size: 12px;
 }

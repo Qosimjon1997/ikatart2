@@ -5,7 +5,7 @@ CaruselAsset::register($this);
 <body>
             <p style="margin: auto; max-width: 1000px; color: rgb(8, 2, 83); font-size: 30px;
         margin-top: 10px; text-align: center; font-weight: 500; text-shadow: rgb(128, 253, 11);"> New Collection</p>
-  <div class="owl-slide owl-carousel owl-theme owl-carousel-blog">
+  <div class="owl-slide owl-carousel owl-theme owl-carousel-blog justify-content-center">
                 <div class="slider-box">
                     <div class="img-box">
                      <a href="ikat-art.html">
