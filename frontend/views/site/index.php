@@ -7,7 +7,6 @@ use common\widgets\CategoryWidget;
 
 $this->title = 'ikat-art';
 ?>
-<div class="site-index">
 
 <?php
     	HeroWidget::begin();
@@ -19,4 +18,3 @@ $this->title = 'ikat-art';
 	    CategoryWidget::begin();
 	    CategoryWidget::end();
     ?>
-</div>

@@ -37,7 +37,7 @@ AppAsset::register($this);
         NavigationWidget::end();
     ?>
 
-    <div class="container">
+    <div class="container m-0 p-0 m-auto">
         <?= $content ?>
     </div>
 </div>

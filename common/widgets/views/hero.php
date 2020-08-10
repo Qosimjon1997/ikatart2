@@ -3,10 +3,10 @@
     HeroAsset::register($this);
 ?>
 
-<body>
-    <div class="hero-blog">
-      <div class="row">
-        <div class="col-lg-9 col-md-7 col-sm-5">
+<!-- <body> -->
+    <div class="hero-blog m-0 p-0 position-realative" style="background: #784698">
+      <div class="row" style="background: #548496">
+        <div class="col-12 col-md-9 m-0 p-0">
        
             <div class="hero-slider owl-carousel owl-loaded owl-drag">
               <div class="owl-stage-outer">
@@ -59,24 +59,26 @@
             </div>
           </div>
         </div>
-          <div class="col-lg-3 col-md-5 col-sm-7">
-            <div class="hero-top" style="float: left">
-              <div class="row">
-                <div claas="col-lg-12 col-md-6 col-sm-6 col-xl-6">
-                  <img src="img/hero/top/1.jpg" alt="">
-                </div>
-                <div claas="col-lg-12 col-md-6 col-sm-6 col-xl-12">
-                  <img src="img/hero/top/2.jpg" alt="">
-                </div>
-              </div>
+          <div class="col-12 col-md-3 m-0 p-0 row">
+            <div class="col-6 col-md-12 p-0">
+              <img src="img/hero/top/1.jpg" alt="">
             </div>
+            <div class="col-6 col-md-12 p-0">
+              <img src="img/hero/top/2.jpg" alt="">
+            </div>
+            <!-- <div class="hero-top"> -->
+              <!-- <div class="row"> -->
+                  
+                  
+              <!-- </div> -->
+            <!-- </div> -->
           </div>
       </div>
   </div>
         <!-- new scriptes -->
-        <script src="js/jquery-3.2.1.min.js.download" type="text/javascript"></script>
+        <!-- <script src="js/jquery-3.2.1.min.js.download" type="text/javascript"></script>
         <script src="js/jquery.slicknav.min.js.download" type="text/javascript"></script>
         <script src="js/owl.carousel.min.js.download" type="text/javascript"></script>
         <script src="js/jquery.nicescroll.min.js.download" type="text/javascript"></script>
-        <script src="js/main.js.download" type="text/javascript"></script>
-    </body>
+        <script src="js/main.js.download" type="text/javascript"></script> -->
+    <!-- </body> -->

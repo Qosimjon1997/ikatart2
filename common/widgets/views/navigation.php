@@ -2,14 +2,15 @@
 use frontend\assets\NavigationAsset;
 NavigationAsset::register($this);
 ?>
-<header class="men" style="margin: auto;">
+<header class="men">
        <div class="header-area">
             <div class="main-header ">
                <div class="header-bottom">
                    <div class="row" style="margin: auto; display: block">
-                            <div class="col-lg-8 col-md-7 col-sm-6 col-xl-4">
+                         <div class="row">
+                            <div class="col-lg-7 col-md-6 col-sm-4 col-xl-8">
                                 <!-- Main-menu -->
-                                <div class="main-menu f-left">
+                                <div class="main-menu">
                                     <nav>                                                
                                         <ul id="navigation">                                                                                                                                     
                                             <li><a href="#">Interior Decorating Items</a>
@@ -580,8 +581,9 @@ NavigationAsset::register($this);
                                     </nav>
                                 </div>
                             </div> 
-                            <div  class="col-lg-4 col-md-5 col-sm-6 col-xl-8">
+                            <div  class="col-lg-5 col-md-6 col-sm-8 col-xl-4">
                                 <ul class="header-right">
+                                 <div class="row">
                                     <li>
                                         <div class="form-box" style="width: 250px; top: 10px">
                                             <input type="text" name="Search" placeholder="Search ikat-art.com ...">
@@ -590,7 +592,7 @@ NavigationAsset::register($this);
                                             </div>
                                         </div>
                                      </li>
-                                    <li class=" d-none d-xl-block">
+                                    <li>
                                         <div class="favorit-items" style="top: 5px">
                                             <i class="far fa-heart" style="background: rgb(255, 255, 255);"></i>
                                         </div>
@@ -600,11 +602,13 @@ NavigationAsset::register($this);
                                             <a href="cart.html"><i class="fas fa-shopping-cart" style="background: rgb(255, 255, 255);"></i></a>
                                         </div>
                                     </li>
+                                 </div>
                                 </ul>
                    
                             </div>
                         </div>
-                        </div>
+                    </div>
+                </div>
             </div>
        </div>
      </header>

@@ -7,10 +7,10 @@ HeaderAsset::register($this);
 ?>
 <div class="header-new">
     <div class="row">
-        <div class="col-lg-7 col-md-6 col-sm-5 col-xl-3">
+        <div class="col-xl-5 col-lg-4 col-md-3 col-sm-3 col-xs-3">
             <a href="index.html"><img class="logo" src="img/logo/logo.png" alt=""></a>
         </div>
-      <div class="header-info col-lg-5 col-md-6 col-sm-7 col-xl-9 ">
+      <div class="header-info col-xl-7 col-lg-8 col-md-9 col-sm-9 col-xs-9">
         <ul>
             <li><a href="#"><i class="fa fa-sign-in-alt" aria-hidden="true" style="margin-right: 5px;" ></i>Sign in</a></li>
             <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true" style="margin-right: 5px;" ></i>Sign up</a></li>
