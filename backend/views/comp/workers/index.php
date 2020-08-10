@@ -9,7 +9,7 @@ use yii\grid\GridView;
 
 
 $this->title = Yii::t('app', 'Workers');
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="workers-index">

@@ -15,7 +15,7 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
-            'baseUrl' => '/comp',
+            //'baseUrl' => '/comp',
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -50,7 +50,7 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-
+        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -60,7 +60,7 @@ return [
                 'workers' => 'comp/workers/login',
                 '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
             ],
-        ],
+        ],*/
     ],
     'params' => $params,
 ];

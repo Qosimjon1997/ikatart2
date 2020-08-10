@@ -56,17 +56,22 @@ AppAsset::register($this);
         ?>
         <div>
             <?= SidebarWidget::widget([
-                'header' => Yii::t('app', 'header'),
+                'header' => Yii::t('app', 'admin'),
                 'items' => [
                     [
-                        'label' => Yii::t('app', 'workers'),
+                        'label' => Yii::t('app', 'ishchilar'),
                         'icon' => 'fa fa-list',
-                        'url' => 'workers',
+                        'url' => 'comp/workers/index',
                     ],
                     [
-                        'label' => Yii::t('app', 'product'),
+                        'label' => Yii::t('app', 'statistika'),
                         'icon' => 'fa fa-list',
                         'url' => 'product/index',
+                    ],
+                    [
+                        'label' => Yii::t('app', 'nastroyka'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'comp/admin/update/id=1',
                     ],
                 ]
             ]) ?>
