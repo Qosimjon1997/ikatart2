@@ -40,7 +40,7 @@ class CountrySearch extends Country
      */
     public function search($params)
     {
-        $query = Country::find();
+        $query = Country::find()->joinWith('zone');
 
         // add conditions that should always apply here
 
@@ -49,6 +49,11 @@ class CountrySearch extends Country
         ]);
 
         $this->load($params);
+
+        $dataProvider->sort->attributes['zone.zone'] = [
+            'asc' => ['zone.zone' => SORT_ASC],
+            'desc' => ['zone.zone' => SORT_DESC]
+        ];
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
@@ -62,7 +67,8 @@ class CountrySearch extends Country
             'zone_id' => $this->zone_id,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'zone.zone', $this->zone->zone]);
 
         return $dataProvider;
     }

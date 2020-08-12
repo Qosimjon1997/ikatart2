@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{view} {update}',
+                'template' => '{view} {update} {delete}',
                 'buttons' => [
                     //view button
                     'view' => function ($url, $model) {
@@ -45,6 +45,12 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'title' => Yii::t('app', 'Update'),
                         ]);
                     },
+
+                    'delete' => function ($url, $model) {
+                        return Html::a('<span class="fa fa-trash"></span>', $url, [
+                                    'title' => Yii::t('app', 'Delete'),
+                        ]);
+                    }
                 ],
             ],
         ],

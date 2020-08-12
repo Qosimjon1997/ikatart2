@@ -35,10 +35,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'category.name',
             'isActive',
             'info:ntext',
-            'mass',
+            'mass.mass',
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{view} {update}',
+                'template' => '{view} {update} '. ($isActive === 1 ? '{delete}': '{activate}'),
                 'buttons' => [
                     //view button
                     'view' => function ($url, $model) {
@@ -50,6 +50,18 @@ $this->params['breadcrumbs'][] = $this->title;
                     'update' => function ($url, $model) {
                         return Html::a('<span class="fa fa-pen"></span>', $url, [
                                     'title' => Yii::t('app', 'Update'),
+                        ]);
+                    },
+
+                    'delete' => function ($url, $model) {
+                        return Html::a('<span class="fa fa-trash"></span>', $url, [
+                                    'title' => Yii::t('app', 'Delete'), 'data-method' => 'post',
+                        ]);
+                    },
+
+                    'activate' => function ($url, $model) {
+                        return Html::a('<span class="fa fa-plus"></span>', $url, [
+                                    'title' => Yii::t('app', 'Activate'), 'data-method' => 'post',
                         ]);
                     },
                 ],

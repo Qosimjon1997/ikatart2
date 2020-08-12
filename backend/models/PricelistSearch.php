@@ -39,7 +39,7 @@ class PricelistSearch extends Pricelist
      */
     public function search($params)
     {
-        $query = Pricelist::find();
+        $query = Pricelist::find()->joinWith('zone')->joinWith('mass')->joinWith('posttype');
 
         // add conditions that should always apply here
 
@@ -48,6 +48,21 @@ class PricelistSearch extends Pricelist
         ]);
 
         $this->load($params);
+
+        $dataProvider->sort->attributes['zone.zone'] = [
+            'asc' => ['zone.zone' => SORT_ASC],
+            'desc' => ['zone.zone' => SORT_DESC]
+        ];
+
+        $dataProvider->sort->attributes['mass.mass'] = [
+            'asc' => ['mass.mass' => SORT_ASC],
+            'desc' => ['mass.mass' => SORT_DESC]
+        ];
+
+        $dataProvider->sort->attributes['posttype.name'] = [
+            'asc' => ['posttype.name' => SORT_ASC],
+            'desc' => ['posttype.name' => SORT_DESC]
+        ];
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
@@ -63,6 +78,10 @@ class PricelistSearch extends Pricelist
             'posttype_id' => $this->posttype_id,
             'zone_id' => $this->zone_id,
         ]);
+
+        $query->andFilterWhere(['like', 'zone.zone', $this->zone->zone])
+            ->andFilterWhere(['like', 'posttype.name', $this->posttype->name])
+            ->andFilterWhere(['like', 'zone.zone', $this->mass->mass]);
 
         return $dataProvider;
     }

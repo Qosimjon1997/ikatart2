@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'category.name',
             'isActive',
             'info:ntext',
-            'mass',
+            'mass.mass',
         ],
     ]) ?>
 

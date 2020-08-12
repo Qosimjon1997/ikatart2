@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\Order;
+use backend\models\Delivery;
 use backend\models\OrderSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -30,14 +31,35 @@ class OrderController extends Controller
         ];
     }
 
+    public function beforeAction($action)
+    {
+        // your custom code here, if you want the code to run before action filters,
+        // which are triggered on the [[EVENT_BEFORE_ACTION]] event, e.g. PageCache or AccessControl
+
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+
+        if(Yii::$app->workers->isGuest) {
+            $this->redirect(['/workers']);
+        }
+
+        // other custom code here
+
+        return true; // or false to not run the action
+    }
+
     /**
      * Lists all Order models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($params)
     {
+
+        $isActive = json_decode($params, true)['isActive'];
+
         $searchModel = new OrderSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $isActive);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -106,6 +128,15 @@ class OrderController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
+
+        return $this->redirect(['index']);
+    }
+
+    public function actionAccept($id)
+    {
+        $model = $this->findModel($id);
+        $delivery = new Delivery();
+        $delivery->order_id = $model->id;
 
         return $this->redirect(['index']);
     }

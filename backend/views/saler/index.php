@@ -37,7 +37,23 @@ $this->params['breadcrumbs'][] = $this->title;
             //'verification_token',
             //'password_reset_token',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {update}',
+                'buttons' => [
+                    'update' => function ($url, $model) {
+                        return Html::a('<span class="fa fa-pen"></span>', $url, [
+                                    'title' => Yii::t('app', 'Update'),
+                        ]);
+                    },
+
+                    'view' => function ($url, $model) {
+                        return Html::a('<span class="fa fa-eye"></span>', $url, [
+                                    'title' => Yii::t('app', 'View'),
+                        ]);
+                    },
+                ],
+            ],
         ],
     ]); ?>
 

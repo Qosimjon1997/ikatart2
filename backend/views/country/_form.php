@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use backend\models\Zone;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Country */
@@ -14,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'zone_id')->textInput() ?>
+    <?= $form->field($model, 'zone_id')->dropDownList(ArrayHelper::map(Zone::find()->all(),'id','zone'),) ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

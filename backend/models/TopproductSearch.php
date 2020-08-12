@@ -40,7 +40,9 @@ class TopproductSearch extends Topproduct
      */
     public function search($params)
     {
-        $query = Topproduct::find();
+        $query = Topproduct::find()
+            ->joinWith('product')
+            ->joinWith('toptype');
 
         // add conditions that should always apply here
 
@@ -49,6 +51,16 @@ class TopproductSearch extends Topproduct
         ]);
 
         $this->load($params);
+
+        $dataProvider->sort->attributes['product.name'] = [
+            'asc' => ['product.name' => SORT_ASC],
+            'desc' => ['product.name' => SORT_DESC]
+        ];
+
+        $dataProvider->sort->attributes['toptype.day'] = [
+            'asc' => ['toptype.day' => SORT_ASC],
+            'desc' => ['toptype.day' => SORT_DESC]
+        ];
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
@@ -64,6 +76,9 @@ class TopproductSearch extends Topproduct
             'toptype_id' => $this->toptype_id,
             'product_id' => $this->product_id,
         ]);
+
+        $query->andFilterWhere(['like', 'product.name', $this->product->name])
+            ->andFilterWhere(['like', 'toptype.day', $this->toptype->name]);
 
         return $dataProvider;
     }

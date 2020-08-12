@@ -12,6 +12,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\helpers\Url;
 
 /**
  * ProductController implements the CRUD actions for Product model.
@@ -34,18 +35,39 @@ class ProductController extends Controller
         ];
     }
 
+    public function beforeAction($action)
+    {
+        // your custom code here, if you want the code to run before action filters,
+        // which are triggered on the [[EVENT_BEFORE_ACTION]] event, e.g. PageCache or AccessControl
+
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+
+        if(Yii::$app->workers->isGuest) {
+            $this->redirect(['/workers']);
+        }
+
+        // other custom code here
+
+        return true; // or false to not run the action
+    }
+
     /**
      * Lists all Product models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($params)
     {
+        $isActive = json_decode($params, true)['isActive'];
+
         $searchModel = new ProductSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $isActive);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'isActive' => $isActive,
         ]);
     }
 
@@ -184,9 +206,34 @@ class ProductController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        $model->isActive = 0;
+        $model->save();
 
-        return $this->redirect(['index']);
+        return $this->redirect(
+            Url::to([
+                'product/index',
+                'params' => json_encode([
+                    'isActive' => 1
+                ])
+            ])
+        );
+    }
+
+    public function actionActivate($id)
+    {
+        $model = $this->findModel($id);
+        $model->isActive = 1;
+        $model->save();
+
+        return $this->redirect(
+            Url::to([
+                'product/index',
+                'params' => json_encode([
+                    'isActive' => 0
+                ])
+            ])
+        );
     }
 
     /**

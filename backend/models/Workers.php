@@ -46,6 +46,12 @@ class Workers extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         ];
     }
 
+    public function create() {
+        $this->password = Yii::$app->security->generatePasswordHash($this->password);
+        $this->username = strtolower($this->username);
+        return $this->save();
+    }
+
     public static function findIdentity($id)
     {
         return static::findOne(['id' => $id]);

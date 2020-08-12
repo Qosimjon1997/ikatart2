@@ -26,11 +26,24 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            // 'id',
+            'basket.product.name',
+            'basket.user.email',
+            'basket.count',
             'date',
-            'basket_id',
+            'basket.product.saler.email',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{accept}',
+                'buttons' => [
+                    'accept' => function ($url, $model) {
+                        return Html::a('<span class="fa fa-check"></span>', $url, [
+                                    'title' => Yii::t('app', 'Accept'),
+                        ]);
+                    },
+                ],
+            ],
         ],
     ]); ?>
 

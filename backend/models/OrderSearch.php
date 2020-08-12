@@ -38,15 +38,36 @@ class OrderSearch extends Order
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $isActive)
     {
-        $query = Order::find();
+        $query = Order::find()
+            ->joinWith('basket')
+            ->joinWith('basket.product.saler')
+            ->joinWith('basket.user')
+            ->joinWith('basket.product')->where(['isActive' => $isActive]);
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
+
+        $dataProvider->sort->attributes['basket.count'] = [
+            'asc' => ['basket.count' => SORT_ASC],
+            'desc' => ['basket.count' => SORT_DESC]
+        ];
+        $dataProvider->sort->attributes['basket.product.saler.email'] = [
+            'asc' => ['saler.email' => SORT_ASC],
+            'desc' => ['saler.email' => SORT_DESC]
+        ];
+        $dataProvider->sort->attributes['basket.user.email'] = [
+            'asc' => ['user.email' => SORT_ASC],
+            'desc' => ['user.email' => SORT_DESC]
+        ];
+        $dataProvider->sort->attributes['basket.product.name'] = [
+            'asc' => ['product.name' => SORT_ASC],
+            'desc' => ['product.name' => SORT_DESC]
+        ];
 
         $this->load($params);
 
@@ -61,7 +82,12 @@ class OrderSearch extends Order
             'id' => $this->id,
             'date' => $this->date,
             'basket_id' => $this->basket_id,
+            'basket.count' => $this->basket->count,
         ]);
+
+        $query->andFilterWhere(['like', 'saler.email', $this->basket->product->saler->email])
+            ->andFilterWhere(['like', 'user.email', $this->basket->user->email])
+            ->andFilterWhere(['like', 'product.name', $this->basket->product->name]);
 
         return $dataProvider;
     }

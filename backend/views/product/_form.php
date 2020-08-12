@@ -11,21 +11,19 @@ use yii\widgets\ActiveForm;
 <div class="product-form">
 
     <?php $form = ActiveForm::begin();
-        print_r($lang->Errors);
-        print_r($model->Errors);
+        echo '<div class="row">';
         foreach ($lang->names as $key => $value) {
             echo '<div class="form-group float-left col-12 col-md-6">';
             echo $form->field($lang, 'names['.$key.']')
             ->textInput([
                 'value' => $value,
-                'required' => true,
                 'class' => 'form-control',
             ])->label(Yii::t('app', 'Name ('.$key.')'));
             echo '</div>';
         }
 
         foreach ($lang->info as $key => $value) {
-            echo '<div class="form-group col-12" style="padding: 0 15px; clear: both">';
+            echo '<div class="col-12">';
             echo $form->field($lang, 'info['.$key.']')
             ->textarea([
                 'rows' => 6,
@@ -36,6 +34,7 @@ use yii\widgets\ActiveForm;
             echo '</div>';
         }
     ?>
+    </div>
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
     </div>

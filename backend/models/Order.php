@@ -46,6 +46,10 @@ class Order extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'date' => Yii::t('app', 'Date'),
             'basket_id' => Yii::t('app', 'Basket ID'),
+            'basket.product.name' => Yii::t('app', 'Product'),
+            'basket.count' => Yii::t('app', 'Count'),
+            'basket.user.email' => Yii::t('app', 'Customer'),
+            'basket.product.saler.email' => Yii::t('app', 'Saler'),
         ];
     }
 

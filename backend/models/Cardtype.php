@@ -28,7 +28,7 @@ class Cardtype extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'name'], 'required'],
+            [['name'], 'required'],
             [['id'], 'integer'],
             [['name'], 'string', 'max' => 45],
             [['id'], 'unique'],

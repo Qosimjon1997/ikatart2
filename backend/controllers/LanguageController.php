@@ -14,7 +14,6 @@ use yii\filters\VerbFilter;
  */
 class LanguageController extends Controller
 {
-    public $layout = 'operator';
     /**
      * {@inheritdoc}
      */
@@ -39,8 +38,8 @@ class LanguageController extends Controller
             return false;
         }
 
-        if(Yii::$app->workers->isGuest) {
-            $this->redirect(['/workers']);
+        if(Yii::$app->admin->isGuest) {
+            $this->redirect(['/admin']);
         }
 
         // other custom code here
@@ -64,19 +63,6 @@ class LanguageController extends Controller
     }
 
     /**
-     * Displays a single Language model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
-
-    /**
      * Creates a new Language model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
@@ -86,7 +72,7 @@ class LanguageController extends Controller
         $model = new Language();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [
@@ -106,7 +92,7 @@ class LanguageController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [

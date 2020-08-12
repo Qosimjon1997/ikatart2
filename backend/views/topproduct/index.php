@@ -22,12 +22,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'product_id',
-            'toptype_id',
+            'product.name',
+            'toptype.day',
             'startdate',
             'isActive',
-
-            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 

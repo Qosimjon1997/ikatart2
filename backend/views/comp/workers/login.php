@@ -3,28 +3,38 @@ use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Staff Login';
 ?>
-<div class="site-index">
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="fadeInDown m-auto">
+  <div id="formContent">
+    <img src="/backend/web/img/logo.png" class="logo">
+    <!-- <h1><?= Html::encode($this->title) ?></h1> -->
+    <?php $form = ActiveForm::begin([
+        'id' => 'login-form',
+        'layout' => 'horizontal',
+        'class' => 'form-signin',
+        'fieldConfig' => [
+            'template' => "<div class=\"p-1 col-12 form-label-group text-left\">{input}</div>\n<div>{error}</div>",
+        ],
+    ]); ?>
+        <?= $form->field($model, 'username')->textInput([
+          'autofocus' => true,
+          'class' => 'form-control',
+          'placeholder' => 'Username' ])?>
 
-    <p>Please fill out the following fields to login:</p>
+        <?= $form->field($model, 'password')->passwordInput([
+          'class' => 'form-control',
+          'placeholder' => 'Password']) ?>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+        <?= $form->field($model, 'rememberMe')->checkbox() ?>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
-                <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
+        <div class="form-group">
+            <div class="col-12">
+                <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-block', 'name' => 'login_button']) ?>
+            </div>
         </div>
-    </div>
+
+    <?php ActiveForm::end(); ?>
+
+  </div>
 </div>

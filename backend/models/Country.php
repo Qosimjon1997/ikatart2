@@ -44,7 +44,8 @@ class Country extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'name' => Yii::t('app', 'Name'),
-            'zone_id' => Yii::t('app', 'Zone ID'),
+            'zone_id' => Yii::t('app', 'Zone'),
+            'zone.zone' => Yii::t('app', 'Zone'),
         ];
     }
 
