@@ -57,6 +57,7 @@ class LoginWorkers extends Model
      */
     public function login()
     {
+        $this->username = strtolower($this->username);
         if ($this->validate()) {
             return Yii::$app->workers->login($this->getWorkers(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         }

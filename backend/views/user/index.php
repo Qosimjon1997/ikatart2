@@ -36,7 +36,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'phone',
             'email:email',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view}',
+                'buttons' => [
+                    'view' => function ($url, $model) {
+                        return Html::a('<span class="fa fa-eye"></span>', $url, [
+                                    'title' => Yii::t('app', 'view'),
+                        ]);
+                    },
+                ],
+            ],
         ],
     ]); ?>
 

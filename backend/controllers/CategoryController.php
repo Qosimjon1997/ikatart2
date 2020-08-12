@@ -32,6 +32,24 @@ class CategoryController extends Controller
         ];
     }
 
+    public function beforeAction($action)
+    {
+        // your custom code here, if you want the code to run before action filters,
+        // which are triggered on the [[EVENT_BEFORE_ACTION]] event, e.g. PageCache or AccessControl
+
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+
+        if(Yii::$app->workers->isGuest) {
+            $this->redirect(['/workers']);
+        }
+
+        // other custom code here
+
+        return true; // or false to not run the action
+    }
+
     /**
      * Lists all Category models.
      * @return mixed
@@ -145,11 +163,17 @@ class CategoryController extends Controller
             }
 
             foreach ($categories as $cats) {
+                $new = true;
                 foreach ($category as $cat) {
                     if($cats->language_id == $cat->language_id) {
                         $cat->name = $cats->name;
                         $cat->save();
+                        $new = false;
                     }
+                }
+                if($new) {
+                    $cats->category_id = $model->id;
+                    $cats->save();
                 }
             }
             return $this->redirect(['view', 'id' => $model->id]);

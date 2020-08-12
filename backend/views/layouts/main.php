@@ -64,12 +64,12 @@ AppAsset::register($this);
                         'icon' => 'fa fa-list',
                         'url' => 'comp/workers/index',
                     ],
-                    [
-                        'label' => Yii::t('app', 'Sale Statistics'),
-                        'icon' => 'fa fa-list',
-                        'url' => 'product/index',
+                    // [
+                    //     'label' => Yii::t('app', 'Sale Statistics'),
+                    //     'icon' => 'fa fa-list',
+                    //     'url' => 'product/index',
 
-                    ],
+                    // ],
                     [
                         'label' => Yii::t('app', 'zone'),
                         'icon' => 'fa fa-list',
@@ -108,7 +108,10 @@ AppAsset::register($this);
                     [
                         'label' => Yii::t('app', 'Settings'),
                         'icon' => 'fa fa-list',
-                        'url' => 'comp/admin/update'
+                        'url' => 'comp/admin/update',
+                        'params' => [
+                            'id' => Yii::$app->admin->identity->id
+                        ],
                     ],
                 ]
             ]) ?>

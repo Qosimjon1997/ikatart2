@@ -72,6 +72,7 @@ class Product extends \yii\db\ActiveRecord
             'category_id' => Yii::t('app', 'Category ID'),
             'isActive' => Yii::t('app', 'Is Active'),
             'info' => Yii::t('app', 'Info'),
+            'mass.mass' => Yii::t('app', 'Mass'),
             'mass_id' => Yii::t('app', 'Mass ID'),
         ];
     }
@@ -194,5 +195,10 @@ class Product extends \yii\db\ActiveRecord
     public function getTopproducts()
     {
         return $this->hasMany(Topproduct::className(), ['product_id' => 'id']);
+    }
+
+    public function getMass()
+    {
+        return $this->hasOne(Mass::className(), ['id' => 'mass_id']);
     }
 }

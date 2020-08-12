@@ -67,6 +67,9 @@ AppAsset::register($this);
                         'label' => Yii::t('app', 'product'),
                         'icon' => 'fa fa-list',
                         'url' => 'product/index',
+                        'params' => [
+                            'isActive' => 1,
+                        ]
                     ],
                     [
                         'label' => Yii::t('app', 'topproducts'),
@@ -97,11 +100,17 @@ AppAsset::register($this);
                         'label' => Yii::t('app', 'orders'),
                         'icon' => 'fa fa-list',
                         'url' => 'order/index',
+                        'params' => [
+                            'isActive' => 0,
+                        ]
                     ],
                     [
                         'label' => Yii::t('app', 'delivery'),
                         'icon' => 'fa fa-list',
-                        'url' => 'delivery/index',
+                        'url' => 'order/index',
+                        'params' => [
+                            'isActive' => 1,
+                        ]
                     ],
                     [
                         'label' => Yii::t('app', 'archive products'),

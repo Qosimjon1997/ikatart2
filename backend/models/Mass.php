@@ -54,7 +54,7 @@ class Mass extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Pricelist::className(), ['mass_id' => 'id']);
     }
-
+ 
     /**
      * Gets query for [[Products]].
      *

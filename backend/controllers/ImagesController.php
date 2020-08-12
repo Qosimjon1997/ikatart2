@@ -29,6 +29,24 @@ class ImagesController extends Controller
         ];
     }
 
+    public function beforeAction($action)
+    {
+        // your custom code here, if you want the code to run before action filters,
+        // which are triggered on the [[EVENT_BEFORE_ACTION]] event, e.g. PageCache or AccessControl
+
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+
+        if(Yii::$app->workers->isGuest) {
+            $this->redirect(['/workers']);
+        }
+
+        // other custom code here
+
+        return true; // or false to not run the action
+    }
+
     /**
      * Lists all Images models.
      * @return mixed

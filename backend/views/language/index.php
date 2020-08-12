@@ -26,11 +26,34 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            // 'id',
             'name',
             'shortname',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {update} {delete}',
+                'buttons' => [
+                    //view button
+                    'view' => function ($url, $model) {
+                        return Html::a('<span class="far fa-eye"></span>', $url, [
+                                    'title' => Yii::t('app', 'View'),
+                        ]);
+                    },
+
+                    'update' => function ($url, $model) {
+                        return Html::a('<span class="fa fa-pen"></span>', $url, [
+                                    'title' => Yii::t('app', 'Update'),
+                        ]);
+                    },
+
+                    'delete' => function ($url, $model) {
+                        return Html::a('<span class="fa fa-trash"></span>', $url, [
+                                    'title' => Yii::t('app', 'Delete'), 'data-method' => 'post'
+                        ]);
+                    }
+                ],
+            ],
         ],
     ]); ?>
 

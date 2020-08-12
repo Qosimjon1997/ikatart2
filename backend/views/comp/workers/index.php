@@ -29,11 +29,21 @@ $this->title = Yii::t('app', 'Workers');
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            // 'id',
             'username',
-            'password',
+            // 'password',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{delete}',
+                'buttons' => [
+                    'delete' => function ($url, $model) {
+                        return Html::a('<span class="fa fa-trash"></span>', $url, [
+                                    'title' => Yii::t('app', 'Delete'), 'data-method' => 'post'
+                        ]);
+                    }
+                ],
+            ],
         ],
     ]); ?>
 

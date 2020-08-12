@@ -4,6 +4,8 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\Advert;
+use backend\models\Images;
+use yii\web\UploadedFile;
 use backend\models\AdvertSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -30,6 +32,24 @@ class AdvertController extends Controller
         ];
     }
 
+    public function beforeAction($action)
+    {
+        // your custom code here, if you want the code to run before action filters,
+        // which are triggered on the [[EVENT_BEFORE_ACTION]] event, e.g. PageCache or AccessControl
+
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+
+        if(Yii::$app->workers->isGuest) {
+            $this->redirect(['/workers']);
+        }
+
+        // other custom code here
+
+        return true; // or false to not run the action
+    }
+
     /**
      * Lists all Advert models.
      * @return mixed
@@ -46,19 +66,6 @@ class AdvertController extends Controller
     }
 
     /**
-     * Displays a single Advert model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
-
-    /**
      * Creates a new Advert model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
@@ -67,12 +74,24 @@ class AdvertController extends Controller
     {
         $model = new Advert();
 
+        $img = new Images();
+        $img->main = 1;
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+
+            $img->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
+
+            $img->advert_id = $model->id;
+            if ($img->upload()) {
+                $img->save();
+            }
+
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'img' => $img,
         ]);
     }
 
@@ -87,8 +106,9 @@ class AdvertController extends Controller
     {
         $model = $this->findModel($id);
 
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [

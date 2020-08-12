@@ -51,6 +51,8 @@ class Topproduct extends \yii\db\ActiveRecord
             'startdate' => Yii::t('app', 'Startdate'),
             'toptype_id' => Yii::t('app', 'Toptype ID'),
             'product_id' => Yii::t('app', 'Product ID'),
+            'toptype.day' => Yii::t('app', 'Toptype'),
+            'product.name' => Yii::t('app', 'Product'),
         ];
     }
 

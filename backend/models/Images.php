@@ -2,6 +2,7 @@
 
 namespace backend\models;
 
+use yii\web\UploadedFile;
 use Yii;
 use yii\web\UploadedFile;
 
@@ -21,9 +22,7 @@ use yii\web\UploadedFile;
  */
 class Images extends \yii\db\ActiveRecord
 {
-
     public $imageFile;
-
 
     /**
      * {@inheritdoc}
@@ -46,9 +45,6 @@ class Images extends \yii\db\ActiveRecord
             [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['product_id' => 'id']],
             [['saler_id'], 'exist', 'skipOnError' => true, 'targetClass' => Saler::className(), 'targetAttribute' => ['saler_id' => 'id']],
             [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
- 
-
-
         ];
     }
 
@@ -78,6 +74,18 @@ class Images extends \yii\db\ActiveRecord
             'advert_id' => Yii::t('app', 'Advert ID'),
             'saler_id' => Yii::t('app', 'Saler ID'),
         ];
+    }
+
+    public function upload()
+    {
+        if ($this->validate()) {
+            $name = Yii::$app->security->generateRandomString(8) . $this->imageFile->extension;
+            $this->imageFile->saveAs('web/upimages/' . $name);
+            $this->path = $name;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**

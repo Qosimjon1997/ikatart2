@@ -52,6 +52,9 @@ class Pricelist extends \yii\db\ActiveRecord
             'mass_id' => Yii::t('app', 'Mass ID'),
             'posttype_id' => Yii::t('app', 'Posttype ID'),
             'zone_id' => Yii::t('app', 'Zone ID'),
+            'mass.mass' => Yii::t('app', 'Wieght'),
+            'posttype.name' => Yii::t('app', 'Posttype'),
+            'zone.zone' => Yii::t('app', 'Zone'),
         ];
     }
 

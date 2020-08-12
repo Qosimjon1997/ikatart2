@@ -38,9 +38,13 @@ class ProductSearch extends Product
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $isActive)
     {
-        $query = Product::find();
+        $query = Product::find()
+            ->joinwith('saler')
+            ->joinWith('category')
+            ->joinWith('mass')
+            ->where(['isActive' => $isActive]);
 
         // add conditions that should always apply here
 
@@ -49,6 +53,21 @@ class ProductSearch extends Product
         ]);
 
         $this->load($params);
+
+        $dataProvider->sort->attributes['saler.email'] = [
+            'asc' => ['saler.email' => SORT_ASC],
+            'desc' => ['saler.email' => SORT_DESC]
+        ];
+
+        $dataProvider->sort->attributes['category.name'] = [
+            'asc' => ['category.name' => SORT_ASC],
+            'desc' => ['category.name' => SORT_DESC]
+        ];
+
+        $dataProvider->sort->attributes['mass.mass'] = [
+            'asc' => ['mass.mass' => SORT_ASC],
+            'desc' => ['mass.mass' => SORT_DESC]
+        ];
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails

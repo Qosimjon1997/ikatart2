@@ -55,6 +55,7 @@ class AdminForm extends Model
      */
     public function login()
     {
+        $this->username = strtolower($this->username);
         if ($this->validate()) {
             return Yii::$app->admin->login($this->getAdmin(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         }

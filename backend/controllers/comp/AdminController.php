@@ -4,6 +4,7 @@ namespace backend\controllers\comp;
 
 use Yii;
 use backend\models\Admin;
+use backend\models\PasswordReset;
 use backend\models\AdminForm;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -70,16 +71,28 @@ class AdminController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
+    public function actionUpdate($params)
     {
-        $model = $this->findModel($id);
+        $id = json_decode($params, true)['id'];
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $oldmodel = $this->findModel($id);
+        $model = new PasswordReset();
+        $success = false;
+
+        if ($model->load(Yii::$app->request->post()) && $model->valid($oldmodel)) {
+            $oldmodel->password = $model->password;
+
+            if($oldmodel->save()){
+                $success = true;
+            }
         }
+
+        $model->password = '';
+        $model->oldpassword = '';
 
         return $this->render('update', [
             'model' => $model,
+            'success' => $success,
         ]);
     }
 
