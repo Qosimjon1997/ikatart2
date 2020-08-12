@@ -1,21 +1,18 @@
 <?php
 
-namespace frontend\controllers;
+namespace app\controllers;
 
 use Yii;
-use backend\models\Product;
-use backend\models\Images;
-use backend\models\UploadImage;
-use backend\models\ProductSearch;
+use app\models\Mainproduct;
+use app\models\MainproductSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
 
 /**
- * ProductController implements the CRUD actions for Product model.
+ * MainproductController implements the CRUD actions for Mainproduct model.
  */
-class ProductController extends Controller
+class MainproductController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -33,13 +30,13 @@ class ProductController extends Controller
     }
 
     /**
-     * Lists all Product models.
+     * Lists all Mainproduct models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ProductSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams,1);
+        $searchModel = new MainproductSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -48,7 +45,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Displays a single Product model.
+     * Displays a single Mainproduct model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -61,40 +58,25 @@ class ProductController extends Controller
     }
 
     /**
-     * Creates a new Product model.
+     * Creates a new Mainproduct model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
+        $model = new Mainproduct();
 
-        $model = new Product();
-        $modelimage = new UploadImage();
-        $image = new Images();
-        if ($model->load(Yii::$app->request->post())) {
-            //$model->oldprice=$this->model->price;
-            //$model->percent='0';
-            $model->Saler_id = Yii::$app->saler->id;
-            $model->isActive = 0;
-            $model->save();
-
-            $modelimage->imageFile = UploadedFile::getInstance($model, 'imageFile');
-            
-            $image->path=$modelimage->upload();
-            $image->product_id = $model->id;
-            $image->main=1;
-            $image->save();
-                // file is uploaded successfull 
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
-            'modelimage' =>$modelimage,
         ]);
     }
 
     /**
-     * Updates an existing Product model.
+     * Updates an existing Mainproduct model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -114,7 +96,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Deletes an existing Product model.
+     * Deletes an existing Mainproduct model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -128,15 +110,15 @@ class ProductController extends Controller
     }
 
     /**
-     * Finds the Product model based on its primary key value.
+     * Finds the Mainproduct model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Product the loaded model
+     * @return Mainproduct the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Product::findOne($id)) !== null) {
+        if (($model = Mainproduct::findOne($id)) !== null) {
             return $model;
         }
 
