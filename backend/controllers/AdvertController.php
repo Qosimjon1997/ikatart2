@@ -10,6 +10,7 @@ use backend\models\AdvertSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use backend\models\UploadImage;
 
 /**
  * AdvertController implements the CRUD actions for Advert model.
@@ -74,16 +75,20 @@ class AdvertController extends Controller
     {
         $model = new Advert();
 
-        $img = new Images();
-        $img->main = 1;
+        $img = new UploadImage();
+        $image = new Images();
+
+
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
-            $img->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
-
-            $img->advert_id = $model->id;
-            if ($img->upload()) {
-                $img->save();
+            if (Yii::$app->request->isPost) {
+                $img->imageFile = UploadedFile::getInstance($img, 'imageFile');
+                $image->path = $img->upload();
+                $image->main = 1;
+                $image->advert_id = $model->id;
+                $image->save();
             }
 
             return $this->redirect(['index']);
@@ -92,6 +97,7 @@ class AdvertController extends Controller
         return $this->render('create', [
             'model' => $model,
             'img' => $img,
+            'image' => $image,
         ]);
     }
 

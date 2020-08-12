@@ -9,19 +9,24 @@ use yii\widgets\ActiveForm;
 ?>
 
 <div class="advert-form">
-
+    <?php
+        print_r($image->getErrors());
+        print_r($img->getErrors());
+    ?>
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
-	<div class="row">
+	<div class="row justify-content-between">
 		<div class="col-12">
  		   	<?= $form->field($model, 'link')->textInput(['maxlength' => true, 'class' => 'form-control']) ?>
     	</div>
 
-    	<div class="custom-file col-12 col-md-4 form-group m-3">
-    	<?= $form->field($img, 'imageFile')->fileInput(['class' => 'col-12 custom-file-input'])
-    		->label('Choose file...', ['class' => 'custom-file-label']) ?>
+    	<div class="col-12 col-md-4">
+    	<?= $form->field($img, 'imageFile')->fileInput([
+            'class' => 'col-12',
+            'onchange' => "loadFile(event)"])->label('') ?>
 		</div>
 
-		<div class="form-group col-12 col-8" style="background-size: contain; height: 250px; background-image: url(<?= '/backend/web/img/upload.png' ?>)">
+		<div class="col-12 col-md-4 preview">
+            <img id="img" src=" <?= '/backend/web/img/upload.png' ?>">
 		</div>
 
 	</div>
@@ -32,3 +37,5 @@ use yii\widgets\ActiveForm;
     <?php ActiveForm::end(); ?>
 
 </div>
+
+

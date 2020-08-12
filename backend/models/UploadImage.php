@@ -2,7 +2,7 @@
 
 
 namespace backend\models;
-
+use Yii;
 use yii\base\Model;
 use yii\web\UploadedFile;
 
@@ -20,15 +20,18 @@ class UploadImage extends Model
         ];
     }
 
-    
     public function upload()
     {
-        $path=null;
+
+        $path = Yii::getAlias('@backend') . '/web/upimages';
+        $name = null;
+        if (!file_exists($path)) {
+            mkdir($path, 0777, true);
+        }
         if ($this->validate()) {
-            $path=Yii::$app->security->generateRandomString(10) . $this->imageFile->extension ;
-            $this->imageFile->saveAs(Yii::getAlias('@backend') . '/web/upimages/' . $path);
-           
-        } 
-        return $path;
+            $name = Yii::$app->security->generateRandomString(10) . '.' . $this->imageFile->extension ;
+            $this->imageFile->saveAs(Yii::getAlias('@backend') . '/web/upimages/' . $name);
+        }
+        return $name;
     }
 }
