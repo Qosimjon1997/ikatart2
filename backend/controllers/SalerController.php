@@ -16,7 +16,7 @@ use yii\filters\VerbFilter;
  */
 class SalerController extends Controller
 {
-    public $layout = 'operator';
+    public $layout = 'salerlayout';
     /**
      * {@inheritdoc}
      */
@@ -64,13 +64,15 @@ class SalerController extends Controller
      */
     public function actionIndex()
     {
+        return 'index';
+        /*
         $searchModel = new SalerSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-        ]);
+        ]);*/
     }
 
     /**
