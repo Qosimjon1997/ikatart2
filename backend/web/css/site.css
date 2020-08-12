@@ -202,9 +202,15 @@ a.desc:after {
   width: 70%;
   margin: auto;
   padding-bottom: 8px;
-  /*position: absolute;*/
-  /*top: -140px;*/
-  /*margin: auto;*/
-  /*left: 150px;*/
-  /*right: 20px;*/
+}
+
+.preview {
+  height: 300px;
+}
+
+.preview #img {
+  float: right;
+  max-width: 300px;
+  max-height: 300px;
+  object-fit: contain;
 }

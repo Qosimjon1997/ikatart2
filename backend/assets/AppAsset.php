@@ -16,6 +16,7 @@ class AppAsset extends AssetBundle
         'css/sidebar.css',
     ];
     public $js = [
+        'js/preview.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
