@@ -58,4 +58,14 @@ class Country extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Zone::className(), ['id' => 'zone_id']);
     }
+
+    /**
+     * Gets query for [[Address]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAddress()
+    {
+        return $this->hasMany(Address::className(), ['country_id' => 'id']);
+    }
 }
