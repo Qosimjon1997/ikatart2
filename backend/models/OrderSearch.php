@@ -44,7 +44,8 @@ class OrderSearch extends Order
             ->joinWith('basket')
             ->joinWith('basket.product.saler')
             ->joinWith('basket.user')
-            ->joinWith('basket.product')->where(['isActive' => $isActive]);
+            ->joinWith('address.country')
+            ->joinWith('basket.product')->where(['order.isActive' => $isActive]);
 
         // add conditions that should always apply here
 
@@ -55,6 +56,10 @@ class OrderSearch extends Order
         $dataProvider->sort->attributes['basket.count'] = [
             'asc' => ['basket.count' => SORT_ASC],
             'desc' => ['basket.count' => SORT_DESC]
+        ];
+        $dataProvider->sort->attributes['address.country.name'] = [
+            'asc' => ['country.name' => SORT_ASC],
+            'desc' => ['country.name' => SORT_DESC]
         ];
         $dataProvider->sort->attributes['basket.product.saler.email'] = [
             'asc' => ['saler.email' => SORT_ASC],
@@ -83,6 +88,8 @@ class OrderSearch extends Order
             'date' => $this->date,
             'basket_id' => $this->basket_id,
             'basket.count' => $this->basket->count,
+            'totalcost' => $this->totalcost,
+
         ]);
 
         $query->andFilterWhere(['like', 'saler.email', $this->basket->product->saler->email])

@@ -30,9 +30,10 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['date', 'basket_id'], 'required'],
+            [['date', 'basket_id', 'totalcost', 'address_id', 'zipcode'], 'required'],
             [['date'], 'safe'],
-            [['basket_id'], 'integer'],
+            [['zipcode'], 'string'],
+            [['basket_id', 'address_id', 'totalcost', 'isActive'], 'integer'],
             [['basket_id'], 'exist', 'skipOnError' => true, 'targetClass' => Basket::className(), 'targetAttribute' => ['basket_id' => 'id']],
         ];
     }
@@ -45,6 +46,9 @@ class Order extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'date' => Yii::t('app', 'Date'),
+            'zipcode' => Yii::t('app', 'Post Code'),
+            'address.country.name' => Yii::t('app', 'Country'),
+            'totalcost' => Yii::t('app', 'Total Cost'),
             'basket_id' => Yii::t('app', 'Basket ID'),
             'basket.product.name' => Yii::t('app', 'Product'),
             'basket.count' => Yii::t('app', 'Count'),
@@ -71,5 +75,15 @@ class Order extends \yii\db\ActiveRecord
     public function getBasket()
     {
         return $this->hasOne(Basket::className(), ['id' => 'basket_id']);
+    }
+
+    /**
+     * Gets query for [[Address]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAddress()
+    {
+        return $this->hasOne(Address::className(), ['id' => 'address_id']);
     }
 }

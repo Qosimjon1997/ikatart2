@@ -4,7 +4,6 @@ namespace backend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Product;
 
 /**
  * ProductSearch represents the model behind the search form of `app\models\Product`.
@@ -85,6 +84,7 @@ class ProductSearch extends Product
             'category_id' => $this->category_id,
             'isActive' => $this->isActive,
             'mass_id' => $this->mass_id,
+            'mass.mass' => $this->mass->mass,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
