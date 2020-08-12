@@ -106,7 +106,7 @@ class SalerController extends Controller
 
         $model = new SalerLoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->render('index',['salerid'=>$salerid]);
+            return $this->render('index',['salerid'=>Yii::$app->saler->id]);
         } else {
             $model->password = '';
 

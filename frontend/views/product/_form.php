@@ -10,7 +10,7 @@ use yii\helpers\ArrayHelper;
 /* @var $model app\models\Product */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-
+<?php print_r($modelimage->getErrors()) ?>
 <div class="product-form">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
@@ -24,8 +24,10 @@ use yii\helpers\ArrayHelper;
     <?= $form->field($model, 'info')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'mass_id')->dropDownList(ArrayHelper::map(Mass::find()->all(),'id','mass'),['prompt'=>'Massa ']) ?>
-
-    <?= $form->field($modelimage, 'imageFile')->fileInput() ?>
+    <div class="custom-file col-12 col-md-4 form-group m-3">
+        <?= $form->field($modelimage, 'imageFile')->fileInput(['class' => 'col-12 custom-file-input'])
+    		->label('Choose file...', ['class' => 'custom-file-label']) ?>
+    </div>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
