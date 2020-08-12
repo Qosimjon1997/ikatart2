@@ -75,7 +75,7 @@ AppAsset::register($this);
                     [
                         'label' => Yii::t('app', 'nastroyka'),
                         'icon' => 'fa fa-list',
-                        'url' => 'comp/admin/update
+                        'url' => 'comp/admin/update'
                     ],
                 ]
             ]) ?>

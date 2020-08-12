@@ -18,9 +18,15 @@ return [
             //'baseUrl' => '',
         ],
         'user' => [
-            'identityClass' => 'backend\models\User',
+            'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
+        ],
+        'user2' => [
+            'class'=>'yii\web\User',
+            'identityClass' => 'backend\models\User',
+            'enableAutoLogin' => true,
+            'identityCookie' => ['name' => '_identity-frontend-user2', 'httpOnly' => true],
         ],
         'saler' => [
             'class'=>'yii\web\User',

@@ -1,94 +1,112 @@
 <?php
-
 namespace frontend\controllers;
 
+
 use Yii;
+use yii\base\InvalidArgumentException;
+use yii\web\BadRequestHttpException;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+
+use backend\models\Saler;
+
+use frontend\models\SalerLoginForm;
+use frontend\models\SalerSignupForm;
 
 /**
- * WorkersController implements the CRUD actions for Workers model.
+ * Site controller
  */
 class SalerController extends Controller
 {
-    public $layout='salerlayout';
     /**
      * {@inheritdoc}
      */
-    public function behaviors()
+    /*public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['logout', 'signup'],
+                'rules' => [
+                    [
+                        'actions' => ['signup'],
+                        'allow' => true,
+                        'roles' => ['?'],
+                    ],
+                    [
+                        'actions' => ['logout'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'],
+                    'logout' => ['post'],
                 ],
             ],
         ];
     }
-
-    public function beforeAction($action)
+    */
+    /**
+     * {@inheritdoc}
+     */
+    public function actions()
     {
-        // your custom code here, if you want the code to run before action filters,
-        // which are triggered on the [[EVENT_BEFORE_ACTION]] event, e.g. PageCache or AccessControl
         /*
-        if (!parent::beforeAction($action)) {
-            return false;
-        }
-
-        if(Yii::$app->admin->isGuest && $this->action->id != 'login') {
-            $this->redirect(['login']);
-        }
-
-        // other custom code here
-
-        return true; // or false to not run the action
-        
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
+            'captcha' => [
+                'class' => 'yii\captcha\CaptchaAction',
+                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+            ],
+        ];
         */
     }
 
-    
     /**
-     * Lists all Workers models.
+     * Displays homepage.
+     *
      * @return mixed
      */
+
+    public $layout='salerlayout';
+
     public function actionIndex()
     {
-        
-        
-        
-        /*
-        $searchModel = new WorkersSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        if (!Yii::$app->saler->isGuest) {
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
-        */
+            $salerid = Yii::$app->saler->id;
+            return $this->render('index',['salerid'=>$salerid]);
+        }
+        else
+        {
+            return $this->render('login');
+        }
         
-
     }
 
     /**
-     * Login action.
+     * Logs in a user.
      *
-     * @return string
+     * @return mixed
      */
     public function actionLogin()
     {
+        
+        if (!Yii::$app->saler->isGuest) {
 
-        /*
-        $this->layout = 'login';
-
-        if (!Yii::$app->workers->isGuest) {
-            $this->redirect(['category/index']);
+            $salerid = Yii::$app->saler->id;
+            return $this->render('index',['salerid'=>$salerid]);
         }
 
-        $model = new LoginWorkers();
+        $model = new SalerLoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            $this->redirect(['category/index']);
+            return $this->render('index',['salerid'=>$salerid]);
         } else {
             $model->password = '';
 
@@ -96,149 +114,135 @@ class SalerController extends Controller
                 'model' => $model,
             ]);
         }
-
-        */
     }
 
+    /**
+     * Logs out the current user.
+     *
+     * @return mixed
+     */
     public function actionLogout()
     {
-
         
-        Yii::$app->workers->logout();
+        Yii::$app->saler->logout();
 
-        return $this->redirect(['index']);
-
+        return $this->render('login');
         
     }
 
-    /**
-     * Displays a single Workers model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-
-        /*
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-
-        */
-    }
 
     /**
-     * Creates a new Workers model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
+     * Signs user up.
+     *
      * @return mixed
      */
-    public function actionCreate()
+    public function actionSignup()
     {
-
-        /*
-        $model = new Workers();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        
+        $model = new SalerSignupForm();
+        if ($model->load(Yii::$app->request->post()) && $model->signup()) {
+            Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
+            return $this->render('login');
         }
 
-        return $this->render('create', [
+        return $this->render('signup', [
             'model' => $model,
         ]);
-
-        */
+        
     }
 
     /**
-     * Updates an existing Workers model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * Requests password reset.
+     *
      * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
+    public function actionRequestPasswordReset()
     {
+        /*$model = new PasswordResetRequestForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->sendEmail()) {
+                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
 
-        /*
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
-
-        */
-    }
-
-    /**
-     * Deletes an existing Workers model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-
-        /*
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-
-        */
-    }
-
-    public function actionSettings($params) {
-
-        /*
-        $this->layout = 'operator';
-
-        $id = json_decode($params, true)['id'];
-
-        $oldmodel = $this->findModel($id);
-        $model = new PasswordReset();
-        $success = false;
-
-        if ($model->load(Yii::$app->request->post()) && $model->valid($oldmodel)) {
-            $oldmodel->password = $model->password;
-
-            if($oldmodel->save()){
-                $success = true;
+                return $this->goHome();
+            } else {
+                Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
             }
         }
 
-        $model->password = '';
-        $model->oldpassword = '';
-
-        return $this->render('settings', [
+        return $this->render('requestPasswordResetToken', [
             'model' => $model,
-            'success' => $success,
-        ]);
-
-        */
+        ]);*/
     }
 
     /**
-     * Finds the Workers model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Workers the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
+     * Resets password.
+     *
+     * @param string $token
+     * @return mixed
+     * @throws BadRequestHttpException
      */
-    protected function findModel($id)
+    public function actionResetPassword($token)
     {
-
-        /*
-        if (($model = Workers::findOne($id)) !== null) {
-            return $model;
+        /*try {
+            $model = new ResetPasswordForm($token);
+        } catch (InvalidArgumentException $e) {
+            throw new BadRequestHttpException($e->getMessage());
         }
 
-        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
+            Yii::$app->session->setFlash('success', 'New password saved.');
 
-        */
+            return $this->goHome();
+        }
+
+        return $this->render('resetPassword', [
+            'model' => $model,
+        ]);*/
+    }
+
+    /**
+     * Verify email address
+     *
+     * @param string $token
+     * @throws BadRequestHttpException
+     * @return yii\web\Response
+     */
+    public function actionVerifyEmail($token)
+    {
+        /*try {
+            $model = new VerifyEmailForm($token);
+        } catch (InvalidArgumentException $e) {
+            throw new BadRequestHttpException($e->getMessage());
+        }
+        if ($user = $model->verifyEmail()) {
+            if (Yii::$app->user->login($user)) {
+                Yii::$app->session->setFlash('success', 'Your email has been confirmed!');
+                return $this->goHome();
+            }
+        }
+
+        Yii::$app->session->setFlash('error', 'Sorry, we are unable to verify your account with provided token.');
+        return $this->goHome();*/
+    }
+
+    /**
+     * Resend verification email
+     *
+     * @return mixed
+     */
+    public function actionResendVerificationEmail()
+    {
+        /*$model = new ResendVerificationEmailForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->sendEmail()) {
+                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
+                return $this->goHome();
+            }
+            Yii::$app->session->setFlash('error', 'Sorry, we are unable to resend verification email for the provided email address.');
+        }
+
+        return $this->render('resendVerificationEmail', [
+            'model' => $model
+        ]);*/
     }
 }
