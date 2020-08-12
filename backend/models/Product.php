@@ -196,9 +196,4 @@ class Product extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Topproduct::className(), ['product_id' => 'id']);
     }
-
-    public function getMass()
-    {
-        return $this->hasOne(Mass::className(), ['id' => 'mass_id']);
-    }
 }

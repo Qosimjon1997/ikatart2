@@ -14,12 +14,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <!-- <?= Html::a(Yii::t('app', 'Create Order'), ['create'], ['class' => 'btn btn-success']) ?> -->
-    </p>
-
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         // 'filterModel' => $searchModel,
@@ -32,10 +26,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'basket.count',
             'date',
             'basket.product.saler.email',
+            'totalcost',
+            'zipcode',
 
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{accept}',
+                'template' => ($isActive == 0 ? '{accept}' : ''),
                 'buttons' => [
                     'accept' => function ($url, $model) {
                         return Html::a('<span class="fa fa-check"></span>', $url, [
