@@ -4,12 +4,18 @@
 use common\widgets\HeroWidget;
 use common\widgets\CaruselWidget;
 use common\widgets\CategoryWidget;
+// use common\widgets\UserWidget;
+// use common\widgets\CartWidget;
 
 $this->title = 'ikat-art';
 ?>
 
 <?php
-    	HeroWidget::begin();
+	
+	// CartWidget::begin();
+	// CartWidget::end();
+
+	    HeroWidget::begin();
 	    HeroWidget::end();
 
 	    CaruselWidget::begin();

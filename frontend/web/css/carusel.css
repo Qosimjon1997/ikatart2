@@ -86,7 +86,6 @@ button:focus{
   justify-content: center;
   align-items: center;
   text-align: center;
-  /* border:  1px solid rgba(187, 187, 187, 0.40); */
   overflow: hidden;
 }
  span{
@@ -97,7 +96,6 @@ button:focus{
  }
 .slider-box a{
   text-decoration: none;
-  /* text-align: center; */
 }
 .img-box{
  top: 0;
@@ -154,7 +152,7 @@ button:focus{
 }
 .cart:hover{
   transform: scale(1.01);
-  font-size: 24px;
+  font-size: 17px !important;
   transition: all ease 0.1s;
 }
 .buy{
@@ -171,11 +169,12 @@ button:focus{
 }
 .buy a{
   color: #5b0463 !important;
-  font-size: 15px !important;
+  font-size: 20px !important;
+  text-decoration: none !important;
 }
 .buy:hover{
   transform: scale(1.01);
-  font-size: 15px;
+  font-size: 21px;
   transition: all ease 0.1s;
 }
 

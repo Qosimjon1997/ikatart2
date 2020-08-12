@@ -1,9 +1,9 @@
 <?php
-use frontend\assets\HeaderAsset;
+use frontend\assets\UserAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-HeaderAsset::register($this);
+UserAsset::register($this);
 ?>
 <div class="header-new">
     <div class="row">
@@ -12,8 +12,7 @@ HeaderAsset::register($this);
         </div>
       <div class="header-info col-xl-7 col-lg-8 col-md-10 col-sm-11 col-xs-11">
         <ul>
-            <li><a href="#"><i class="fa fa-sign-in-alt" aria-hidden="true" style="margin-right: 5px;" ></i>Sign in</a></li>
-            <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true" style="margin-right: 5px;" ></i>Sign up</a></li>
+            <li><a href="#"><i class="fas fa-user" aria-hidden="true" style="margin-right: 5px;" ></i>User name</a></li>
             <li><a href="#"><i class="fa fa-user-cog" aria-hidden="true" style="margin-right: 5px;" ></i>Operator</a></li>
             <li><a href="#"> <img src="img/mony.png" ></a></li>
             <li>
