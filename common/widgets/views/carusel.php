@@ -2,10 +2,10 @@
 use frontend\assets\CaruselAsset;
 CaruselAsset::register($this);
 ?>
-<body>
+<body> 
             <p style="margin: auto; max-width: 1000px; color: rgb(8, 2, 83); font-size: 30px;
         margin-top: 10px; text-align: center; font-weight: 500; text-shadow: rgb(128, 253, 11);"> New Collection</p>
-  <div class="owl-slide owl-carousel owl-theme owl-carousel-blog justify-content-center">
+  <div class="owl-slide owl-carousel owl-theme owl-carousel-blog justify-content-center" style="margin-left: -10px">
                 <div class="slider-box">
                     <div class="img-box">
                      <a href="ikat-art.html">
@@ -23,7 +23,7 @@ CaruselAsset::register($this);
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
                       <div class="buy">
-                          <a href="#"> Buy Now </a>
+                          <a href="#"> Buy</a>
                         </div>
                      </div>
                    </div>
@@ -45,7 +45,7 @@ CaruselAsset::register($this);
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
                       <div class="buy">
-                          <a href="#"> Buy Now </a>
+                          <a href="#"> Buy</a>
                         </div>
                      </div>
                   </div>
@@ -65,7 +65,7 @@ CaruselAsset::register($this);
                   <a href="#"><i class="far fa-heart"></i></a>
                 </div>
                 <div class="buy">
-                  <a href="#"> Buy Now </a>
+                  <a href="#"> Buy </a>
                 </div>
               </div>
               </div>
@@ -87,7 +87,7 @@ CaruselAsset::register($this);
                     <a href="#"><i class="far fa-heart" ></i></a>
                 </div>
                 <div class="buy">
-                    <a href="#"> Buy Now </a>
+                    <a href="#"> Buy </a>
                   </div>
                </div>
               </div>
@@ -109,7 +109,7 @@ CaruselAsset::register($this);
                     <a href="#"><i class="far fa-heart" ></i></a>
                 </div>
                 <div class="buy">
-                    <a href="#"> Buy Now </a>
+                    <a href="#"> Buy </a>
                   </div>
                </div>
               </div>
@@ -131,7 +131,7 @@ CaruselAsset::register($this);
                     <a href="#"><i class="far fa-heart" ></i></a>
                 </div>
                 <div class="buy">
-                    <a href="#"> Buy Now </a>
+                    <a href="#"> Buy </a>
                   </div>
                </div>
               </div>
@@ -153,7 +153,7 @@ CaruselAsset::register($this);
                     <a href="#"><i class="far fa-heart" ></i></a>
                 </div>
                 <div class="buy">
-                    <a href="#"> Buy Now </a>
+                    <a href="#"> Buy </a>
                   </div>
                </div>
               </div>
@@ -175,7 +175,7 @@ CaruselAsset::register($this);
                     <a href="#"><i class="far fa-heart" ></i></a>
                 </div>
                 <div class="buy">
-                    <a href="#"> Buy Now </a>
+                    <a href="#"> Buy </a>
                   </div>
                </div>
               </div>
@@ -197,7 +197,7 @@ CaruselAsset::register($this);
                     <a href="#"><i class="far fa-heart" ></i></a>
                 </div>
                 <div class="buy">
-                    <a href="#"> Buy Now </a>
+                    <a href="#"> Buy </a>
                   </div>
                </div>
               </div>
@@ -217,7 +217,7 @@ CaruselAsset::register($this);
                     <a href="#"><i class="far fa-heart" ></i></a>
                 </div>
                 <div class="buy">
-                    <a href="#"> Buy Now </a>
+                    <a href="#"> Buy </a>
                   </div>
                </div>
               </div>
@@ -238,7 +238,7 @@ CaruselAsset::register($this);
                     <a href="#"><i class="far fa-heart" ></i></a>
                 </div>
                 <div class="buy">
-                    <a href="#"> Buy Now </a>
+                    <a href="#"> Buy </a>
                   </div>
                </div>
               </div>
@@ -259,7 +259,7 @@ CaruselAsset::register($this);
                     <a href="#"><i class="far fa-heart" ></i></a>
                 </div>
                 <div class="buy">
-                    <a href="#"> Buy Now </a>
+                    <a href="#"> Buy </a>
                   </div>
                </div>
               </div>
@@ -280,7 +280,7 @@ CaruselAsset::register($this);
                     <a href="#"><i class="far fa-heart" ></i></a>
                 </div>
                 <div class="buy">
-                    <a href="#"> Buy Now </a>
+                    <a href="#"> Buy </a>
                   </div>
                </div>
               </div>
@@ -300,7 +300,7 @@ CaruselAsset::register($this);
                     <a href="#"><i class="far fa-heart" ></i></a>
                 </div>
                 <div class="buy">
-                    <a href="#"> Buy Now </a>
+                    <a href="#"> Buy </a>
                   </div>
                </div>
               </div>

@@ -334,21 +334,23 @@ button:focus, input:focus, input:focus, textarea, textarea:focus {
 /* line 169, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_headerMenu.scss */
 .header-bottom .header-right .form-box {
   position: relative;
-  width: 85%;
+  padding-top: 10px !important;
+  width: 250px;
 }
 
 /* line 172, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_headerMenu.scss */
 .header-bottom .header-right .form-box input {
   border: 1px solid #eeeeee;
   border-radius: 30px;
-  padding: 10px 20px;
+  padding: 0 20px;
+  height: 45px;
   width: 100%;
 }
 
 /* line 179, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_headerMenu.scss */
 .header-bottom .header-right .form-box .search-icon {
   position: absolute;
-  top: 12px;
+  top: 20px;
   right: 17px;
 }
 
@@ -360,7 +362,7 @@ button:focus, input:focus, input:focus, textarea, textarea:focus {
 .header-bottom .header-right .form-box .search-icon i:hover {
   color: #6c6a6a;
   cursor: pointer;
-  font-size: 17px;
+  font-size: 16.5px;
 }
 
 /* line 190, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_headerMenu.scss */

@@ -4,16 +4,17 @@ namespace frontend\assets;
 
 use yii\web\AssetBundle;
 
-class CategoryAsset extends AssetBundle
+class UserAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/category.css',
+        'css/header.css',
         'css/fontawesome-all.min.css',
-        'css/load-more-button.css',
+        'https://use.fontawesome.com/releases/v5.8.1/css/all.css'
     ];
     public $js = [
+
     ];
     public $depends = [
     ];
