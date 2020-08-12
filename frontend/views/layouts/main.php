@@ -12,6 +12,7 @@ use common\widgets\Alert;
 use common\widgets\HeaderWidget;
 use common\widgets\FooterWidget;
 use common\widgets\NavigationWidget;
+use common\widgets\UserWidget;
 
 AppAsset::register($this);
 ?>
@@ -33,6 +34,10 @@ AppAsset::register($this);
 <?php
         HeaderWidget::begin();
         HeaderWidget::end();
+
+        // UserWidget::begin();
+        // UserWidget::end();
+        
         NavigationWidget::begin();
         NavigationWidget::end();
     ?>

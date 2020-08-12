@@ -11,6 +11,9 @@
   /* border:  1px solid rgba(187, 187, 187, 0.40); */
   overflow: hidden;
 }
+.col-md-4{
+  width: 1125px;
+}
  span{
    float: right;
  }
@@ -50,7 +53,7 @@
   justify-content: center;
   align-items: center;
 }
-.product{
+.product1{
   position: absolute;
   bottom: 16px;
   right: 15px;
@@ -60,7 +63,13 @@
   display: flex;
  
 }
-.cart{
+.icon-panel1{
+  position: relative;
+  bottom: -40px;
+  width: 100%;
+  transition-duration: 0.4s;
+}
+.cart1{
   position: absolute;
   bottom: 0px;
   height: 35px;
@@ -71,16 +80,16 @@
   justify-content: center;
   align-items: center;
 }
-.cart a{
+.cart1 a{
   color: #1a2ff0;
   font-size: 16px; 
 }
-.cart:hover{
+.cart1:hover{
   transform: scale(1.01);
   font-size: 24px;
   transition: all ease 0.1s;
 }
-.buy{
+.buy1{
   position: absolute;
   bottom: 0px;
   height: 35px;
@@ -92,16 +101,19 @@
   align-items: center;
   font-weight: 500;
 }
-.buy a{
+.buy1 a{
   color: #5b0463;
+  font-size: 20px !important;
+  text-decoration: none !important;
 }
-.buy:hover{
+.buy1:hover{
+  color: #9e32a8;
   transform: scale(1.01);
-  font-size: 17px;
+  font-size: 21px !important;
   transition: all ease 0.1s;
 }
 
-.heart{
+.heart1{
   position: absolute;
   bottom: 0px;
   height: 35px;
@@ -113,19 +125,13 @@
   justify-content: center;
   align-items: center;
 }
-.heart a{
+.heart1 a{
   color: #f54e4e;
 }
-.heart:hover{
+.heart1:hover{
   transform: scale(1.01);
   font-size: 22px;
   transition: all ease 0.1s;
-}
-.icon-panel{
-  position: absolute;
-  bottom: -40px;
-  width: 100%;
-  transition-duration: 0.4s;
 }
 .slider-box1:hover .icon-panel{
   bottom: 0px;

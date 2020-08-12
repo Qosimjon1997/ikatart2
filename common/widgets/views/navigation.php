@@ -585,7 +585,7 @@ NavigationAsset::register($this);
                                 <ul class="header-right">
                                  <div class="row">
                                     <li>
-                                        <div class="form-box" style="width: 250px; top: 10px">
+                                        <div class="form-box">
                                             <input type="text" name="Search" placeholder="Search ikat-art.com ...">
                                             <div class="search-icon">
                                                 <i class="fas fa-search special-tag"></i>

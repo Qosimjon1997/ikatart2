@@ -7,7 +7,7 @@ CategoryAsset::register($this);
         <!-- </section> -->
     <p style="margin: auto; color: rgb(8, 2, 83); font-size: 30px;
         text-align: center; font-weight: 500; text-shadow: rgb(128, 253, 11);">Works by regions</p>
-    <div class="interior container clearfix" >
+    
       <div class="row">
         <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox">
         <div class="slider-box1">
@@ -15,18 +15,18 @@ CategoryAsset::register($this);
                       <img src="img/load/1.jpg">
                       <p >Uzbek picture</p>
                     </div> 
-                     <div class="product">
+                     <div class="product1">
                       <p>$40.00</p> 
                     </div>
                     <div class="icon-panel">
-                      <div class="cart">
+                      <div class="cart1">
                         <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
                       </div>
-                      <div class="heart">
+                      <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
-                      <div class="buy">
-                          <a href="#"> Buy Now </a>
+                      <div class="buy1">
+                          <a href="#"> Buy</a>
                         </div>
                      </div>
                     </div>
@@ -39,18 +39,18 @@ CategoryAsset::register($this);
                     </div>
                     
                     
-                     <div class="product">
+                     <div class="product1">
                       <p>$40.00</p> 
                     </div>
                     <div class="icon-panel">
-                      <div class="cart">
+                      <div class="cart1">
                         <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
                       </div>
-                      <div class="heart">
+                      <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
-                      <div class="buy">
-                          <a href="#"> Buy Now </a>
+                      <div class="buy1">
+                          <a href="#"> Buy</a>
                         </div>
                      </div>
                   </div>
@@ -63,18 +63,18 @@ CategoryAsset::register($this);
                     </div>
                     
                     
-                     <div class="product">
+                     <div class="product1">
                       <p>$40.00</p> 
                     </div>
                     <div class="icon-panel">
                       <div class="cart">
                         <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
                       </div>
-                      <div class="heart">
+                      <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
-                      <div class="buy">
-                          <a href="#"> Buy Now </a>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
                         </div>
                      </div>
                   </div>
@@ -87,23 +87,23 @@ CategoryAsset::register($this);
                     </div>
                     
                     
-                     <div class="product">
+                     <div class="product1">
                       <p>$40.00</p> 
                     </div>
                     <div class="icon-panel">
-                      <div class="cart">
+                      <div class="cart1">
                         <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
                       </div>
-                      <div class="heart">
+                      <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
-                      <div class="buy">
-                          <a href="#"> Buy Now </a>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
                         </div>
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xl-3 blogBox moreBox" style="display: none;">
+        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/5.jpg">
@@ -111,23 +111,23 @@ CategoryAsset::register($this);
                     </div>
                     
                     
-                     <div class="product">
+                     <div class="product1">
                       <p>$40.00</p> 
                     </div>
                     <div class="icon-panel">
-                      <div class="cart">
+                      <div class="cart1">
                         <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
                       </div>
-                      <div class="heart">
+                      <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
-                      <div class="buy">
-                          <a href="#"> Buy Now </a>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
                         </div>
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xl-3 blogBox moreBox" style="display: none;">
+        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/6.jpg">
@@ -135,24 +135,24 @@ CategoryAsset::register($this);
                     </div>
                     
                     
-                     <div class="product">
+                     <div class="product1">
                       <p>$40.00</p> 
                     </div>
                     <div class="icon-panel">
-                      <div class="cart">
+                      <div class="cart1">
                         <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
                       </div>
-                      <div class="heart">
+                      <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
-                      <div class="buy">
-                          <a href="#"> Buy Now </a>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
                         </div>
                      </div>
                   </div>
         </div>
 
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xl-3 blogBox moreBox" style="display: none;">
+        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/7.jpg">
@@ -160,24 +160,24 @@ CategoryAsset::register($this);
                     </div>
                     
                     
-                     <div class="product">
+                     <div class="product1">
                       <p>$40.00</p> 
                     </div>
                     <div class="icon-panel">
-                      <div class="cart">
+                      <div class="cart1">
                         <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
                       </div>
-                      <div class="heart">
+                      <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
-                      <div class="buy">
-                          <a href="#"> Buy Now </a>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
                         </div>
                      </div>
                   </div>
         </div>
 
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xl-3 blogBox moreBox" style="display: none;">
+        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/8.jpg">
@@ -185,24 +185,24 @@ CategoryAsset::register($this);
                     </div>
                     
                     
-                     <div class="product">
+                     <div class="product1">
                       <p>$40.00</p> 
                     </div>
                     <div class="icon-panel">
-                      <div class="cart">
+                      <div class="cart1">
                         <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
                       </div>
-                      <div class="heart">
+                      <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
-                      <div class="buy">
-                          <a href="#"> Buy Now </a>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
                         </div>
                      </div>
                   </div>
         </div>
 
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xl-3 blogBox moreBox" style="display: none;">
+        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/9.jpg">
@@ -210,23 +210,23 @@ CategoryAsset::register($this);
                     </div>
                     
                     
-                     <div class="product">
+                     <div class="product1">
                       <p>$40.00</p> 
                     </div>
                     <div class="icon-panel">
-                      <div class="cart">
+                      <div class="cart1">
                         <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
                       </div>
-                      <div class="heart">
+                      <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
-                      <div class="buy">
-                          <a href="#"> Buy Now </a>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
                         </div>
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xl-3 blogBox moreBox" style="display: none;">
+        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/10.jpg">
@@ -234,23 +234,23 @@ CategoryAsset::register($this);
                     </div>
                     
                     
-                     <div class="product">
+                     <div class="product1">
                       <p>$40.00</p> 
                     </div>
                     <div class="icon-panel">
-                      <div class="cart">
+                      <div class="cart1">
                         <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
                       </div>
-                      <div class="heart">
+                      <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
-                      <div class="buy">
-                          <a href="#"> Buy Now </a>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
                         </div>
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xl-3 blogBox moreBox" style="display: none;">
+        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/11.jpg">
@@ -258,23 +258,23 @@ CategoryAsset::register($this);
                     </div>
                     
                     
-                     <div class="product">
+                     <div class="product1">
                       <p>$40.00</p> 
                     </div>
                     <div class="icon-panel">
-                      <div class="cart">
+                      <div class="cart1">
                         <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
                       </div>
-                      <div class="heart">
+                      <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
-                      <div class="buy">
-                          <a href="#"> Buy Now </a>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
                         </div>
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xl-3 blogBox moreBox" style="display: none;">
+        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/12.jpg">
@@ -282,23 +282,23 @@ CategoryAsset::register($this);
                     </div>
                     
                     
-                     <div class="product">
+                     <div class="product1">
                       <p>$40.00</p> 
                     </div>
                     <div class="icon-panel">
-                      <div class="cart">
+                      <div class="cart1">
                         <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
                       </div>
-                      <div class="heart">
+                      <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
-                      <div class="buy">
-                          <a href="#"> Buy Now </a>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
                         </div>
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xl-3 blogBox moreBox" style="display: none;">
+        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/13.jpg">
@@ -306,23 +306,23 @@ CategoryAsset::register($this);
                     </div>
                     
                     
-                     <div class="product">
+                     <div class="product1">
                       <p>$40.00</p> 
                     </div>
                     <div class="icon-panel">
-                      <div class="cart">
+                      <div class="cart1">
                         <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
                       </div>
-                      <div class="heart">
+                      <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
-                      <div class="buy">
-                          <a href="#"> Buy Now </a>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
                         </div>
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xl-3 blogBox moreBox" style="display: none;">
+        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/14.jpg">
@@ -330,23 +330,23 @@ CategoryAsset::register($this);
                     </div>
                     
                     
-                     <div class="product">
+                     <div class="product1">
                       <p>$40.00</p> 
                     </div>
                     <div class="icon-panel">
-                      <div class="cart">
+                      <div class="cart1">
                         <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
                       </div>
-                      <div class="heart">
+                      <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
                       <div class="buy">
-                          <a href="#"> Buy Now </a>
+                          <a href="#"> Buy </a>
                         </div>
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xl-3 blogBox moreBox" style="display: none;">
+        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/15.jpg">
@@ -354,23 +354,23 @@ CategoryAsset::register($this);
                     </div>
                     
                     
-                     <div class="product">
+                     <div class="product1">
                       <p>$40.00</p> 
                     </div>
                     <div class="icon-panel">
-                      <div class="cart">
+                      <div class="cart1">
                         <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
                       </div>
-                      <div class="heart">
+                      <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
-                      <div class="buy">
-                          <a href="#"> Buy Now </a>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
                         </div>
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xl-3 blogBox moreBox" style="display: none;">
+        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/16.jpg">
@@ -378,23 +378,23 @@ CategoryAsset::register($this);
                     </div>
                     
                     
-                     <div class="product">
+                     <div class="product1">
                       <p>$40.00</p> 
                     </div>
                     <div class="icon-panel">
-                      <div class="cart">
+                      <div class="cart1">
                         <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
                       </div>
-                      <div class="heart">
+                      <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
-                      <div class="buy">
-                          <a href="#"> Buy Now </a>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
                         </div>
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xl-3 blogBox moreBox" style="display: none;">
+        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/17.jpg">
@@ -402,23 +402,23 @@ CategoryAsset::register($this);
                     </div>
                     
                     
-                     <div class="product">
+                     <div class="product1">
                       <p>$40.00</p> 
                     </div>
                     <div class="icon-panel">
-                      <div class="cart">
+                      <div class="cart1">
                         <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
                       </div>
-                      <div class="heart">
+                      <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
-                      <div class="buy">
-                          <a href="#"> Buy Now </a>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
                         </div>
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xl-3 blogBox moreBox" style="display: none;">
+        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/18.jpg">
@@ -426,23 +426,23 @@ CategoryAsset::register($this);
                     </div>
                     
                     
-                     <div class="product">
+                     <div class="product1">
                       <p>$40.00</p> 
                     </div>
                     <div class="icon-panel">
-                      <div class="cart">
+                      <div class="cart1">
                         <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
                       </div>
-                      <div class="heart">
+                      <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
-                      <div class="buy">
-                          <a href="#"> Buy Now </a>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
                         </div>
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xl-3 blogBox moreBox" style="display: none;">
+        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/19.jpg">
@@ -450,23 +450,23 @@ CategoryAsset::register($this);
                     </div>
                     
                     
-                     <div class="product">
+                     <div class="product1">
                       <p>$40.00</p> 
                     </div>
                     <div class="icon-panel">
-                      <div class="cart">
+                      <div class="cart1">
                         <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
                       </div>
-                      <div class="heart">
+                      <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
-                      <div class="buy">
-                          <a href="#"> Buy Now </a>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
                         </div>
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xl-3 blogBox moreBox" style="display: none;">
+        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/20.jpg">
@@ -474,18 +474,18 @@ CategoryAsset::register($this);
                     </div>
                     
                     
-                     <div class="product">
+                     <div class="product1">
                       <p>$40.00</p> 
                     </div>
                     <div class="icon-panel">
-                      <div class="cart">
+                      <div class="cart1">
                         <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
                       </div>
-                      <div class="heart">
+                      <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
                       </div>
-                      <div class="buy">
-                          <a href="#"> Buy Now </a>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
                         </div>
                      </div>
                   </div>
@@ -494,21 +494,15 @@ CategoryAsset::register($this);
           <a href="#">Load More</a>
         </div>
       </div>
-    </div>
-    <script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
-  
   <script>
     $(document).ready(function () {
-      $(".moreBox").slice(0, 12).show();
+      $(".moreBox").slice(0, 20).show();
       if ($(".blogBox:hidden").length != 0) {
         $("#loadMore").show();
       }
       $("#loadMore").on('click', function (e) {
         e.preventDefault();
-        $(".moreBox").slice(0, 16).slideDown();
+        $(".moreBox").slice(0, 20).slideDown();
         if ($(".blogBox:hidden").length != 0) {
           $("#loadMore").show();
         }
