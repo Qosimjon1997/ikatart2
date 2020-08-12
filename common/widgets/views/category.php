@@ -9,7 +9,7 @@ CategoryAsset::register($this);
         text-align: center; font-weight: 500; text-shadow: rgb(128, 253, 11);">Works by regions</p>
     
       <div class="row">
-        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/1.jpg">
@@ -31,7 +31,7 @@ CategoryAsset::register($this);
                      </div>
                     </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox">
         <div class="slider-box1 c-right">
                     <div class="img-box1">
                       <img src="img/load/2.jpg">
@@ -55,7 +55,7 @@ CategoryAsset::register($this);
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/3.jpg">
@@ -79,7 +79,7 @@ CategoryAsset::register($this);
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/4.jpg">
@@ -103,7 +103,7 @@ CategoryAsset::register($this);
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/5.jpg">
@@ -127,7 +127,7 @@ CategoryAsset::register($this);
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/6.jpg">
@@ -152,7 +152,7 @@ CategoryAsset::register($this);
                   </div>
         </div>
 
-        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/7.jpg">
@@ -177,7 +177,7 @@ CategoryAsset::register($this);
                   </div>
         </div>
 
-        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/8.jpg">
@@ -202,7 +202,7 @@ CategoryAsset::register($this);
                   </div>
         </div>
 
-        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/9.jpg">
@@ -226,7 +226,7 @@ CategoryAsset::register($this);
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/10.jpg">
@@ -250,7 +250,7 @@ CategoryAsset::register($this);
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/11.jpg">
@@ -274,7 +274,7 @@ CategoryAsset::register($this);
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/12.jpg">
@@ -298,7 +298,7 @@ CategoryAsset::register($this);
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/13.jpg">
@@ -322,7 +322,7 @@ CategoryAsset::register($this);
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/14.jpg">
@@ -346,7 +346,7 @@ CategoryAsset::register($this);
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/15.jpg">
@@ -370,7 +370,7 @@ CategoryAsset::register($this);
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/16.jpg">
@@ -394,7 +394,7 @@ CategoryAsset::register($this);
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/17.jpg">
@@ -418,7 +418,7 @@ CategoryAsset::register($this);
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/18.jpg">
@@ -442,7 +442,7 @@ CategoryAsset::register($this);
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/19.jpg">
@@ -466,7 +466,7 @@ CategoryAsset::register($this);
                      </div>
                   </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/20.jpg">
@@ -490,13 +490,109 @@ CategoryAsset::register($this);
                      </div>
                   </div>
         </div>
-        <div id="loadMore" style="margin: -30px 0; display: inline-block">
-          <a href="#">Load More</a>
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="slider-box1">
+                    <div class="img-box1">
+                      <img src="img/load/17.jpg">
+                      <p >Uzbek picture</p>
+                    </div>
+                    
+                    
+                     <div class="product1">
+                      <p>$40.00</p> 
+                    </div>
+                    <div class="icon-panel">
+                      <div class="cart1">
+                        <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
+                      </div>
+                      <div class="heart1">
+                          <a href="#"><i class="far fa-heart" ></i></a>
+                      </div>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
+                        </div>
+                     </div>
+                  </div>
         </div>
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="slider-box1">
+                    <div class="img-box1">
+                      <img src="img/load/18.jpg">
+                      <p >Uzbek picture</p>
+                    </div>
+                    
+                    
+                     <div class="product1">
+                      <p>$40.00</p> 
+                    </div>
+                    <div class="icon-panel">
+                      <div class="cart1">
+                        <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
+                      </div>
+                      <div class="heart1">
+                          <a href="#"><i class="far fa-heart" ></i></a>
+                      </div>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
+                        </div>
+                     </div>
+                  </div>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="slider-box1">
+                    <div class="img-box1">
+                      <img src="img/load/19.jpg">
+                      <p >Uzbek picture</p>
+                    </div>
+                    
+                    
+                     <div class="product1">
+                      <p>$40.00</p> 
+                    </div>
+                    <div class="icon-panel">
+                      <div class="cart1">
+                        <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
+                      </div>
+                      <div class="heart1">
+                          <a href="#"><i class="far fa-heart" ></i></a>
+                      </div>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
+                        </div>
+                     </div>
+                  </div>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox" style="display: none;">
+        <div class="slider-box1">
+                    <div class="img-box1">
+                      <img src="img/load/20.jpg">
+                      <p >Uzbek picture</p>
+                    </div>
+                    
+                    
+                     <div class="product1">
+                      <p>$40.00</p> 
+                    </div>
+                    <div class="icon-panel">
+                      <div class="cart1">
+                        <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
+                      </div>
+                      <div class="heart1">
+                          <a href="#"><i class="far fa-heart" ></i></a>
+                      </div>
+                      <div class="buy1">
+                          <a href="#"> Buy </a>
+                        </div>
+                     </div>
+                  </div>
+        </div>
+        <!-- <div id="loadMore" style="margin: -30px 0; display: inline-block">
+          <a href="#">Load More</a>
+        </div> -->
       </div>
   <script>
     $(document).ready(function () {
-      $(".moreBox").slice(0, 20).show();
+      $(".moreBox").slice(0, 24).show();
       if ($(".blogBox:hidden").length != 0) {
         $("#loadMore").show();
       }

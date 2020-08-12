@@ -9,7 +9,7 @@ NavigationAsset::register($this);
                    <div class="row" style="margin: auto; display: block">
                          <div class="row">
                             <div class="col-lg-7 col-md-6 col-sm-4 col-xl-8">
-                                <!-- Main-menu -->
+                             
                                 <div class="main-menu">
                                     <nav>                                                
                                         <ul id="navigation">                                                                                                                                     
@@ -117,17 +117,10 @@ NavigationAsset::register($this);
                                                     <li><a href="ikat-art.html">Kilims</a></li>
                                                     <li><a href="ikat-art.html">Bukhara carpets</a></li>
                                                     <li><a href="ikat-art.html">Persian rugs</a></li>
-                                                    <!-- <li><a href="ikat-art.html">Uzbek Ceramic Plates</a></li>
-                                                    <li><a href="ikat-art.html">Oriental Miniature</a></li>
-                                                    <li><a href="ikat-art.html">Woodcarving Goods</a></li>
-                                                    <li><a href="ikat-art.html">Ikat Pillows</a></li>
-                                                    <li><a href="ikat-art.html">Roller Pillows</a></li> -->
+                                                    
                                                              </td>
                                                     
-                                                        <!-- <td>
-                                                        <li><a href="ikat-art.html">Uzbek Pouffes</a></li>
-                                                        <li><a href="ikat-art.html">Suzani Pillows</a></li>
-                                                    </td> -->
+                                                    
                                                     <td>
                                                     <li>
                                                         <div class="sub-cart">
@@ -232,19 +225,10 @@ NavigationAsset::register($this);
                                                             <td>
                                                     <li><a href="ikat-art.html">Hand-Embroidered Suzani</a></li>
                                                     <li><a href="ikat-art.html">Ikat fabric</a></li>
-                                                    <!-- <li><a href="ikat-art.html">Hookahs</a></li>
-                                                    <li><a href="ikat-art.html">Uzbek Ceramic Plates</a></li>
-                                                    <li><a href="ikat-art.html">Oriental Miniature</a></li> -->
+                                                
                                                     
                                                              </td>
                                                     
-                                                        <!-- <td>
-                                                        <li><a href="ikat-art.html">Woodcarving Goods</a></li>
-                                                        <li><a href="ikat-art.html">Ikat Pillows</a></li>
-                                                         <li><a href="ikat-art.html">Roller Pillows</a></li>
-                                                        <li><a href="ikat-art.html">Uzbek Pouffes</a></li>
-                                                        <li><a href="ikat-art.html">Suzani Pillows</a></li>
-                                                    </td> -->
                                                     <td>
                                                     <li>
                                                         <div class="sub-cart">
@@ -355,13 +339,7 @@ NavigationAsset::register($this);
                                                     
                                                              </td>
                                                     
-                                                        <!-- <td>
-                                                        <li><a href="ikat-art.html">Woodcarving Goods</a></li>
-                                                        <li><a href="ikat-art.html">Ikat Pillows</a></li>
-                                                         <li><a href="ikat-art.html">Roller Pillows</a></li>
-                                                        <li><a href="ikat-art.html">Uzbek Pouffes</a></li>
-                                                        <li><a href="ikat-art.html">Suzani Pillows</a></li>
-                                                    </td> -->
+                                                     
                                                     <td>
                                                     <li>
                                                         <div class="sub-cart">
@@ -473,13 +451,6 @@ NavigationAsset::register($this);
                                                     
                                                              </td>
                                                     
-                                                        <!-- <td>
-                                                        <li><a href="ikat-art.html">Woodcarving Goods</a></li>
-                                                        <li><a href="ikat-art.html">Ikat Pillows</a></li>
-                                                         <li><a href="ikat-art.html">Roller Pillows</a></li>
-                                                        <li><a href="ikat-art.html">Uzbek Pouffes</a></li>
-                                                        <li><a href="ikat-art.html">Suzani Pillows</a></li>
-                                                    </td> -->
                                                     <td>
                                                     <li>
                                                         <div class="sub-cart">
@@ -612,3 +583,4 @@ NavigationAsset::register($this);
             </div>
        </div>
      </header>
+   

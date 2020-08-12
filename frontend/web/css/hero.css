@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
   
   .text {
 	position: relative;
@@ -7,7 +7,7 @@
 	text-align: center;
 	transform: translate(50%,-50%);
 	text-transform: uppercase;
-	font-family: Comic Sans MS;
+	font-family: Open Sans, sans-serif;
 	color: #f5f5f5;
 	
 	text-shadow: 1px 1px 1px #919191,
@@ -26,18 +26,15 @@
 	1px 30px 60px rgba(16,16,16,0.4);
   }
   .hero-blog{
-	  position: relative;
-	  top: 15px;
-	  width: 100%;
+	background-repeat: no-repeat;
+	background-size: contain;
 	  /* background: #f51167; */
   }
   
   .hero-top{
 	position: relative;
-	display: inline-block;
-	margin-left: 10px;
-	/* padding: 8px 0 0 0px; */
-	background: #f51167;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
   
   .col-12 img {
@@ -50,6 +47,8 @@
   .hero-slider .hs-item {
 	  position: relative;
 	  height: 500px;
+	  /* background-repeat: no-repeat;
+	  background-size: contain; */
   }
   .hero-slider{
 	/* position: relative; */
