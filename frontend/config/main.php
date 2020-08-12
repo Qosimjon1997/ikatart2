@@ -15,7 +15,7 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
-            'baseUrl' => '',
+            //'baseUrl' => '',
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -50,13 +50,13 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        'urlManager' => [
+        /*'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
                 '<alias:\w+>' => 'site/<alias>',
             ],
-        ],
+        ],*/
     ],
     'params' => $params,
 ];

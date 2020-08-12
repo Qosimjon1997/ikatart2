@@ -196,4 +196,5 @@ class Product extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Topproduct::className(), ['product_id' => 'id']);
     }
+
 }

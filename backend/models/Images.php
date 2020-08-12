@@ -5,6 +5,7 @@ namespace backend\models;
 use yii\web\UploadedFile;
 use Yii;
 
+
 /**
  * This is the model class for table "images".
  *
@@ -43,21 +44,11 @@ class Images extends \yii\db\ActiveRecord
             [['advert_id'], 'exist', 'skipOnError' => true, 'targetClass' => Advert::className(), 'targetAttribute' => ['advert_id' => 'id']],
             [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['product_id' => 'id']],
             [['saler_id'], 'exist', 'skipOnError' => true, 'targetClass' => Saler::className(), 'targetAttribute' => ['saler_id' => 'id']],
-            [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
         ];
     }
 
 
-    public function upload()
-    {
-        if ($this->validate()) {
-            $this->path=Yii::$app->security->generateRandomString(10) . $this->imageFile->extension ;
-            $this->imageFile->saveAs('/backend/web/upimages/' . $this->path);
-            return true;
-        } else {
-            return false;
-        }
-    }
+
 
 
     /**

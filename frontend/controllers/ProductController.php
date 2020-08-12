@@ -5,10 +5,12 @@ namespace frontend\controllers;
 use Yii;
 use backend\models\Product;
 use backend\models\Images;
+use backend\models\UploadImage;
 use backend\models\ProductSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ProductController implements the CRUD actions for Product model.
@@ -37,7 +39,7 @@ class ProductController extends Controller
     public function actionIndex()
     {
         $searchModel = new ProductSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams,1);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -67,14 +69,24 @@ class ProductController extends Controller
     {
 
         $model = new Product();
-        $modelimage = new Images();
+        $modelimage = new UploadImage();
+        $image = new Images();
         if ($model->load(Yii::$app->request->post())) {
+            //$model->oldprice=$this->model->price;
+            //$model->percent='0';
+            $model->Saler_id = Yii::$app->saler->id;
+            $model->isActive = 0;
+            $model->save();
 
             $modelimage->imageFile = UploadedFile::getInstance($model, 'imageFile');
-                if ($modelimage->upload()) {
-                    // file is uploaded successfully
-                    return;
-                }
+            
+            $image->path=$modelimage->upload();
+            $image->product_id = $model->id;
+            $image->main=1;
+            $image->save();
+                // file is uploaded successfully
+            
+
         }
 
         return $this->render('create', [
