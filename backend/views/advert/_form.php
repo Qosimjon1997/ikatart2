@@ -10,8 +10,6 @@ use yii\widgets\ActiveForm;
 
 <div class="advert-form">
     <?php
-        print_r($image->getErrors());
-        print_r($img->getErrors());
     ?>
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 	<div class="row justify-content-between">
@@ -22,11 +20,20 @@ use yii\widgets\ActiveForm;
     	<div class="col-12 col-md-4">
     	<?= $form->field($img, 'imageFile')->fileInput([
             'class' => 'col-12',
-            'onchange' => "loadFile(event)"])->label('') ?>
+            'onchange' => "loadFile(event)",
+            // 'required' => true,
+        ])->label('') ?>
 		</div>
 
 		<div class="col-12 col-md-4 preview">
-            <img id="img" src=" <?= '/backend/web/img/upload.png' ?>">
+            <?php
+                if(isset($image[0])) {
+                    echo '<img id="img" src="/backend/web/upimages/' . $image[0]->path . '">';
+                }
+                else {
+                    echo '<img id="img" src="/backend/web/img/upload.png">';
+                }
+            ?>
 		</div>
 
 	</div>

@@ -8,12 +8,15 @@ use backend\models\ImagesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use backend\models\UploadImage;
+use yii\web\UploadedFile;
 
 /**
  * ImagesController implements the CRUD actions for Images model.
  */
 class ImagesController extends Controller
 {
+    public $layout = 'operator';
     /**
      * {@inheritdoc}
      */
@@ -63,19 +66,6 @@ class ImagesController extends Controller
     }
 
     /**
-     * Displays a single Images model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
-
-    /**
      * Creates a new Images model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
@@ -83,13 +73,21 @@ class ImagesController extends Controller
     public function actionCreate()
     {
         $model = new Images();
+        $img = new UploadImage();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+
+            if (Yii::$app->request->isPost) {
+                $img->imageFile = UploadedFile::getInstance($img, 'imageFile');
+                $model->path = $img->upload();
+                $model->save();
+            }
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'img' => $img,
         ]);
     }
 
@@ -103,13 +101,23 @@ class ImagesController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $img = new UploadImage();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+
+            if (Yii::$app->request->isPost) {
+                $img->imageFile = UploadedFile::getInstance($img, 'imageFile');
+                if($img->imageFile && $img->delete($model->path)) {
+                    $model->path = $img->upload();
+                }
+                $model->save();
+            }
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'img' => $img,
         ]);
     }
 
@@ -122,7 +130,11 @@ class ImagesController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        $img = new UploadImage();
+        if($img->delete($model->path)){
+            $model->delete();
+        }
 
         return $this->redirect(['index']);
     }

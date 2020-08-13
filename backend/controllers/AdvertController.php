@@ -78,9 +78,6 @@ class AdvertController extends Controller
         $img = new UploadImage();
         $image = new Images();
 
-
-
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
             if (Yii::$app->request->isPost) {
@@ -111,14 +108,26 @@ class AdvertController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        $image = Images::find()->where(['advert_id' => $model->id, 'main' => 1])->all();
+        $img = new UploadImage();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            if (Yii::$app->request->isPost) {
+                $img->imageFile = UploadedFile::getInstance($img, 'imageFile');
+                if($img->imageFile && $img->delete($image[0]->path)) {
+                    $image[0]->path = $img->upload();
+                    $image[0]->save();
+                }
+            }
+
             return $this->redirect(['index']);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'img' => $img,
+            'image' => $image,
         ]);
     }
 
@@ -131,7 +140,14 @@ class AdvertController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        $image = Images::find()->where(['advert_id' => $model->id, 'main' => 1])->all();
+        $img = new UploadImage();
+
+        if($img->delete($image[0]->path)){
+            $image[0]->delete();
+            $model->delete();
+        }
 
         return $this->redirect(['index']);
     }

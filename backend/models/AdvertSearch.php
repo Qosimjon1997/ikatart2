@@ -40,7 +40,7 @@ class AdvertSearch extends Advert
      */
     public function search($params)
     {
-        $query = Advert::find();
+        $query = Advert::find()->joinWith('images');
 
         // add conditions that should always apply here
 
@@ -49,6 +49,11 @@ class AdvertSearch extends Advert
         ]);
 
         $this->load($params);
+
+        $dataProvider->sort->attributes['images.path'] = [
+            'asc' => ['images.path' => SORT_ASC],
+            'desc' => ['images.path' => SORT_DESC]
+        ];
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails

@@ -39,7 +39,9 @@ class MainproductSearch extends Mainproduct
      */
     public function search($params)
     {
-        $query = Mainproduct::find();
+        $query = Mainproduct::find()
+            ->joinWith('product')
+            ->joinWith('product.images');
 
         // add conditions that should always apply here
 
@@ -48,6 +50,16 @@ class MainproductSearch extends Mainproduct
         ]);
 
         $this->load($params);
+
+        $dataProvider->sort->attributes['product.name'] = [
+            'asc' => ['product.name' => SORT_ASC],
+            'desc' => ['product.name' => SORT_DESC]
+        ];
+
+        $dataProvider->sort->attributes['product.images.path'] = [
+            'asc' => ['images.path' => SORT_ASC],
+            'desc' => ['images.path' => SORT_DESC]
+        ];
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails

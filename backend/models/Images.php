@@ -58,11 +58,14 @@ class Images extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'path' => Yii::t('app', 'Path'),
-            'main' => Yii::t('app', 'Main'),
+            'path' => Yii::t('app', 'Image'),
+            'main' => Yii::t('app', 'Is Main?'),
             'product_id' => Yii::t('app', 'Product ID'),
             'advert_id' => Yii::t('app', 'Advert ID'),
             'saler_id' => Yii::t('app', 'Saler ID'),
+            'product.name' => Yii::t('app', 'Product'),
+            'advert.link' => Yii::t('app', 'Link'),
+            'saler.email' => Yii::t('app', 'Saler'),
         ];
     }
 

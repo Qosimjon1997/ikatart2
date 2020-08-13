@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Language;
 use backend\models\Product;
+use backend\models\Mainproduct;
 use backend\models\Productlanguages;
 use backend\models\Productnamelanguages;
 use backend\models\ProductSearch;
@@ -194,6 +195,13 @@ class ProductController extends Controller
             'model' => $model,
             'lang' => $lang,
         ]);
+    }
+
+    public function actionMain($id) {
+        $model = new Mainproduct();
+        $model->product_id = $id;
+        $model->save();
+        return $this->redirect(['mainproduct/index']);
     }
 
     /**

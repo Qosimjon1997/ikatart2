@@ -41,6 +41,7 @@ class Advert extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'link' => Yii::t('app', 'Link'),
+            'image.path' => Yii::t('app', 'Image'),
         ];
     }
 

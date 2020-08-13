@@ -33,6 +33,7 @@ use Yii;
  */
 class Product extends \yii\db\ActiveRecord
 {
+    public $main;
     /**
      * {@inheritdoc}
      */
@@ -50,6 +51,7 @@ class Product extends \yii\db\ActiveRecord
             [['name', 'price', 'category_id', 'isActive', 'info', 'mass_id'], 'required'],
             [['price', 'oldprice', 'percent', 'Saler_id', 'category_id', 'isActive', 'mass_id'], 'integer'],
             [['info'], 'string'],
+            [['main'], 'boolean'],
             [['name'], 'string', 'max' => 255],
             [['Saler_id'], 'exist', 'skipOnError' => true, 'targetClass' => Saler::className(), 'targetAttribute' => ['Saler_id' => 'id']],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],

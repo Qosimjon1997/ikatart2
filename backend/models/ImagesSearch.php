@@ -40,7 +40,11 @@ class ImagesSearch extends Images
      */
     public function search($params)
     {
-        $query = Images::find();
+        $query = Images::find()
+            ->joinWith('product')
+            ->joinWith('advert')
+            ->joinWith('saler')
+            ->where(['IS NOT', 'product_id', null]);
 
         // add conditions that should always apply here
 
@@ -49,6 +53,19 @@ class ImagesSearch extends Images
         ]);
 
         $this->load($params);
+
+        $dataProvider->sort->attributes['product.name'] = [
+            'asc' => ['product.name' => SORT_ASC],
+            'desc' => ['product.name' => SORT_DESC]
+        ];
+        $dataProvider->sort->attributes['saler.email'] = [
+            'asc' => ['saler.email' => SORT_ASC],
+            'desc' => ['saler.email' => SORT_DESC]
+        ];
+        $dataProvider->sort->attributes['advert.link'] = [
+            'asc' => ['advert.link' => SORT_ASC],
+            'desc' => ['advert.link' => SORT_DESC]
+        ];
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
