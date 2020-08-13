@@ -4,12 +4,12 @@ namespace backend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Pricelist;
+use backend\models\Duration;
 
 /**
- * PricelistSearch represents the model behind the search form of `app\models\Pricelist`.
+ * DurationSearch represents the model behind the search form of `backend\models\Duration`.
  */
-class PricelistSearch extends Pricelist
+class DurationSearch extends Duration
 {
     /**
      * {@inheritdoc}
@@ -17,7 +17,7 @@ class PricelistSearch extends Pricelist
     public function rules()
     {
         return [
-            [['id', 'price', 'mass_id', 'posttype_id', 'zone_id'], 'integer'],
+            [['id', 'day', 'zone_id', 'posttype_id'], 'integer'],
         ];
     }
 
@@ -39,9 +39,8 @@ class PricelistSearch extends Pricelist
      */
     public function search($params)
     {
-        $query = Pricelist::find()
+        $query = Duration::find()
             ->joinWith('zone')
-            ->joinWith('mass')
             ->joinWith('posttype');
 
         // add conditions that should always apply here
@@ -55,11 +54,6 @@ class PricelistSearch extends Pricelist
         $dataProvider->sort->attributes['zone.zone'] = [
             'asc' => ['zone.zone' => SORT_ASC],
             'desc' => ['zone.zone' => SORT_DESC]
-        ];
-
-        $dataProvider->sort->attributes['mass.mass'] = [
-            'asc' => ['mass.mass' => SORT_ASC],
-            'desc' => ['mass.mass' => SORT_DESC]
         ];
 
         $dataProvider->sort->attributes['posttype.name'] = [
@@ -76,15 +70,10 @@ class PricelistSearch extends Pricelist
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'price' => $this->price,
-            'mass_id' => $this->mass_id,
-            'posttype_id' => $this->posttype_id,
+            'day' => $this->day,
             'zone_id' => $this->zone_id,
+            'posttype_id' => $this->posttype_id,
         ]);
-
-        $query->andFilterWhere(['like', 'zone.zone', $this->zone->zone])
-            ->andFilterWhere(['like', 'posttype.name', $this->posttype->name])
-            ->andFilterWhere(['like', 'zone.zone', $this->mass->mass]);
 
         return $dataProvider;
     }

@@ -61,6 +61,10 @@ class OrderSearch extends Order
             'asc' => ['country.name' => SORT_ASC],
             'desc' => ['country.name' => SORT_DESC]
         ];
+        $dataProvider->sort->attributes['address.address'] = [
+            'asc' => ['address.address' => SORT_ASC],
+            'desc' => ['address.address' => SORT_DESC]
+        ];
         $dataProvider->sort->attributes['basket.product.saler.email'] = [
             'asc' => ['saler.email' => SORT_ASC],
             'desc' => ['saler.email' => SORT_DESC]

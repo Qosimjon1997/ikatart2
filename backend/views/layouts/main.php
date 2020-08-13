@@ -64,12 +64,12 @@ AppAsset::register($this);
                         'icon' => 'fa fa-list',
                         'url' => 'comp/workers/index',
                     ],
-                    // [
-                    //     'label' => Yii::t('app', 'Sale Statistics'),
-                    //     'icon' => 'fa fa-list',
-                    //     'url' => 'product/index',
+                    [
+                        'label' => Yii::t('app', 'Delivery Duration'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'duration/index',
 
-                    // ],
+                    ],
                     [
                         'label' => Yii::t('app', 'zone'),
                         'icon' => 'fa fa-list',
