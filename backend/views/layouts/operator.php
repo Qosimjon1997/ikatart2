@@ -72,9 +72,14 @@ AppAsset::register($this);
                         ]
                     ],
                     [
-                        'label' => Yii::t('app', 'topproducts'),
+                        'label' => Yii::t('app', 'top products'),
                         'icon' => 'fa fa-list',
                         'url' => 'topproduct/index',
+                    ],
+                    [
+                        'label' => Yii::t('app', 'main products'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'mainproduct/index',
                     ],
                     [
                         'label' => Yii::t('app', 'toptypes'),
@@ -119,6 +124,11 @@ AppAsset::register($this);
                         'params' => [
                             'isActive' => 0,
                         ]
+                    ],
+                    [
+                        'label' => Yii::t('app', 'product images'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'images/index',
                     ],
                     [
                         'label' => Yii::t('app', 'settings'),

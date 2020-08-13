@@ -33,14 +33,21 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'percent',
             'saler.email',
             'category.name',
-            'isActive',
+            // 'isActive',
             'info:ntext',
             'mass.mass',
+
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{view} {update} '. ($isActive === 1 ? '{delete}': '{activate}'),
+                'template' => '{main} {view} {update} '. ($isActive === 1 ? '{delete}': '{activate}'),
                 'buttons' => [
-                    //view button
+
+                    'main' => function ($url, $model) {
+                        return Html::a('<span class="fas fa-home"></span>', $url, [
+                                    'title' => Yii::t('app', 'Main'),
+                        ]);
+                    },
+
                     'view' => function ($url, $model) {
                         return Html::a('<span class="far fa-eye"></span>', $url, [
                                     'title' => Yii::t('app', 'View'),
