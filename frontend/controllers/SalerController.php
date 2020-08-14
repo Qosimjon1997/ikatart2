@@ -50,6 +50,28 @@ class SalerController extends Controller
         ];
     }
     */
+
+    public function behaviors()
+    {
+	    return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'user'=>'saler', // this user object defined in web.php
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['login'],                    
+                    'roles' => ['?'],
+
+                    ],
+                ],
+            ]
+        ];
+    }
     /**
      * {@inheritdoc}
      */
@@ -138,6 +160,11 @@ class SalerController extends Controller
      */
     public function actionSignup()
     {
+        if (!Yii::$app->saler->isGuest) {
+
+            $salerid = Yii::$app->saler->id;
+            return $this->render('index',['salerid'=>$salerid]);
+        }
         
         $model = new SalerSignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {

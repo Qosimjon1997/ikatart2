@@ -14,7 +14,7 @@ class UserLoginForm extends Model
     public $password;
     public $rememberMe = true;
 
-    private $_saler;
+    private $_user;
 
 
     /**
@@ -44,8 +44,8 @@ class UserLoginForm extends Model
     public function validatePassword($attribute, $params)
     {
         if (!$this->hasErrors()) {
-            $saler = $this->getSaler();
-            if (!$saler || !$saler->validatePassword($this->password)) {
+            $user = $this->getUser();
+            if (!$user || !$user->validatePassword($this->password)) {
                 $this->addError($attribute, 'Incorrect password or username');
             }
         }
@@ -59,7 +59,7 @@ class UserLoginForm extends Model
     public function login()
     {
         if ($this->validate()) {
-            return Yii::$app->saler->login($this->getSaler(), $this->rememberMe ? 3600 * 24 * 30 : 0);
+            return Yii::$app->user2->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         }
         
         return false;
@@ -70,12 +70,12 @@ class UserLoginForm extends Model
      *
      * @return User|null
      */
-    protected function getSaler()
+    protected function getUser()
     {
-        if ($this->_saler === null) {
-            $this->_saler = Saler::findByEmail($this->email);
+        if ($this->_user === null) {
+            $this->_user = User::findByEmail($this->email);
         }
 
-        return $this->_saler;
+        return $this->_user;
     }
 }

@@ -24,7 +24,7 @@ class UserSignupForm extends Model
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\backend\models\Saler', 'message' => 'This email address has already been taken.'],
+            ['email', 'unique', 'targetClass' => '\backend\models\User', 'message' => 'This email address has already been taken.'],
 
             ['password', 'required'],
             ['password', 'string', 'min' => 12],
@@ -42,15 +42,14 @@ class UserSignupForm extends Model
             return null;
         }
         
-        $saler = new User();
-        $saler->email = $this->email;
-        $saler->setPassword($this->password);
-        $saler->generateAuthKey();
-        $saler->generateEmailVerificationToken();
-        //return $saler->save() && $this->sendEmail($saler);
+        $user = new User();
+        $user->email = $this->email;
+        $user->setPassword($this->password);
+        $user->generateAuthKey();
+        $user->generateEmailVerificationToken();
+        //return $saler->save() && $this->sendEmail($saler);       
         
-        $saler->save();
-        return render('1');
+        return $user->save();
     }
 
     /**

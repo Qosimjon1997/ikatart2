@@ -3,6 +3,8 @@
 namespace backend\models;
 
 use Yii;
+use yii\db\ActiveRecord;
+use yii\web\IdentityInterface;
 
 /**
  * This is the model class for table "user".
@@ -25,14 +27,14 @@ use Yii;
  * @property Basket[] $baskets
  * @property Cards[] $cards
  */
-class User extends \yii\db\ActiveRecord
+class User extends ActiveRecord implements IdentityInterface
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'user';
+        return '{{%user}}';
     }
 
     /**

@@ -37,7 +37,7 @@ class Saler extends ActiveRecord implements IdentityInterface
      */
     public static function tableName()
     {
-        return 'saler';
+        return '{{%saler}}';
     }
 
     /**

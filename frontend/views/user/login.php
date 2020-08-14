@@ -13,7 +13,7 @@ $this->title = 'Login';
 <div class="site-login">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Saler Login Form action login</p>
+    <p>User Login Form action login</p>
 
     <div class="row">
         <div class="col-lg-5">
