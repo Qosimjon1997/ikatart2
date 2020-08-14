@@ -99,6 +99,7 @@ class Language extends \yii\db\ActiveRecord
         return $this->hasMany(Salarhistorylanguages::className(), ['language_id' => 'id']);
     }
 
+    
     public function getNameLanguages($name = null) {
         foreach ($this->languages as $lang) {
 
@@ -128,4 +129,6 @@ class Language extends \yii\db\ActiveRecord
             }
         }
     }
+
+    
 }
