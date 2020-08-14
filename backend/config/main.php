@@ -15,20 +15,22 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
-            'baseUrl' => '/comp',
+            //'baseUrl' => '/comp',
         ],
         'admin' => [
             'class' => 'yii\web\User',
             'identityClass' => 'backend\models\Admin',
-            'loginUrl' => ['comp/admin/index'],
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
+            'authTimeout' => 60*30,
+            'loginUrl' => ['comp/admin/index'],          
             'identityCookie' => ['name' => '_identity-backend-admin'],
         ],
         'workers' => [
             'class' => 'yii\web\User',
             'identityClass' => 'backend\models\Workers',
-            'loginUrl' => ['comp/workers/index'],
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
+            'authTimeout' => 60*30,
+            'loginUrl' => ['comp/workers/index'],           
             'identityCookie' => ['name' => '_identity-backend-workers'],
         ],
         'session' => [
@@ -47,7 +49,7 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-
+        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -57,7 +59,7 @@ return [
                 'workers' => 'comp/workers/login',
                 '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
             ],
-        ],
+        ],*/
 
     ],
     'params' => $params,
