@@ -37,7 +37,36 @@ $this->params['breadcrumbs'][] = $this->title;
             'info:ntext',
             'mass_id',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {update} '. ($isActive === 1 ? '{delete}': '{activate}'),
+                'buttons' => [
+                    //view button
+                    'view' => function ($url, $model) {
+                        return Html::a('<span class="far fa-eye"></span>', $url, [
+                                    'title' => Yii::t('app', 'View'),
+                        ]);
+                    },
+
+                    'update' => function ($url, $model) {
+                        return Html::a('<span class="fa fa-pen"></span>', $url, [
+                                    'title' => Yii::t('app', 'Update'),
+                        ]);
+                    },
+
+                    // 'delete' => function ($url, $model) {
+                    //     return Html::a('<span class="fa fa-trash"></span>', $url, [
+                    //                 'title' => Yii::t('app', 'Delete'), 'data-method' => 'post',
+                    //     ]);
+                    // },
+
+                    // 'activate' => function ($url, $model) {
+                    //     return Html::a('<span class="fa fa-plus"></span>', $url, [
+                    //                 'title' => Yii::t('app', 'Activate'), 'data-method' => 'post',
+                    //     ]);
+                    // },
+                ],
+            ],
         ],
     ]); ?>
 

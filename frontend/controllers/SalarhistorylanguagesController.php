@@ -3,19 +3,16 @@
 namespace frontend\controllers;
 
 use Yii;
-use backend\models\Product;
-use backend\models\Images;
-use backend\models\UploadImage;
-use backend\models\ProductSearch;
+use backend\models\Salarhistorylanguages;
+use backend\models\SalarhistorylanguagesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
 
 /**
- * ProductController implements the CRUD actions for Product model.
+ * SalarhistorylanguagesController implements the CRUD actions for Salarhistorylanguages model.
  */
-class ProductController extends Controller
+class SalarhistorylanguagesController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -33,26 +30,22 @@ class ProductController extends Controller
     }
 
     /**
-     * Lists all Product models.
+     * Lists all Salarhistorylanguages models.
      * @return mixed
      */
     public function actionIndex()
     {
-        if(!Yii::$app->saler->isGuest)
-        {
-            $searchModel = new ProductSearch();
-            $dataProvider = $searchModel->search(Yii::$app->request->queryParams,1,Yii::$app->saler->id);
+        $searchModel = new SalarhistorylanguagesSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-            return $this->render('index', [
-                'searchModel' => $searchModel,
-                'dataProvider' => $dataProvider,
-            ]);
-        }
-        
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 
     /**
-     * Displays a single Product model.
+     * Displays a single Salarhistorylanguages model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -65,39 +58,25 @@ class ProductController extends Controller
     }
 
     /**
-     * Creates a new Product model.
+     * Creates a new Salarhistorylanguages model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
+        $model = new Salarhistorylanguages();
 
-        $model = new Product();
-        $modelimage = new UploadImage();
-        $image = new Images();
-        if ($model->load(Yii::$app->request->post())) {
-
-            $model->Saler_id = Yii::$app->saler->id;
-            $model->isActive = 0;
-            $model->save();
-
-            $modelimage->imageFile = UploadedFile::getInstance($model, 'imageFile');
-            
-            $image->path=$modelimage->upload();
-            $image->product_id = $model->id;
-            $image->main=1;
-            $image->save();
-                // file is uploaded successfull 
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
-            'modelimage' =>$modelimage,
         ]);
     }
 
     /**
-     * Updates an existing Product model.
+     * Updates an existing Salarhistorylanguages model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -117,7 +96,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Deletes an existing Product model.
+     * Deletes an existing Salarhistorylanguages model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -131,15 +110,15 @@ class ProductController extends Controller
     }
 
     /**
-     * Finds the Product model based on its primary key value.
+     * Finds the Salarhistorylanguages model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Product the loaded model
+     * @return Salarhistorylanguages the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Product::findOne($id)) !== null) {
+        if (($model = Salarhistorylanguages::findOne($id)) !== null) {
             return $model;
         }
 

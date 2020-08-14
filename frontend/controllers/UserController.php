@@ -10,6 +10,7 @@ use frontend\models\UserLoginForm;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -19,31 +20,70 @@ class UserController extends Controller
     /**
      * {@inheritdoc}
      */
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['POST'],
+    //             ],
+    //         ],
+    //     ];
+    // }
+
+    	//behaviors of the school
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+	    return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'user'=>'user2', // this user object defined in web.php
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['login'],                    
+                    'roles' => ['?'],
+
+                    ],
                 ],
-            ],
+            ]
         ];
     }
 
+
+
+    public function actions()
+    {
+        /*
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
+            'captcha' => [
+                'class' => 'yii\captcha\CaptchaAction',
+                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+            ],
+        ];
+        */
+    }
 
     public function actionLogin()
     {
         
         if (!Yii::$app->user2->isGuest) {
 
-            $salerid = Yii::$app->user2->id;
-            return $this->render('index',['salerid'=>$salerid]);
+            $userid = Yii::$app->user2->id;
+            return $this->render('index',['userid'=>$userid]);
         }
 
         $model = new UserLoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->render('index',['salerid'=>Yii::$app->user2->id]);
+            return $this->render('index',['userid'=>Yii::$app->user2->id]);
         } else {
             $model->password = '';
 
@@ -64,10 +104,17 @@ class UserController extends Controller
 
     public function actionSignup()
     {
-        
+        if (!Yii::$app->user2->isGuest) {
+
+            $userid = Yii::$app->user2->id;
+            return $this->render('index',['userid'=>$userid]);
+        }
+
         $model = new UserSignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
+            
             Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
+
             return $this->render('login');
         }
 
@@ -84,13 +131,18 @@ class UserController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new UserSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        if (!Yii::$app->user2->isGuest) {
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+            $userid = Yii::$app->user2->id;
+            
+            return $this->render('index',['userid'=>$userid]);
+        }
+        else
+        {
+            return $this->render('login');
+        }
+
+        
     }
 
     /**
