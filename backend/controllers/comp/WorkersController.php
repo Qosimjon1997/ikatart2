@@ -10,6 +10,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use backend\models\LoginWorkers;
+use yii\filters\AccessControl;
 
 /**
  * WorkersController implements the CRUD actions for Workers model.
@@ -20,15 +21,37 @@ class WorkersController extends Controller
     /**
      * {@inheritdoc}
      */
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['POST'],
+    //             ],
+    //         ],
+    //     ];
+    // }
+
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+            'access' => [
+                'class' => AccessControl::className(),
+                'user'=>'workers', // this user object defined in web.php
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['login'],                    
+                        'roles' => ['?'],
+    
+                    ],
                 ],
-            ],
+            ]
         ];
     }
 
