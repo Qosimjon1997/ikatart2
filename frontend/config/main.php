@@ -8,9 +8,15 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
-    'language' => 'en',
+    //'language' => 'en',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => [
+        'log',
+        [
+            'class' => 'frontend\components\LanguageSelector',
+            'supportedLanguages' => ['ru', 'en'],
+        ],    
+    ],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [

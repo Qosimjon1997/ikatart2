@@ -20,22 +20,10 @@ class UserController extends Controller
     /**
      * {@inheritdoc}
      */
-    // public function behaviors()
-    // {
-    //     return [
-    //         'verbs' => [
-    //             'class' => VerbFilter::className(),
-    //             'actions' => [
-    //                 'delete' => ['POST'],
-    //             ],
-    //         ],
-    //     ];
-    // }
-
-    	//behaviors of the school
+    
     public function behaviors()
     {
-	    return [
+        return [
             'access' => [
                 'class' => AccessControl::className(),
                 'user'=>'user2', // this user object defined in web.php
@@ -45,32 +33,22 @@ class UserController extends Controller
                         'roles' => ['@'],
                     ],
                     [
-                        'allow' => true,
-                        'actions' => ['login'],                    
-                    'roles' => ['?'],
+                        'allow' => true,         
+                        'roles' => ['?'],
 
                     ],
                 ],
-            ]
+            ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
+            ],
         ];
     }
 
 
-
-    public function actions()
-    {
-        /*
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
-        ];
-        */
-    }
 
     public function actionLogin()
     {
@@ -96,9 +74,11 @@ class UserController extends Controller
     public function actionLogout()
     {
         
-        Yii::$app->user2->logout();
-
-        return $this->render('login');
+        if(!Yii::$app->user2->isGuest)
+        {
+            Yii::$app->user2->logout();
+            return $this->redirect(['login']);
+        }
         
     }
 
@@ -107,14 +87,12 @@ class UserController extends Controller
         if (!Yii::$app->user2->isGuest) {
 
             $userid = Yii::$app->user2->id;
-            return $this->render('index',['userid'=>$userid]);
+            return $this->render('index',['userid'=>$salerid]);
         }
-
+        
         $model = new UserSignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
-            
             Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
-
             return $this->render('login');
         }
 
@@ -139,7 +117,7 @@ class UserController extends Controller
         }
         else
         {
-            return $this->render('login');
+            return $this->redirect(['login']);
         }
 
         

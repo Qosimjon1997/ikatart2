@@ -19,21 +19,9 @@ class AdminController extends Controller
     /**
      * {@inheritdoc}
      */
-    // public function behaviors()
-    // {
-    //     return [
-    //         'verbs' => [
-    //             'class' => VerbFilter::className(),
-    //             'actions' => [
-    //                 'delete' => ['POST'],
-    //             ],
-    //         ],
-    //     ];
-    // }
-
     public function behaviors()
     {
-	    return [
+        return [
             'access' => [
                 'class' => AccessControl::className(),
                 'user'=>'admin', // this user object defined in web.php
@@ -43,15 +31,22 @@ class AdminController extends Controller
                         'roles' => ['@'],
                     ],
                     [
-                        'allow' => true,
-                        'actions' => ['login'],                    
+                        'allow' => true,         
                         'roles' => ['?'],
 
                     ],
                 ],
-            ]
+            ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
+            ],
         ];
     }
+
+
 
     /**
      * Lists all Admin models.
