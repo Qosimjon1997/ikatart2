@@ -27,7 +27,7 @@ class SalerSignupForm extends Model
             ['email', 'unique', 'targetClass' => '\backend\models\Saler', 'message' => 'This email address has already been taken.'],
 
             ['password', 'required'],
-            ['password', 'string', 'min' => 8],
+            ['password', 'string', 'min' => 12],
         ];
     }
 
