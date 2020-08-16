@@ -61,7 +61,7 @@ class UserLoginForm extends Model
         if ($this->validate()) {
             return Yii::$app->user2->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         }
-        
+
         return false;
     }
 
@@ -73,7 +73,7 @@ class UserLoginForm extends Model
     protected function getUser()
     {
         if ($this->_user === null) {
-            $this->_user = User::findByEmail($this->email);
+            $this->_user = User::findByEmail(strtolower($this->email));
         }
 
         return $this->_user;
