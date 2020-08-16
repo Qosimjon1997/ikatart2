@@ -73,11 +73,6 @@ class SalerController extends Controller
                 ],
             ],
         ];
-
-                    ],
-                ],
-            ]
-        ];
     }
     /**
      * {@inheritdoc}
