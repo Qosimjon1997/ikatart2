@@ -1,26 +1,26 @@
 <?php
 use frontend\assets\CategoryAsset;
+use yii\widgets\Pjax;
+use yii\helpers\Html;
+use yii\helpers\Url;
 CategoryAsset::register($this);
 ?>
-
-<body>
-        <!-- </section> -->
     <p style="margin: auto; color: rgb(8, 2, 83); font-size: 30px;
         text-align: center; font-weight: 500; text-shadow: rgb(128, 253, 11);">Works by regions</p>
-    
+      <?php Pjax::begin(['enablePushState' => false]); ?>
       <div class="row">
         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 blogBox moreBox">
         <div class="slider-box1">
                     <div class="img-box1">
                       <img src="img/load/1.jpg">
                       <p >Uzbek picture</p>
-                    </div> 
+                    </div>
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
-                        <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
+                        <?= Html::a('<i class="fas fa-shopping-cart"></i>', Url::to(['basket/add', 'id' => 3])) ?>
                       </div>
                       <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
@@ -37,14 +37,14 @@ CategoryAsset::register($this);
                       <img src="img/load/2.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
-                        <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
+                        <?= Html::a('<i class="fas fa-shopping-cart"></i>', Url::to(['basket/add', 'id' => 4])) ?>
                       </div>
                       <div class="heart1">
                           <a href="#"><i class="far fa-heart" ></i></a>
@@ -61,10 +61,10 @@ CategoryAsset::register($this);
                       <img src="img/load/3.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart">
@@ -85,10 +85,10 @@ CategoryAsset::register($this);
                       <img src="img/load/4.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -109,10 +109,10 @@ CategoryAsset::register($this);
                       <img src="img/load/5.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -133,10 +133,10 @@ CategoryAsset::register($this);
                       <img src="img/load/6.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -158,10 +158,10 @@ CategoryAsset::register($this);
                       <img src="img/load/7.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -183,10 +183,10 @@ CategoryAsset::register($this);
                       <img src="img/load/8.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -208,10 +208,10 @@ CategoryAsset::register($this);
                       <img src="img/load/9.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -232,10 +232,10 @@ CategoryAsset::register($this);
                       <img src="img/load/10.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -256,10 +256,10 @@ CategoryAsset::register($this);
                       <img src="img/load/11.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -280,10 +280,10 @@ CategoryAsset::register($this);
                       <img src="img/load/12.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -304,10 +304,10 @@ CategoryAsset::register($this);
                       <img src="img/load/13.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -328,10 +328,10 @@ CategoryAsset::register($this);
                       <img src="img/load/14.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -352,10 +352,10 @@ CategoryAsset::register($this);
                       <img src="img/load/15.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -376,10 +376,10 @@ CategoryAsset::register($this);
                       <img src="img/load/16.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -400,10 +400,10 @@ CategoryAsset::register($this);
                       <img src="img/load/17.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -424,10 +424,10 @@ CategoryAsset::register($this);
                       <img src="img/load/18.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -448,10 +448,10 @@ CategoryAsset::register($this);
                       <img src="img/load/19.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -472,10 +472,10 @@ CategoryAsset::register($this);
                       <img src="img/load/20.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -496,10 +496,10 @@ CategoryAsset::register($this);
                       <img src="img/load/17.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -520,10 +520,10 @@ CategoryAsset::register($this);
                       <img src="img/load/18.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -544,10 +544,10 @@ CategoryAsset::register($this);
                       <img src="img/load/19.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -568,10 +568,10 @@ CategoryAsset::register($this);
                       <img src="img/load/20.jpg">
                       <p >Uzbek picture</p>
                     </div>
-                    
-                    
+
+
                      <div class="product1">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart1">
@@ -590,6 +590,7 @@ CategoryAsset::register($this);
           <a href="#">Load More</a>
         </div> -->
       </div>
+      <?php Pjax::end()?>
   <script>
     $(document).ready(function () {
       $(".moreBox").slice(0, 24).show();
@@ -619,4 +620,3 @@ CategoryAsset::register($this);
       });
     });
   </script>
-</body>

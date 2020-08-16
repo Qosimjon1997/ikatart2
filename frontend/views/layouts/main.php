@@ -37,12 +37,13 @@ AppAsset::register($this);
 
         // UserWidget::begin();
         // UserWidget::end();
-        
+
         NavigationWidget::begin();
         NavigationWidget::end();
     ?>
 
     <div class="container m-0 p-0 m-auto">
+        <?= Alert::widget() ?>
         <?= $content ?>
     </div>
 </div>

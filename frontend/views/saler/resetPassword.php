@@ -5,27 +5,41 @@
 /* @var $model \frontend\models\ResetPasswordForm */
 
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 
-$this->title = 'Reset password';
+$this->title = Yii::t('app', 'Reset password');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-reset-password">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please choose your new password:</p>
-
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'reset-password-form']); ?>
-
-                <?= $form->field($model, 'password')->passwordInput(['autofocus' => true]) ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Save', ['class' => 'btn btn-primary']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
+<div class="fadeInDown m-auto">
+  <div id="formContent">
+    <div class="row form-header justify-content-around p-3 align-items-center">
+        <div class="col">
+            <?= Html::tag('h3',  Html::encode($this->title), ['class' => 'text-info']) ?>
         </div>
     </div>
+    <?php $form = ActiveForm::begin([
+        'id' => 'reset-password',
+        'layout' => 'horizontal',
+        'class' => 'form-signin',
+        'fieldConfig' => [
+            'template' => "<div class=\"p-1 col-12 form-label-group text-left\">{input}</div>\n<div>{error}</div>",
+        ],
+    ]); ?>
+
+        <?= $form->field($model, 'password')->passwordInput([
+          'class' => 'form-control',
+          'autofocus' => true,
+          'placeholder' => 'Password']) ?>
+
+        <div class="form-group">
+            <div class="col-12">
+                <?= Html::submitButton($this->title, ['class' => 'btn btn-primary btn-block', 'name' => 'login_button']) ?>
+            </div>
+        </div>
+
+    <?php ActiveForm::end(); ?>
+
+  </div>
 </div>
+

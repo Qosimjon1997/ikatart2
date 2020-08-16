@@ -41,14 +41,14 @@ class SalerSignupForm extends Model
         if (!$this->validate()) {
             return null;
         }
-        
+
         $saler = new Saler();
-        $saler->email = $this->email;
+        $saler->email = strtolower($this->email);
         $saler->setPassword($this->password);
         $saler->generateAuthKey();
         $saler->generateEmailVerificationToken();
-        //return $saler->save() && $this->sendEmail($saler);
-        return $saler->save();
+        return $saler->save() && $this->sendEmail($saler);
+        // return $saler->save();
     }
 
     /**
@@ -58,17 +58,17 @@ class SalerSignupForm extends Model
      */
     protected function sendEmail($saler)
     {
-        /*
+
         return Yii::$app
             ->mailer
             ->compose(
                 ['html' => 'emailVerify-html', 'text' => 'emailVerify-text'],
-                ['user' => $saler]
+                ['user' => $saler, 'isUser' => 0, 'isSaler' => 1]
             )
-            ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])
+            ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name])
             ->setTo($this->email)
             ->setSubject('Account registration at ' . Yii::$app->name)
             ->send();
-            */
+
     }
 }

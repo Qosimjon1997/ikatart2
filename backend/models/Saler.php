@@ -32,6 +32,10 @@ use yii\web\IdentityInterface;
  */
 class Saler extends ActiveRecord implements IdentityInterface
 {
+    const STATUS_DELETED = 0;
+    const STATUS_INACTIVE = 9;
+    const STATUS_ACTIVE = 10;
+
     /**
      * {@inheritdoc}
      */
@@ -46,7 +50,8 @@ class Saler extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['email', 'password'], 'required'],
+            ['status', 'default', 'value' => self::STATUS_INACTIVE],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
             [['status', 'created_at', 'updated_at'], 'integer'],
             [['firstname', 'secondname', 'passport', 'inn', 'email', 'phone'], 'string', 'max' => 45],
             [['password', 'verification_token', 'password_reset_token'], 'string', 'max' => 255],
@@ -122,9 +127,9 @@ class Saler extends ActiveRecord implements IdentityInterface
     /**
      * {@inheritdoc}
      */
-    public static function findIdentity($id)
+public static function findIdentity($id)
     {
-        return static::findOne(['id' => $id]);
+        return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**
@@ -143,7 +148,7 @@ class Saler extends ActiveRecord implements IdentityInterface
      */
     public static function findByEmail($email)
     {
-        return static::findOne(['email' => $email]);
+        return static::findOne(['email' => $email, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**
