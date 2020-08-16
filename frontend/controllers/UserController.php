@@ -26,10 +26,22 @@ class UserController extends Controller
     /**
      * {@inheritdoc}
      */
-    
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['POST'],
+    //             ],
+    //         ],
+    //     ];
+    // }
+
+    	//behaviors of the school
     public function behaviors()
     {
-        return [
+	    return [
             'access' => [
                 'class' => AccessControl::className(),
                 'user' => Yii::$app->user,
@@ -41,12 +53,6 @@ class UserController extends Controller
                         'roles' => ['?'],
                     ],
                     [
-
-                        'allow' => true,         
-                        'roles' => ['?'],
-
-                    ],
-                ],
                         'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
@@ -69,17 +75,13 @@ class UserController extends Controller
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
+            'captcha' => [
+                'class' => 'yii\captcha\CaptchaAction',
+                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
 
     }
-
-
 
     public function actionLogin()
     {
@@ -119,14 +121,6 @@ class UserController extends Controller
     public function actionLogout()
     {
 
-        
-        if(!Yii::$app->user2->isGuest)
-        {
-            Yii::$app->user2->logout();
-            return $this->redirect(['login']);
-        }
-
-
         Yii::$app->user2->logout();
 
         return $this->goHome();
@@ -136,15 +130,12 @@ class UserController extends Controller
     {
         if (!Yii::$app->user2->isGuest) {
 
-
             $userid = Yii::$app->user2->identity->id;
             return $this->render('index',['userid'=>$userid]);
-
         }
-        
+
         $model = new UserSignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
-
 
             Yii::$app->session->setFlash('success', Yii::t('app', 'Thank you for registration. Please check your inbox for verification email.'));
             $model = new UserLoginForm();

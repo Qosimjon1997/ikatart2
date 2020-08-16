@@ -48,10 +48,6 @@ class ProductController extends Controller
                 'dataProvider' => $dataProvider,
             ]);
         }
-        else
-        {
-            return $this->redirect(['//saler/login']);
-        }
         
     }
 
@@ -63,17 +59,9 @@ class ProductController extends Controller
      */
     public function actionView($id)
     {
-        if(!Yii::$app->saler->isGuest)
-        {
-            return $this->render('view', [
-                'model' => $this->findModel($id),
-            ]);
-        }
-        else
-        {
-            return $this->redirect(['//saler/login']);
-        }
-        
+        return $this->render('view', [
+            'model' => $this->findModel($id),
+        ]);
     }
 
     /**
@@ -83,39 +71,29 @@ class ProductController extends Controller
      */
     public function actionCreate()
     {
-        if(!Yii::$app->saler->isGuest)
-        {
+
+        $model = new Product();
+        $modelimage = new UploadImage();
+        $image = new Images();
+        if ($model->load(Yii::$app->request->post())) {
+
+            $model->Saler_id = Yii::$app->saler->id;
+            $model->isActive = 0;
+            $model->save();
+
+            $modelimage->imageFile = UploadedFile::getInstance($model, 'imageFile');
             
-            $model = new Product();
-            $modelimage= new UploadImage();
-            $image = new Images();
-            if ($model->load(Yii::$app->request->post())) {
-
-                $model->Saler_id = Yii::$app->saler->id;
-                $model->isActive = 0;
-                $model->save();
-
-                if (Yii::$app->request->isPost) {
-                    $modelimage->imageFile = UploadedFile::getInstance($modelimage, 'imageFile');
-                    $image->path = $modelimage->upload();
-                    $image->main = 1;
-                    $image->product_id = $model->id;
-                    $image->save();
-                }
-                return $this->redirect(['index']);
-    
-            }
-
-            return $this->render('create', [
-                'model' => $model,
-                'modelimage' =>$modelimage,
-            ]);
+            $image->path=$modelimage->upload();
+            $image->product_id = $model->id;
+            $image->main=1;
+            $image->save();
+                // file is uploaded successfull 
         }
-        else
-        {
-            return $this->redirect(['//saler/login']);
-        }
-        
+
+        return $this->render('create', [
+            'model' => $model,
+            'modelimage' =>$modelimage,
+        ]);
     }
 
     /**
@@ -127,26 +105,15 @@ class ProductController extends Controller
      */
     public function actionUpdate($id)
     {
-        if(!Yii::$app->saler->isGuest)
-        {
-            
-            $model = $this->findModel($id);
+        $model = $this->findModel($id);
 
-            if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }  
-            
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
 
-            return $this->render('update', [
-                'model' => $model,
-            ]);
-        }
-        else
-        {
-            return $this->redirect(['//saler/login']);
-        }
-        
-        
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -158,21 +125,9 @@ class ProductController extends Controller
      */
     public function actionDelete($id)
     {
-        if(!Yii::$app->saler->isGuest)
-        {           
-            $model = $this->findModel($id);
+        $this->findModel($id)->delete();
 
-            $model->isActive = 0;
-            $model->save(); 
-
-            return $this->redirect(['index']);
-        }
-        else
-        {
-            return $this->redirect(['//saler/login']);
-        }
-        
-        
+        return $this->redirect(['index']);
     }
 
     /**

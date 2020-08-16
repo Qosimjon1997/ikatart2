@@ -8,20 +8,10 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
-
-    //'language' => 'en',
-
     'name' => 'Ikat-art',
     'language' => 'en',
-
     'basePath' => dirname(__DIR__),
-    'bootstrap' => [
-        'log',
-        [
-            'class' => 'frontend\components\LanguageSelector',
-            'supportedLanguages' => ['ru', 'en'],
-        ],    
-    ],
+    'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
