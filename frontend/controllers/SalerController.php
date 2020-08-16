@@ -73,7 +73,11 @@ class SalerController extends Controller
                     [
                         'allow' => true,
                         // 'actions' => ['login'],
-                    'roles' => ['?'],
+                        'roles' => ['?'],
+                    ],
+                ],
+            ],
+        ];
 
         if(isset($_POST['lan'])) {
 
@@ -192,7 +196,7 @@ class SalerController extends Controller
         }
         else
         {
-            return redirect(['login']);
+            return $this->redirect(['login']);
         }        
         
 
