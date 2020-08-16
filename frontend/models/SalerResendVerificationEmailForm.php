@@ -4,10 +4,10 @@
 namespace frontend\models;
 
 use Yii;
-use backend\models\User;
+use backend\models\Saler;
 use yii\base\Model;
 
-class ResendVerificationEmailForm extends Model
+class SalerResendVerificationEmailForm extends Model
 {
     /**
      * @var string
@@ -25,9 +25,9 @@ class ResendVerificationEmailForm extends Model
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'exist',
-                'targetClass' => '\backend\models\User',
-                'filter' => ['status' => User::STATUS_INACTIVE],
-                'message' => 'There is no user with this email address.'
+                'targetClass' => '\backend\models\Saler',
+                'filter' => ['status' => Saler::STATUS_INACTIVE],
+                'message' => 'There is no saler with this email address.'
             ],
         ];
     }
@@ -39,12 +39,12 @@ class ResendVerificationEmailForm extends Model
      */
     public function sendEmail()
     {
-        $user = User::findOne([
+        $saler = Saler::findOne([
             'email' => $this->email,
-            'status' => User::STATUS_INACTIVE
+            'status' => Saler::STATUS_INACTIVE
         ]);
 
-        if ($user === null) {
+        if ($saler === null) {
             return false;
         }
 
@@ -52,7 +52,7 @@ class ResendVerificationEmailForm extends Model
             ->mailer
             ->compose(
                 ['html' => 'emailVerify-html', 'text' => 'emailVerify-text'],
-                ['user' => $user, 'isUser' => 1, 'isSaler' => 0],
+                ['user' => $saler, 'isUser' => 0, 'isSaler' => 1]
             )
             ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name])
             ->setTo($this->email)

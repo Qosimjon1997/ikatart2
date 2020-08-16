@@ -41,15 +41,14 @@ class UserSignupForm extends Model
         if (!$this->validate()) {
             return null;
         }
-        
+
         $user = new User();
-        $user->email = $this->email;
+        $user->email = strtolower($this->email);
         $user->setPassword($this->password);
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
-        //return $saler->save() && $this->sendEmail($saler);       
-        
-        return $user->save();
+
+        return $user->save() && $this->sendEmail($user);
     }
 
     /**
@@ -57,19 +56,17 @@ class UserSignupForm extends Model
      * @param User $user user model to with email should be send
      * @return bool whether the email was sent
      */
-    protected function sendEmail($saler)
+    protected function sendEmail($user)
     {
-        /*
         return Yii::$app
             ->mailer
             ->compose(
                 ['html' => 'emailVerify-html', 'text' => 'emailVerify-text'],
-                ['user' => $saler]
+                ['user' => $user, 'isUser' => 1, 'isSaler' => 0],
             )
-            ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])
+            ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name])
             ->setTo($this->email)
             ->setSubject('Account registration at ' . Yii::$app->name)
             ->send();
-            */
     }
 }
