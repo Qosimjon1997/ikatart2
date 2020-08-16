@@ -68,7 +68,11 @@ class SalerController extends Controller
                     [
                         'allow' => true,
                         // 'actions' => ['login'],
-                    'roles' => ['?'],
+                        'roles' => ['?'],
+                    ],
+                ],
+            ],
+        ];
 
                     ],
                 ],
@@ -145,12 +149,34 @@ class SalerController extends Controller
      * @return mixed
      */
     public function actionLogout()
+    {   
+        if(!Yii::$app->saler->isGuest)
+        {
+            Yii::$app->saler->logout();
+            return $this->goHome();
+        }
+        
+    }
+
+    public function actionChangepass()
     {
-
-        Yii::$app->saler->logout();
-
-        return $this->goHome();
-
+        if (!Yii::$app->saler->isGuest) {
+           
+            $model = new SalerResetpassForm();
+            if ($model->load(Yii::$app->request->post()) && $model->check()) {
+                return $this->render('index',['salerid'=>'All good']);
+            } 
+            else {
+                $model->password = '';
+                return $this->render('login', [
+                'model' => $model,
+                ]);
+            }
+        }
+        else
+        {
+            return $this->redirect(['login']);
+        }        
     }
 
 
