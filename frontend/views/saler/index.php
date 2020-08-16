@@ -1,14 +1,5 @@
 <?php
 
-/* @var $this yii\web\View */
-
-use yii\helpers\Url;
-use yii\helpers\Html;
-use kartik\tabs\TabsX;
-
-$this->title = Yii::t('app', 'Welcome!');
-
-$val = strtolower(Yii::$app->language);
 
 ?>
 

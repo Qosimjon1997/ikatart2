@@ -21,6 +21,18 @@ class WorkersController extends Controller
     /**
      * {@inheritdoc}
      */
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['POST'],
+    //             ],
+    //         ],
+    //     ];
+    // }
+
     public function behaviors()
     {
         return [
@@ -33,21 +45,15 @@ class WorkersController extends Controller
                         'roles' => ['@'],
                     ],
                     [
-                        'allow' => true,                
+                        'allow' => true,
+                        'actions' => ['login'],                    
                         'roles' => ['?'],
     
                     ],
                 ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
+            ]
         ];
     }
-
 
     public function beforeAction($action)
     {

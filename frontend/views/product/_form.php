@@ -10,7 +10,7 @@ use yii\helpers\ArrayHelper;
 /* @var $model app\models\Product */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-
+<?php print_r($modelimage->getErrors()) ?>
 <div class="product-form">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
