@@ -25,37 +25,42 @@ class SalerController extends Controller
     /**
      * {@inheritdoc}
      */
-    /*public function behaviors()
+    
+
+    public function behaviors()
     {
-        return [
+	    return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
+                'user'=>'saler', // this user object defined in web.php
                 'rules' => [
                     [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
+                    ],
+                    [
+                        'allow' => true,         
+                        'roles' => ['?'],
+
                     ],
                 ],
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'delete' => ['POST'],
                 ],
             ],
         ];
     }
-    */
 
-    public function behaviors()
+    public function beforeAction($action)
     {
+
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+
 	    return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -70,16 +75,29 @@ class SalerController extends Controller
                         // 'actions' => ['login'],
                     'roles' => ['?'],
 
-                    ],
-                ],
-            ]
-        ];
+        if(isset($_POST['lan'])) {
+
+            $language = $_POST['lan'];
+            Yii::$app->language = $language;
+
+            $languageCookie = new \yii\web\Cookie([
+                'name' => 'language',
+                'value' => $language,
+                'expire' => time() + 60 * 60 * 24 * 30, // 30 days
+            ]);
+            \Yii::$app->response->cookies->add($languageCookie);
+        }
+
+        return true; // or false to not run the action
     }
+
+
     /**
      * {@inheritdoc}
      */
     public function actions()
     {
+
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
@@ -89,6 +107,7 @@ class SalerController extends Controller
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
+
     }
 
     /**
@@ -146,6 +165,37 @@ class SalerController extends Controller
      */
     public function actionLogout()
     {
+
+        
+        if(!Yii::$app->saler->isGuest)
+        {
+            Yii::$app->saler->logout();
+            return $this->redirect(['index']);
+        }
+        
+    }
+
+    public function actionChangepass()
+    {
+        if (!Yii::$app->saler->isGuest) {
+           
+            $model = new SalerResetpassForm();
+            if ($model->load(Yii::$app->request->post()) && $model->check()) {
+                return $this->render('index',['salerid'=>'All good']);
+            } 
+            else {
+                $model->password = '';
+                return $this->render('login', [
+                'model' => $model,
+                ]);
+            }
+        }
+        else
+        {
+            return redirect(['login']);
+        }        
+        
+
 
         Yii::$app->saler->logout();
 
