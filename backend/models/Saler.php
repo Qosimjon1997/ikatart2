@@ -36,6 +36,9 @@ class Saler extends ActiveRecord implements IdentityInterface
     const STATUS_INACTIVE = 9;
     const STATUS_ACTIVE = 10;
 
+
+
+
     /**
      * {@inheritdoc}
      */
@@ -58,8 +61,12 @@ class Saler extends ActiveRecord implements IdentityInterface
             [['auth_key'], 'string', 'max' => 32],
             [['email'], 'unique'],
             [['password_reset_token'], 'unique'],
+            
+            
         ];
     }
+
+
 
     /**
      * {@inheritdoc}
