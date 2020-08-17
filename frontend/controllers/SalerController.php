@@ -17,6 +17,8 @@ use backend\models\Saler;
 use frontend\models\SalerLoginForm;
 use frontend\models\SalerSignupForm;
 
+use frontend\models\SalerResetpassForm;
+
 /**
  * Site controller
  */
@@ -157,21 +159,21 @@ class SalerController extends Controller
     {
         if (!Yii::$app->saler->isGuest) {
 
-            $model = new SalerResetpassForm();
-            if ($model->load(Yii::$app->request->post()) && $model->check()) {
-                return $this->render('index',['salerid'=>'All good']);
+            $model=new SalerResetpassForm();
+            
+            if($model->load(Yii::$app->request->post()) && $model->validate())
+            {
+                
+                Yii::$app->session->setFlash('success', "Password reseted"); 
             }
-            else {
-                $model->password = '';
-                return $this->render('login', [
-                'model' => $model,
-                ]);
-            }
+            
         }
         else
         {
             return $this->redirect(['login']);
         }
+
+
     }
 
 
