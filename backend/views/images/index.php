@@ -26,14 +26,34 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'path',
+            'product.name',
             'main',
-            'product_id',
-            'advert_id',
-            //'saler_id',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'attribute' => 'path',
+                'format' => 'html',
+                'value' => function($data) {
+                    return Html::img('/backend/web/upimages/'. $data->path, ['alt' => $data->path, 'class' => 'index-image']);
+                }
+            ],
+
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{update} {delete}',
+                'buttons' => [
+                    'update' => function ($url, $model) {
+                        return Html::a('<span class="fa fa-pen"></span>', $url, [
+                                    'title' => Yii::t('app', 'Update'),
+                        ]);
+                    },
+
+                    'delete' => function ($url, $model) {
+                        return Html::a('<span class="fa fa-trash"></span>', $url, [
+                                    'title' => Yii::t('app', 'Delete'), 'data-method' => 'post',
+                        ]);
+                    }
+                ],
+            ],
         ],
     ]); ?>
 

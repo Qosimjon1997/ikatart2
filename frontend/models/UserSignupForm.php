@@ -24,7 +24,7 @@ class UserSignupForm extends Model
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\backend\models\Saler', 'message' => 'This email address has already been taken.'],
+            ['email', 'unique', 'targetClass' => '\backend\models\User', 'message' => 'This email address has already been taken.'],
 
             ['password', 'required'],
             ['password', 'string', 'min' => 12],
@@ -41,16 +41,14 @@ class UserSignupForm extends Model
         if (!$this->validate()) {
             return null;
         }
-        
-        $saler = new User();
-        $saler->email = $this->email;
-        $saler->setPassword($this->password);
-        $saler->generateAuthKey();
-        $saler->generateEmailVerificationToken();
-        //return $saler->save() && $this->sendEmail($saler);
-        
-        $saler->save();
-        return render('1');
+
+        $user = new User();
+        $user->email = strtolower($this->email);
+        $user->setPassword($this->password);
+        $user->generateAuthKey();
+        $user->generateEmailVerificationToken();
+
+        return $user->save() && $this->sendEmail($user);
     }
 
     /**
@@ -58,19 +56,17 @@ class UserSignupForm extends Model
      * @param User $user user model to with email should be send
      * @return bool whether the email was sent
      */
-    protected function sendEmail($saler)
+    protected function sendEmail($user)
     {
-        /*
         return Yii::$app
             ->mailer
             ->compose(
                 ['html' => 'emailVerify-html', 'text' => 'emailVerify-text'],
-                ['user' => $saler]
+                ['user' => $user, 'isUser' => 1, 'isSaler' => 0],
             )
-            ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])
+            ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name])
             ->setTo($this->email)
             ->setSubject('Account registration at ' . Yii::$app->name)
             ->send();
-            */
     }
 }

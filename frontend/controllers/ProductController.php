@@ -38,13 +38,17 @@ class ProductController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new ProductSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams,1);
+        if(!Yii::$app->saler->isGuest)
+        {
+            $searchModel = new ProductSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams,1,Yii::$app->saler->id);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+            return $this->render('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        }
+        
     }
 
     /**
@@ -72,8 +76,7 @@ class ProductController extends Controller
         $modelimage = new UploadImage();
         $image = new Images();
         if ($model->load(Yii::$app->request->post())) {
-            //$model->oldprice=$this->model->price;
-            //$model->percent='0';
+
             $model->Saler_id = Yii::$app->saler->id;
             $model->isActive = 0;
             $model->save();

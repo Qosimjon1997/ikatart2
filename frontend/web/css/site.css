@@ -13,5 +13,79 @@ body {
     height: auto;
     margin: auto;
     padding: 0;
-    /* justify-content: center; */
+
 }
+
+#formContent {
+  -webkit-border-radius: 10px;
+  /*overflow: hidden;*/
+  position: relative;
+  border-radius: 10px;
+  background: #fff;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 10px 30px 16px;
+  margin: 100px auto;
+  /*margin-top: 120px;*/
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.button-block {
+  width: 100%;
+  padding: 0;
+}
+
+/* Simple CSS3 Fade-in-down Animation */
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.logo {
+  width: 70%;
+  margin: auto;
+  padding-bottom: 8px;
+  position: absolute;
+  top: -150px;
+  left: 80px;
+}
+
+
+/*.form-header {
+	margin-top: -40px;
+	border-radius: 5px;
+}*/
+

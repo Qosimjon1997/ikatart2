@@ -16,7 +16,7 @@ class UploadImage extends Model
     public function rules()
     {
         return [
-            [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
+            [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
         ];
     }
 
@@ -33,5 +33,15 @@ class UploadImage extends Model
             $this->imageFile->saveAs(Yii::getAlias('@backend') . '/web/upimages/' . $name);
         }
         return $name;
+    }
+
+    public function delete($name) {
+        $path = Yii::getAlias('@backend') . '/web/upimages/' . $name;
+        if (file_exists($path)) {
+            if(unlink($path)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

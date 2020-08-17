@@ -1,6 +1,8 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
+use backend\models\Product;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
@@ -12,15 +14,34 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'path')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'main')->textInput() ?>
 
-    <?= $form->field($model, 'product_id')->textInput() ?>
+    <div class="row justify-content-between">
+        <div class="col-12">
+            <?= $form->field($model, 'product_id')->dropDownList(ArrayHelper::map(Product::find()->all(), 'id', 'name')) ?>
+        </div>
 
-    <?= $form->field($model, 'advert_id')->textInput() ?>
+        <div class="col-12 col-md-4 row flex-column justify-content-between p-3 form-group">
+            <?= $form->field($img, 'imageFile')->fileInput([
+                'class' => 'col-12',
+                'onchange' => "loadFile(event)",
+                // 'required' => true,
+            ])->label('') ?>
+            <?= $form->field($model, 'main')->checkbox(['class' => 'm-3']) ?>
+        </div>
 
-    <?= $form->field($model, 'saler_id')->textInput() ?>
+        <div class="col-12 col-md-4 preview">
+            <?php
+                if(isset($model->path)) {
+                    echo '<img id="img" src="/backend/web/upimages/' . $model->path . '">';
+                }
+                else {
+                    echo '<img id="img" src="/backend/web/img/upload.png">';
+                }
+            ?>
+        </div>
+
+    </div>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

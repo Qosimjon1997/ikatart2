@@ -13,13 +13,16 @@ use Yii;
  *
  * @property Categorylanguages[] $categorylanguages
  * @property Productlanguages[] $productlanguages
+ * @property Productnamelanguages[] $productnamelanguages
  * @property Salarhistorylanguages[] $salarhistorylanguages
  */
 class Language extends \yii\db\ActiveRecord
 {
+
     public $names = [];
     public $info = [];
     public $languages;
+
     /**
      * {@inheritdoc}
      */
@@ -77,6 +80,16 @@ class Language extends \yii\db\ActiveRecord
     }
 
     /**
+     * Gets query for [[Productnamelanguages]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProductnamelanguages()
+    {
+        return $this->hasMany(Productnamelanguages::className(), ['language_id' => 'id']);
+    }
+
+    /**
      * Gets query for [[Salarhistorylanguages]].
      *
      * @return \yii\db\ActiveQuery
@@ -86,6 +99,7 @@ class Language extends \yii\db\ActiveRecord
         return $this->hasMany(Salarhistorylanguages::className(), ['language_id' => 'id']);
     }
 
+    
     public function getNameLanguages($name = null) {
         foreach ($this->languages as $lang) {
 
@@ -115,4 +129,6 @@ class Language extends \yii\db\ActiveRecord
             }
         }
     }
+
+    
 }

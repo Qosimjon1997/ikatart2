@@ -2,7 +2,7 @@
 use frontend\assets\NavigationAsset;
 NavigationAsset::register($this);
 ?>
-<body>
+
 <header class="men">
        <div class="header-area">
             <div class="main-header ">
@@ -16,8 +16,8 @@ NavigationAsset::register($this);
                             </div>
                             <div class="col-lg-7 col-md-6 col-sm-4 col-xl-8 main-menu" id="nav" >
                                 <div class="main-menu">
-                                    <nav>                                                
-                                        <ul id="navigation">                                                                                                                                     
+                                    <nav>
+                                        <ul id="navigation">
                                             <li><a href="#">Interior Decorating Items</a>
                                                 <ul class="submenu" id="nav">
                                                     <table class="sub-tab">
@@ -42,7 +42,7 @@ NavigationAsset::register($this);
                                                             <a href="#"> <div class="sub-cat" style="background: url(./img/menu/1.jpg);"></div></a>
                                                            <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
-                                                                    <p>$40.00</p> 
+                                                                    <p>$40.00</p>
                                                                 </div>
                                                                 <div class="icon-panel1">
                                                                 <div class="cart1">
@@ -65,7 +65,7 @@ NavigationAsset::register($this);
                                                             <a href="#"> <div class="sub-cat" style="background: url(./img/menu/2.jpg);"></div> </a>
                                                             <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
-                                                                    <p>$40.00</p> 
+                                                                    <p>$40.00</p>
                                                                 </div>
                                                                 <div class="icon-panel1">
                                                                 <div class="cart1">
@@ -89,7 +89,7 @@ NavigationAsset::register($this);
                                                                 <div class="sub-cat" style="background: url(./img/menu/3.jpg);"></div></a>
                                                                 <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                                 <div class="product1">
-                                                                    <p>$40.00</p> 
+                                                                    <p>$40.00</p>
                                                                 </div>
                                                                 <div class="icon-panel1">
                                                                 <div class="cart1">
@@ -125,7 +125,7 @@ NavigationAsset::register($this);
                                                             <a href="#"> <div class="sub-cat" style="background: url(./img/menu/1.jpg);"></div></a>
                                                            <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
-                                                                    <p>$40.00</p> 
+                                                                    <p>$40.00</p>
                                                                 </div>
                                                                 <div class="icon-panel1">
                                                                 <div class="cart1">
@@ -148,7 +148,7 @@ NavigationAsset::register($this);
                                                             <a href="#"> <div class="sub-cat" style="background: url(./img/menu/2.jpg);"></div> </a>
                                                             <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
-                                                                    <p>$40.00</p> 
+                                                                    <p>$40.00</p>
                                                                 </div>
                                                                 <div class="icon-panel1">
                                                                 <div class="cart1">
@@ -172,7 +172,7 @@ NavigationAsset::register($this);
                                                                 <div class="sub-cat" style="background: url(/img/menu/3.jpg);"></div></a>
                                                                 <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                                 <div class="product1">
-                                                                    <p>$40.00</p> 
+                                                                    <p>$40.00</p>
                                                                 </div>
                                                                 <div class="icon-panel">
                                                                 <div class="cart1">
@@ -195,7 +195,7 @@ NavigationAsset::register($this);
                                                             <a href="#"> <div class="sub-cat" style="background: url(/img/menu/2.jpg);"></div> </a>
                                                             <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
-                                                                    <p>$40.00</p> 
+                                                                    <p>$40.00</p>
                                                                 </div>
                                                                 <div class="icon-panel1">
                                                                 <div class="cart1">
@@ -230,7 +230,7 @@ NavigationAsset::register($this);
                                                             <a href="#"> <div class="sub-cat" style="background: url(/img/menu/1.jpg);"></div></a>
                                                            <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
-                                                                    <p>$40.00</p> 
+                                                                    <p>$40.00</p>
                                                                 </div>
                                                                 <div class="icon-panel1">
                                                                 <div class="cart1">
@@ -253,7 +253,7 @@ NavigationAsset::register($this);
                                                             <a href="#"> <div class="sub-cat" style="background: url(/img/menu/2.jpg);"></div> </a>
                                                             <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
-                                                                    <p>$40.00</p> 
+                                                                    <p>$40.00</p>
                                                                 </div>
                                                                 <div class="icon-panel1">
                                                                 <div class="cart1">
@@ -277,7 +277,7 @@ NavigationAsset::register($this);
                                                                 <div class="sub-cat" style="background: url(/img/menu/3.jpg);"></div></a>
                                                                 <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                                 <div class="product1">
-                                                                    <p>$40.00</p> 
+                                                                    <p>$40.00</p>
                                                                 </div>
                                                                 <div class="icon-panel1">
                                                                 <div class="cart1">
@@ -300,7 +300,7 @@ NavigationAsset::register($this);
                                                             <a href="#"> <div class="sub-cat" style="background: url(/img/menu/2.jpg);"></div> </a>
                                                             <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
-                                                                    <p>$40.00</p> 
+                                                                    <p>$40.00</p>
                                                                 </div>
                                                                 <div class="icon-panel1">
                                                                 <div class="cart1">
@@ -338,7 +338,7 @@ NavigationAsset::register($this);
                                                             <a href="#"> <div class="sub-cat" style="background: url(/img/menu/1.jpg);"></div></a>
                                                            <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
-                                                                    <p>$40.00</p> 
+                                                                    <p>$40.00</p>
                                                                 </div>
                                                                 <div class="icon-panel1">
                                                                 <div class="cart1">
@@ -361,7 +361,7 @@ NavigationAsset::register($this);
                                                             <a href="#"> <div class="sub-cat" style="background: url(/img/menu/2.jpg);"></div> </a>
                                                             <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
-                                                                    <p>$40.00</p> 
+                                                                    <p>$40.00</p>
                                                                 </div>
                                                                 <div class="icon-panel1">
                                                                 <div class="cart1">
@@ -385,7 +385,7 @@ NavigationAsset::register($this);
                                                                 <div class="sub-cat" style="background: url(/img/menu/3.jpg);"></div></a>
                                                                 <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                                 <div class="product1">
-                                                                    <p>$40.00</p> 
+                                                                    <p>$40.00</p>
                                                                 </div>
                                                                 <div class="icon-panel1">
                                                                 <div class="cart1">
@@ -408,7 +408,7 @@ NavigationAsset::register($this);
                                                             <a href="#"> <div class="sub-cat" style="background: url(/img/menu/2.jpg);"></div> </a>
                                                             <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
-                                                                    <p>$40.00</p> 
+                                                                    <p>$40.00</p>
                                                                 </div>
                                                                 <div class="icon-panel1">
                                                                 <div class="cart1">
@@ -447,7 +447,7 @@ NavigationAsset::register($this);
                                                             <a href="#"> <div class="sub-cat" style="background: url(/img/menu/1.jpg);"></div></a>
                                                            <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
-                                                                    <p>$40.00</p> 
+                                                                    <p>$40.00</p>
                                                                 </div>
                                                                 <div class="icon-panel1">
                                                                 <div class="cart1">
@@ -470,7 +470,7 @@ NavigationAsset::register($this);
                                                             <a href="#"> <div class="sub-cat" style="background: url(/img/menu/2.jpg);"></div> </a>
                                                             <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
-                                                                    <p>$40.00</p> 
+                                                                    <p>$40.00</p>
                                                                 </div>
                                                                 <div class="icon-panel1">
                                                                 <div class="cart1">
@@ -494,7 +494,7 @@ NavigationAsset::register($this);
                                                                 <div class="sub-cat" style="background: url(/img/menu/3.jpg);"></div></a>
                                                                 <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                                 <div class="product1">
-                                                                    <p>$40.00</p> 
+                                                                    <p>$40.00</p>
                                                                 </div>
                                                                 <div class="icon-panel1">
                                                                 <div class="cart1">
@@ -517,7 +517,7 @@ NavigationAsset::register($this);
                                                             <a href="#"> <div class="sub-cat" style="background: url(/img/menu/2.jpg);"></div> </a>
                                                             <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
-                                                                    <p>$40.00</p> 
+                                                                    <p>$40.00</p>
                                                                 </div>
                                                                 <div class="icon-panel1">
                                                                 <div class="cart1">
@@ -541,8 +541,11 @@ NavigationAsset::register($this);
                                         </ul>
                                     </nav>
                                 </div>
+
                             </div> 
                             <div  class="col-lg-5 col-md-6 col-sm-8 col-xl-4 col-xs-10">
+
+
                                 <ul class="header-right">
                                  <div class="row">
                                     <li>
@@ -560,7 +563,7 @@ NavigationAsset::register($this);
                                     </li>
                                     <li>
                                         <div class="shopping-card" style="top: 5px">
-                                            <a href="cart.html"><i class="fas fa-shopping-cart" style="background: rgb(255, 255, 255);"></i></a>
+                                            <a href="cart.html"><i class="fas fa-shopping" style="background: rgb(255, 255, 255);"></i></a>
                                         </div>
                                     </li>
                                  </div>
@@ -572,12 +575,4 @@ NavigationAsset::register($this);
             </div>
        </div>
      </header>
-     <script>
-         function navbars()
-         {
-             var modal = document.getElementById("nav");
-             modal.style.display= "block";
-         }
-     </script>
-</body>
-   
+

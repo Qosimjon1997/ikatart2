@@ -1,15 +1,15 @@
 <?php
 
-namespace app\models;
+namespace backend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Product;
+use backend\models\Duration;
 
 /**
- * ProductSearch represents the model behind the search form of `app\models\Product`.
+ * DurationSearch represents the model behind the search form of `backend\models\Duration`.
  */
-class ProductSearch extends Product
+class DurationSearch extends Duration
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,7 @@ class ProductSearch extends Product
     public function rules()
     {
         return [
-            [['id', 'price', 'oldprice', 'percent', 'Saler_id', 'category_id', 'isActive', 'mass_id'], 'integer'],
-            [['name', 'info'], 'safe'],
+            [['id', 'day', 'zone_id', 'posttype_id'], 'integer'],
         ];
     }
 
@@ -40,7 +39,9 @@ class ProductSearch extends Product
      */
     public function search($params)
     {
-        $query = Product::find();
+        $query = Duration::find()
+            ->joinWith('zone')
+            ->joinWith('posttype');
 
         // add conditions that should always apply here
 
@@ -49,6 +50,16 @@ class ProductSearch extends Product
         ]);
 
         $this->load($params);
+
+        $dataProvider->sort->attributes['zone.zone'] = [
+            'asc' => ['zone.zone' => SORT_ASC],
+            'desc' => ['zone.zone' => SORT_DESC]
+        ];
+
+        $dataProvider->sort->attributes['posttype.name'] = [
+            'asc' => ['posttype.name' => SORT_ASC],
+            'desc' => ['posttype.name' => SORT_DESC]
+        ];
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
@@ -59,17 +70,10 @@ class ProductSearch extends Product
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'price' => $this->price,
-            'oldprice' => $this->oldprice,
-            'percent' => $this->percent,
-            'Saler_id' => $this->Saler_id,
-            'category_id' => $this->category_id,
-            'isActive' => $this->isActive,
-            'mass_id' => $this->mass_id,
+            'day' => $this->day,
+            'zone_id' => $this->zone_id,
+            'posttype_id' => $this->posttype_id,
         ]);
-
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'info', $this->info]);
 
         return $dataProvider;
     }

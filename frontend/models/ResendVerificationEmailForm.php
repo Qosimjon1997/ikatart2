@@ -4,7 +4,7 @@
 namespace frontend\models;
 
 use Yii;
-use common\models\User;
+use backend\models\User;
 use yii\base\Model;
 
 class ResendVerificationEmailForm extends Model
@@ -25,7 +25,7 @@ class ResendVerificationEmailForm extends Model
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'exist',
-                'targetClass' => '\common\models\User',
+                'targetClass' => '\backend\models\User',
                 'filter' => ['status' => User::STATUS_INACTIVE],
                 'message' => 'There is no user with this email address.'
             ],
@@ -52,9 +52,9 @@ class ResendVerificationEmailForm extends Model
             ->mailer
             ->compose(
                 ['html' => 'emailVerify-html', 'text' => 'emailVerify-text'],
-                ['user' => $user]
+                ['user' => $user, 'isUser' => 1, 'isSaler' => 0],
             )
-            ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])
+            ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name])
             ->setTo($this->email)
             ->setSubject('Account registration at ' . Yii::$app->name)
             ->send();

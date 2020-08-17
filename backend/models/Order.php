@@ -34,7 +34,7 @@ class Order extends \yii\db\ActiveRecord
             [['date'], 'safe'],
             [['zipcode'], 'string'],
             [['basket_id', 'address_id', 'totalcost', 'isActive'], 'integer'],
-            [['basket_id'], 'exist', 'skipOnError' => true, 'targetClass' => Basket::className(), 'targetAttribute' => ['basket_id' => 'id']],
+            [['basket_id'], 'unique', 'exist', 'skipOnError' => true, 'targetClass' => Basket::className(), 'targetAttribute' => ['basket_id' => 'id']],
         ];
     }
 

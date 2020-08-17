@@ -3,6 +3,9 @@
 namespace backend\models;
 
 use Yii;
+use yii\db\ActiveRecord;
+use yii\web\IdentityInterface;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "user".
@@ -25,14 +28,29 @@ use Yii;
  * @property Basket[] $baskets
  * @property Cards[] $cards
  */
-class User extends \yii\db\ActiveRecord
+class User extends ActiveRecord implements IdentityInterface
 {
+    const STATUS_DELETED = 0;
+    const STATUS_INACTIVE = 9;
+    const STATUS_ACTIVE = 10;
+
+
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'user';
+        return '{{%user}}';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
     }
 
     /**
@@ -41,13 +59,8 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['auth_key', 'password', 'email', 'created_at', 'updated_at', 'firstname', 'secondname', 'zipcode'], 'required'],
-            [['status', 'created_at', 'updated_at', 'zipcode'], 'integer'],
-            [['auth_key'], 'string', 'max' => 32],
-            [['password', 'password_reset_token', 'email', 'verification_token', 'firstname', 'secondname'], 'string', 'max' => 255],
-            [['phone'], 'string', 'max' => 45],
-            [['email'], 'unique'],
-            [['password_reset_token'], 'unique'],
+            ['status', 'default', 'value' => self::STATUS_INACTIVE],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
         ];
     }
 
@@ -103,14 +116,12 @@ class User extends \yii\db\ActiveRecord
         return $this->hasMany(Cards::className(), ['user_id' => 'id']);
     }
 
-
-    
     /**
      * {@inheritdoc}
      */
     public static function findIdentity($id)
     {
-        return static::findOne(['id' => $id]);
+        return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**
@@ -129,7 +140,7 @@ class User extends \yii\db\ActiveRecord
      */
     public static function findByEmail($email)
     {
-        return static::findOne(['email' => $email]);
+        return static::findOne(['email' => $email, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**
@@ -257,5 +268,4 @@ class User extends \yii\db\ActiveRecord
         $this->password_reset_token = null;
     }
 
-    
 }

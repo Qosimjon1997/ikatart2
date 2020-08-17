@@ -8,6 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
+    'name' => 'Ikat-art',
     'language' => 'en',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -18,20 +19,27 @@ return [
             //'baseUrl' => '',
         ],
         'user' => [
+            'class'=>'yii\web\User',
             'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
+            'authTimeout' => 60*30,
+            'loginUrl' => ['dashboard/login'],
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
         ],
         'user2' => [
             'class'=>'yii\web\User',
             'identityClass' => 'backend\models\User',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
+            'authTimeout' => 60*30,
+            'loginUrl' => ['user/login'],
             'identityCookie' => ['name' => '_identity-frontend-user2', 'httpOnly' => true],
         ],
         'saler' => [
             'class'=>'yii\web\User',
             'identityClass' => 'backend\models\Saler',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
+            'authTimeout' => 60*30,
+            'loginUrl' => ['saler/login'],
             'identityCookie' => ['name' => '_identity-frontend-saler', 'httpOnly' => true],
         ],
         'session' => [
@@ -50,7 +58,8 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*'urlManager' => [
+        /*
+        'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [

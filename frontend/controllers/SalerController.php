@@ -1,7 +1,10 @@
 <?php
 namespace frontend\controllers;
 
-
+use frontend\models\SalerResendVerificationEmailForm;
+use frontend\models\SalerPasswordResetRequestForm;
+use frontend\models\SalerResetPasswordForm;
+use frontend\models\SalerVerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
@@ -50,12 +53,32 @@ class SalerController extends Controller
         ];
     }
     */
+
+    public function behaviors()
+    {
+	    return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'user'=>'saler', // this user object defined in web.php
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    [
+                        'allow' => true,
+                        // 'actions' => ['login'],
+                        'roles' => ['?'],
+                    ],
+                ],
+            ],
+        ];
+    }
     /**
      * {@inheritdoc}
      */
     public function actions()
     {
-        /*
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
@@ -65,7 +88,6 @@ class SalerController extends Controller
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
-        */
     }
 
     /**
@@ -74,7 +96,7 @@ class SalerController extends Controller
      * @return mixed
      */
 
-    public $layout='salerlayout';
+    // public $layout='salerlayout';
 
     public function actionIndex()
     {
@@ -85,9 +107,9 @@ class SalerController extends Controller
         }
         else
         {
-            return $this->render('login');
+            return $this->redirect(['login']);
         }
-        
+
     }
 
     /**
@@ -97,7 +119,7 @@ class SalerController extends Controller
      */
     public function actionLogin()
     {
-        
+
         if (!Yii::$app->saler->isGuest) {
 
             $salerid = Yii::$app->saler->id;
@@ -123,11 +145,33 @@ class SalerController extends Controller
      */
     public function actionLogout()
     {
-        
-        Yii::$app->saler->logout();
+        if(!Yii::$app->saler->isGuest)
+        {
+            Yii::$app->saler->logout();
+            return $this->goHome();
+        }
 
-        return $this->render('login');
-        
+    }
+
+    public function actionChangepass()
+    {
+        if (!Yii::$app->saler->isGuest) {
+
+            $model = new SalerResetpassForm();
+            if ($model->load(Yii::$app->request->post()) && $model->check()) {
+                return $this->render('index',['salerid'=>'All good']);
+            }
+            else {
+                $model->password = '';
+                return $this->render('login', [
+                'model' => $model,
+                ]);
+            }
+        }
+        else
+        {
+            return $this->redirect(['login']);
+        }
     }
 
 
@@ -138,17 +182,22 @@ class SalerController extends Controller
      */
     public function actionSignup()
     {
-        
+        if (!Yii::$app->saler->isGuest) {
+
+            $salerid = Yii::$app->saler->id;
+            return $this->render('index',['salerid'=>$salerid]);
+        }
+
         $model = new SalerSignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
             Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
-            return $this->render('login');
+            return $this->redirect(['login']);
         }
 
         return $this->render('signup', [
             'model' => $model,
         ]);
-        
+
     }
 
     /**
@@ -158,7 +207,7 @@ class SalerController extends Controller
      */
     public function actionRequestPasswordReset()
     {
-        /*$model = new PasswordResetRequestForm();
+        $model = new SalerPasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
                 Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
@@ -171,7 +220,7 @@ class SalerController extends Controller
 
         return $this->render('requestPasswordResetToken', [
             'model' => $model,
-        ]);*/
+        ]);
     }
 
     /**
@@ -183,8 +232,8 @@ class SalerController extends Controller
      */
     public function actionResetPassword($token)
     {
-        /*try {
-            $model = new ResetPasswordForm($token);
+        try {
+            $model = new SalerResetPasswordForm($token);
         } catch (InvalidArgumentException $e) {
             throw new BadRequestHttpException($e->getMessage());
         }
@@ -192,12 +241,12 @@ class SalerController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
             Yii::$app->session->setFlash('success', 'New password saved.');
 
-            return $this->goHome();
+            return $this->redirect(['login']);
         }
 
         return $this->render('resetPassword', [
             'model' => $model,
-        ]);*/
+        ]);
     }
 
     /**
@@ -209,8 +258,8 @@ class SalerController extends Controller
      */
     public function actionVerifyEmail($token)
     {
-        /*try {
-            $model = new VerifyEmailForm($token);
+        try {
+            $model = new SalerVerifyEmailForm($token);
         } catch (InvalidArgumentException $e) {
             throw new BadRequestHttpException($e->getMessage());
         }
@@ -222,7 +271,7 @@ class SalerController extends Controller
         }
 
         Yii::$app->session->setFlash('error', 'Sorry, we are unable to verify your account with provided token.');
-        return $this->goHome();*/
+        return $this->goHome();
     }
 
     /**
@@ -232,7 +281,7 @@ class SalerController extends Controller
      */
     public function actionResendVerificationEmail()
     {
-        /*$model = new ResendVerificationEmailForm();
+        $model = new SalerResendVerificationEmailForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
                 Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
@@ -243,6 +292,6 @@ class SalerController extends Controller
 
         return $this->render('resendVerificationEmail', [
             'model' => $model
-        ]);*/
+        ]);
     }
 }

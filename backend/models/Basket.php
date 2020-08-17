@@ -79,6 +79,6 @@ class Basket extends \yii\db\ActiveRecord
      */
     public function getOrders()
     {
-        return $this->hasMany(Order::className(), ['basket_id' => 'id']);
+        return $this->hasOne(Order::className(), ['basket_id' => 'id']);
     }
 }

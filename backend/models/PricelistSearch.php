@@ -39,7 +39,10 @@ class PricelistSearch extends Pricelist
      */
     public function search($params)
     {
-        $query = Pricelist::find()->joinWith('zone')->joinWith('mass')->joinWith('posttype');
+        $query = Pricelist::find()
+            ->joinWith('zone')
+            ->joinWith('mass')
+            ->joinWith('posttype');
 
         // add conditions that should always apply here
 

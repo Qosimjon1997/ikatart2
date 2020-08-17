@@ -42,6 +42,8 @@ class Mainproduct extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'product_id' => Yii::t('app', 'Product ID'),
+            'product.name' => Yii::t('app', 'Product'),
+            'product.images.path' => Yii::t('app', 'Image'),
         ];
     }
 

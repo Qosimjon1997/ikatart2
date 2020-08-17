@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                     'delete' => function ($url, $model) {
                         return Html::a('<span class="fa fa-trash"></span>', $url, [
-                                    'title' => Yii::t('app', 'Delete'),
+                                    'title' => Yii::t('app', 'Delete'), 'data-method' => 'post'
                         ]);
                     }
                 ],

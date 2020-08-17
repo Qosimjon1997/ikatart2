@@ -9,6 +9,7 @@ use backend\models\AdminForm;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * AdminController implements the CRUD actions for Admin model.
@@ -18,15 +19,37 @@ class AdminController extends Controller
     /**
      * {@inheritdoc}
      */
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['POST'],
+    //             ],
+    //         ],
+    //     ];
+    // }
+
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+	    return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'user'=>'admin', // this user object defined in web.php
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['login'],                    
+                        'roles' => ['?'],
+
+                    ],
                 ],
-            ],
+            ]
         ];
     }
 

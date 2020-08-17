@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'basket.product.saler.email',
             'totalcost',
             'zipcode',
-
+            'address.address',
             [
                 'class' => 'yii\grid\ActionColumn',
                 'template' => ($isActive == 0 ? '{accept}' : ''),
