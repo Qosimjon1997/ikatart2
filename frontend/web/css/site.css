@@ -4,6 +4,8 @@ body {
     height: 100%;
     /* background: #bebee548; */
     margin: auto;
+    /* justify-content: center; */
+    /* padding-left: 20px; */
 }
 
 .wrap {
@@ -11,4 +13,5 @@ body {
     height: auto;
     margin: auto;
     padding: 0;
+    /* justify-content: center; */
 }

@@ -5,15 +5,15 @@ use common\widgets\HeroWidget;
 use common\widgets\CaruselWidget;
 use common\widgets\CategoryWidget;
 // use common\widgets\UserWidget;
-// use common\widgets\CartWidget;
+use common\widgets\BuyWidget;
 
 $this->title = 'ikat-art';
 ?>
 
 <?php
 	
-	// CartWidget::begin();
-	// CartWidget::end();
+	// BuyWidget::begin();
+	// BuyWidget::end();
 
 	    HeroWidget::begin();
 	    HeroWidget::end();

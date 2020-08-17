@@ -1,0 +1,535 @@
+.cart_area .product_count {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.cart_area .product_count input {
+  width: 76px;
+  border: 1px solid #eeeeee;
+  border-radius: 3px;
+  font-size: 14px;
+  padding-left: 10px;
+}
+.cart_area .product_count .input-number-increment {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  padding: 5px;
+  border-left: 1px solid #dddddd;
+  display: inline-block;
+}
+.cart_area .product_count .input-number-increment:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 7px;
+  width: 100%;
+  height: 1px;
+  background-color: #dddddd;
+}
+.cart_area .product_count .input-number-decrement {
+  position: absolute;
+  right: 10px;
+  bottom: -6px;
+  padding: 5px;
+  border-left: 1px solid #dddddd;
+  display: inline-block;
+}
+.cart_inner .table thead tr th {
+  border-top: 0px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Playfair Display", serif;
+  color: #828bb2;
+  border-bottom: 0px !important;
+}
+.cart_inner .table tbody tr td {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  vertical-align: middle;
+  align-self: center;
+  font-style: initial;
+  text-align: center;
+}
+.cart_inner .table tbody tr td p{
+   text-indent: 20px;
+   text-align: justify;
+}
+.cart_inner .table .info {
+  text-align: justify;
+  text-indent: 20px; 
+  max-width: 500px;
+  padding-right: 40px; 
+  padding-left: -50px;
+}
+.cart_inner .table tbody tr td button{
+  width: 100px;
+  height: 40px;
+  background-color: rgb(105, 105, 209);
+  font-weight: 400;
+  font-size: 16px;
+  color: #ffffff;
+  border-radius: 5px;
+  transition: 0.4s;
+}
+.cart_inner .table tbody tr td button:hover{
+  background: #3a37c0;
+  color: rgb(243, 243, 243);
+}
+.cart_inner .table tbody tr td .media .d-flex img {
+  border: 1px solid #eeeeee;
+  border-radius: 5px;
+  max-width: 300px;                
+}
+.cart_inner .table tbody tr td h5 {
+  font-size: 14px;
+  color: #415094;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 0px;
+}
+.cart_inner .table tbody tr td .product_count input {
+  margin-top: 20px;
+  width: 100px;
+  padding-left: 30px;
+  height: 50px;
+  outline: none;
+  box-shadow: none;
+}
+
+
+.owl-carousel-blog{
+    /* max-width: 1160px !important;  */
+    margin-left: 15px;
+  }
+  .owl-carousel .owl-nav button.owl-next{
+    color: inherit;
+    border: none;
+    padding: 0 !important;
+    font: inherit;
+    position: absolute;
+    top: 28% !important;
+    font: inherit;
+    width: 50px;
+    height: 50px;
+    font-size: 55px;
+    font-weight: 200;
+    line-height: 40%;
+    color: #390bb9;
+    transition: 0.4s;
+    right: -25px;
+  }
+  
+  .owl-carousel .owl-nav button.owl-next:hover{
+    border-radius: 50%;
+  }
+  .owl-carousel .owl-nav button.owl-prev{
+    color: inherit;
+    border: none;
+    padding: 0 !important;
+    font: inherit;
+    position: absolute;
+    top: 28%;
+    width: 50px;
+    height: 50px;
+    font-size: 55px;
+    font-weight: 200;
+    line-height: 40%;
+    color: #390bb9;
+    transition: 0.4s;
+    left: -60px;
+  }
+  .owl-carousel .owl-nav button.owl-prev:hover{
+    border-radius: 50%;
+  }
+  button:focus{
+    outline: none;
+  }
+  .autoplay
+  {
+      position: absolute;
+      color: #000;
+      font: 100% arial, sans-serif;
+      right: 15px;
+      text-decoration: none;
+      text-shadow: 0 1px 0 rgb(56, 30, 207);
+      top: 0px;
+      width:auto;
+      height:auto;
+      opacity:0.4;
+      transition: opacity .1s ease-in, transform .1s ease-out; 
+      animation: fade_close 3s ease-out;
+  }
+  .autoplay:active
+  {
+    transform:scale(0.8);
+  }
+  
+  .stop
+  {
+    right: 15px;
+  }
+  
+  .play
+  {
+    right: 90px;
+  }
+  
+  .slider-box{
+    height: 303px;
+    width: 265px;
+    position: relative;
+    background-size: cover;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+  }
+   span{
+     float: right;
+   }
+   p{
+     font-size: 14px;
+   }
+  .slider-box a{
+    text-decoration: none;
+  }
+  .img-box{
+   top: 0;
+   margin-top: 0;
+  }
+  .img-box img{
+    border-radius: 5px;
+    margin-top : -15px;
+    background-size: cover !important;
+  }
+  .img-box  p{
+    color: rgb(74, 18, 100); 
+    font-size: 18px;
+    padding-top: 0px; 
+  }
+  .new{
+    position: absolute;
+    top: 0;
+    height: 35px;
+    width: 60px;
+    right: 0;
+    color: rgb(255, 6, 6);
+    font-weight: 500;
+    display: flex;
+    border-radius: 10%;
+    justify-content: center;
+    align-items: center;
+  }
+  .product{
+    position: absolute;
+    bottom: 16px;
+    right: 15px;
+    color: #581374;
+    font-size: 14px;
+    font-style: initial;
+    display: flex;
+   
+  }
+  .cart{
+    position: absolute;
+    bottom: 0px;
+    height: 35px;
+    left: 0;
+    width: 33.3%;
+    border-radius: 5%;
+    display: flex;
+    font-size: 15px !important;
+    justify-content: center;
+    align-items: center;
+  }
+  .cart a{
+    color: #1a2ff0 !important;
+    font-size: 16px !important;
+  }
+  .cart:hover{
+    transform: scale(1.01);
+    font-size: 17px !important;
+    transition: all ease 0.1s;
+  }
+  .buy{
+    position: absolute;
+    bottom: 0px;
+    height: 35px;
+    right: 0;
+    width: 33.3%;
+    display: flex;
+    border-radius: 5%;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+  }
+  .buy a{
+    color: #5b0463 !important;
+    font-size: 20px !important;
+    text-decoration: none !important;
+  }
+  .buy:hover{
+    transform: scale(1.01);
+    font-size: 21px;
+    transition: all ease 0.1s;
+  }
+  
+  .heart{
+    position: absolute;
+    bottom: 0px;
+    height: 35px;
+    width: 33%;
+    font-size: 18px;
+    left: 33.5%;
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .heart a{
+    color: #f54e4e !important;
+  }
+  .heart:hover{
+    transform: scale(1.01);
+    font-size: 22px;
+    transition: all ease 0.1s;
+  }
+  .icon-panel{
+    position: absolute;
+    bottom: -40px;
+    width: 100%;
+    transition-duration: 0.4s;
+  }
+  .slider-box:hover .icon-panel{
+    bottom: 0px;
+  }
+  .slider-box:hover{
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.4);
+  }
+  .slider-box:hover .img-box img{
+    transform: scale(1.01);
+    transition: all ease 0.3s;
+  }
+  .owl-carousel .owl-nav div {
+    background: rgba(255, 255, 255, 0.8) none repeat scroll 0 0;
+    height: 40px;
+    left: 20px;
+    line-height: 40px;
+    font-size: 22px;
+    color: #646464;
+    opacity: 1;
+    visibility: visible;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease 0s;
+    width: 40px;
+  }
+  .owl-carousel .owl-nav div.owl-next {
+    left: auto;
+    right: -30px;
+  }
+  .owl-carousel .owl-nav div.owl-next i {
+    position: relative;
+    right: 0;
+    top: 1px;
+  }
+  .owl-carousel .owl-nav div.owl-prev i {
+    position: relative;
+    right: 1px;
+    top: 0px;
+  }
+  .owl-carousel:hover .owl-nav div {
+    opacity: 1;
+    visibility: visible;
+  }
+  .owl-carousel:hover .owl-nav div:hover {
+    color: rgb(102, 6, 212);
+    background: #ff3500;
+  }
+
+.login-box {
+  position: absolute;
+  resize: none;
+  display: block;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
+  width: 800px;
+  padding: 100px;
+  transform: translate(-50%, -50%);
+  background: rgb(252, 249, 249);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(240, 234, 234, 0.986);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+ margin-bottom: 60px;
+  color: rgb(86, 0, 112);
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  padding: 0;
+  font-size: 18px;
+  color: rgb(128, 4, 185);
+  pointer-events: none;
+  transition: .5s;
+}
+
+/* .login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+} */
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 0 20px;
+  color: #4a0358;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: unset;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 10px;
+  letter-spacing: 4px
+}
+
+/* .login-box a:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+} */
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+/* .login-box a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+} */
+/* 
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.login-box a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+} */
+
+.login-box a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+/* 
+.login-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+} */
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+.close{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+}
+.back{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(184, 176, 176, 0.473);
+  z-index: 999;
+  display: none;
+}
+@media (width: 400px) and (width: 990px)
+{
+  
+}
