@@ -4,6 +4,8 @@ body {
     height: 100%;
     /* background: #bebee548; */
     margin: auto;
+    /* justify-content: center; */
+    /* padding-left: 20px; */
 }
 
 .wrap {
@@ -11,6 +13,7 @@ body {
     height: auto;
     margin: auto;
     padding: 0;
+
 }
 
 #formContent {
@@ -85,3 +88,4 @@ body {
 	margin-top: -40px;
 	border-radius: 5px;
 }*/
+

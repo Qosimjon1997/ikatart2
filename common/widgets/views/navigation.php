@@ -2,18 +2,24 @@
 use frontend\assets\NavigationAsset;
 NavigationAsset::register($this);
 ?>
+
 <header class="men">
        <div class="header-area">
             <div class="main-header ">
                <div class="header-bottom">
                    <div class="row" style="margin: auto; display: block">
                          <div class="row">
-                            <div class="col-lg-7 col-md-6 col-sm-4 col-xl-8">
+                             <div class="col-md-6 col-sm-4 col-xs-2">
+                           <div class="navbar">
+                           <i onclick="navbars()" class="fa fa-bars" aria-hidden="true" style="margin-right: -20px;" ></i><a onclick="navbars()" href="">Category</a>
+                           </div>
+                            </div>
+                            <div class="col-lg-7 col-md-6 col-sm-4 col-xl-8 main-menu" id="nav" >
                                 <div class="main-menu">
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="#">Interior Decorating Items</a>
-                                                <ul class="submenu">
+                                                <ul class="submenu" id="nav">
                                                     <table class="sub-tab">
                                                         <tr>
                                                             <td>
@@ -535,8 +541,11 @@ NavigationAsset::register($this);
                                         </ul>
                                     </nav>
                                 </div>
-                            </div>
-                            <div  class="col-lg-5 col-md-6 col-sm-8 col-xl-4">
+
+                            </div> 
+                            <div  class="col-lg-5 col-md-6 col-sm-8 col-xl-4 col-xs-10">
+
+
                                 <ul class="header-right">
                                  <div class="row">
                                     <li>
