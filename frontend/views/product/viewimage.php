@@ -7,3 +7,10 @@ use yii\helpers\Url;
 ?>
 
 <img src="/backend/web/upimages/<?php echo $modelimage->path?>" alt="rasm">
+<?php
+    foreach ($modelcarusel as $variable) {
+        # code...
+        echo $variable->name;
+    }
+
+?>

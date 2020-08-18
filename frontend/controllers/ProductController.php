@@ -56,11 +56,12 @@ class ProductController extends Controller
         $model = $this->findModel($id);
         $img = new Images();
         $image2 = $img->getImage($id);
-
+        $modelcarusel = $this->findModelForCarusel($model->category_id);
 
         return $this->render('view2', [
             'model' => $this->findModel($id),
             'modelimage' => $image2,
+            'modelcarusel' => $modelcarusel,
         ]);
         // var_dump($image2->path);
         
@@ -71,13 +72,14 @@ class ProductController extends Controller
         $model = $this->findModel($id);
         $img = new Images();
         $image2 = $img->getImage($id);
-
+        $modelcarusel = $this->findModelForCarusel($model->category_id);
 
         return $this->render('viewimage', [
             'model' => $this->findModel($id),
             'modelimage' => $image2,
+            'modelcarusel' => $modelcarusel,
         ]);
-        // var_dump($image2->path);
+        // var_dump($modelcarusel);
         
     }
 
@@ -174,6 +176,17 @@ class ProductController extends Controller
     protected function findModel($id)
     {
         if (($model = Product::findOne($id)) !== null) {
+            return $model;
+        }
+
+        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+    }
+
+    protected function findModelForCarusel($id)
+    {
+
+
+        if (($model = Product::findAll(['category_id' => $id, 'isActive' => 1])) !== null) {
             return $model;
         }
 
