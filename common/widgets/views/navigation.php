@@ -563,7 +563,7 @@ NavigationAsset::register($this);
                                     </li>
                                     <li>
                                         <div class="shopping-card" style="top: 5px">
-                                            <a href="cart.html"><i class="fas fa-shopping" style="background: rgb(255, 255, 255);"></i></a>
+                                            <a href="cart.html"><i class="fas fa-shopping-cart" style="background: rgb(255, 255, 255);"></i></a>
                                         </div>
                                     </li>
                                  </div>
