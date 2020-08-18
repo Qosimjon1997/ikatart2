@@ -112,10 +112,10 @@
     font: inherit;
     width: 50px;
     height: 50px;
-    font-size: 55px;
+    font-size: 55px !important;
     font-weight: 200;
     line-height: 40%;
-    color: #390bb9;
+    color: #390bb9 !important;
     transition: 0.4s;
     right: -25px;
   }
@@ -132,10 +132,10 @@
     top: 28%;
     width: 50px;
     height: 50px;
-    font-size: 55px;
+    font-size: 55px !important;
     font-weight: 200;
     line-height: 40%;
-    color: #390bb9;
+    color: #390bb9 !important;
     transition: 0.4s;
     left: -60px;
   }
