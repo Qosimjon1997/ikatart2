@@ -6,7 +6,7 @@ use yii\base\Widget;
 class SidebarWidget extends Widget {
     public $header;
     public $items;
-    
+
     public function init() {
         parent::init();
         if(!$this->header) {

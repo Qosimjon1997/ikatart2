@@ -8,11 +8,15 @@ use frontend\models\SalerVerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
 use backend\models\Saler;
+use backend\models\Salarhistorylanguages;
+use backend\models\Language;
+use backend\models\Images;
 
 use frontend\models\SalerLoginForm;
 use frontend\models\SalerSignupForm;
@@ -24,6 +28,7 @@ use frontend\models\SalerResetpassForm;
  */
 class SalerController extends Controller
 {
+    public $layout = "salerlayout";
     /**
      * {@inheritdoc}
      */
@@ -76,6 +81,24 @@ class SalerController extends Controller
             ],
         ];
     }
+
+    public function beforeAction($action)
+    {
+        // your custom code here, if you want the code to run before action filters,
+        // which are triggered on the [[EVENT_BEFORE_ACTION]] event, e.g. PageCache or AccessControl
+
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+
+        if(Yii::$app->saler->isGuest && $this->action->id != 'login') {
+            return $this->redirect(['login']);
+        }
+
+        // other custom code here
+
+        return true; // or false to not run the action
+    }
     /**
      * {@inheritdoc}
      */
@@ -125,12 +148,12 @@ class SalerController extends Controller
         if (!Yii::$app->saler->isGuest) {
 
             $salerid = Yii::$app->saler->id;
-            return $this->render('index',['salerid'=>$salerid]);
+            return $this->redirect(['index']);
         }
 
         $model = new SalerLoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->render('index',['salerid'=>Yii::$app->saler->id]);
+            return $this->redirect(['index']);
         } else {
             $model->password = '';
 
@@ -152,7 +175,29 @@ class SalerController extends Controller
             Yii::$app->saler->logout();
             return $this->goHome();
         }
+    }
 
+    public function actionHistory() {
+
+        $model = $this->findModel(Yii::$app->saler->id);
+        $lan = Yii::$app->language;
+        $language = new Language();
+        $lan_id;
+        $history;
+        foreach ($language->languages as $lang) {
+            if($lang['shortname'] == $lan) {
+                $lan_id = $lang['id'];
+            }
+        }
+
+        foreach ($model->salarhistorylanguages as $saler_history) {
+            if($saler_history->language_id == $lan_id) {
+                $history = $saler_history->name;
+            }
+        }
+        $image = $model->images[0]->path;
+
+        return $this->render('about', ['history' => $history, 'image' => $image]);
     }
 
     public function actionChangepass()
@@ -160,13 +205,13 @@ class SalerController extends Controller
         if (!Yii::$app->saler->isGuest) {
 
             $model=new SalerResetpassForm();
-            
+
             if($model->load(Yii::$app->request->post()) && $model->validate())
             {
-                
-                Yii::$app->session->setFlash('success', "Password reseted"); 
+
+                Yii::$app->session->setFlash('success', "Password reseted");
             }
-            
+
         }
         else
         {
@@ -295,5 +340,14 @@ class SalerController extends Controller
         return $this->render('resendVerificationEmail', [
             'model' => $model
         ]);
+    }
+
+    protected function findModel($id)
+    {
+        if (($model = Saler::findOne($id)) !== null) {
+            return $model;
+        }
+
+        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
 }
