@@ -14,19 +14,7 @@ $this->title = 'ikat-art';
 ?>
 
 <?php
-		// SettingsWidget::begin();
-		// SettingsWidget::end();
 
-
-		// CartWidget::begin();
-		// CartWidget::end();
-
-	// BuyWidget::begin();
-	// BuyWidget::end();
-
-
-	// SearchWidget:: begin();
-	// SearchWidget:: end();
 
 
 	    HeroWidget::begin();
