@@ -78,3 +78,20 @@ body {
   width: 100%;
   object-fit: contain;
 }
+
+.preview {
+  height: 300px;
+}
+
+.preview #img {
+  float: right;
+  max-width: 300px;
+  max-height: 300px;
+  object-fit: contain;
+}
+
+.index-image {
+  max-height: 250px;
+  object-fit: contain;
+  object-position: center;
+}

@@ -4,6 +4,9 @@ namespace frontend\controllers;
 
 use Yii;
 use backend\models\Product;
+use backend\models\Productnamelanguages;
+use backend\models\Productlanguages;
+use backend\models\Language;
 use backend\models\Images;
 use backend\models\UploadImage;
 use backend\models\ProductSearch;
@@ -17,6 +20,7 @@ use yii\web\UploadedFile;
  */
 class ProductController extends Controller
 {
+    public $layout;
     /**
      * {@inheritdoc}
      */
@@ -32,23 +36,42 @@ class ProductController extends Controller
         ];
     }
 
+    public function beforeAction($action)
+    {
+        // your custom code here, if you want the code to run before action filters,
+        // which are triggered on the [[EVENT_BEFORE_ACTION]] event, e.g. PageCache or AccessControl
+
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+
+        if(Yii::$app->saler->isGuest) {
+            return $this->redirect(['saler/login']);
+        }
+
+        // other custom code here
+
+        return true; // or false to not run the action
+    }
+
     /**
      * Lists all Product models.
      * @return mixed
      */
     public function actionIndex()
     {
+        $this->layout = 'salerlayout';
         if(!Yii::$app->saler->isGuest)
         {
             $searchModel = new ProductSearch();
-            $dataProvider = $searchModel->search(Yii::$app->request->queryParams,1,Yii::$app->saler->id);
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams, null ,Yii::$app->saler->id);
 
             return $this->render('index', [
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
             ]);
         }
-        
+
     }
 
     public function actionView2($id)
@@ -64,7 +87,7 @@ class ProductController extends Controller
             'modelcarusel' => $modelcarusel,
         ]);
         // var_dump($image2->path);
-        
+
     }
 
     public function actionViewimage($id)
@@ -80,7 +103,7 @@ class ProductController extends Controller
             'modelcarusel' => $modelcarusel,
         ]);
         // var_dump($modelcarusel);
-        
+
     }
 
     /**
@@ -91,8 +114,11 @@ class ProductController extends Controller
      */
     public function actionView($id)
     {
+        $image = Images::find()->where(['product_id' => $id, 'main' => 1])->all();
+        $this->layout = 'salerlayout';
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'image' => $image,
         ]);
     }
 
@@ -103,27 +129,50 @@ class ProductController extends Controller
      */
     public function actionCreate()
     {
-
+        $this->layout = 'salerlayout';
         $model = new Product();
-        $modelimage = new UploadImage();
+
+        $product_name = new Productnamelanguages();
+        $product_info = new Productlanguages();
+
         $image = new Images();
+        $modelimage = new UploadImage();
+
+        $lan = Yii::$app->language;
+        $language = new Language();
+        $lan_id;
+
+        foreach ($language->languages as $lang) {
+            if($lang['shortname'] == $lan) {
+                $lan_id = $lang['id'];
+            }
+        }
+
+        $product_info->language_id = $lan_id;
+        $product_name->language_id = $lan_id;
+
         if ($model->load(Yii::$app->request->post())) {
+            $model->Saler_id = Yii::$app->saler->id;
+            $model->isActive = 0;
+            $model->save();
+
+            $product_name->name = $model->name;
+            $product_info->name = $model->info;
+            $product_name->product_id = $model->id;
+            $product_info->product_id = $model->id;
+            $product_name->save();
+            $product_info->save();
 
             if (Yii::$app->request->isPost) {
-                
-                $model->Saler_id = Yii::$app->saler->id;
-                $model->isActive = 0;
-                $model->save();
 
                 $modelimage->imageFile = UploadedFile::getInstance($modelimage, 'imageFile');
-            
-                $image->path=$modelimage->upload();
+
+                $image->path = $modelimage->upload();
                 $image->product_id = $model->id;
-                $image->main=1;
+                $image->main = 1;
                 $image->save();
             }
-            
-                // file is uploaded successfull 
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -141,14 +190,63 @@ class ProductController extends Controller
      */
     public function actionUpdate($id)
     {
+        $this->layout = 'salerlayout';
         $model = $this->findModel($id);
+        $image = Images::find()->where(['product_id' => $id, 'main' => 1])->all();
+        $modelimage = new UploadImage();
+
+        $lan = Yii::$app->language;
+        $language = new Language();
+        $lan_id;
+        foreach ($language->languages as $lang) {
+            if($lang['shortname'] == $lan) {
+                $lan_id = $lang['id'];
+            }
+        }
+        $product_name = Productnamelanguages::find()->where(['product_id' => $model->id, 'language_id' => $lan_id])->all();
+        $product_info = Productlanguages::find()->where(['product_id' => $model->id, 'language_id' => $lan_id])->all();
+
+        if(count($image) == 0) {
+            $image[0] = new Images();
+        }
+
+
+
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if(count($product_name) == 0) {
+                $product_name[0] = new Productnamelanguages();
+            }
+
+            if(count($product_info) == 0) {
+                $product_info[0] = new Productlanguages();
+            }
+
+            $product_name[0]->language_id = $lan_id;
+            $product_name[0]->product_id = $model->id;
+            $product_name[0]->name = $model->name;
+            $product_name[0]->save();
+            $product_info[0]->language_id = $lan_id;
+            $product_info[0]->product_id = $model->id;
+            $product_info[0]->name = $model->info;
+            $product_info[0]->save();
+
+            if (Yii::$app->request->isPost) {
+                $modelimage->imageFile = UploadedFile::getInstance($modelimage, 'imageFile');
+                if($modelimage->imageFile && $modelimage->delete($image[0]->path)) {
+                    $image[0]->path = $modelimage->upload();
+                    $image[0]->save();
+                }
+            }
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'modelimage' => $modelimage,
+            'image' => $image,
         ]);
     }
 
@@ -161,6 +259,7 @@ class ProductController extends Controller
      */
     public function actionDelete($id)
     {
+        $this->layout = 'salerlayout';
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
@@ -184,8 +283,6 @@ class ProductController extends Controller
 
     protected function findModelForCarusel($id)
     {
-
-
         if (($model = Product::findAll(['category_id' => $id, 'isActive' => 1])) !== null) {
             return $model;
         }

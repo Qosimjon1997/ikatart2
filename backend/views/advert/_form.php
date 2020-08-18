@@ -9,8 +9,7 @@ use yii\widgets\ActiveForm;
 ?>
 
 <div class="advert-form">
-    <?php
-    ?>
+
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 	<div class="row justify-content-between">
 		<div class="col-12">

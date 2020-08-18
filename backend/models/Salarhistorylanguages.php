@@ -33,7 +33,7 @@ class Salarhistorylanguages extends \yii\db\ActiveRecord
         return [
             [['name', 'language_id', 'saler_id'], 'required'],
             [['language_id', 'saler_id'], 'integer'],
-            [['name'], 'string', 'max' => 45],
+            [['name'], 'string'],
             [['language_id'], 'exist', 'skipOnError' => true, 'targetClass' => Language::className(), 'targetAttribute' => ['language_id' => 'id']],
             [['saler_id'], 'exist', 'skipOnError' => true, 'targetClass' => Saler::className(), 'targetAttribute' => ['saler_id' => 'id']],
         ];

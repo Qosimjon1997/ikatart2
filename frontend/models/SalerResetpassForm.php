@@ -21,35 +21,20 @@ class SalerResetpassForm extends Model
     public function rules()
     {
         return [
-            [['newpassword','oldpassword','newpaswwordconfirm'],'required'],
-            [['oldpassword'],'validateCurrentPassword'],
-
-            [['newpassword','newpasswordconfirm'],'string', 'min'=>8],
+            [['oldpassword', 'newpassword','newpasswordconfirm'],'string', 'min'=>8],
             [['newpassword','newpasswordconfirm'], 'filter', 'filter'=>'trim'],
-            [['newpasswordconfirm'],'compare','compareAttribute'=>'newpassword','message'=>'Password do not match'],
         ];
     }
 
-    public function validateCurrentPassword()
-    {
-        if(!$this->verifyPassword($this->oldpassword))
-        {
-            $this->addError('oldpassword','Current password incorrect');
+    public function valid($model) {
+        if($this->validate()) {
+            if($this->newpassword === $this->newpasswordconfirm && strlen($this->newpassword) > 7) {
+                if(Yii::$app->security->validatePassword($this->oldpassword, $model->password)){
+                    $this->newpassword = Yii::$app->security->generatePasswordHash($this->newpassword);
+                    return true;
+                }
+            }
         }
-    }
-
-    public function setpass()
-    {
-        if($this->validate())
-        {
-            $model->oldpassword=$model->newPassword;
-            $model->save(false);
-        }
-    }
-
-    public function verifyPassword($password)
-    {
-        $dbpassword = static::findOne(['id'=>Yii::$app->saler->identity->id])->password_hash;
-        return Yii::$app->security->validatePassword($password, $dbpassword);
+        return false;
     }
 }
