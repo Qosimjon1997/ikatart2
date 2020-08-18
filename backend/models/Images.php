@@ -69,6 +69,12 @@ class Images extends \yii\db\ActiveRecord
         ];
     }
 
+    public function getImage($id)
+    {
+        return static::findOne(['product_id' => $id,'main'=>1]);
+    }
+
+
     /**
      * Gets query for [[Advert]].
      *
