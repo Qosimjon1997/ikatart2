@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        // 'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -32,10 +32,10 @@ $this->params['breadcrumbs'][] = $this->title;
             //'oldprice',
             //'percent',
             //'Saler_id',
-            'category_id',
-            //'isActive',
+            'category.name',
+            'isActive',
             'info:ntext',
-            'mass_id',
+            'mass.mass',
 
             [
                 'class' => 'yii\grid\ActionColumn',
