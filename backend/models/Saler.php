@@ -61,8 +61,8 @@ class Saler extends ActiveRecord implements IdentityInterface
             [['auth_key'], 'string', 'max' => 32],
             [['email'], 'unique'],
             [['password_reset_token'], 'unique'],
-            
-            
+
+
         ];
     }
 
