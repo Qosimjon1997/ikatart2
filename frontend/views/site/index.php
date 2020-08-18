@@ -12,15 +12,15 @@ $this->title = 'ikat-art';
 
 <?php
 	
-	// BuyWidget::begin();
-	// BuyWidget::end();
+	BuyWidget::begin();
+	BuyWidget::end();
 
-	    HeroWidget::begin();
-	    HeroWidget::end();
+	    // HeroWidget::begin();
+	    // HeroWidget::end();
 
-	    CaruselWidget::begin();
-	    CaruselWidget::end();
+	    // CaruselWidget::begin();
+	    // CaruselWidget::end();
 
-	    CategoryWidget::begin();
-	    CategoryWidget::end();
+	    // CategoryWidget::begin();
+	    // CategoryWidget::end();
     ?>
