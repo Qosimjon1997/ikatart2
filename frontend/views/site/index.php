@@ -23,8 +23,10 @@ $this->title = 'ikat-art';
 	// SearchWidget:: begin();
 	// SearchWidget:: end();
 
+
 	    HeroWidget::begin();
 	    HeroWidget::end();
+
 
 	    CaruselWidget::begin();
 	    CaruselWidget::end();

@@ -51,6 +51,36 @@ class ProductController extends Controller
         
     }
 
+    public function actionView2($id)
+    {
+        $model = $this->findModel($id);
+        $img = new Images();
+        $image2 = $img->getImage($id);
+
+
+        return $this->render('view2', [
+            'model' => $this->findModel($id),
+            'modelimage' => $image2,
+        ]);
+        // var_dump($image2->path);
+        
+    }
+
+    public function actionViewimage($id)
+    {
+        $model = $this->findModel($id);
+        $img = new Images();
+        $image2 = $img->getImage($id);
+
+
+        return $this->render('viewimage', [
+            'model' => $this->findModel($id),
+            'modelimage' => $image2,
+        ]);
+        // var_dump($image2->path);
+        
+    }
+
     /**
      * Displays a single Product model.
      * @param integer $id
@@ -77,16 +107,20 @@ class ProductController extends Controller
         $image = new Images();
         if ($model->load(Yii::$app->request->post())) {
 
-            $model->Saler_id = Yii::$app->saler->id;
-            $model->isActive = 0;
-            $model->save();
+            if (Yii::$app->request->isPost) {
+                
+                $model->Saler_id = Yii::$app->saler->id;
+                $model->isActive = 0;
+                $model->save();
 
-            $modelimage->imageFile = UploadedFile::getInstance($model, 'imageFile');
+                $modelimage->imageFile = UploadedFile::getInstance($modelimage, 'imageFile');
             
-            $image->path=$modelimage->upload();
-            $image->product_id = $model->id;
-            $image->main=1;
-            $image->save();
+                $image->path=$modelimage->upload();
+                $image->product_id = $model->id;
+                $image->main=1;
+                $image->save();
+            }
+            
                 // file is uploaded successfull 
         }
 
