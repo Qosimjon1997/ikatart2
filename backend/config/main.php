@@ -8,6 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-backend',
+    'language' => 'ru',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
@@ -15,14 +16,14 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
-            //'baseUrl' => '/comp',
+            'baseUrl' => '/comp',
         ],
         'admin' => [
             'class' => 'yii\web\User',
             'identityClass' => 'backend\models\Admin',
             'enableAutoLogin' => false,
             'authTimeout' => 60*30,
-            'loginUrl' => ['comp/admin/index'],          
+            'loginUrl' => ['comp/admin/index'],
             'identityCookie' => ['name' => '_identity-backend-admin'],
         ],
         'workers' => [
@@ -30,7 +31,7 @@ return [
             'identityClass' => 'backend\models\Workers',
             'enableAutoLogin' => false,
             'authTimeout' => 60*30,
-            'loginUrl' => ['comp/workers/index'],           
+            'loginUrl' => ['comp/workers/index'],
             'identityCookie' => ['name' => '_identity-backend-workers'],
         ],
         'session' => [
@@ -49,7 +50,7 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -59,7 +60,7 @@ return [
                 'workers' => 'comp/workers/login',
                 '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
             ],
-        ],*/
+        ],
 
     ],
     'params' => $params,
