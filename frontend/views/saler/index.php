@@ -1,6 +1,7 @@
 <?php
 
-
 ?>
 
-<h1>Hello Index to <?php echo $salerid ?> </h1>
+<div>
+	This is index!
+</div>

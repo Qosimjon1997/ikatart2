@@ -1,20 +1,15 @@
 .header-new{
-  width: 1200px !important;
+  width: 100% !important;
   margin: auto;
   /* background: #588415; */
 }
 .header-new .logo{
   max-width: 180px;
-  display: inline-block;
-  top: auto;
-  left: auto;
-
 }
  .header-info
 {
-  max-width: 700px;
-  position: relative;
-  display: inline-block;
+  /*position: relative;*/
+  /*display: inline-block;*/
 }
 .header-info ul
 {

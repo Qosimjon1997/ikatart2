@@ -74,18 +74,7 @@ body {
   }
 }
 
-.logo {
-  width: 70%;
-  margin: auto;
-  padding-bottom: 8px;
-  position: absolute;
-  top: -150px;
-  left: 80px;
+.saler-img {
+  width: 100%;
+  object-fit: contain;
 }
-
-
-/*.form-header {
-	margin-top: -40px;
-	border-radius: 5px;
-}*/
-

@@ -5,17 +5,22 @@ use yii\helpers\Url;
 
 HeaderAsset::register($this);
 ?>
-<div class="header-new">
-    <div class="row">
-        <div class="col-xl-5 col-lg-4 col-md-2 col-sm-3 col-xs-2">
-            <a href="#"><img class="logo" src="img/logo/logo.png" alt=""></a>
+<div class="header-new m-0 p-0">
+    <div class="row  m-0 p-0">
+        <div class="col-12 col-md-3">
+            <a><img class="logo" src="/frontend/web/img/logo/logo.png" alt="logo"></a>
         </div>
-      <div class="header-info col-xl-7 col-lg-8 col-md-10 col-sm-9 col-xs-10">
+      <div class="header-info col-12 col-md-9">
         <ul>
-            <li><a href="#"><i class="fa fa-sign-in-alt" aria-hidden="true" style="margin-right: 5px;" ></i>Sign in</a></li>
-            <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true" style="margin-right: 5px;" ></i>Sign up</a></li>
+            <li>
+                <?= Html::a('<i class="fa fa-sign-in-alt" aria-hidden="true" style="margin-right: 5px;" ></i>
+                    Sign in', ['user/login']) ?>
+            </li>
+            <li>
+                <?= Html::a('<i class="fa fa-user-plus mr-1" aria-hidden="true"></i>Sign up', ['user/signup']) ?>
+            </li>
             <li><a href="#"><i class="fa fa-user-cog" aria-hidden="true" style="margin-right: 5px;" ></i>Operator</a></li>
-            <li><a href="#"> <img src="img/mony.png" ></a></li>
+            <li><a href="#"> <img src="/frontend/web/img/mony.png" ></a></li>
             <li>
                 <div class="select-this">
                     <form action="#">
@@ -33,7 +38,7 @@ HeaderAsset::register($this);
             <!-- <li><a href="#">+998 90 224-43-36</a></li> -->
             <li>
                 <div class="flag">
-                    <img src="img/icon/header_icon.png" alt="">
+                    <img src="/frontend/web/img/icon/header_icon.png" alt="">
                 </div>
             </li>
             <li >
@@ -51,7 +56,7 @@ HeaderAsset::register($this);
                 </div>
             </li>
         </ul>
-     
+
     </div>
   </div>
 </div>
