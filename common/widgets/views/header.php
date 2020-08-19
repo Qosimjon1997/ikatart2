@@ -8,7 +8,7 @@ HeaderAsset::register($this);
 <div class="header-new m-0 p-0">
     <div class="row  m-0 p-0">
         <div class="col-12 col-md-3">
-            <a><img class="logo" src="/frontend/web/img/logo/logo.png" alt="logo"></a>
+            <a><img class="logo" src="img/logo/logo.png" alt="logo"></a>
         </div>
       <div class="header-info col-12 col-md-9">
         <ul>
@@ -20,7 +20,7 @@ HeaderAsset::register($this);
                 <?= Html::a('<i class="fa fa-user-plus mr-1" aria-hidden="true"></i>Sign up', ['user/signup']) ?>
             </li>
             <li><a href="#"><i class="fa fa-user-cog" aria-hidden="true" style="margin-right: 5px;" ></i>Operator</a></li>
-            <li><a href="#"> <img src="/frontend/web/img/mony.png" ></a></li>
+            <li><a href="#"> <img src="img/mony.png" ></a></li>
             <li>
                 <div class="select-this">
                     <form action="#">
@@ -38,7 +38,7 @@ HeaderAsset::register($this);
             <!-- <li><a href="#">+998 90 224-43-36</a></li> -->
             <li>
                 <div class="flag">
-                    <img src="/frontend/web/img/icon/header_icon.png" alt="">
+                    <img src="img/icon/header_icon.png" alt="">
                 </div>
             </li>
             <li >
