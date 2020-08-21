@@ -11,8 +11,11 @@ NavigationAsset::register($this);
                          <div class="row">
                              <div class="col-md-6 col-sm-4 col-xs-2">
                            <div class="navbar">
-                           <i onclick="navbars()" class="fa fa-bars" aria-hidden="true" style="margin-right: -20px;" ></i><a onclick="navbars()" href="">Category</a>
+                           <i class="fa fa-bars" aria-hidden="true" style="margin-right: -20px;" ></i><a href="">Category</a>
+                           <div class="navbar1">
+                               sadasds s
                            </div>
+                        </div>
                             </div>
                             <div class="col-lg-7 col-md-6 col-sm-4 col-xl-8 main-menu" id="nav" >
                                 <div class="main-menu">

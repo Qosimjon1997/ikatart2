@@ -14,7 +14,7 @@ CategoryAsset::register($this);
                     <div class="img-box1">
                     <a href="product/view2&id=24">
                       <img src="img/load/1.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Women's Clothing</p>
                     </a>
                     </div>
                      <div class="product1">
@@ -38,7 +38,8 @@ CategoryAsset::register($this);
                     <div class="img-box1">
                     <a href="product/view2&id=24">
                       <img src="img/load/2.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Fabric Ikat
+</p>
                       </a>
                     </div>
 
@@ -64,7 +65,7 @@ CategoryAsset::register($this);
                     <div class="img-box1">
                     <a href="product/view2&id=24">
                       <img src="img/load/3.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Suzani</p>
                       </a>
                     </div>
 
@@ -90,7 +91,7 @@ CategoryAsset::register($this);
                     <div class="img-box1">
                     <a href="product/view2&id=24">
                       <img src="img/load/4.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Women's bags</p>
                       </a>
                     </div>
 
@@ -116,7 +117,7 @@ CategoryAsset::register($this);
                     <div class="img-box1">
                     <a href="product/view2&id=24">
                       <img src="img/load/5.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Men's Clothing </p>
                       </a>
                     </div>
 
@@ -142,7 +143,7 @@ CategoryAsset::register($this);
                     <div class="img-box1">
                     <a href="product/view2&id=24">
                       <img src="img/load/6.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Miniature</p>
                       </a>
                     </div>
 
@@ -169,7 +170,7 @@ CategoryAsset::register($this);
                     <div class="img-box1">
                     <a href="product/view2&id=24">
                       <img src="img/load/7.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Pillows</p>
                       </a>
                     </div>
 
@@ -196,7 +197,7 @@ CategoryAsset::register($this);
                     <div class="img-box1">
                     <a href="product/view2&id=24">
                       <img src="img/load/8.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Paintings</p>
                       </a>
                     </div>
 
@@ -223,7 +224,7 @@ CategoryAsset::register($this);
                     <div class="img-box1">
                     <a href="product/view2&id=24">
                       <img src="img/load/9.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Ceramics</p>
                       </a>
                     </div>
 
@@ -249,7 +250,7 @@ CategoryAsset::register($this);
                     <div class="img-box1">
                     <a href="product/view2&id=24">
                       <img src="img/load/10.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Carpets</p>
                       </a>
                     </div>
 
@@ -275,7 +276,7 @@ CategoryAsset::register($this);
                     <div class="img-box1">
                     <a href="product/view2&id=24">
                       <img src="img/load/11.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Caskets</p>
                       </a>
                     </div>
 
@@ -301,7 +302,7 @@ CategoryAsset::register($this);
                     <div class="img-box1">
                     <a href="product/view2&id=24">
                       <img src="img/load/12.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Bijouterie</p>
                       </a>
                     </div>
 
@@ -327,7 +328,7 @@ CategoryAsset::register($this);
                     <div class="img-box1">
                     <a href="product/view2&id=24">
                       <img src="img/load/13.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Dried fruits</p>
                       </a>
                     </div>
 
@@ -353,7 +354,7 @@ CategoryAsset::register($this);
                     <div class="img-box1">
                     <a href="product/view2&id=24">
                       <img src="img/load/14.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Tea/Spices</p>
                       </a>
                     </div>
 
@@ -379,7 +380,7 @@ CategoryAsset::register($this);
                     <div class="img-box1">
                     <a href="product/view2&id=24">
                       <img src="img/load/15.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Knives </p>
                       </a>
                     </div>
 
@@ -405,7 +406,7 @@ CategoryAsset::register($this);
                     <div class="img-box1">
                     <a href="product/view2&id=24">
                       <img src="img/load/16.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Chasing</p>
                       </a>
                     </div>
 
@@ -431,7 +432,7 @@ CategoryAsset::register($this);
                     <div class="img-box1">
                     <a href="product/view2&id=24">
                       <img src="img/load/17.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Scarfs Belts </p>
                       </a>
                     </div>
 
@@ -457,7 +458,7 @@ CategoryAsset::register($this);
                     <div class="img-box1">
                     <a href="product/view2&id=24">
                       <img src="img/load/18.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Furniture</p>
                       </a>
                     </div>
 
@@ -483,7 +484,7 @@ CategoryAsset::register($this);
                     <div class="img-box1">
                     <a href="product/view2&id=24">
                       <img src="img/load/19.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Woodcarving</p>
                       </a>
                     </div>
 
@@ -509,7 +510,7 @@ CategoryAsset::register($this);
                     <div class="img-box1">
                     <a href="product/view2&id=24">
                       <img src="img/load/20.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Yurts</p>
                       </a>
                     </div>
 
@@ -534,7 +535,7 @@ CategoryAsset::register($this);
         <div class="slider-box1">
                     <div class="img-box1">
                     <a href="product/view2&id=24">
-                      <img src="img/load/17.jpg">
+                      <img src="img/load/21.jpg">
                       <p >Uzbek picture</p>
                       </a>
                     </div>
