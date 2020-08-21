@@ -10,6 +10,7 @@ use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Controller;
+use yii\web\UploadedFile;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
@@ -17,6 +18,7 @@ use backend\models\Saler;
 use backend\models\Salarhistorylanguages;
 use backend\models\Language;
 use backend\models\Images;
+use backend\models\UploadImage;
 
 use frontend\models\SalerLoginForm;
 use frontend\models\SalerSignupForm;
@@ -179,39 +181,102 @@ class SalerController extends Controller
 
     public function actionHistory() {
 
-        $model = $this->findModel(Yii::$app->saler->id);
-        $lan = Yii::$app->language;
-        $language = new Language();
-        $lan_id;
-        $history;
-        foreach ($language->languages as $lang) {
-            if($lang['shortname'] == $lan) {
-                $lan_id = $lang['id'];
-            }
-        }
-
-        foreach ($model->salarhistorylanguages as $saler_history) {
-            if($saler_history->language_id == $lan_id) {
-                $history = $saler_history->name;
-            }
-        }
-        $image = $model->images[0]->path;
-
-        return $this->render('about', ['history' => $history, 'image' => $image]);
-    }
-
-    public function actionChangepass()
-    {
         if (!Yii::$app->saler->isGuest) {
 
-            $model=new SalerResetpassForm();
+            $model = $this->findModel(Yii::$app->saler->id);
+            $lan = Yii::$app->language;
+            $language = new Language();
+            $lan_id;
+            $history;
 
-            if($model->load(Yii::$app->request->post()) && $model->validate())
-            {
-
-                Yii::$app->session->setFlash('success', "Password reseted");
+            foreach ($language->languages as $lang) {
+                if($lang['shortname'] == $lan) {
+                    $lan_id = $lang['id'];
+                }
             }
 
+            foreach ($model->salarhistorylanguages as $saler_history) {
+                if($saler_history->language_id == $lan_id) {
+                    $history = $saler_history->name;
+                    break;
+                }
+            }
+
+            $image = $model->images[0]->path;
+
+            return $this->render('about', ['history' => $history, 'image' => $image]);
+        } else {
+            return $this->redirect(['login']);
+        }
+    }
+
+
+
+    public function actionSettings()
+    {
+        if (!Yii::$app->saler->isGuest) {
+            $saler = $this->findModel(Yii::$app->saler->id);
+            $model=new SalerResetpassForm();
+            $history =
+            $img = new UploadImage();
+            $image = Images::find()->where(['saler_id' => $saler->id, 'main' => 1])->limit(1)->all();
+
+            $lan = Yii::$app->language;
+            $language = new Language();
+            $lan_id;
+
+            foreach ($language->languages as $lang) {
+                if($lang['shortname'] == $lan) {
+                    $lan_id = $lang['id'];
+                }
+            }
+
+            $history = Salarhistorylanguages::find()->where([
+                'saler_id' => $saler->id,
+                'language_id' => $lan_id
+            ])->all();
+            if(count($history) == 0) {
+                $history[0] = new Salarhistorylanguages();
+            }
+
+            if($model->load(Yii::$app->request->post()) && $model->valid($saler)) {
+                $saler->password = $model->newpassword;
+                Yii::$app->session->setFlash('success', Yii::t('app', 'Password reseted'));
+            }
+            if ($saler->load(Yii::$app->request->post()) && $saler->save()){
+                // var_dump($saler);
+                if(Yii::$app->request->isPost){
+
+                    $img->imageFile = UploadedFile::getInstance($img, 'imageFile');
+                    if($img->imageFile) {
+                        if($image && $img->delete($image[0]->path)) {
+                            $image[0]->path = $img->upload();
+                            $image[0]->save();
+                        } else {
+                            $image = new Images();
+                            $image->path = $img->upload();
+                            $image->saler_id = $saler->id;
+                        }
+                    }
+                }
+            }
+
+            if($history[0]->load(Yii::$app->request->post())) {
+                // print_r($history);
+                $history[0]->saler_id = $saler->id;
+                $history[0]->language_id = $lan_id;
+                $history[0]->save();
+            }
+            $model->newpassword = null;
+            $model->oldpassword = null;
+            $model->newpasswordconfirm = null;
+            return $this->render('settings', [
+                'model' => $model,
+                'saler' => $saler,
+                'img' => $img,
+                'image' => $image,
+                'history' => $history
+            ]);
         }
         else
         {
@@ -237,7 +302,7 @@ class SalerController extends Controller
 
         $model = new SalerSignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
-            Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
+            Yii::$app->session->setFlash('success', Yii::t('app', 'Thank you for registration. Please check your inbox for verification email.'));
             return $this->redirect(['login']);
         }
 
@@ -257,11 +322,11 @@ class SalerController extends Controller
         $model = new SalerPasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
-                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
+                Yii::$app->session->setFlash('success', Yii::t('app', 'Check your email for further instructions.'));
 
                 return $this->goHome();
             } else {
-                Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
+                Yii::$app->session->setFlash('error', Yii::t('app', 'Sorry, we are unable to reset password for the provided email address.'));
             }
         }
 
@@ -286,7 +351,7 @@ class SalerController extends Controller
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            Yii::$app->session->setFlash('success', 'New password saved.');
+            Yii::$app->session->setFlash('success', Yii::t('app', 'New password saved.'));
 
             return $this->redirect(['login']);
         }
@@ -312,12 +377,12 @@ class SalerController extends Controller
         }
         if ($user = $model->verifyEmail()) {
             if (Yii::$app->user->login($user)) {
-                Yii::$app->session->setFlash('success', 'Your email has been confirmed!');
+                Yii::$app->session->setFlash('success', Yii::t('app', 'Your email has been confirmed!'));
                 return $this->goHome();
             }
         }
 
-        Yii::$app->session->setFlash('error', 'Sorry, we are unable to verify your account with provided token.');
+        Yii::$app->session->setFlash('error', Yii::t('app', 'Sorry, we are unable to verify your account with provided token.'));
         return $this->goHome();
     }
 
@@ -331,10 +396,10 @@ class SalerController extends Controller
         $model = new SalerResendVerificationEmailForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
-                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
+                Yii::$app->session->setFlash('success', Yii::t('app', 'Check your email for further instructions.'));
                 return $this->goHome();
             }
-            Yii::$app->session->setFlash('error', 'Sorry, we are unable to resend verification email for the provided email address.');
+            Yii::$app->session->setFlash('error', Yii::t('app', 'Sorry, we are unable to resend verification email for the provided email address.'));
         }
 
         return $this->render('resendVerificationEmail', [

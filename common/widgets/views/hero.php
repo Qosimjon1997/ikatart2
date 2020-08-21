@@ -57,11 +57,11 @@
             </div>
           </div>
         </div>
-          <div class="col-12 col-md-3  m-0 pt-5 pt-md-0 mt-4 mt-md-0 row">
+          <div class="col-12 col-md-3  m-0 pt-5 pt-md-0 mt-4 mt-md-0 row reklama">
             <div class="col-md-12 col-sm-6 col-12 p-0 ml-5 ml-sm-0">
               <img src="img/hero/top/1.jpg" alt="">
             </div>
-            <div class="col-md-12 col-sm-6 col-12 p-0 ml-5 ml-sm-0">
+            <div class="col-md-12 col-sm-6 col-12 p-0 ml-5 ml-sm-0 reklama">
               <img src="img/hero/top/2.jpg" alt="">
             </div>
           </div>

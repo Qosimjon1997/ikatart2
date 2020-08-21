@@ -39,14 +39,23 @@ class ProductSearch extends Product
      *
      * @return ActiveDataProvider
      */
-    public function search($params, $isActive, $id)
+    public function search($params, $isActive = null, $id = null)
     {
+        $params = [];
+        if(isset($isActive)){
+            $params['isActive'] = $isActive;
+        }
+
+        if(isset($id)){
+            $params['Saler_id'] = $id;
+        }
+
         $query = Product::find()
             ->joinwith('saler')
             ->joinWith('category')
             ->joinWith('mass')
-            ->where(['isActive' => $isActive,'Saler_id'=>$id]);
-            
+            ->where($params);
+
 
         // add conditions that should always apply here
 

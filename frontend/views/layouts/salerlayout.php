@@ -39,10 +39,13 @@ AppAsset::register($this);
         <?php if(!Yii::$app->saler->isGuest) {?>
             <ul class="list-group col-12 col-md-3">
                 <li class="list-group-item">
+                <?= Html::a(Yii::t('app', 'My products') . '<span class="fa fa-chevron-right"></span>', ['product/index'], ['class' => 'd-flex justify-content-between align-items-center text-decoration-none']) ?>
+                </li>
+                <li class="list-group-item">
                 <?= Html::a(Yii::t('app', 'Seller history') . '<span class="fa fa-chevron-right"></span>', ['saler/history'], ['class' => 'd-flex justify-content-between align-items-center text-decoration-none']) ?>
                 </li>
                 <li class="list-group-item">
-                <?= Html::a(Yii::t('app', 'Settings') . '<span class="fa fa-chevron-right"></span>', ['saler/history'], ['class' => 'd-flex justify-content-between align-items-center text-decoration-none']) ?>
+                <?= Html::a(Yii::t('app', 'Settings') . '<span class="fa fa-chevron-right"></span>', ['saler/settings'], ['class' => 'd-flex justify-content-between align-items-center text-decoration-none']) ?>
                 </li>
             </ul>
             <div class="container m-0 p-0 col-12 col-md-9 col-lg-9 m-auto">

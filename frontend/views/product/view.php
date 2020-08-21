@@ -29,17 +29,23 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+            // 'id',
             'name',
             'price',
-            'oldprice',
-            'percent',
-            'Saler_id',
-            'category_id',
+            // 'oldprice',
+            // 'percent',
+            'saler.email',
+            'category.name',
             'isActive',
             'info:ntext',
-            'mass_id',
+            'mass.mass',
         ],
     ]) ?>
+
+    <?php
+        foreach ($image as $img) {
+            echo  Html::img('/backend/web/upimages/' . $img->path, ['alt' => $model->name, 'class' => 'index-image m-1']);
+        }
+    ?>
 
 </div>
