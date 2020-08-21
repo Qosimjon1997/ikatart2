@@ -629,6 +629,17 @@ button:focus, input:focus, input:focus, textarea, textarea:focus {
     text-align: right;
     padding-top: 10px;
   }
+  .navbar1{
+    position: absolute;
+    display: none;
+    background: #00b1ff;
+    max-width: 100%;
+    height: 200px;
+    z-index: 9999;
+  }
+  .navbar a .navbar1 > a:hover{
+   display: block;
+  }
   .main-menu{
     display: none;
   }
@@ -651,6 +662,13 @@ button:focus, input:focus, input:focus, textarea, textarea:focus {
     top: 20px;
     padding-left: 30px;
     display: none;
+  }
+  .navbar a .navbar1{
+    position: relative;
+    display: none;
+  }
+  .navbar a:hover{
+
   }
   .navbar i{
     color: #330996;

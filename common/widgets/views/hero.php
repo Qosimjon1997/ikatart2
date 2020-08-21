@@ -10,10 +10,11 @@
               <div class="owl-stage-outer">
                 <div class="owl-stage">
              <div class="owl-item">
-               <div class="hs-item set-bg" data-setbg="img/hero/1.1.jpg">
+               <div class="hs-item set-bg">
+               <img src="img/hero/1.1.jpg" alt="">
                 <div class="container">
                     <div class="row">
-                        <div class="col-12 text-truncate text-white">
+                        <div class="col-12 text-white">
                               <h2 class="text">Only Natural Materials</h2>
                         </div>
                       </div>
@@ -21,7 +22,8 @@
               </div>
             </div>
             <div class="owl-item active">
-              <div class="hs-item set-bg" data-setbg="img/hero/1.2.jpg">
+              <div class="hs-item set-bg">
+              <img src="img/hero/1.2.jpg" alt="">
                 <div class="container">
                   <div class="row">
                     <div class="col-12 text-truncatetext-white">
@@ -32,7 +34,8 @@
                 </div>
               </div>
               <div class="owl-item active" >
-                <div class="hs-item set-bg" data-setbg="img/hero/1.3.jpg">
+                <div class="hs-item set-bg">
+                <img src="img/hero/1.3.jpg" alt="">
                   <div class="container">
                     <div class="row">
                       <div class="col-12 text-truncate text-white">
@@ -43,7 +46,8 @@
                   </div>
                 </div>
                 <div class="owl-item active" >
-                  <div class="hs-item set-bg" data-setbg="img/hero/1.4.jpg">
+                  <div class="hs-item set-bg">
+                  <img src="img/hero/1.4.jpg" alt="">
                     <div class="container">
                       <div class="row">
                         <div class="col-12 text-truncate text-white">

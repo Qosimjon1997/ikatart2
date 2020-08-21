@@ -10,7 +10,7 @@ CaruselAsset::register($this);
                     <div class="img-box">
                      <a href="ikat-art.html">
                         <img src="img/slide/1.jpg"></a>
-                            <p>Uzbek Plate</p>
+                            <p>Uzbek Plates</p>
                     </div>
                     <div class="product">
                           <p>$40.00</p> 
@@ -30,7 +30,7 @@ CaruselAsset::register($this);
             <div class="slider-box">
                     <div class="img-box">
                       <img src="img/slide/2.jpg">
-                      <p >Uzbek picture</p>
+                      <p >Uzbek pictures</p>
                     </div>
                     
                     
@@ -52,7 +52,7 @@ CaruselAsset::register($this);
             <div class="slider-box">
                 <div class="img-box">
                   <img src="img/slide/3.jpg">
-                  <p>Women's clothing</p>
+                  <p>Women's clothinges</p>
                 </div>
                 <div class="product">
                   <p>$40.00</p> 
@@ -74,7 +74,7 @@ CaruselAsset::register($this);
             <div class="slider-box">
                 <div class="img-box">
                   <img src="img/slide/4.jpg">
-                  <p>Uzbek bag</p>
+                  <p>Uzbek bages</p>
                 </div>
                 <div class="product">
                   <p>$40.00</p> 
@@ -96,7 +96,7 @@ CaruselAsset::register($this);
             <div class="slider-box">
                 <div class="img-box">
                   <img src="img/slide/5.jpg">
-                  <p>Uzbek picture</p>
+                  <p>Uzbek pictures</p>
                 </div>
                 <div class="product">
                   <p>$40.00</p> 
@@ -118,7 +118,7 @@ CaruselAsset::register($this);
             <div class="slider-box">
                 <div class="img-box">
                   <img src="img/slide/6.jpg">
-                  <p>Uzbek Oftobo</p>
+                  <p>Uzbek Oftoboes</p>
                 </div>
                 <div class="product">
                   <p>$40.00</p> 
@@ -140,7 +140,7 @@ CaruselAsset::register($this);
             <div class="slider-box">
                 <div class="img-box">
                   <img src="img/slide/7.jpg">
-                  <p>Uzbek Plate</p>
+                  <p>Uzbek Plates</p>
                 </div>
                 <div class="product">
                   <p>$40.00</p> 
@@ -162,7 +162,7 @@ CaruselAsset::register($this);
             <div class="slider-box">
                 <div class="img-box">
                   <img src="img/slide/8.jpg">
-                  <p>Uzbek Knife</p>
+                  <p>Uzbek Knifes</p>
                 </div>
                 <div class="product">
                   <p>$40.00</p> 
@@ -204,7 +204,7 @@ CaruselAsset::register($this);
               <div class="slider-box">
                 <div class="img-box">
                   <img src="img/slide/10.jpg">
-                  <p>Uzbek picture</p>
+                  <p>Uzbek pictures</p>
                 </div>
                 <div class="product">
                   <p>$40.00</p> 
@@ -225,7 +225,7 @@ CaruselAsset::register($this);
               <div class="slider-box">
                 <div class="img-box">
                   <img src="img/slide/11.jpg">
-                  <p>Uzbek Plate</p>
+                  <p>Uzbek Plates</p>
                 </div>
                 <div class="product">
                   <p>$40.00</p> 
@@ -246,7 +246,7 @@ CaruselAsset::register($this);
               <div class="slider-box">
                 <div class="img-box">
                   <img src="img/slide/12.jpg">
-                  <p>Men's clothing</p>
+                  <p>Men's clothinges</p>
                 </div>
                 <div class="product">
                   <p>$40.00</p> 
@@ -267,7 +267,7 @@ CaruselAsset::register($this);
               <div class="slider-box">
                 <div class="img-box">
                   <img src="img/slide/13.jpg">
-                  <p>Uzbek Picture</p>
+                  <p>Uzbek Pictures</p>
                 </div>
                 <div class="product">
                   <p>$40.00</p> 
@@ -287,7 +287,7 @@ CaruselAsset::register($this);
               <div class="slider-box">
                 <div class="img-box">
                   <img src="img/slide/14.jpg">
-                  <p>Uzbek ear-ring</p>
+                  <p>Uzbek ear-ringes</p>
                 </div>
                 <div class="product">
                   <p>$40.00</p> 
@@ -324,11 +324,13 @@ CaruselAsset::register($this);
                 responsive:{
                     0:{ // breakpoint from 0 up - small smartphones
                         items:1,
-                        nav:true
+                        nav:true,
+                        loop:true
                     },
                     570:{  // breakpoint from 480 up - smartphones // landscape
                         items:2,
-                        nav:false
+                        nav:true,
+                        loop:true
                     },
                     990:{ // breakpoint from 768 up - tablets
                         items:3,
