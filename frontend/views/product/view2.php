@@ -104,12 +104,16 @@ use yii\helpers\Url;
   
   <div class="owl-slide owl-carousel owl-theme owl-carousel-blog justify-content-center" style="margin-left: -10px">
                 
-              <?php foreach ($modelcarusel as $variable){?>
+              <?php foreach ($modelcarusel as $variable){
+                
+                $amg = $variable->images[0]
+                ?>
 
                 <div class="slider-box">
                   <div class="img-box">
                     <a href="ikat-art.html">
-                      <img src="img/slide/1.jpg">
+                    <img src="/backend/web/upimages/<?php echo $amg->path?>" alt="rasm">
+                      <!-- <img src="img/slide/1.jpg"> -->
                     </a>
                     <p><?php echo $variable->name ?></p>
                   </div>

@@ -97,12 +97,14 @@ class ProductController extends Controller
         $image2 = $img->getImage($id);
         $modelcarusel = $this->findModelForCarusel($model->category_id);
 
+
         return $this->render('viewimage', [
             'model' => $this->findModel($id),
             'modelimage' => $image2,
             'modelcarusel' => $modelcarusel,
         ]);
         // var_dump($modelcarusel);
+
 
     }
 
