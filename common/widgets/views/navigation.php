@@ -1,5 +1,11 @@
 <?php
 use frontend\assets\NavigationAsset;
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+use frontend\models\Search;
+
+$search = new Search();
+
 NavigationAsset::register($this);
 ?>
 
@@ -542,18 +548,19 @@ NavigationAsset::register($this);
                                     </nav>
                                 </div>
 
-                            </div> 
+                            </div>
                             <div  class="col-lg-5 col-md-6 col-sm-8 col-xl-4 col-xs-10">
-
-
                                 <ul class="header-right">
                                  <div class="row">
                                     <li>
                                         <div class="form-box">
-                                            <input type="text" name="Search" placeholder="Search ikat-art.com ...">
+                                            <?php $form = ActiveForm::begin(['action' => 'search']) ?>
+                                            <?= $form->field($search, 'search')->textInput(['placeholder' => Yii::t('app', 'Search here'), ])->label(false) ?>
                                             <div class="search-icon">
-                                                <i class="fas fa-search special-tag"></i>
+                                                <?= Html::submitButton('<i class="fas fa-search special-tag"></i>', ['style' => 'border: 0px solid; outline: 0px solid; background: transparent']) ?>
+
                                             </div>
+                                            <?php ActiveForm::end(); ?>
                                         </div>
                                      </li>
                                     <li>

@@ -10,7 +10,7 @@ class HeaderAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/header.css',
-        'css/fontawesome-all.min.css',
+        // 'css/fontawesome-all.min.css',
         'https://use.fontawesome.com/releases/v5.8.1/css/all.css'
     ];
     public $js = [
