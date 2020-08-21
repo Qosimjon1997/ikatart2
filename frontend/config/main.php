@@ -11,7 +11,13 @@ return [
     'name' => 'Ikat-art',
     'language' => 'en',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => [
+        'log',
+        [
+            'class' => 'frontend\components\LanguageSelector',
+            'supportedLanguages' => ['ru', 'en', 'uz', 'it', 'sp', 'fr'],
+        ],
+    ],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [

@@ -49,3 +49,24 @@
  right: -5px;
  top: -2px;
 }
+
+.col {
+  padding: 0;
+  margin: 0;
+  vertical-align: top;
+}
+
+.icons {
+    width: 20px;
+    border-radius: 2px;
+    vertical-align: center;
+}
+
+.col .dropdown-menu{
+    min-width: 60px !important;
+    width: 60px;
+}
+
+.col .dropdown-menu .dropdown-item{
+    padding: 8px;
+}
