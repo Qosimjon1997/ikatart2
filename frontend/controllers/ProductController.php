@@ -73,14 +73,39 @@ class ProductController extends Controller
         $img = new Images();
         $image2 = $img->getImage($id);
         $modelcarusel = $this->findModelForCarusel($model->category_id);
-
-        return $this->render('viewimage', [
-            'model' => $this->findModel($id),
-            'modelimage' => $image2,
-            'modelcarusel' => $modelcarusel,
-        ]);
-        // var_dump($modelcarusel);
         
+        // return $this->render('viewimage', [
+        //     'model' => $this->findModel($id),
+        //     'modelimage' => $image2,
+        //     'modelcarusel' => $modelcarusel,
+        // ]);
+        $amg = $modelcarusel->images;
+         var_dump($amg->path);
+            
+        // $exp1 = Product::find(['category_id' => 7, 'isActive' => 1])->all();
+        // foreach ($exp1 as $key1) {
+        //     # code...
+        //     echo "<h2>";
+        //     echo $key1->name;
+        //     echo "<ul>";
+        //     foreach ($key1->images as $func) {
+        //         # code...
+        //         echo "<li>{$func->path}</li>";
+        //     }
+        //     echo "</ul>";
+        //     echo "<h2>";
+        // }
+        // $exp2 = Images::find()->all();
+        // foreach ($exp2 as $key2) {
+        //     # code...
+        //     echo "<h2> 
+        //         path {$key2->path} |
+        //         main {$key2->main} |
+        //         product id {$key2->product_id}
+        //     </h2>";
+        // }
+
+
     }
 
     /**
