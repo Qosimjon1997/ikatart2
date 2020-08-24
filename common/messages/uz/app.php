@@ -190,4 +190,5 @@ return [
     'wieght' => 'vazn',
     'workers' => 'ishchilar',
     'zone' => 'zona',
+    'Contacts' => 'Bog\'lanish'
 ];

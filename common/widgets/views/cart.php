@@ -2,27 +2,27 @@
 use frontend\assets\CartAsset;
 CartAsset::register($this);
 ?>
-<body> 
-  
+<body>
+
 <section class="cart_area section_padding">
     <div class="container">
       <div class="cart_inner">
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">Product</th>
-                <th scope="col">Info</th>
-                <th scope="col">Quantity</th>
+                <th scope="col"><?= Yii::t('app', 'Product') ?></th>
+                <th scope="col"><?= Yii::t('app', 'Info') ?></th>
+                <th scope="col"><?= Yii::t('app', 'Quantity') ?></th>
                 <th></th>
-                <th scope="col">Total</th>
+                <th scope="col"><?= Yii::t('app', 'Total') ?></th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td rowspan="2">
                       <div class="easyzoom easyzoom--adjacent">
-                        <a href="img/1.jpg">
-                          <img src="img/1.jpg" alt="" width="243px" height="300px" />
+                        <a href="/frontend/web/img/1.jpg">
+                          <img src="/frontend/web/img/1.jpg" alt="" width="243px" height="300px" />
                         </a>
                       </div>
                 </td>
@@ -32,7 +32,7 @@ CartAsset::register($this);
                   Biz ko’zi ojizlar uchun qurulma ishlab chiqdik, bu qurilma orqali ko’zi ojizlar yozish ishlarini bajarishlari mumkin, bu qurulmamizga tugmachalar qo’yilgan bo’lib bu orqali hariflarni ajrata olishlari va juda oson tushunishlari mumkin.
                   Bu tugmalarni bosganda harflarni bir biridan farqlash uchun o’zida harxil tovush chiqaradi va bu orqali ko’zi ojizlar oson tushunib olishadi.
                   Ko’zi ojizlar uchun qurilma
-                </p> 
+                </p>
                 </td>
                 <td>
                   <h5>$360.00</h5>
@@ -49,8 +49,8 @@ CartAsset::register($this);
                 </td>
                 </tr>
                 <tr>
-                  <td colspan="3" style="text-align: center;"> 
-                  <button onclick="oybek()">Buy</button>
+                  <td colspan="3" style="text-align: center;">
+                  <button onclick="oybek()"><?= Yii::t('app', 'Buy') ?></button>
                   <div class="back" id="salom">
                     <div class="login-box">
                       <h2>Excuse me</h2>
@@ -58,7 +58,7 @@ CartAsset::register($this);
                       <form>
                         <div class="user-box">
                           <!-- <input type="text" name="" required=""> -->
-                          <label>Kechirasiz hozirda saytimiz test rejimda to'lliq tugalanmagan agarda bizdan biror 
+                          <label>Kechirasiz hozirda saytimiz test rejimda to'lliq tugalanmagan agarda bizdan biror
                             narsa olmoqchi bo'lsangiz quydagi manzillarga murojat qiling</label>
                         </div>
                         <!-- <div class="user-box">
@@ -86,7 +86,7 @@ CartAsset::register($this);
                           <span></span>
                           ueshonqulov@bk.ru
                         </a>
-                      </form> 
+                      </form>
                     </div>
                   </div>
                   </td>
@@ -114,7 +114,7 @@ CartAsset::register($this);
                   Biz ko’zi ojizlar uchun qurulma ishlab chiqdik, bu qurilma orqali ko’zi ojizlar yozish ishlarini bajarishlari mumkin, bu qurulmamizga tugmachalar qo’yilgan bo’lib bu orqali hariflarni ajrata olishlari va juda oson tushunishlari mumkin.
                   Bu tugmalarni bosganda harflarni bir biridan farqlash uchun o’zida harxil tovush chiqaradi va bu orqali ko’zi ojizlar oson tushunib olishadi.
                   Ko’zi ojizlar uchun qurilma
-                </p> 
+                </p>
                 </td>
                 <td>
                   <h5>$360.00</h5>
@@ -131,7 +131,7 @@ CartAsset::register($this);
                 </td>
                 </tr>
                 <tr>
-                  <td colspan="3" style="text-align: center;"> 
+                  <td colspan="3" style="text-align: center;">
                   <button onclick="oybek()">Buy</button>
                   <div class="back" id="salom">
                     <div class="login-box">
@@ -140,8 +140,7 @@ CartAsset::register($this);
                       <form>
                         <div class="user-box">
                           <!-- <input type="text" name="" required=""> -->
-                          <label>Kechirasiz hozirda saytimiz test rejimda to'lliq tugalanmagan agarda bizdan biror 
-                            narsa olmoqchi bo'lsangiz quydagi manzillarga murojat qiling</label>
+                          <label><?= Yii::t('app', 'Sorry, our site is currently running in test mode and is not fully finished. If you would like to buy something, please contact the following addresses!') ?></label>
                         </div>
                         <!-- <div class="user-box">
                           <input type="password" name="" required="">
@@ -168,7 +167,7 @@ CartAsset::register($this);
                           <span></span>
                           ueshonqulov@bk.ru
                         </a>
-                      </form> 
+                      </form>
                     </div>
                   </div>
                   </td>
@@ -177,7 +176,7 @@ CartAsset::register($this);
           </table>
       </div>
   </section>
-          
+
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/jquery-3.2.1.min.js.download" type="text/javascript"></script>
         <script src="js/jquery.slicknav.min.js.download" type="text/javascript"></script>
@@ -215,7 +214,7 @@ CartAsset::register($this);
                         loop:true
                     }
                 }
-            
+
     })
 
   </script>

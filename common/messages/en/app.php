@@ -190,4 +190,5 @@ return [
     'wieght' => 'wieght',
     'workers' => 'workers',
     'zone' => 'zone',
+    'Contacts' => 'Contacts',
 ];
