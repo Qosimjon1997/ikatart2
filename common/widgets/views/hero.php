@@ -5,7 +5,7 @@
     <div class="hero-blog m-0 p-0 position-realative">
       <div class="row">
         <div class="col-12 col-md-9 m-0 p-0">
-       
+
             <div class="hero-slider owl-carousel owl-loaded owl-drag">
               <div class="owl-stage-outer">
                 <div class="owl-stage">
@@ -15,7 +15,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12 text-white">
-                              <h2 class="text">Only Natural Materials</h2>
+                              <h2 class="text"><?= Yii::t('app', 'Only Natural Materials') ?></h2>
                         </div>
                       </div>
                   </div>
@@ -27,7 +27,7 @@
                 <div class="container">
                   <div class="row">
                     <div class="col-12 text-truncatetext-white">
-                        <h2 class="text">Delivery to anywhere in the world</h2>
+                        <h2 class="text"><?= Yii::t('app', 'Delivery to anywhere in the world') ?></h2>
                       </div>
                     </div>
                   </div>
@@ -39,7 +39,7 @@
                   <div class="container">
                     <div class="row">
                       <div class="col-12 text-truncate text-white">
-                        <h2 class="text">Our craftsmen</h2>
+                        <h2 class="text"><?= Yii::t('app', 'Our craftsmen') ?></h2>
                         </div>
                       </div>
                     </div>
@@ -51,7 +51,7 @@
                     <div class="container">
                       <div class="row">
                         <div class="col-12 text-truncate text-white">
-                            <h2 class="text">free and fast delivery</h2>
+                            <h2 class="text"><?= Yii::t('app', 'Fast delivery service') ?></h2>
                           </div>
                         </div>
                       </div>

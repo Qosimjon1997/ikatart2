@@ -6,24 +6,23 @@ use yii\bootstrap4\ActiveForm;
 $lan = Yii::$app->params['languages'];
 $val = strtolower(Yii::$app->language);
 
-
 HeaderAsset::register($this);
 ?>
 <div class="header-new m-0 p-0">
     <div class="row  justify-content-between align-items-center m-0 p-0">
         <div class="col-12 col-md-4">
-            <a><img class="logo" src="/frontend/web/img/logo/logo.png" alt="logo"></a>
+            <a href="/"><img class="logo" src="/frontend/web/img/logo/logo.png" alt="logo"></a>
         </div>
         <div class="header-info col-12 col-sm-8 col-lg-6 row justify-content-end align-items-center">
             <div class="col">
                 <?= Html::a('<i class="fa fa-sign-in-alt" aria-hidden="true" style="margin-right: 5px;" ></i>
-                    '. Yii::t('app', 'Sign in'), ['user/login']) ?>
+                    '. Yii::t('app', 'Sign in'), ['user/login'], ['class' => 'text-primary']) ?>
             </div>
             <div class="col">
-                <?= Html::a('<i class="fa fa-user-plus mr-1" aria-hidden="true"></i>'. Yii::t('app', 'Sign up'), ['user/signup']) ?>
+                <?= Html::a('<i class="fa fa-user-plus mr-1" aria-hidden="true"></i>'. Yii::t('app', 'Sign up'), ['user/signup'], ['class' => 'text-primary']) ?>
             </div>
             <div class="col">
-                <a href="#"><i class="fa fa-user-cog" aria-hidden="true" style="margin-right: 5px;" ></i><?= Yii::t('app', 'Contacts')?></a>
+                <a href="#" class="text-primary"><i class="fa fa-user-cog" aria-hidden="true" style="margin-right: 5px;" ></i><?= Yii::t('app', 'Contacts')?></a>
             </div>
             <div class="col">
                 <!-- CONVERT MONEY -->
@@ -32,11 +31,11 @@ HeaderAsset::register($this);
                 </a>
                 <div class="dropdown-menu">
                 <?php
-                    $form = ActiveForm::begin(['action' => '/language/change']);
+                    $form = ActiveForm::begin(['action' => '/money/index']);
 
                     foreach ($lan as $key => $value) {
                         echo '
-                        <button type="submit" class="dropdown-item" name="lan" value = "'.$key.'"><img src="/frontend/web/img/'.$key.'.png" class="icons"> '.$value.'</button>';
+                        <button type="submit" class="dropdown-item" name="lan" value = "'.$key.'">$</button>';
                     }
                     ActiveForm::end();
                 ?>
@@ -48,7 +47,7 @@ HeaderAsset::register($this);
                 </a>
                 <div class="dropdown-menu">
                 <?php
-                    $form = ActiveForm::begin();
+                    $form = ActiveForm::begin(['action' => '/language/index']);
 
                     foreach ($lan as $key => $value) {
                         echo '

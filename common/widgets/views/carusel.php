@@ -2,7 +2,7 @@
 use frontend\assets\CaruselAsset;
 CaruselAsset::register($this);
 ?>
-<body> 
+<body>
             <p style="margin: auto; max-width: 1000px; color: rgb(8, 2, 83); font-size: 30px;
         margin-top: 10px; text-align: center; font-weight: 500; text-shadow: rgb(128, 253, 11);"> New Collection</p>
   <div class="owl-slide owl-carousel owl-theme owl-carousel-blog justify-content-center" style="margin-left: -10px">
@@ -13,7 +13,7 @@ CaruselAsset::register($this);
                             <p>Uzbek Plates</p>
                     </div>
                     <div class="product">
-                          <p>$40.00</p> 
+                          <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart">
@@ -32,10 +32,10 @@ CaruselAsset::register($this);
                       <img src="img/slide/2.jpg">
                       <p >Uzbek pictures</p>
                     </div>
-                    
-                    
+
+
                      <div class="product">
-                      <p>$40.00</p> 
+                      <p>$40.00</p>
                     </div>
                     <div class="icon-panel">
                       <div class="cart">
@@ -55,7 +55,7 @@ CaruselAsset::register($this);
                   <p>Women's clothinges</p>
                 </div>
                 <div class="product">
-                  <p>$40.00</p> 
+                  <p>$40.00</p>
                 </div>
               <div class="icon-panel">
                 <div class="cart">
@@ -69,15 +69,15 @@ CaruselAsset::register($this);
                 </div>
               </div>
               </div>
-       
- 
+
+
             <div class="slider-box">
                 <div class="img-box">
                   <img src="img/slide/4.jpg">
                   <p>Uzbek bages</p>
                 </div>
                 <div class="product">
-                  <p>$40.00</p> 
+                  <p>$40.00</p>
                 </div>
                <div class="icon-panel">
                 <div class="cart">
@@ -91,15 +91,15 @@ CaruselAsset::register($this);
                   </div>
                </div>
               </div>
-       
-       
+
+
             <div class="slider-box">
                 <div class="img-box">
                   <img src="img/slide/5.jpg">
                   <p>Uzbek pictures</p>
                 </div>
                 <div class="product">
-                  <p>$40.00</p> 
+                  <p>$40.00</p>
                 </div>
                <div class="icon-panel">
                 <div class="cart">
@@ -113,15 +113,15 @@ CaruselAsset::register($this);
                   </div>
                </div>
               </div>
-      
-     
+
+
             <div class="slider-box">
                 <div class="img-box">
                   <img src="img/slide/6.jpg">
                   <p>Uzbek Oftoboes</p>
                 </div>
                 <div class="product">
-                  <p>$40.00</p> 
+                  <p>$40.00</p>
                 </div>
                <div class="icon-panel">
                 <div class="cart">
@@ -135,15 +135,15 @@ CaruselAsset::register($this);
                   </div>
                </div>
               </div>
- 
- 
+
+
             <div class="slider-box">
                 <div class="img-box">
                   <img src="img/slide/7.jpg">
                   <p>Uzbek Plates</p>
                 </div>
                 <div class="product">
-                  <p>$40.00</p> 
+                  <p>$40.00</p>
                 </div>
                <div class="icon-panel">
                 <div class="cart">
@@ -157,15 +157,15 @@ CaruselAsset::register($this);
                   </div>
                </div>
               </div>
-       
-         
+
+
             <div class="slider-box">
                 <div class="img-box">
                   <img src="img/slide/8.jpg">
                   <p>Uzbek Knifes</p>
                 </div>
                 <div class="product">
-                  <p>$40.00</p> 
+                  <p>$40.00</p>
                 </div>
                <div class="icon-panel">
                 <div class="cart">
@@ -179,15 +179,15 @@ CaruselAsset::register($this);
                   </div>
                </div>
               </div>
-         
-          
+
+
             <div class="slider-box">
                 <div class="img-box">
                   <img src="img/slide/9.jpg">
                   <p>Uzbek mebils</p>
                 </div>
                 <div class="product">
-                  <p>$40.00</p> 
+                  <p>$40.00</p>
                 </div>
                <div class="icon-panel">
                 <div class="cart">
@@ -207,7 +207,7 @@ CaruselAsset::register($this);
                   <p>Uzbek pictures</p>
                 </div>
                 <div class="product">
-                  <p>$40.00</p> 
+                  <p>$40.00</p>
                 </div>
                <div class="icon-panel">
                 <div class="cart">
@@ -228,7 +228,7 @@ CaruselAsset::register($this);
                   <p>Uzbek Plates</p>
                 </div>
                 <div class="product">
-                  <p>$40.00</p> 
+                  <p>$40.00</p>
                 </div>
                <div class="icon-panel">
                 <div class="cart">
@@ -249,7 +249,7 @@ CaruselAsset::register($this);
                   <p>Men's clothinges</p>
                 </div>
                 <div class="product">
-                  <p>$40.00</p> 
+                  <p>$40.00</p>
                 </div>
                <div class="icon-panel">
                 <div class="cart">
@@ -270,7 +270,7 @@ CaruselAsset::register($this);
                   <p>Uzbek Pictures</p>
                 </div>
                 <div class="product">
-                  <p>$40.00</p> 
+                  <p>$40.00</p>
                 </div>
                <div class="icon-panel">
                 <div class="cart">
@@ -290,7 +290,7 @@ CaruselAsset::register($this);
                   <p>Uzbek ear-ringes</p>
                 </div>
                 <div class="product">
-                  <p>$40.00</p> 
+                  <p>$40.00</p>
                 </div>
                <div class="icon-panel">
                 <div class="cart">
@@ -305,11 +305,11 @@ CaruselAsset::register($this);
                </div>
               </div>
         </div>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery-3.2.1.min.js.download" type="text/javascript"></script>
-        <script src="js/jquery.slicknav.min.js.download" type="text/javascript"></script>
-        <script src="js/owl.carousel.min.js.download" type="text/javascript"></script>
-        <script src="js/jquery.nicescroll.min.js.download" type="text/javascript"></script>
+  <script src="/frontend/web/js/owl.carousel.min.js"></script>
+  <script src="/frontend/web/js/jquery-3.2.1.min.js.download" type="text/javascript"></script>
+        <script src="/frontend/web/js/jquery.slicknav.min.js.download" type="text/javascript"></script>
+        <script src="/frontend/web/js/owl.carousel.min.js.download" type="text/javascript"></script>
+        <script src="/frontend/web/js/jquery.nicescroll.min.js.download" type="text/javascript"></script>
   <script>
     $('.owl-slide').owlCarousel(
       {
@@ -343,7 +343,7 @@ CaruselAsset::register($this);
                         loop:true
                     }
                 }
-            
+
     })
 
   </script>
