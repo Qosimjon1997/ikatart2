@@ -17,9 +17,9 @@ NavigationAsset::register($this);
                          <div class="row">
                              <div class="col-md-6 col-sm-4 col-xs-2">
                            <div class="navbar">
-                           <i class="fa fa-bars" aria-hidden="true" style="margin-right: -20px;" ></i><a href="">Category</a>
+                           <i class="fa fa-bars" aria-hidden="true" style="margin-right: -20px;" ></i><a href=""><?= Yii::t('app', 'Category') ?></a>
                            <div class="navbar1">
-                               sadasds s
+
                            </div>
                         </div>
                             </div>
@@ -48,7 +48,7 @@ NavigationAsset::register($this);
                                                     <td>
                                                     <li>
                                                         <div class="sub-cart">
-                                                            <a href="#"> <div class="sub-cat" style="background: url(./img/menu/1.jpg);"></div></a>
+                                                            <a href="#"> <div class="sub-cat" style="background: url('/frontend/web/img/menu/1.jpg');"></div></a>
                                                            <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
                                                                     <p>$40.00</p>
@@ -71,7 +71,7 @@ NavigationAsset::register($this);
                                                     <td>
                                                     <li>
                                                         <div class="sub-cart">
-                                                            <a href="#"> <div class="sub-cat" style="background: url(./img/menu/2.jpg);"></div> </a>
+                                                            <a href="#"> <div class="sub-cat" style="background: url('/frontend/web/img/menu/2.jpg');"></div> </a>
                                                             <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
                                                                     <p>$40.00</p>
@@ -95,7 +95,7 @@ NavigationAsset::register($this);
                                                     <li>
                                                         <div class="sub-cart">
                                                             <a href="#">
-                                                                <div class="sub-cat" style="background: url(./img/menu/3.jpg);"></div></a>
+                                                                <div class="sub-cat" style="background: url('/frontend/web/img/menu/3.jpg');"></div></a>
                                                                 <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                                 <div class="product1">
                                                                     <p>$40.00</p>
@@ -131,7 +131,7 @@ NavigationAsset::register($this);
                                                     <td>
                                                     <li>
                                                         <div class="sub-cart">
-                                                            <a href="#"> <div class="sub-cat" style="background: url(./img/menu/1.jpg);"></div></a>
+                                                            <a href="#"> <div class="sub-cat" style="background: url('/frontend/web/img/menu/1.jpg');"></div></a>
                                                            <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
                                                                     <p>$40.00</p>
@@ -154,7 +154,7 @@ NavigationAsset::register($this);
                                                     <td>
                                                     <li>
                                                         <div class="sub-cart">
-                                                            <a href="#"> <div class="sub-cat" style="background: url(./img/menu/2.jpg);"></div> </a>
+                                                            <a href="#"> <div class="sub-cat" style="background: url('/frontend/web/img/menu/2.jpg');"></div> </a>
                                                             <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
                                                                     <p>$40.00</p>
@@ -178,7 +178,7 @@ NavigationAsset::register($this);
                                                     <li>
                                                         <div class="sub-cart">
                                                             <a href="#">
-                                                                <div class="sub-cat" style="background: url(/img/menu/3.jpg);"></div></a>
+                                                                <div class="sub-cat" style="background: url('/frontend/web/img/menu/3.jpg');"></div></a>
                                                                 <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                                 <div class="product1">
                                                                     <p>$40.00</p>
@@ -201,7 +201,7 @@ NavigationAsset::register($this);
                                                     <td>
                                                     <li>
                                                         <div class="sub-cart">
-                                                            <a href="#"> <div class="sub-cat" style="background: url(/img/menu/2.jpg);"></div> </a>
+                                                            <a href="#"> <div class="sub-cat" style="background: url('/frontend/web/img/menu/2.jpg');"></div> </a>
                                                             <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
                                                                     <p>$40.00</p>
@@ -236,7 +236,7 @@ NavigationAsset::register($this);
                                                     <td>
                                                     <li>
                                                         <div class="sub-cart">
-                                                            <a href="#"> <div class="sub-cat" style="background: url(/img/menu/1.jpg);"></div></a>
+                                                            <a href="#"> <div class="sub-cat" style="background: url('/frontend/web/img/menu/1.jpg');"></div></a>
                                                            <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
                                                                     <p>$40.00</p>
@@ -259,7 +259,7 @@ NavigationAsset::register($this);
                                                     <td>
                                                     <li>
                                                         <div class="sub-cart">
-                                                            <a href="#"> <div class="sub-cat" style="background: url(/img/menu/2.jpg);"></div> </a>
+                                                            <a href="#"> <div class="sub-cat" style="background: url('/frontend/web/img/menu/2.jpg');"></div> </a>
                                                             <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
                                                                     <p>$40.00</p>
@@ -283,7 +283,7 @@ NavigationAsset::register($this);
                                                     <li>
                                                         <div class="sub-cart">
                                                             <a href="#">
-                                                                <div class="sub-cat" style="background: url(/img/menu/3.jpg);"></div></a>
+                                                                <div class="sub-cat" style="background: url('/frontend/web/img/menu/3.jpg');"></div></a>
                                                                 <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                                 <div class="product1">
                                                                     <p>$40.00</p>
@@ -306,7 +306,7 @@ NavigationAsset::register($this);
                                                     <td>
                                                     <li>
                                                         <div class="sub-cart">
-                                                            <a href="#"> <div class="sub-cat" style="background: url(/img/menu/2.jpg);"></div> </a>
+                                                            <a href="#"> <div class="sub-cat" style="background: url('/frontend/web/img/menu/2.jpg');"></div> </a>
                                                             <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
                                                                     <p>$40.00</p>
@@ -344,7 +344,7 @@ NavigationAsset::register($this);
                                                     <td>
                                                     <li>
                                                         <div class="sub-cart">
-                                                            <a href="#"> <div class="sub-cat" style="background: url(/img/menu/1.jpg);"></div></a>
+                                                            <a href="#"> <div class="sub-cat" style="background: url('/frontend/web/img/menu/1.jpg');"></div></a>
                                                            <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
                                                                     <p>$40.00</p>
@@ -367,7 +367,7 @@ NavigationAsset::register($this);
                                                     <td>
                                                     <li>
                                                         <div class="sub-cart">
-                                                            <a href="#"> <div class="sub-cat" style="background: url(/img/menu/2.jpg);"></div> </a>
+                                                            <a href="#"> <div class="sub-cat" style="background: url('/frontend/web/img/menu/2.jpg');"></div> </a>
                                                             <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
                                                                     <p>$40.00</p>
@@ -391,7 +391,7 @@ NavigationAsset::register($this);
                                                     <li>
                                                         <div class="sub-cart">
                                                             <a href="#">
-                                                                <div class="sub-cat" style="background: url(/img/menu/3.jpg);"></div></a>
+                                                                <div class="sub-cat" style="background: url('/frontend/web/img/menu/3.jpg');"></div></a>
                                                                 <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                                 <div class="product1">
                                                                     <p>$40.00</p>
@@ -414,7 +414,7 @@ NavigationAsset::register($this);
                                                     <td>
                                                     <li>
                                                         <div class="sub-cart">
-                                                            <a href="#"> <div class="sub-cat" style="background: url(/img/menu/2.jpg);"></div> </a>
+                                                            <a href="#"> <div class="sub-cat" style="background: url('/frontend/web/img/menu/2.jpg');"></div> </a>
                                                             <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
                                                                     <p>$40.00</p>
@@ -453,7 +453,7 @@ NavigationAsset::register($this);
                                                     <td>
                                                     <li>
                                                         <div class="sub-cart">
-                                                            <a href="#"> <div class="sub-cat" style="background: url(/img/menu/1.jpg);"></div></a>
+                                                            <a href="#"> <div class="sub-cat" style="background: url('/frontend/web/img/menu/1.jpg');"></div></a>
                                                            <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
                                                                     <p>$40.00</p>
@@ -476,7 +476,7 @@ NavigationAsset::register($this);
                                                     <td>
                                                     <li>
                                                         <div class="sub-cart">
-                                                            <a href="#"> <div class="sub-cat" style="background: url(/img/menu/2.jpg);"></div> </a>
+                                                            <a href="#"> <div class="sub-cat" style="background: url('/frontend/web/img/menu/2.jpg');"></div> </a>
                                                             <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
                                                                     <p>$40.00</p>
@@ -500,7 +500,7 @@ NavigationAsset::register($this);
                                                     <li>
                                                         <div class="sub-cart">
                                                             <a href="#">
-                                                                <div class="sub-cat" style="background: url(/img/menu/3.jpg);"></div></a>
+                                                                <div class="sub-cat" style="background: url('/frontend/web/img/menu/3.jpg');"></div></a>
                                                                 <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                                 <div class="product1">
                                                                     <p>$40.00</p>
@@ -523,7 +523,7 @@ NavigationAsset::register($this);
                                                     <td>
                                                     <li>
                                                         <div class="sub-cart">
-                                                            <a href="#"> <div class="sub-cat" style="background: url(/img/menu/2.jpg);"></div> </a>
+                                                            <a href="#"> <div class="sub-cat" style="background: url('/frontend/web/img/menu/2.jpg');"></div> </a>
                                                             <div class="sub-name"> <p>Uzbek Pillows</p></div>
                                                             <div class="product1">
                                                                     <p>$40.00</p>
@@ -557,7 +557,7 @@ NavigationAsset::register($this);
                                  <div class="row">
                                     <li>
                                         <div class="form-box">
-                                            <?php $form = ActiveForm::begin(['action' => 'search']) ?>
+                                            <?php $form = ActiveForm::begin(['action' => '/site/search']) ?>
                                             <?= $form->field($search, 'search')->textInput(['placeholder' => Yii::t('app', 'Search here'), ])->label(false) ?>
                                             <div class="search-icon">
                                                 <?= Html::submitButton('<i class="fas fa-search special-tag"></i>', ['style' => 'border: 0px solid; outline: 0px solid; background: transparent']) ?>

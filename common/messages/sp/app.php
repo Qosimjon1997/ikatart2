@@ -191,4 +191,5 @@ correo de verificacion?',
     'wieght' => 'Peso',
     'workers' => 'Trabajadores',
     'zone' => 'Zona',
+    'Contacts' => 'Contactos'
 ];

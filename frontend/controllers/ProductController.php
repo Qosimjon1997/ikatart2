@@ -45,8 +45,14 @@ class ProductController extends Controller
             return false;
         }
 
-        if(Yii::$app->saler->isGuest) {
-            return $this->redirect(['saler/login']);
+        $actions = ['index', 'view', 'create', 'update', 'delete'];
+
+        if(!Yii::$app->saler->inn && !Yii::$app->saler->phone && !Yii::$app->saler->passport && array_search($this->action->id, $actions)) {
+            if(!Yii::$app->saler->isGuest) {
+                return $this->redirect(['saler/settings']);
+            } else {
+                return $this->redirect(['saler/login']);
+            }
         }
 
         // other custom code here

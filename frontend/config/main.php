@@ -15,14 +15,14 @@ return [
         'log',
         [
             'class' => 'frontend\components\LanguageSelector',
-            'supportedLanguages' => ['ru', 'en', 'uz', 'it', 'sp', 'fr'],
+            'supportedLanguages' => ['ru', 'en', 'uz', 'it', 'fr', 'sp'],
         ],
     ],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
-            //'baseUrl' => '',
+            'baseUrl' => '',
         ],
         'user' => [
             'class'=>'yii\web\User',
@@ -64,14 +64,14 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
                 '<alias:\w+>' => 'site/<alias>',
             ],
-        ],*/
+        ],
     ],
     'params' => $params,
 ];
