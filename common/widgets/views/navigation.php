@@ -17,6 +17,15 @@ NavigationAsset::register($this);
                          <div class="row">
                              <div class="col-md-6 col-sm-4 col-xs-2">
                            <div class="navbar">
+
+                           <i class="fa fa-bars" aria-hidden="true" style="margin-right: -20px;" ></i><a href="">Category</a>
+                           <div class="navbar1 row col-12">
+                                  <a href="">Interior Decorating Items</a>
+                                  <a href="">Handmade Carpets</a>
+                                  <a href="">Decorative fabric</a>
+                                  <a href="">Souvenirs and Accessories</a>
+                                  <a href="">Oriental clothing</a>
+
                            <i class="fa fa-bars" aria-hidden="true" style="margin-right: -20px;" ></i><a href=""><?= Yii::t('app', 'Category') ?></a>
                            <div class="navbar1">
 
