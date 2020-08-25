@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-  
+
   .text {
 	position: relative;
-	top: 90%; 
+	top: 90%;
 	right: 40%;
 	text-align: center;
 	z-index: 9999;
@@ -10,7 +10,7 @@
 	text-transform: uppercase;
 	font-family: Open Sans, sans-serif;
 	color: #f5f5f5;
-	
+
 	text-shadow: 1px 1px 1px #919191,
 		1px 2px 1px #919191,
 		1px 3px 1px #919191,
@@ -31,20 +31,20 @@
 	background-size: contain;
 	  /* background: #f51167; */
   }
-  
+
   .hero-top{
 	position: relative;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-  
-  .reklama img {
+
+.reklama img {
 	width: 250px;
 	height: 246px;
 	border-radius: 5px;
 	margin-top: 5px;
 }
-  
+
   .hero-slider .hs-item {
 	  position: relative;
 	  height: 500px;
@@ -55,10 +55,10 @@
 	/* position: relative; */
 	/* width: 950px !important; */
 	margin-top: 5px;
-	
-	
+
+
 }
-  
+
   .hero-slider .hs-item span {
 	  font-size: 18px;
 	  text-transform: uppercase;
@@ -70,7 +70,7 @@
 	  top: 50px;
 	  opacity: 0;
   }
-  
+
   .hero-slider .hs-item h2 {
 	  width: 750px;
 	  font-size: 35px;
@@ -85,7 +85,7 @@
 	  color: white;
       text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
   }
-  
+
   .hero-slider .hs-item p {
 	  font-size: 18px;
 	  font-weight: 300;
@@ -99,26 +99,26 @@
 	position: absolute;
 	z-index: -9999;
 	height: 500px;
-	
+
 }
-  
+
   .hero-slider .hs-item .site-btn {
 	  position: relative;
 	  top: 50px;
 	  opacity: 0;
   }
-  
+
   .hero-slider .hs-item .sb-line {
 	  margin-right: 5px;
   }
-  
+
   .hero-slider .hs-item .container {
 	position: relative;
 	padding-top: 150px;
 	/* margin: auto; */
     text-align: center;
   }
-  
+
   .hero-slider .hs-item .offer-card {
 	  position: absolute;
 	  right: 0;
@@ -134,7 +134,7 @@
 	  transform: rotate(45deg);
 	  opacity: 0;
   }
-  
+
   .hero-slider .hs-item .offer-card:after {
 	  position: absolute;
 	  content: "";
@@ -145,7 +145,7 @@
 	  top: 5px;
 	  border-radius: 50%;
   }
-  
+
   .hero-slider .hs-item .offer-card span {
 	  font-size: 18px;
 	  text-transform: lowercase;
@@ -153,31 +153,31 @@
 	  top: 50px;
 	  opacity: 0;
   }
-  
+
   .hero-slider .hs-item .offer-card h2 {
 	  font-size: 72px;
 	  font-weight: 400;
 	  line-height: 1;
   }
-  
+
   .hero-slider .hs-item .offer-card p {
 	  text-transform: uppercase;
 	  line-height: 1;
 	  font-size: 14px;
   }
-  
+
   .hero-slider .slider-nav-warp {
 	  /* max-width: 1145px; */
 	  bottom: 0;
 	  margin: -78px auto 0;
   }
-  
+
   .hero-slider .slider-nav {
 	  display: inline-block;
 	  padding: 0 38px;
 	  position: relative;
   }
-  
+
   .hero-slider .owl-dots {
 	  display: -ms-flex;
 	  display: -webkit-box;
@@ -185,7 +185,7 @@
 	  display: flex;
 	  padding-top: 9px;
   }
-  
+
   .hero-slider .owl-dots .owl-dot {
 	  width: 8px;
 	  height: 8px;
@@ -194,15 +194,15 @@
 	  margin-right: 10px;
 	  opacity: 0.25;
   }
-  
+
   .hero-slider .owl-dots .owl-dot.active {
 	  opacity: 1;
   }
-  
+
   .hero-slider .owl-dots .owl-dot:last-child {
 	  margin-right: 0;
   }
-  
+
   .hero-slider .owl-nav button.owl-next,
   .hero-slider .owl-nav button.owl-prev {
 	  font-size: 27px;
@@ -211,15 +211,15 @@
 	  opacity: 0.5;
 	  bottom: -20px;
   }
-  
+
   .hero-slider .owl-nav button.owl-next {
 	  right: 0;
   }
-  
+
   .hero-slider .owl-nav button.owl-prev {
 	  left: 0;
   }
-  
+
   .hero-slider .owl-item.active .hs-item h2,
   .hero-slider .owl-item.active .hs-item span,
   .hero-slider .owl-item.active .hs-item p,
@@ -227,32 +227,32 @@
 	  top: 0;
 	  opacity: 1;
   }
-  
+
   .hero-slider .owl-item.active .hs-item span {
 	  -webkit-transition: all 1s ease 1s;
 	  -o-transition: all 1s ease 1s;
 	  transition: all 1s ease 1s;
   }
-  
+
   .hero-slider .owl-item.active .hs-item h2 {
 	  -webkit-transition: all 1.5s ease 1.6s;
 	  -o-transition: all 1.5s ease 1.6s;
 	  transition: all 1.5s ease 1.6s;
   }
-  
+
   .hero-slider .owl-item.active .hs-item p {
 	  -webkit-transition: all 0.5s ease 0.6s;
 	  -o-transition: all 0.5s ease 0.6s;
 	  transition: all 0.5s ease 0.6s;
   }
-  
+
   .hero-slider .owl-item.active .hs-item .site-btn {
 	  -webkit-transition: all 0.5s ease 0.8s;
 	  -webkit-transition: all 0.5s ease 0.8s;
 	  -o-transition: all 0.5s ease 0.8s;
 	  transition: all 0.5s ease 0.8s;
   }
-  
+
   .hero-slider .owl-item.active .hs-item .offer-card {
 	  opacity: 1;
 	  -webkit-transform: rotate(0deg);
@@ -263,7 +263,7 @@
 	  -o-transition: all 0.5s ease 1s;
 	  transition: all 0.5s ease 1s;
   }
-  
+
   .slide-num-holder {
 	  float: right;
 	  z-index: 1;
@@ -274,11 +274,11 @@
 	  position: relative;
 	  /* margin-top: -52px; */
   }
-  
+
   .slide-num-holder span:first-child {
 	  margin-right: 41px;
   }
-  
+
   .slide-num-holder:after {
 	  position: absolute;
 	  content: "";
@@ -295,7 +295,7 @@
 	  transform: rotate(30deg);
   }
   /* hero slider end */
-  
+
   /* line 179, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
   .owl-carousel .owl-nav div {
 	background: rgba(255, 255, 255, 0.8) none repeat scroll 0 0;
@@ -313,44 +313,44 @@
 	transition: all 0.3s ease 0s;
 	width: 40px;
   }
-  
+
   /* line 198, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
   .owl-carousel .owl-nav div.owl-next {
 	left: auto;
 	/* right: -30px; */
   }
-  
+
   /* line 201, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
   .owl-carousel .owl-nav div.owl-next i {
 	position: relative;
 	right: 0;
 	top: 1px;
   }
-  
+
   /* line 208, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
   .owl-carousel .owl-nav div.owl-prev i {
 	position: relative;
 	right: 1px;
 	top: 0px;
   }
-  
+
   /* line 218, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
   .owl-carousel:hover .owl-nav div {
 	opacity: 1;
 	visibility: visible;
   }
-  
+
   /* line 221, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
   .owl-carousel:hover .owl-nav div:hover {
 	color: #fff;
 	background: #ff3500;
   }
-  
+
   @media all and (max-width: 1125px)
   {
 	.text {
 		position: relative;
-		top: 50%; 
+		top: 50%;
 		right: 55%;
 		font-size: 32px !important;
 		text-align: center;
@@ -358,7 +358,7 @@
 		text-transform: uppercase;
 		font-family: Open Sans, sans-serif;
 		color: #f5f5f5;
-		
+
 		text-shadow: 1px 1px 1px #919191,
 			1px 2px 1px #919191,
 			1px 3px 1px #919191,
@@ -379,7 +379,7 @@
   {
 	.text {
 		position: relative;
-		top: 50%; 
+		top: 50%;
 		right: 90%;
 		font-size: 25px !important;
 		text-align: center;
@@ -387,7 +387,7 @@
 		text-transform: uppercase;
 		font-family: Open Sans, sans-serif;
 		color: #f5f5f5;
-		
+
 		text-shadow: 1px 1px 1px #919191,
 			1px 2px 1px #919191,
 			1px 3px 1px #919191,
@@ -408,7 +408,7 @@
   {
 	.text {
 		position: relative;
-		top: 50%; 
+		top: 50%;
 		right: 95%;
 		font-size: 25px !important;
 		text-align: center;
@@ -416,7 +416,7 @@
 		text-transform: uppercase;
 		font-family: Open Sans, sans-serif;
 		color: #f5f5f5;
-		
+
 		text-shadow: 1px 1px 1px #919191,
 			1px 2px 1px #919191,
 			1px 3px 1px #919191,

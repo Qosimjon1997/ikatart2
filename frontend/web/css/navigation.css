@@ -79,7 +79,7 @@ button:focus, input:focus, input:focus, textarea, textarea:focus {
   display: inline-block;
   /* position: relative; */
   z-index: 1;
- 
+
 }
 
 /* line 84, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_headerMenu.scss */
@@ -135,7 +135,7 @@ button:focus, input:focus, input:focus, textarea, textarea:focus {
   border-radius: 5px;
   position: relative;
   overflow: hidden;
-  
+
 }
 
 /* .header-bottom .main-menu ul ul.submenu .sub-tab .sub-cart a  .sub-img{
@@ -143,17 +143,17 @@ button:focus, input:focus, input:focus, textarea, textarea:focus {
  max-width: 200px;
  height: 200px;
   float: right;
- 
+
 } */
 .header-bottom .main-menu ul ul.submenu .sub-tab .sub-cart a .sub-cat{
   position: absolute;
   padding: 0;
   top:0;
-  left:0;   
+  left:0;
   /* background-position: center !important; */
   background-size: cover !important;
   background-repeat: no-repeat !important;
-  width: 200px; 
+  width: 200px;
   height: 185px;
 }
 .header-bottom .main-menu ul ul.submenu .sub-tab .sub-cart .sub-name p{
@@ -170,7 +170,7 @@ button:focus, input:focus, input:focus, textarea, textarea:focus {
   font-size: 14px;
   font-style: initial;
   display: flex;
- 
+
 }
 .cart1{
   background: rgba(255, 255, 255, 0.247);
@@ -236,7 +236,7 @@ button:focus, input:focus, input:focus, textarea, textarea:focus {
 }
 .heart1 a{
   color: #f54e4e !important;
-  font-size: 16px !important; 
+  font-size: 16px !important;
 }
 .heart1 a:hover{
   transform: scale(1.01);
@@ -295,8 +295,8 @@ button:focus, input:focus, input:focus, textarea, textarea:focus {
 /* line 141, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_headerMenu.scss */
 .header-bottom .main-menu ul ul.submenu > li {
   display: block;
-   
-  
+
+
 }
 
 /* line 144, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_headerMenu.scss */
@@ -404,7 +404,7 @@ button:focus, input:focus, input:focus, textarea, textarea:focus {
   cursor: pointer;
 }
 .header-bottom .header-right .favorit-items i:hover {
- 
+
   border: 1px solid #eeeeee;
   color: #f80000;
   font-size: 23px;
@@ -452,7 +452,7 @@ button:focus, input:focus, input:focus, textarea, textarea:focus {
   cursor: pointer;
 }
 .header-bottom .header-right .shopping-card i:hover {
-  
+
   border: 1px solid #eeeeee;
   color: #4514f5;
   font-size: 19px;
@@ -691,4 +691,12 @@ button:focus, input:focus, input:focus, textarea, textarea:focus {
   .main-menu{
     display: none;
   }
+}
+
+/*-----------------------------------------------------------------*/
+
+.search-icon {
+  position: absolute;
+  top: 20px;
+  right: 17px;
 }

@@ -1,19 +1,17 @@
-html,
-body {
-    /* max-width: 1200px; */
-    height: 100%;
-    /* background: #bebee548; */
-    margin: auto;
-    /* justify-content: center; */
-    /* padding-left: 20px; */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.wrap {
-    min-height: 100%;
-    height: auto;
-    margin: auto;
-    padding: 0;
 
+html,
+body {
+    /*margin: auto;*/
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
 }
 
 #formContent {
@@ -94,4 +92,8 @@ body {
   max-height: 250px;
   object-fit: contain;
   object-position: center;
+}
+
+.row {
+  margin: 0 !important;
 }
