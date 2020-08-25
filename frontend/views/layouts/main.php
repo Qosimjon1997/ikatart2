@@ -95,7 +95,7 @@ AppAsset::register($this);
                     <?php
                         $form = ActiveForm::begin(['action' => '/language/index']);
 
-<<<<<<< HEAD
+
                         foreach ($lan as $key => $value) {
                             echo '
                             <button type="submit" class="dropdown-item" name="lan" value = "'.$key.'"><img src="/frontend/web/img/'.$key.'.png" class="icons"> '.$value.'</button>';
@@ -268,18 +268,13 @@ AppAsset::register($this);
         </div>
     </nav>
     <!-- Navigation /- -->
-=======
-        // NavigationWidget::begin();
-        // NavigationWidget::end();
-    ?>
->>>>>>> a2eb718a7090088036344de2bae1b7c268a27ccf
 
 </div>
 
 <footer class="footer">
 <?php
-        // FooterWidget::begin();
-        // FooterWidget::end();
+        FooterWidget::begin();
+        FooterWidget::end();
     ?>
 </footer>
 
