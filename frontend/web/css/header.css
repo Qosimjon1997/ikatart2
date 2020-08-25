@@ -7,3 +7,9 @@ img.logo{
     border-radius: 2px;
     vertical-align: center;
 }
+
+.btn-group .dropdown-menu.show {
+	max-width: 100px;
+	width: 100px;
+	min-width: 100px;
+}
