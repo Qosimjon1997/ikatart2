@@ -38,8 +38,8 @@ AppAsset::register($this);
         // UserWidget::begin();
         // UserWidget::end();
 
-        NavigationWidget::begin();
-        NavigationWidget::end();
+        // NavigationWidget::begin();
+        // NavigationWidget::end();
     ?>
 
     <div class="container m-0 p-0 m-auto">
@@ -50,8 +50,8 @@ AppAsset::register($this);
 
 <footer class="footer">
 <?php
-        FooterWidget::begin();
-        FooterWidget::end();
+        // FooterWidget::begin();
+        // FooterWidget::end();
     ?>
 </footer>
 
