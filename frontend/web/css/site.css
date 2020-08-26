@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 * {
   padding: 0;
   margin: 0;
@@ -12,6 +13,7 @@ body {
     padding: 0;
     border: 0;
     outline: 0;
+    font-family: 'Open-sans', 'sans-serif';
 }
 
 #formContent {
@@ -95,5 +97,9 @@ body {
 }
 
 .row {
-  margin: 0 !important;
+  margin: 0;
+}
+
+.dropdown-toggle::after {
+    content: none;
 }

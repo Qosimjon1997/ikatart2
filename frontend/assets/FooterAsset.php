@@ -10,11 +10,11 @@ class FooterAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/footer.css',
-        'css/fontawesome-all.min.css',
     ];
-    public $js = [
 
-       ];
+    public $js = [
+    ];
+
     public $depends = [
     ];
 }
