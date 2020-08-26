@@ -348,7 +348,7 @@ AppAsset::register($this);
     <!-- Navigation /- -->
 
     <!-- Content -->
-    <div class="container-fluid">
+    <div class="m-0 p-0 w-100 m-auto">
         <?= $content ?>
     </div>
     <!-- Content /- -->

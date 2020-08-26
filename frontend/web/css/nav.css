@@ -68,17 +68,25 @@
 	width: 100%;
 	padding: 0;
 	margin: 0;
+	height: 250px;
+	max-height: 250px;
 }
 
 .card-item a .card-image {
 	max-width: 100%;
-	object-fit: contain;
+	width: 100%;
+	max-height: 100%;
+	object-fit: cover;
 	transition: 0.5s;
+	position: absolute;
+	bottom: 3.5rem;
 }
 
 .card-item .card-label {
 	font-size: 1em;
 	font-weight: 600;
+	position: absolute;
+	bottom: 0;
 }
 
 .card-item .card-pane {
@@ -106,4 +114,28 @@
 	border: 3px solid #750991;
 	width: 100%;
 	margin-bottom: 6px;
+}
+
+@media only screen and (max-width: 576px) {
+	.card-item {
+		height: 170px;
+	}
+}
+
+@media only screen and (min-width: 576px) {
+	.card-item {
+		height: 200px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.card-item {
+		height: 250px;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.card-item {
+		height: 300px;
+	}
 }
