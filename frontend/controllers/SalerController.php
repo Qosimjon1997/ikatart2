@@ -217,7 +217,7 @@ class SalerController extends Controller
         if (!Yii::$app->saler->isGuest) {
             $saler = $this->findModel(Yii::$app->saler->id);
             $model=new SalerResetpassForm();
-            $history =
+            //$history =
             $img = new UploadImage();
             $image = Images::find()->where(['saler_id' => $saler->id, 'main' => 1])->limit(1)->all();
 
