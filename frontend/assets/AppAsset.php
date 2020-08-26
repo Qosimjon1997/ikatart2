@@ -15,6 +15,10 @@ class AppAsset extends AssetBundle
         'css/site.css',
         'css/header.css',
         'css/nav.css',
+        'css/list.css',
+        'css/fontawesome-all.min.css',
+        "library/owl-carousel/owl.carousel.min.css",
+        "library/owl-carousel/owl.theme.css",
     ];
     public $js = [
         'js/preview.js',

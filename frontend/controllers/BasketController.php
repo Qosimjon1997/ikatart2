@@ -100,6 +100,10 @@ class BasketController extends Controller
         ]);
     }
 
+    public function actionList()
+    {
+        return $this->render('list');
+    }
 
     /**
      * Finds the Basket model based on its primary key value.
