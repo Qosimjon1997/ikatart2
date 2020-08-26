@@ -18,6 +18,8 @@ use yii\web\BadRequestHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
+use frontend\models\UserResetpassForm;
+
 /**
  * UserController implements the CRUD actions for User model.
  */
@@ -181,6 +183,40 @@ class UserController extends Controller
         return $this->render('update', [
             'model' => $model,
         ]);
+    }
+
+    public function actionSettings()
+    {
+        if (!Yii::$app->user2->isGuest) {
+            $user = $this->findModel(Yii::$app->user2->id);
+            
+            if($user->load(Yii::$app->request->post())) {
+                $user->firstname = 
+                Yii::$app->session->setFlash('success', Yii::t('app', 'My information reseted'));
+            }
+
+            $model=new UserResetpassForm();
+
+            
+            if($model->load(Yii::$app->request->post()) && $model->valid($user)) {
+                $user->password = $model->newpassword;
+                Yii::$app->session->setFlash('success', Yii::t('app', 'Password reseted'));
+            }
+            $user->save();
+            $model->newpassword = null;
+            $model->oldpassword = null;
+            $model->newpasswordconfirm = null;
+            return $this->render('settings', [
+                'model' => $model,
+                'user' => $user,
+            ]);
+        }
+        else
+        {
+            return $this->redirect(['login']);
+        }
+
+
     }
 
     /**

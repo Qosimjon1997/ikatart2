@@ -178,7 +178,7 @@ AppAsset::register($this);
                                         </div>
 
                                         <div class="card-pane m-0">
-                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-success btn-block text-center']) ?>
+                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-block text-center btn-blue']) ?>
                                         </div>
                                     </div>
                                 </div>
@@ -355,8 +355,11 @@ AppAsset::register($this);
 </div>
 
 <footer class="footer">
-    <?php FooterWidget::begin() ?>
-    <?php FooterWidget::end() ?>
+<?php
+  FooterWidget::begin();
+  FooterWidget::end();
+?>
+
 </footer>
 
 <?php $this->endBody() ?>

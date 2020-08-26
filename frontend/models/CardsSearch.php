@@ -1,15 +1,15 @@
 <?php
 
-namespace backend\models;
+namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Order;
+use app\models\Cards;
 
 /**
- * OrderSearch represents the model behind the search form of `app\models\Order`.
+ * CardsSearch represents the model behind the search form of `app\models\Cards`.
  */
-class OrderSearch extends Order
+class CardsSearch extends Cards
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,7 @@ class OrderSearch extends Order
     public function rules()
     {
         return [
-            [['id', 'basket_id', 'totalcost', 'isActive', 'address_id'], 'integer'],
-            [['date', 'zipcode'], 'safe'],
+            [['id', 'number', 'expirationdate', 'Saler_id', 'cardtype_id', 'user_id'], 'integer'],
         ];
     }
 
@@ -40,7 +39,7 @@ class OrderSearch extends Order
      */
     public function search($params)
     {
-        $query = Order::find();
+        $query = Cards::find();
 
         // add conditions that should always apply here
 
@@ -59,14 +58,12 @@ class OrderSearch extends Order
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'date' => $this->date,
-            'basket_id' => $this->basket_id,
-            'totalcost' => $this->totalcost,
-            'isActive' => $this->isActive,
-            'address_id' => $this->address_id,
+            'number' => $this->number,
+            'expirationdate' => $this->expirationdate,
+            'Saler_id' => $this->Saler_id,
+            'cardtype_id' => $this->cardtype_id,
+            'user_id' => $this->user_id,
         ]);
-
-        $query->andFilterWhere(['like', 'zipcode', $this->zipcode]);
 
         return $dataProvider;
     }
