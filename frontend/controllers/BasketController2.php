@@ -2,35 +2,12 @@
 
 namespace frontend\controllers;
 
-use Yii;
 use backend\models\Basket;
-use backend\models\BasketSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
+use Yii;
 
-/**
- * BasketController implements the CRUD actions for Basket model.
- */
-class BasketController extends Controller
+class BasketController extends \yii\web\Controller
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
-
-
     public function actionAdd($id)
     {
     	if(!Yii::$app->user2->isGuest) {
@@ -85,29 +62,6 @@ class BasketController extends Controller
         return $this->goBack();
     }
 
-
-    /**
-     * Lists all Basket models.
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-        $searchModel = new BasketSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'dataProvider' => $dataProvider,
-        ]);
-    }
-
-
-    /**
-     * Finds the Basket model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Basket the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     protected function findModel($id)
     {
         if (($model = Basket::findOne($id)) !== null) {
