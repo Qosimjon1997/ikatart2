@@ -22,7 +22,7 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
-            //'baseUrl' => '',
+            'baseUrl' => '',
         ],
         'user' => [
             'class'=>'yii\web\User',
@@ -65,13 +65,13 @@ return [
             'errorAction' => 'site/error',
         ],
 
-        // 'urlManager' => [
-        //     'enablePrettyUrl' => true,
-        //     'showScriptName' => false,
-        //     'rules' => [
-        //         '<alias:\w+>' => 'site/<alias>',
-        //     ],
-        // ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                '<alias:\w+>' => 'site/<alias>',
+            ],
+        ],
     ],
     'params' => $params,
 ];

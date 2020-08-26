@@ -33,7 +33,7 @@ class Productnamelanguages extends \yii\db\ActiveRecord
         return [
             [['name', 'product_id', 'language_id'], 'required'],
             [['product_id', 'language_id'], 'integer'],
-            [['name'], 'string', 'max' => 255],
+            [['name'], 'string'],
             [['language_id'], 'exist', 'skipOnError' => true, 'targetClass' => Language::className(), 'targetAttribute' => ['language_id' => 'id']],
             [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['product_id' => 'id']],
         ];
