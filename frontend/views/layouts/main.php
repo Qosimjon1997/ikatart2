@@ -41,13 +41,13 @@ AppAsset::register($this);
         <div class="text-center col-12 col-sm-8 col-md-7 col-lg-6 small row m-0 justify-content-around align-items-center">
             <div class="row col-8 justify-content-around m-0">
                 <div class="col-6">
-                    <a href="#" class="text-primary"><i class="fa fa-user-cog" aria-hidden="true" ></i><?= Yii::t('app', 'Contacts')?></a>
+                    <a syle="color: rgb(103, 3, 128);" href="#" class="text-primary text-decoration-none header-collor"><i class="fa fa-user-cog" aria-hidden="true" ></i><?= Yii::t('app', 'Contacts')?></a>
                 </div>
                 <div class="col-6">
                     <?php
                     if(Yii::$app->user2->isGuest) {
                         echo Html::a('<i class="fa fa-sign-in-alt" aria-hidden="true"></i>
-                        '. Yii::t('app', 'Login'), ['user/login'], ['class' => 'text-primary']);
+                        '. Yii::t('app', 'Login'), ['user/login'], ['class' => 'text-primary text-decoration-none header-collor']);
                     } else {
                         echo '<div class="btn-group">
                                 <a class="btn dropdown-toggle p-0 text-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -171,7 +171,7 @@ AppAsset::register($this);
                             <div class="row m-0">
                                 <div class="col-6">
                                     <div class="card-item bg-light">
-                                        <?= Html::img('/frontend/web/img/menu/1.jpg', ['class' => 'card-image']) ?>
+                                        <?= Html::a(Html::img('/frontend/web/img/menu/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], ['class' => '']) ?>
                                         <div class="card-label p-2">
                                             <div class="card-name">Pillow</div>
                                             <div class="card-price text-success">$40.00</div>
@@ -184,14 +184,14 @@ AppAsset::register($this);
                                 </div>
                                 <div class="col-6">
                                     <div class="card-item bg-light">
-                                        <?= Html::img('/frontend/web/img/menu/1.jpg', ['class' => 'card-image']) ?>
+                                        <?= Html::a(Html::img('/frontend/web/img/menu/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], ['class' => '']) ?>
                                         <div class="card-label p-2">
                                             <div class="card-name">Pillow</div>
                                             <div class="card-price text-success">$40.00</div>
                                         </div>
 
                                         <div class="card-pane m-0">
-                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-success btn-block text-center']) ?>
+                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-block text-center btn-blue']) ?>
                                         </div>
                                     </div>
                                 </div>
@@ -237,27 +237,27 @@ AppAsset::register($this);
                             <div class="row m-0">
                                 <div class="col-6">
                                     <div class="card-item bg-light">
-                                        <?= Html::img('/frontend/web/img/menu/1.jpg', ['class' => 'card-image']) ?>
+                                        <?= Html::a(Html::img('/frontend/web/img/menu/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], ['class' => '']) ?>
                                         <div class="card-label p-2">
                                             <div class="card-name">Pillow</div>
                                             <div class="card-price text-success">$40.00</div>
                                         </div>
 
                                         <div class="card-pane m-0">
-                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-success btn-block text-center']) ?>
+                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-block text-center btn-blue']) ?>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="card-item bg-light">
-                                        <?= Html::img('/frontend/web/img/menu/1.jpg', ['class' => 'card-image']) ?>
+                                        <?= Html::a(Html::img('/frontend/web/img/menu/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], ['class' => '']) ?>
                                         <div class="card-label p-2">
                                             <div class="card-name">Pillow</div>
                                             <div class="card-price text-success">$40.00</div>
                                         </div>
 
                                         <div class="card-pane m-0">
-                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-success btn-block text-center']) ?>
+                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-block text-center btn-blue']) ?>
                                         </div>
                                     </div>
                                 </div>
@@ -300,27 +300,27 @@ AppAsset::register($this);
                             <div class="row m-0">
                                 <div class="col-6">
                                     <div class="card-item bg-light">
-                                        <?= Html::img('/frontend/web/img/menu/1.jpg', ['class' => 'card-image']) ?>
+                                        <?= Html::a(Html::img('/frontend/web/img/menu/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], ['class' => '']) ?>
                                         <div class="card-label p-2">
                                             <div class="card-name">Pillow</div>
                                             <div class="card-price text-success">$40.00</div>
                                         </div>
 
                                         <div class="card-pane m-0">
-                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-success btn-block text-center']) ?>
+                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-block text-center btn-blue']) ?>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="card-item bg-light">
-                                        <?= Html::img('/frontend/web/img/menu/1.jpg', ['class' => 'card-image']) ?>
+                                        <?= Html::a(Html::img('/frontend/web/img/menu/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], ['class' => '']) ?>
                                         <div class="card-label p-2">
                                             <div class="card-name">Pillow</div>
                                             <div class="card-price text-success">$40.00</div>
                                         </div>
 
                                         <div class="card-pane m-0">
-                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-success btn-block text-center']) ?>
+                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-block text-center btn-blue']) ?>
                                         </div>
                                     </div>
                                 </div>

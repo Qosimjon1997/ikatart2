@@ -10,8 +10,6 @@ class CategoryAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/category.css',
-        'css/fontawesome-all.min.css',
-        'css/load-more-button.css',
     ];
     public $js = [
     ];

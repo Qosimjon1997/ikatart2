@@ -1,350 +1,64 @@
 <?php
 use frontend\assets\CaruselAsset;
+use yii\helpers\Html;
+
 CaruselAsset::register($this);
 ?>
-<body>
-            <p style="margin: auto; max-width: 1000px; color: rgb(8, 2, 83); font-size: 30px;
-        margin-top: 10px; text-align: center; font-weight: 500; text-shadow: rgb(128, 253, 11);"> New Collection</p>
-  <div class="owl-slide owl-carousel owl-theme owl-carousel-blog justify-content-center" style="margin-left: -10px">
-                <div class="slider-box">
-                    <div class="img-box">
-                     <a href="ikat-art.html">
-                        <img src="img/slide/1.jpg"></a>
-                            <p>Uzbek Plates</p>
-                    </div>
-                    <div class="product">
-                          <p>$40.00</p>
-                    </div>
-                    <div class="icon-panel">
-                      <div class="cart">
-                        <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
-                      </div>
-                      <div class="heart">
-                          <a href="#"><i class="far fa-heart" ></i></a>
-                      </div>
-                      <div class="buy">
-                          <a href="#"> Buy</a>
-                        </div>
-                     </div>
-                   </div>
-            <div class="slider-box">
-                    <div class="img-box">
-                      <img src="img/slide/2.jpg">
-                      <p >Uzbek pictures</p>
-                    </div>
 
+<h2 class="text-center text-blue m-5"> New Collection</h2>
+<div class="owl-slide owl-carousel owl-theme owl-carousel-blog row justify-content-center m-auto">
+  <div class="card-item bg-light">
+    <?= Html::a(Html::img('/frontend/web/img/slide/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], []) ?>
+    <div class="card-label p-2">
+        <div class="card-name">Pillow</div>
+        <div class="card-price text-success">$40.00</div>
+    </div>
 
-                     <div class="product">
-                      <p>$40.00</p>
-                    </div>
-                    <div class="icon-panel">
-                      <div class="cart">
-                        <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
-                      </div>
-                      <div class="heart">
-                          <a href="#"><i class="far fa-heart" ></i></a>
-                      </div>
-                      <div class="buy">
-                          <a href="#"> Buy</a>
-                        </div>
-                     </div>
-                  </div>
-            <div class="slider-box">
-                <div class="img-box">
-                  <img src="img/slide/3.jpg">
-                  <p>Women's clothinges</p>
-                </div>
-                <div class="product">
-                  <p>$40.00</p>
-                </div>
-              <div class="icon-panel">
-                <div class="cart">
-                  <a href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
-                </div>
-                <div class="heart">
-                  <a href="#"><i class="far fa-heart"></i></a>
-                </div>
-                <div class="buy">
-                  <a href="#"> Buy </a>
-                </div>
-              </div>
-              </div>
+    <div class="card-pane m-0">
+        <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-block text-center btn-blue']) ?>
+    </div>
+  </div>
+</div>
 
+<?php
 
-            <div class="slider-box">
-                <div class="img-box">
-                  <img src="img/slide/4.jpg">
-                  <p>Uzbek bages</p>
-                </div>
-                <div class="product">
-                  <p>$40.00</p>
-                </div>
-               <div class="icon-panel">
-                <div class="cart">
-                  <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
-                </div>
-                <div class="heart">
-                    <a href="#"><i class="far fa-heart" ></i></a>
-                </div>
-                <div class="buy">
-                    <a href="#"> Buy </a>
-                  </div>
-               </div>
-              </div>
-
-
-            <div class="slider-box">
-                <div class="img-box">
-                  <img src="img/slide/5.jpg">
-                  <p>Uzbek pictures</p>
-                </div>
-                <div class="product">
-                  <p>$40.00</p>
-                </div>
-               <div class="icon-panel">
-                <div class="cart">
-                  <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
-                </div>
-                <div class="heart">
-                    <a href="#"><i class="far fa-heart" ></i></a>
-                </div>
-                <div class="buy">
-                    <a href="#"> Buy </a>
-                  </div>
-               </div>
-              </div>
-
-
-            <div class="slider-box">
-                <div class="img-box">
-                  <img src="img/slide/6.jpg">
-                  <p>Uzbek Oftoboes</p>
-                </div>
-                <div class="product">
-                  <p>$40.00</p>
-                </div>
-               <div class="icon-panel">
-                <div class="cart">
-                  <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
-                </div>
-                <div class="heart">
-                    <a href="#"><i class="far fa-heart" ></i></a>
-                </div>
-                <div class="buy">
-                    <a href="#"> Buy </a>
-                  </div>
-               </div>
-              </div>
-
-
-            <div class="slider-box">
-                <div class="img-box">
-                  <img src="img/slide/7.jpg">
-                  <p>Uzbek Plates</p>
-                </div>
-                <div class="product">
-                  <p>$40.00</p>
-                </div>
-               <div class="icon-panel">
-                <div class="cart">
-                  <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
-                </div>
-                <div class="heart">
-                    <a href="#"><i class="far fa-heart" ></i></a>
-                </div>
-                <div class="buy">
-                    <a href="#"> Buy </a>
-                  </div>
-               </div>
-              </div>
-
-
-            <div class="slider-box">
-                <div class="img-box">
-                  <img src="img/slide/8.jpg">
-                  <p>Uzbek Knifes</p>
-                </div>
-                <div class="product">
-                  <p>$40.00</p>
-                </div>
-               <div class="icon-panel">
-                <div class="cart">
-                  <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
-                </div>
-                <div class="heart">
-                    <a href="#"><i class="far fa-heart" ></i></a>
-                </div>
-                <div class="buy">
-                    <a href="#"> Buy </a>
-                  </div>
-               </div>
-              </div>
-
-
-            <div class="slider-box">
-                <div class="img-box">
-                  <img src="img/slide/9.jpg">
-                  <p>Uzbek mebils</p>
-                </div>
-                <div class="product">
-                  <p>$40.00</p>
-                </div>
-               <div class="icon-panel">
-                <div class="cart">
-                  <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
-                </div>
-                <div class="heart">
-                    <a href="#"><i class="far fa-heart" ></i></a>
-                </div>
-                <div class="buy">
-                    <a href="#"> Buy </a>
-                  </div>
-               </div>
-              </div>
-              <div class="slider-box">
-                <div class="img-box">
-                  <img src="img/slide/10.jpg">
-                  <p>Uzbek pictures</p>
-                </div>
-                <div class="product">
-                  <p>$40.00</p>
-                </div>
-               <div class="icon-panel">
-                <div class="cart">
-                  <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
-                </div>
-                <div class="heart">
-                    <a href="#"><i class="far fa-heart" ></i></a>
-                </div>
-                <div class="buy">
-                    <a href="#"> Buy </a>
-                  </div>
-               </div>
-              </div>
-
-              <div class="slider-box">
-                <div class="img-box">
-                  <img src="img/slide/11.jpg">
-                  <p>Uzbek Plates</p>
-                </div>
-                <div class="product">
-                  <p>$40.00</p>
-                </div>
-               <div class="icon-panel">
-                <div class="cart">
-                  <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
-                </div>
-                <div class="heart">
-                    <a href="#"><i class="far fa-heart" ></i></a>
-                </div>
-                <div class="buy">
-                    <a href="#"> Buy </a>
-                  </div>
-               </div>
-              </div>
-
-              <div class="slider-box">
-                <div class="img-box">
-                  <img src="img/slide/12.jpg">
-                  <p>Men's clothinges</p>
-                </div>
-                <div class="product">
-                  <p>$40.00</p>
-                </div>
-               <div class="icon-panel">
-                <div class="cart">
-                  <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
-                </div>
-                <div class="heart">
-                    <a href="#"><i class="far fa-heart" ></i></a>
-                </div>
-                <div class="buy">
-                    <a href="#"> Buy </a>
-                  </div>
-               </div>
-              </div>
-
-              <div class="slider-box">
-                <div class="img-box">
-                  <img src="img/slide/13.jpg">
-                  <p>Uzbek Pictures</p>
-                </div>
-                <div class="product">
-                  <p>$40.00</p>
-                </div>
-               <div class="icon-panel">
-                <div class="cart">
-                  <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
-                </div>
-                <div class="heart">
-                    <a href="#"><i class="far fa-heart" ></i></a>
-                </div>
-                <div class="buy">
-                    <a href="#"> Buy </a>
-                  </div>
-               </div>
-              </div>
-              <div class="slider-box">
-                <div class="img-box">
-                  <img src="img/slide/14.jpg">
-                  <p>Uzbek ear-ringes</p>
-                </div>
-                <div class="product">
-                  <p>$40.00</p>
-                </div>
-               <div class="icon-panel">
-                <div class="cart">
-                  <a  href="#" id="button"> <i class="fas fa-shopping-cart"></i></a>
-                </div>
-                <div class="heart">
-                    <a href="#"><i class="far fa-heart" ></i></a>
-                </div>
-                <div class="buy">
-                    <a href="#"> Buy </a>
-                  </div>
-               </div>
-              </div>
-        </div>
-  <script src="/frontend/web/js/owl.carousel.min.js"></script>
-  <script src="/frontend/web/js/jquery-3.2.1.min.js.download" type="text/javascript"></script>
-        <script src="/frontend/web/js/jquery.slicknav.min.js.download" type="text/javascript"></script>
-        <script src="/frontend/web/js/owl.carousel.min.js.download" type="text/javascript"></script>
-        <script src="/frontend/web/js/jquery.nicescroll.min.js.download" type="text/javascript"></script>
-  <script>
-    $('.owl-slide').owlCarousel(
+$script = <<< JS
+    $(document).ready(function() {
+      $('.owl-slide').owlCarousel(
       {
-                items: 4,
-                loop: true,
-                rewindNav: false,
-                autoplay:true,
-                autoplayTimeout:3000,
-                autoplayHoverPause: true,
-                margin: 20,
-                dots: false,
-                responsive:{
-                    0:{ // breakpoint from 0 up - small smartphones
-                        items:1,
-                        nav:true,
-                        loop:true
-                    },
-                    570:{  // breakpoint from 480 up - smartphones // landscape
-                        items:2,
-                        nav:true,
-                        loop:true
-                    },
-                    990:{ // breakpoint from 768 up - tablets
-                        items:3,
-                        nav:true,
-                        loop:true
-                    },
-                    1130:{ // breakpoint from 992 up - desktop
-                        items:4,
-                        nav:true,
-                        loop:true
-                    }
-                }
+        items: 5,
+        loop: true,
+        rewindNav: false,
+        autoplay:true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: false,
+        margin: 30,
+        dots: false,
+        responsive:{
+            0:{ // breakpoint from 0 up - small smartphones
+                items:2,
+                nav:true,
+                loop:true
+            },
+            570:{  // breakpoint from 480 up - smartphones // landscape
+                items:3,
+                nav:true,
+                loop:true
+            },
+            990:{ // breakpoint from 768 up - tablets
+                items:4,
+                nav:true,
+                loop:true
+            },
+            1130:{ // breakpoint from 992 up - desktop
+                items:5,
+                nav:true,
+                loop:true
+            }
+        }
+      })
+    });
+JS;
+$this->registerJs($script);
 
-    })
-
-  </script>
-<body>
+?>

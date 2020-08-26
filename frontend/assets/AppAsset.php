@@ -15,14 +15,13 @@ class AppAsset extends AssetBundle
         'css/site.css',
         'css/header.css',
         'css/nav.css',
-        "library/owl-carousel/owl.carousel.min.css",
-        "library/owl-carousel/owl.theme.css",
+        'css/list.css',
+        'css/fontawesome-all.min.css',
     ];
     public $js = [
         'js/preview.js',
         'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js',
         'js/bootstrap.min.js',
-        "library/owl-carousel/owl.carousel.min.js",
     ];
     public $depends = [
         'yii\web\YiiAsset',
