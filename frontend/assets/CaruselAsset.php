@@ -10,17 +10,11 @@ class CaruselAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/carusel.css',
-        'css/owl.carousel.min.css',
-        'css/nice-select.css',
-        'css/themify-icons.css',
-        'css/fontawesome-all.min.css',
+        "library/owl-carousel/owl.carousel.min.css",
+        "library/owl-carousel/owl.theme.css",
     ];
     public $js = [
-        'js/owl.carousel.min.js',
-        'js/jquery-3.2.1.min.js.download',
-        'js/jquery.slicknav.min.js.download',
-        'js/owl.carousel.min.js.download',
-        'js/jquery.nicescroll.min.js.download',
+        "library/owl-carousel/owl.carousel.min.js",
     ];
     public $depends = [
     ];

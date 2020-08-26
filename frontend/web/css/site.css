@@ -6,6 +6,24 @@
 }
 
 
+.btn-blue {
+  background: #3E4095;
+  color: #ffffff;
+}
+
+.btn-blue:hover {
+  background: #3E40FF;
+  color: #ffffff;
+}
+
+.text-blue {
+  color: #3E4095;
+}
+
+.bg-blue {
+  background: #3E4095;
+}
+
 html,
 body {
     /*margin: auto;*/
@@ -18,7 +36,6 @@ body {
 
 #formContent {
   -webkit-border-radius: 10px;
-  /*overflow: hidden;*/
   position: relative;
   border-radius: 10px;
   background: #fff;
@@ -27,7 +44,6 @@ body {
   position: relative;
   padding: 10px 30px 16px;
   margin: 100px auto;
-  /*margin-top: 120px;*/
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   text-align: center;

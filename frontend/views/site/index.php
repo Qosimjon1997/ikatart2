@@ -13,16 +13,14 @@ use common\widgets\SettingsWidget;
 $this->title = 'ikat-art';
 ?>
 
-
-
 <?php
 
 	HeroWidget::begin();
 	HeroWidget::end();
 
-	// CaruselWidget::begin();
-	// CaruselWidget::end();
+	CaruselWidget::begin();
+	CaruselWidget::end();
 
-	// CategoryWidget::begin();
-	// CategoryWidget::end();
+	CategoryWidget::begin();
+	CategoryWidget::end();
 ?>

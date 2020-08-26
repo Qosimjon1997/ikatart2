@@ -70,7 +70,7 @@
 	margin: 0;
 }
 
-.card-item .card-image {
+.card-item a .card-image {
 	max-width: 100%;
 	object-fit: contain;
 	transition: 0.5s;
@@ -84,18 +84,18 @@
 .card-item .card-pane {
 	width: 100%;
 	position: absolute;
-	height: 2.4rem;
-	bottom: -2.4rem;
+	height: 2.6rem;
+	bottom: -2.6rem;
 	left: 0;
 	transition: 0.3s;
 }
 
-.card-item:hover .card-image {
+.card-item:hover a .card-image {
 	transform: scale(1.3, 1.3) translate(5px, 15px);
 }
 
 .card-item:hover .card-pane {
-	bottom: 0;
+	bottom: -0.5rem;
 }
 
 .card-item .card-pane a {

@@ -171,7 +171,7 @@ AppAsset::register($this);
                             <div class="row m-0">
                                 <div class="col-6">
                                     <div class="card-item bg-light">
-                                        <?= Html::img('/frontend/web/img/menu/1.jpg', ['class' => 'card-image']) ?>
+                                        <?= Html::a(Html::img('/frontend/web/img/menu/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], ['class' => '']) ?>
                                         <div class="card-label p-2">
                                             <div class="card-name">Pillow</div>
                                             <div class="card-price text-success">$40.00</div>
@@ -184,14 +184,14 @@ AppAsset::register($this);
                                 </div>
                                 <div class="col-6">
                                     <div class="card-item bg-light">
-                                        <?= Html::img('/frontend/web/img/menu/1.jpg', ['class' => 'card-image']) ?>
+                                        <?= Html::a(Html::img('/frontend/web/img/menu/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], ['class' => '']) ?>
                                         <div class="card-label p-2">
                                             <div class="card-name">Pillow</div>
                                             <div class="card-price text-success">$40.00</div>
                                         </div>
 
                                         <div class="card-pane m-0">
-                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-success btn-block text-center']) ?>
+                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-block text-center btn-blue']) ?>
                                         </div>
                                     </div>
                                 </div>
@@ -237,27 +237,27 @@ AppAsset::register($this);
                             <div class="row m-0">
                                 <div class="col-6">
                                     <div class="card-item bg-light">
-                                        <?= Html::img('/frontend/web/img/menu/1.jpg', ['class' => 'card-image']) ?>
+                                        <?= Html::a(Html::img('/frontend/web/img/menu/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], ['class' => '']) ?>
                                         <div class="card-label p-2">
                                             <div class="card-name">Pillow</div>
                                             <div class="card-price text-success">$40.00</div>
                                         </div>
 
                                         <div class="card-pane m-0">
-                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-success btn-block text-center']) ?>
+                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-block text-center btn-blue']) ?>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="card-item bg-light">
-                                        <?= Html::img('/frontend/web/img/menu/1.jpg', ['class' => 'card-image']) ?>
+                                        <?= Html::a(Html::img('/frontend/web/img/menu/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], ['class' => '']) ?>
                                         <div class="card-label p-2">
                                             <div class="card-name">Pillow</div>
                                             <div class="card-price text-success">$40.00</div>
                                         </div>
 
                                         <div class="card-pane m-0">
-                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-success btn-block text-center']) ?>
+                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-block text-center btn-blue']) ?>
                                         </div>
                                     </div>
                                 </div>
@@ -300,27 +300,27 @@ AppAsset::register($this);
                             <div class="row m-0">
                                 <div class="col-6">
                                     <div class="card-item bg-light">
-                                        <?= Html::img('/frontend/web/img/menu/1.jpg', ['class' => 'card-image']) ?>
+                                        <?= Html::a(Html::img('/frontend/web/img/menu/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], ['class' => '']) ?>
                                         <div class="card-label p-2">
                                             <div class="card-name">Pillow</div>
                                             <div class="card-price text-success">$40.00</div>
                                         </div>
 
                                         <div class="card-pane m-0">
-                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-success btn-block text-center']) ?>
+                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-block text-center btn-blue']) ?>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="card-item bg-light">
-                                        <?= Html::img('/frontend/web/img/menu/1.jpg', ['class' => 'card-image']) ?>
+                                        <?= Html::a(Html::img('/frontend/web/img/menu/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], ['class' => '']) ?>
                                         <div class="card-label p-2">
                                             <div class="card-name">Pillow</div>
                                             <div class="card-price text-success">$40.00</div>
                                         </div>
 
                                         <div class="card-pane m-0">
-                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-success btn-block text-center']) ?>
+                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-block text-center btn-blue']) ?>
                                         </div>
                                     </div>
                                 </div>
