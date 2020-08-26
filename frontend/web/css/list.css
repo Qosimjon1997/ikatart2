@@ -1,0 +1,65 @@
+.list{
+    margin: auto;
+    background: #498acc33;
+    max-width: 1400px;
+}
+.list .list-img{
+    position: relative;
+    display: inline-block;
+    margin: auto;
+}
+.list .list-img img{
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    object-fit: cover;
+    overflow: hidden;
+    max-width: 250px;
+}
+.list .list-info{
+    display: inline-block;
+    position: relative;
+    padding: 20px;
+    text-indent: 20px;
+    text-align: justify;
+    max-width: 800px;
+}
+.list .list-info ul{
+    display: inline-block;
+    text-decoration: none;
+   
+}
+.list .list-info ul li{
+    display: inline-block;
+    text-decoration: none;
+   
+}
+.list .list-info ul li a{
+    display: inline-block;
+    text-decoration: none;
+}
+.list .list-info ul li p{
+    display: inline-block;
+    text-decoration: none;
+}
+.list .list-caunt{
+    display: inline-block;
+    position: relative;
+    text-align: justify;
+    max-width: 100%;
+}
+.list .list-caunt ul li{
+    background: rgba(245, 245, 245, 0);
+    position: relative;
+    display: block;
+    text-decoration: none;
+}
+
+.list .list-caunt ul li a
+{  
+    float: right;
+    font-size: 20px;
+    color: rgb(221, 14, 14);
+    text-decoration: none;
+
+}

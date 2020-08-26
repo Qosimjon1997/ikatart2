@@ -13,3 +13,7 @@ img.logo{
 	width: 100px;
 	min-width: 100px;
 }
+.header-collor a
+{
+  color: rgb(103, 3, 128);
+}
