@@ -92,12 +92,18 @@ class BasketController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new BasketSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+       
+        if(!Yii::$app->user2->isGuest)
+        {
+            
+            $model = $this->findList(Yii::$app->user2->id);
+            var_dump($model[0]->count);
 
-        return $this->render('index', [
-            'dataProvider' => $dataProvider,
-        ]);
+            // return $this->render('index',[
+            //     'model' => $model,
+            // ]);
+        }
+
     }
 
 
@@ -111,6 +117,15 @@ class BasketController extends Controller
     protected function findModel($id)
     {
         if (($model = Basket::findOne($id)) !== null) {
+            return $model;
+        }
+
+        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+    }
+
+    protected function findList($id)
+    {
+        if (($model = Basket::findAll(['user_id' => $id])) !== null) {
             return $model;
         }
 
