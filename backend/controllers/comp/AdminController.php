@@ -44,7 +44,6 @@ class AdminController extends Controller
                     ],
                     [
                         'allow' => true,
-                        // 'actions' => ['login'],
                         'roles' => ['?'],
 
                     ],

@@ -1,72 +1,57 @@
 <?php
-    use frontend\assets\HeroAsset;
-    HeroAsset::register($this);
+
+use yii\helpers\Html;
+use frontend\assets\HeroAsset;
+HeroAsset::register($this);
+
 ?>
-    <div class="hero-blog m-0 p-0 position-realative">
-      <div class="row">
-        <div class="col-12 col-md-9 m-0 p-0">
-            <div class="hero-slider owl-carousel owl-loaded owl-drag">
-              <div class="owl-stage-outer">
-                <div class="owl-stage">
-                  <div class="owl-item">
-                    <div class="hs-item set-bg">
-                      <img src="img/hero/1.1.jpg" alt="">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-12 text-white">
-                                <h2 class="text"><?= Yii::t('app', 'Only Natural Materials') ?></h2>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="owl-item active">
-                    <div class="hs-item set-bg">
-                      <img src="img/hero/1.2.jpg" alt="">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-12 text-truncatetext-white">
-                            <h2 class="text"><?= Yii::t('app', 'Delivery to anywhere in the world') ?></h2>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="owl-item active" >
-                    <div class="hs-item set-bg">
-                      <img src="img/hero/1.3.jpg" alt="">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-12 text-truncate text-white">
-                            <h2 class="text"><?= Yii::t('app', 'Our craftsmen') ?></h2>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="owl-item active" >
-                    <div class="hs-item set-bg">
-                      <img src="img/hero/1.4.jpg" alt="">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-12 text-truncate text-white">
-                            <h2 class="text"><?= Yii::t('app', 'Fast delivery service') ?></h2>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+<div class="row m-0">
+  <div class="col-12 col-md-9 p-0">
+    <div id="carouselExampleIndicators" class="carousel slide row" data-ride="carousel">
+      <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2" class=""></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="3" class=""></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="4" class=""></li>
+      </ol>
+      <div class="carousel-inner w-100 p-0">
+          <div class="carousel-item w-100 p-0 position-relative active">
+              <img class="d-block w-100" src="/frontend/web/img/hero/1.1.jpg" alt="slider-1">
+              <div class="carousel-text"><?= Yii::t('app', 'Only Natural Materials') ?></div>
           </div>
-          <div class="col-12 col-md-3 row reklama">
-            <div class="col-12 col-sm-6 col-md-12 p-0 ml-5 ml-sm-0">
-              <img src="img/hero/top/1.jpg" alt="">
-            </div>
-            <div class="col-12 col-sm-6 col-md-12 d-block p-0 ml-5 ml-sm-0 reklama">
-              <img src="img/hero/top/2.jpg" alt="">
-            </div>
+          <div class="carousel-item w-100 p-0  position-relative">
+              <img class="d-block w-100" src="/frontend/web/img/hero/1.2.jpg" alt="slider-2">
+              <div class="carousel-text"><?= Yii::t('app', 'Delivery to anywhere in the world') ?></div>
+          </div>
+          <div class="carousel-item w-100 p-0  position-relative">
+              <img class="d-block w-100" src="/frontend/web/img/hero/1.3.jpg" alt="slider-3">
+              <div class="carousel-text"><?= Yii::t('app', 'Our craftsmen') ?></div>
+          </div>
+          <div class="carousel-item w-100 p-0  position-relative">
+              <img class="d-block w-100" src="/frontend/web/img/hero/1.4.jpg" alt="slider-4">
+              <div class="carousel-text"><?= Yii::t('app', 'Fast delivery service') ?></div>
           </div>
       </div>
+    </div>
   </div>
+  <div class="col-12 col-md-3 row m-0 p-0"  style="overflow: hidden">
+    <div class="col-6 col-md-12 advert p-0">
+      <?= Html::img('/frontend/web/img/hero/top/1.jpg', ['alt' => 'advert']) ?>
+    </div>
+    <div class="col-6 col-md-12 advert p-0">
+      <?= Html::img('/frontend/web/img/hero/top/2.jpg', ['alt' => 'advert']) ?>
+    </div>
+  </div>
+</div>
+
+  <?php
+$script = <<< JS
+    $(document).ready(function() {
+        $('.carousel').carousel({
+          interval: 3000
+        })
+    });
+JS;
+$this->registerJs($script);
+?>
