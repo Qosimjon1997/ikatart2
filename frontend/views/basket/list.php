@@ -21,7 +21,7 @@ use yii\helpers\Html;
                 <b>40.00$</b>
             </div>
             <div>
-                <i class="text-danger">Shipping for each product:</i>
+                <i class="text-danger"><?= Yii::t('app', 'Shipping for each product')?> :</i>
                 <b>10.00$</b>
                 <i class="text-success">by post service EMS express</i>
             </div>

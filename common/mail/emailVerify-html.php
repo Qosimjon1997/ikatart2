@@ -15,9 +15,9 @@ if($isUser == 1) {
 ?>
 
 <div class="verify-email">
-    <p>Hello <?= Html::encode($user->email) ?>,</p>
+    <p><?= Yii::('app', 'Hello') . Html::encode($user->email) ?>,</p>
 
-    <p>Follow the link below to verify your email:</p>
+    <p><?= Yii::('app', 'Follow the link below to verify your email') ?>:</p>
 
     <p><?= Html::a(Html::encode($verifyLink), $verifyLink) ?></p>
 </div>

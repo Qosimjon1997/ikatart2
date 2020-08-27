@@ -1,12 +1,12 @@
 <?php
 return [
     'adminEmail' => 'admin@example.com',
-    'languages'=>[
-        'ru' => 'Ru',
+    'languages'=> [
         'en' => 'En',
+        'fr' => 'Fr',
+        'ru' => 'Ru',
+        'sp' => 'Sp',
         'uz' => 'Uz',
         'it' => 'It',
-        'fr' => 'Fr',
-        'sp' => 'Sp',
     ],
 ];

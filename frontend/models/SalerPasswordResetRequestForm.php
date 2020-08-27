@@ -25,7 +25,7 @@ class SalerPasswordResetRequestForm extends Model
             ['email', 'exist',
                 'targetClass' => '\backend\models\Saler',
                 'filter' => ['status' => Saler::STATUS_ACTIVE],
-                'message' => 'There is no saler with this email address.'
+                'message' => Yii::t('app', 'There is no saler with this email address.')
             ],
         ];
     }
@@ -61,7 +61,7 @@ class SalerPasswordResetRequestForm extends Model
             )
             ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name])
             ->setTo($this->email)
-            ->setSubject('Password reset for ' . Yii::$app->name)
+            ->setSubject(Yii::t('app', 'Password reset for ') . Yii::$app->name)
             ->send();
     }
 }

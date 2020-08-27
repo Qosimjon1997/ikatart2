@@ -13,8 +13,8 @@ if($isUser == 1) {
 }
 
 ?>
-Hello <?= $user->email ?>,
+<?= Yii::('app', 'Hello') . $user->email ?>,
 
-Follow the link below to reset your password:
+<?= Yii::('app', 'Follow the link below to reset your password') ?>:
 
 <?= $resetLink ?>
