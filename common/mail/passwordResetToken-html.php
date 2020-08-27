@@ -14,9 +14,9 @@ if($isUser == 1) {
 }
 ?>
 <div class="password-reset">
-    <p>Hello <?= Html::encode($user->email) ?>,</p>
+    <p><?= Yii::('app', 'Hello') . Html::encode($user->email) ?>,</p>
 
-    <p>Follow the link below to reset your password:</p>
+    <p><?= Yii::('app', 'Follow the link below to reset your password') ?>:</p>
 
     <p><?= Html::a(Html::encode($resetLink), $resetLink) ?></p>
 </div>

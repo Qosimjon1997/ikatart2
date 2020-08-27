@@ -130,7 +130,7 @@ class SalerController extends Controller
         if (!Yii::$app->saler->isGuest) {
 
             $salerid = Yii::$app->saler->id;
-            return $this->render('index',['salerid'=>$salerid]);
+            return $this->redirect(['history']);
         }
         else
         {
@@ -150,12 +150,12 @@ class SalerController extends Controller
         if (!Yii::$app->saler->isGuest) {
 
             $salerid = Yii::$app->saler->id;
-            return $this->redirect(['index']);
+            return $this->redirect(['history']);
         }
 
         $model = new SalerLoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->redirect(['index']);
+            return $this->redirect(['history']);
         } else {
             $model->password = '';
 
@@ -297,7 +297,7 @@ class SalerController extends Controller
         if (!Yii::$app->saler->isGuest) {
 
             $salerid = Yii::$app->saler->id;
-            return $this->render('index',['salerid'=>$salerid]);
+            return $this->redirect(['history']);
         }
 
         $model = new SalerSignupForm();

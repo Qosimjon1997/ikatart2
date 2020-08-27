@@ -14,7 +14,7 @@ class LanguageSelector implements BootstrapInterface
         $preferredLanguage = isset(Yii::$app->request->cookies['language']) ? (string)Yii::$app->request->cookies['language'] : null;
 
         if (empty($preferredLanguage)) {
-            $preferredLanguage = Yii::$app->request->getPreferredLanguage($this->supportedLanguages);
+            $preferredLanguage = 'en';//Yii::$app->request->getPreferredLanguage($this->supportedLanguages);
         }
 
         \Yii::$app->language = $preferredLanguage;

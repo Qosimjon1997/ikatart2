@@ -33,11 +33,11 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($model, 'email')->textInput([
               'autofocus' => true,
               'class' => 'form-control',
-              'placeholder' => 'Email' ])?>
+              'placeholder' => Yii::t('app', 'Email') ])?>
             <small><?= Html::a(Yii::t('app', 'Forgot password?'), ['user/request-password-reset'], ['class' => 'text-dark d-block text-right']) ?></small>
             <?= $form->field($model, 'password')->passwordInput([
               'class' => 'form-control',
-              'placeholder' => 'Password']) ?>
+              'placeholder' => Yii::t('app', 'Password')]) ?>
             <div class="row my-2">
                 <div class="col">
                     <?= $form->field($model, 'rememberMe')->checkbox() ?>

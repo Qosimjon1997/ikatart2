@@ -8,17 +8,19 @@ use common\widgets\CartWidget;
 use common\widgets\SearchWidget;
 use common\widgets\SettingsWidget;
 
-$this->title = 'ikat-art';
+$this->title = 'Ikat-art';
 ?>
 
 <?php
 
 	HeroWidget::begin();
 	HeroWidget::end();
-
+	echo '<div class="container-fluid">';
 	CaruselWidget::begin();
 	CaruselWidget::end();
-
+	echo '</div>';
+	echo '<div class="container-fluid p-5">';
 	CategoryWidget::begin();
 	CategoryWidget::end();
+	echo '</div>';
 ?>

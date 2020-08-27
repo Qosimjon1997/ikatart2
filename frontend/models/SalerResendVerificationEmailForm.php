@@ -27,7 +27,7 @@ class SalerResendVerificationEmailForm extends Model
             ['email', 'exist',
                 'targetClass' => '\backend\models\Saler',
                 'filter' => ['status' => Saler::STATUS_INACTIVE],
-                'message' => 'There is no saler with this email address.'
+                'message' => Yii::t('app', 'There is no saler with this email address.')
             ],
         ];
     }
@@ -56,7 +56,7 @@ class SalerResendVerificationEmailForm extends Model
             )
             ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name])
             ->setTo($this->email)
-            ->setSubject('Account registration at ' . Yii::$app->name)
+            ->setSubject(Yii::t('app', 'Account registration at ') . Yii::$app->name)
             ->send();
     }
 }

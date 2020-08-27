@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $form->field($model, 'password')->passwordInput([
           'class' => 'form-control',
           'autofocus' => true,
-          'placeholder' => 'Password']) ?>
+          'placeholder' => Yii::t('app', 'Password')]) ?>
 
         <div class="form-group">
             <div class="col-12">

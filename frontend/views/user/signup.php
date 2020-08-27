@@ -30,10 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
           <?= $form->field($model, 'email')->textInput([
             'autofocus' => true,
             'class' => 'form-control',
-            'placeholder' => 'Email' ])?>
+            'placeholder' => Yii::t('app', 'Email') ])?>
           <?= $form->field($model, 'password')->passwordInput([
             'class' => 'form-control',
-            'placeholder' => 'Password']) ?>
+            'placeholder' => Yii::t('app', 'Password')]) ?>
 
           <div class="form-group">
               <div class="col-12">
