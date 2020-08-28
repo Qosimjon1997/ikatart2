@@ -54,14 +54,15 @@ AppAsset::register($this);
                         echo Html::a('<i class="fa fa-sign-in-alt" aria-hidden="true"></i>
                         '. Yii::t('app', 'Login'), ['user/login'], ['class' => 'text-primary text-decoration-none header-collor head-info']);
                     } else {
-                        echo '<div class="btn-group">
-                                <a class="btn dropdown-toggle p-0 text-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-user"></i>
+                        echo '<div class="btn-group p-0 m-0">
+                                <a style="font-size: 25px;" class="btn dropdown-toggle p-0 text-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user-circle"></i>
                                 </a>
                                 <div class="dropdown-menu">
-                                    <button type="submit" class="dropdown-item" name="lan" value = "button"></button>
-                                    <button type="submit" class="dropdown-item" name="lan" value = "button"></button>
-                                    <button type="submit" class="dropdown-item" name="lan" value = "button"></button>
+                                    <button type="submit" class="dropdown-item" name="lan" value = "button">1</button>
+                                    <button type="submit" class="dropdown-item" name="lan" value = "button">2</button>
+                                    <button type="submit" class="dropdown-item" name="lan" value = "button">3</button>
+                                    <button type="submit" class="dropdown-item" name="lan" value = "button">4</button>
                                 </div>
                             </div>';
                     } ?>

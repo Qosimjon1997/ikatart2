@@ -5,7 +5,7 @@ use yii\helpers\Html;
 CaruselAsset::register($this);
 ?>
 
-<h2 class="text-center text-blue m-5"><?= Yii::t('app', 'New Collection') ?></h2>
+<h2 class="text-center text-blue mt-5"><?= Yii::t('app', 'New Collection') ?></h2>
 <div class="owl-slide owl-carousel owl-theme owl-carousel-blog row justify-content-center m-auto">
   <div class="card-item bg-light">
     <?= Html::a(Html::img('/frontend/web/img/slide/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], []) ?>
@@ -26,7 +26,7 @@ $script = <<< JS
     $(document).ready(function() {
       $('.owl-slide').owlCarousel(
       {
-        items: 4,
+        items: 5,
         loop: true,
         rewindNav: false,
         autoplay:true,
@@ -50,11 +50,6 @@ $script = <<< JS
                 nav:true,
                 loop:true
             },
-            1130:{ // breakpoint from 992 up - desktop
-                items:4,
-                nav:true,
-                loop:true
-            }
         }
       })
     });

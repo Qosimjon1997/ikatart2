@@ -6,10 +6,10 @@ use yii\helpers\Url;
 CategoryAsset::register($this);
 ?>
 
-<h2 class="text-blue text-center m-5"><?= Yii::t('app', 'Works by regions')?></h2>
+<h2 class="text-blue text-center m-1"><?= Yii::t('app', 'Works by regions')?></h2>
 <?php Pjax::begin(['enablePushState' => false]); ?>
 <div class="row mx-sm-4">
-  <div class="col-6 col-sm-4 col-md-3 my-2">
+  <div class="col-6 col-md-4 col-lg-3 my-2">
     <div class="card-item bg-light box-shadow-blue">
       <?= Html::a(Html::img('/frontend/web/img/load/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), Url::to(['product/buy', 'id' => 5]), []) ?>
 
@@ -23,7 +23,7 @@ CategoryAsset::register($this);
       </div>
     </div>
   </div>
-  <div class="col-6 col-sm-4 col-md-3 my-2">
+  <div class="col-6 col-md-4 col-lg-3 my-2">
     <div class="card-item bg-light box-shadow-blue">
       <?= Html::a(Html::img('/frontend/web/img/load/2.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], []) ?>
 
@@ -37,7 +37,7 @@ CategoryAsset::register($this);
       </div>
     </div>
   </div>
-  <div class="col-6 col-sm-4 col-md-3 my-2">
+ <div class="col-6 col-md-4 col-lg-3 my-2">
     <div class="card-item bg-light box-shadow-blue">
       <?= Html::a(Html::img('/frontend/web/img/load/3.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], []) ?>
 
@@ -51,7 +51,7 @@ CategoryAsset::register($this);
       </div>
     </div>
   </div>
-  <div class="col-6 col-sm-4 col-md-3 my-2">
+  <div class="col-6 col-md-4 col-lg-3 my-2">
     <div class="card-item bg-light box-shadow-blue">
       <?= Html::a(Html::img('/frontend/web/img/load/4.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], []) ?>
 
@@ -65,7 +65,7 @@ CategoryAsset::register($this);
       </div>
     </div>
   </div>
-  <div class="col-6 col-sm-4 col-md-3 my-2">
+  <div class="col-6 col-md-4 col-lg-3 my-2">
     <div class="card-item bg-light box-shadow-blue">
       <?= Html::a(Html::img('/frontend/web/img/load/5.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], []) ?>
 
@@ -79,7 +79,7 @@ CategoryAsset::register($this);
       </div>
     </div>
   </div>
-  <div class="col-6 col-sm-4 col-md-3 my-2">
+  <div class="col-6 col-md-4 col-lg-3 my-2">
     <div class="card-item bg-light box-shadow-blue">
       <?= Html::a(Html::img('/frontend/web/img/load/6.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], []) ?>
 
@@ -93,7 +93,7 @@ CategoryAsset::register($this);
       </div>
     </div>
   </div>
-  <div class="col-6 col-sm-4 col-md-3 my-2">
+  <div class="col-6 col-md-4 col-lg-3 my-2">
     <div class="card-item bg-light box-shadow-blue">
       <?= Html::a(Html::img('/frontend/web/img/load/7.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], []) ?>
 
@@ -107,7 +107,7 @@ CategoryAsset::register($this);
       </div>
     </div>
   </div>
-  <div class="col-6 col-sm-4 col-md-3 my-2">
+  <div class="col-6 col-md-4 col-lg-3 my-2">
     <div class="card-item bg-light box-shadow-blue">
       <?= Html::a(Html::img('/frontend/web/img/load/8.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], []) ?>
 
@@ -121,7 +121,7 @@ CategoryAsset::register($this);
       </div>
     </div>
   </div>
-  <div class="col-6 col-sm-4 col-md-3 my-2">
+  <div class="col-6 col-md-4 col-lg-3 my-2">
     <div class="card-item bg-light box-shadow-blue">
       <?= Html::a(Html::img('/frontend/web/img/load/9.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], []) ?>
 
@@ -135,7 +135,7 @@ CategoryAsset::register($this);
       </div>
     </div>
   </div>
-  <div class="col-6 col-sm-4 col-md-3 my-2">
+  <div class="col-6 col-md-4 col-lg-3 my-2">
     <div class="card-item bg-light box-shadow-blue">
       <?= Html::a(Html::img('/frontend/web/img/load/5.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], []) ?>
 
