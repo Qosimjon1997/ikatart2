@@ -4,6 +4,9 @@ namespace frontend\controllers;
 
 use Yii;
 use backend\models\Product;
+use backend\models\Address;
+use backend\models\Cards;
+use backend\models\Order;
 use backend\models\Productnamelanguages;
 use backend\models\Productlanguages;
 use backend\models\Language;
@@ -90,6 +93,24 @@ class ProductController extends Controller
             'modelcarusel' => $modelcarusel,
         ]);
         // var_dump($image2->path);
+
+    }
+
+    public function actionConfirm()
+    {       
+        // $addressCount = Address::find()->where(['user_id'=>Yii::$app->user2->id])->count();
+        $address = Address :: find()->with('country')->where(['user_id'=>Yii::$app->user2->id])->all();
+        // var_dump($address);
+        $card = Cards::find()->where(['user_id'=>Yii::$app->user2->id])->all();
+        // var_dump($card);
+        $modelOrder = new Order();
+        $modelCards = new Cards();
+        return $this->render('confirm', [
+            'address' => $address,
+            'card' => $card,
+            'modelOrder' => $modelOrder,
+            'modelCards' => $modelCards,
+        ]);
 
     }
 

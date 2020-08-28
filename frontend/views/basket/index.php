@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= Yii::t('app', 'Buy')?>
 
                 </button> -->
-                <?= Html::a('<i class="btn">' . Yii::t('app', 'Buy') . '</i>', Url::to(['product/buy', 'id' => $variable->id]), ['class' => 'btn px-5 btn-outline-success float-right']) ?>
+                <?= Html::a('<i class="btn">' . Yii::t('app', 'Buy') . '</i>', Url::to(['product/buy', 'id' => $variable->product_id]), ['class' => 'btn px-5 btn-outline-success float-right']) ?>
             </div>
         </div>
     </div>

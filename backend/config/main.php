@@ -16,7 +16,7 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
-            'baseUrl' => '/comp',
+            // 'baseUrl' => '/comp',
         ],
         'admin' => [
             'class' => 'yii\web\User',
@@ -51,16 +51,16 @@ return [
             'errorAction' => 'site/error',
         ],
 
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-                '' => 'comp/workers/login',
-                'admin' => 'comp/admin/index',
-                'workers' => 'comp/workers/login',
-                '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
-            ],
-        ],
+        // 'urlManager' => [
+        //     'enablePrettyUrl' => true,
+        //     'showScriptName' => false,
+        //     'rules' => [
+        //         '' => 'comp/workers/login',
+        //         'admin' => 'comp/admin/index',
+        //         'workers' => 'comp/workers/login',
+        //         '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
+        //     ],
+        // ],
 
     ],
     'params' => $params,
