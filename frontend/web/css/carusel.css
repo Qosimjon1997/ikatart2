@@ -1,6 +1,5 @@
 .owl-carousel-blog{
-  /* max-width: 1160px !important;  */
-  margin-left: 15px;
+   max-width: 1420px !important;
 }
 .owl-carousel .owl-nav button.owl-next{
   color: inherit;

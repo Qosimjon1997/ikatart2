@@ -26,13 +26,13 @@ $script = <<< JS
     $(document).ready(function() {
       $('.owl-slide').owlCarousel(
       {
-        items: 5,
+        items: 4,
         loop: true,
         rewindNav: false,
         autoplay:true,
         autoplayTimeout: 3000,
         autoplayHoverPause: false,
-        margin: 30,
+        margin: 20,
         dots: false,
         responsive:{
             0:{ // breakpoint from 0 up - small smartphones
@@ -51,7 +51,7 @@ $script = <<< JS
                 loop:true
             },
             1130:{ // breakpoint from 992 up - desktop
-                items:5,
+                items:4,
                 nav:true,
                 loop:true
             }
