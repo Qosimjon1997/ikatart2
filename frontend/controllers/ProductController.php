@@ -4,6 +4,9 @@ namespace frontend\controllers;
 
 use Yii;
 use backend\models\Product;
+use backend\models\Address;
+use backend\models\Cards;
+use backend\models\Order;
 use backend\models\Productnamelanguages;
 use backend\models\Productlanguages;
 use backend\models\Language;
@@ -47,7 +50,7 @@ class ProductController extends Controller
 
         $actions = ['index', 'view', 'create', 'update', 'delete'];
 
-        if(!Yii::$app->saler->inn && !Yii::$app->saler->phone && !Yii::$app->saler->passport && array_search($this->action->id, $actions)) {
+        if(!Yii::$app->saler->identity->inn && !Yii::$app->saler->identity->phone && !Yii::$app->saler->identity->passport && array_search($this->action->id, $actions)) {
             if(!Yii::$app->saler->isGuest) {
                 return $this->redirect(['saler/settings']);
             } else {
@@ -80,37 +83,34 @@ class ProductController extends Controller
 
     }
 
-    public function actionView2($id)
+    public function actionBuy($id)
     {
         $model = $this->findModel($id);
-        $img = new Images();
-        $image2 = $img->getImage($id);
-        $modelcarusel = $this->findModelForCarusel($model->category_id);
+        $modelcarusel = $this->findModelForCarusel($model);
 
-        return $this->render('view2', [
-            'model' => $this->findModel($id),
-            'modelimage' => $image2,
+        return $this->render('buy', [
+            'model' => $model,
             'modelcarusel' => $modelcarusel,
         ]);
         // var_dump($image2->path);
 
     }
 
-    public function actionViewimage($id)
-    {
-        $model = $this->findModel($id);
-        $img = new Images();
-        $image2 = $img->getImage($id);
-        $modelcarusel = $this->findModelForCarusel($model->category_id);
-
-
-        return $this->render('viewimage', [
-            'model' => $this->findModel($id),
-            'modelimage' => $image2,
-            'modelcarusel' => $modelcarusel,
+    public function actionConfirm()
+    {       
+        // $addressCount = Address::find()->where(['user_id'=>Yii::$app->user2->id])->count();
+        $address = Address :: find()->with('country')->where(['user_id'=>Yii::$app->user2->id])->all();
+        // var_dump($address);
+        $card = Cards::find()->where(['user_id'=>Yii::$app->user2->id])->all();
+        // var_dump($card);
+        $modelOrder = new Order();
+        $modelCards = new Cards();
+        return $this->render('confirm', [
+            'address' => $address,
+            'card' => $card,
+            'modelOrder' => $modelOrder,
+            'modelCards' => $modelCards,
         ]);
-        // var_dump($modelcarusel);
-
 
     }
 
@@ -289,9 +289,14 @@ class ProductController extends Controller
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
 
-    protected function findModelForCarusel($id)
+    protected function findModelForCarusel($model)
     {
-        if (($model = Product::findAll(['category_id' => $id, 'isActive' => 1])) !== null) {
+        if (($model = Product::find()
+            ->with('images')
+            ->where(['and', 'category_id' => $model->category_id,
+                    ['and', 'isActive' => 1,
+                    ['<>', 'id', $model->id]]])
+            ->all()) !== null) {
             return $model;
         }
 

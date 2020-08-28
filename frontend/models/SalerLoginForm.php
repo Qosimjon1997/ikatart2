@@ -34,6 +34,15 @@ class SalerLoginForm extends Model
         ];
     }
 
+    public function attributeLabels()
+    {
+        return [
+            'email' => Yii::t('app', 'Email'),
+            'password' => Yii::t('app', 'Password'),
+            'rememberMe' => Yii::t('app', 'Remember Me'),
+        ];
+    }
+
     /**
      * Validates the password.
      * This method serves as the inline validation for password.
@@ -46,7 +55,7 @@ class SalerLoginForm extends Model
         if (!$this->hasErrors()) {
             $saler = $this->getSaler();
             if (!$saler || !$saler->validatePassword($this->password)) {
-                $this->addError($attribute, 'Incorrect password or username');
+                $this->addError($attribute, Yii::t('app', 'Incorrect password or username'));
             }
         }
     }
@@ -61,7 +70,7 @@ class SalerLoginForm extends Model
         if ($this->validate()) {
             return Yii::$app->saler->login($this->getSaler(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         }
-        
+
         return false;
     }
 

@@ -101,13 +101,16 @@ class UserController extends Controller
 
             $flash = array();
             $flash = $session->get('basket');
-            foreach ($flash as $value) {
-                $basket = new Basket();
-                $basket->product_id = $value;
-                $basket->user_id = Yii::$app->user2->identity->id;
-                $basket->count = 1;
-                $basket->save();
+            if(isset($flash)){
+                foreach ($flash as $value) {
+                    $basket = new Basket();
+                    $basket->product_id = $value;
+                    $basket->user_id = Yii::$app->user2->identity->id;
+                    $basket->count = 1;
+                    $basket->save();
+                }
             }
+            
 
             Yii::$app->session->remove('basket');
             return $this->goHome();

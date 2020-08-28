@@ -33,7 +33,7 @@ class Categorylanguages extends \yii\db\ActiveRecord
         return [
             [['name', 'language_id', 'category_id'], 'required'],
             [['language_id', 'category_id'], 'integer'],
-            [['name'], 'string', 'max' => 45],
+            [['name'], 'string'],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
             [['language_id'], 'exist', 'skipOnError' => true, 'targetClass' => Language::className(), 'targetAttribute' => ['language_id' => 'id']],
         ];

@@ -4,10 +4,13 @@ namespace frontend\controllers;
 
 use Yii;
 use backend\models\Basket;
-use backend\models\BasketSearch;
+use backend\models\Posttype;
+use backend\models\Images;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\Url;
+use yii\helpers\Html;
 
 /**
  * BasketController implements the CRUD actions for Basket model.
@@ -61,7 +64,7 @@ class BasketController extends Controller
     {
     	if(!Yii::$app->user2->isGuest) {
 
-    		$basket = $this->findOne($id);
+    		$basket = $this->findModel($id);
     		$basket->delete();
     		Yii::$app->session->remove('basket');
     	} else {
@@ -92,13 +95,41 @@ class BasketController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new BasketSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+       
+        if(!Yii::$app->user2->isGuest)
+        {
+            $postType = $this->findPostType();
+            $model = $this->findList(Yii::$app->user2->id);
+            $modelimgs = $this->findImage($model->product_id);
 
-        return $this->render('index', [
-            'dataProvider' => $dataProvider,
-        ]);
+            return $this->render('index',[
+                'model' => $model,
+                'modelimgs'=>$modelimgs,
+                'postType'=>$postType,
+            ]);
+        }
+
     }
+
+    protected function findPostType()
+    {
+        if (($model = Posttype::findOne(1)) !== null) {
+            return $model;
+        }
+
+        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+    }
+
+    protected function findImage($id)
+    {
+        if (($model = Images::findAll(['product_id' => $id, 'main' => 1])) !== null) {
+            return $model;
+        }
+
+        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+    }
+
+
 
     public function actionList()
     {
@@ -115,6 +146,15 @@ class BasketController extends Controller
     protected function findModel($id)
     {
         if (($model = Basket::findOne($id)) !== null) {
+            return $model;
+        }
+
+        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+    }
+
+    protected function findList($id)
+    {
+        if (($model = Basket::findAll(['user_id' => $id])) !== null) {
             return $model;
         }
 

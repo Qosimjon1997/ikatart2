@@ -8,21 +8,22 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
-    'name' => 'Ikat-art',
     'language' => 'en',
+    'name' => 'Ikat-art',
+    'sourceLanguage' =>'en',
     'basePath' => dirname(__DIR__),
     'bootstrap' => [
         'log',
         [
             'class' => 'frontend\components\LanguageSelector',
-            'supportedLanguages' => ['ru', 'en', 'uz', 'it', 'fr', 'sp'],
+            'supportedLanguages' => ['en', 'ru', 'uz', 'sp', 'fr', 'it'],
         ],
     ],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
-            'baseUrl' => '',
+            // 'baseUrl' => '',
         ],
         'user' => [
             'class'=>'yii\web\User',
@@ -65,13 +66,13 @@ return [
             'errorAction' => 'site/error',
         ],
 
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-                '<alias:\w+>' => 'site/<alias>',
-            ],
-        ],
+        // 'urlManager' => [
+        //     'enablePrettyUrl' => true,
+        //     'showScriptName' => false,
+        //     'rules' => [
+        //         '<alias:\w+>' => 'site/<alias>',
+        //     ],
+        // ],
     ],
     'params' => $params,
 ];

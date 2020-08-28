@@ -1,38 +1,35 @@
+<?php
+use yii\helpers\Html;
+?>
 
-<div class="list">
-    <div class="list-img">
-        <img src="/frontend/web/img/1.jpg" alt="">
-    </div>
-    <div class="list-info">
-        <p>A man in Hong Kong has been re-infected with COVID-19, just a matter
-             of months after he was first infected. Researchers at the University
-              of Hong Kong says the 33-year-old was cleared of COVID-19 and discharged
-               from hospital in April. But he tested positive again in mid-August 
-               after returning from a trip to Europe. He was found to have contracted a
-                different strain from the one he previously had. Despite concerns, 
-                the World Health Organization says people should not to jump 
-                to conclusions based on the circumstances of one patient.
-        </p>
-        <ul>
-            <li>
-                US $26
-            </li>
-</br>
-            <li>
-                <a href="">shipping US $1</a>
-                <p>via EMS Estimated Delivery Time:5-10 Days<p>
-            </li>  
-        </ul>
 
-    </div>
-    <div class="list-caunt">
-        <ul>
-            <li>
-            <a href="cart.html"><i class="fa fa-trash"></i></a>
-            <li>
-                caunt
-            </li>
-            </li>
-        </ul>
+<div class="container my-5 py-5 m-auto">
+    <div class="row m-0 p-4 box-shadow-light product-item">
+        <div class="col-12 col-sm-3">
+            <?= Html::img('/frontend/web/img/1.jpg', ['alt' => 'Product name', 'class' => 'product-image']) ?>
+        </div>
+        <div class="col-12 col-sm-9">
+            <h3 class="">Product name</h3>
+            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div>
+                <i class="text-danger">Price:</i>
+                <b>40.00$</b>
+            </div>
+            <div>
+                <i class="text-danger"><?= Yii::t('app', 'Shipping for each product')?> :</i>
+                <b>10.00$</b>
+                <i class="text-success">by post service EMS express</i>
+            </div>
+            <button class="btn del-btn d-none d-sm-block"><i class="far fa-trash-alt"></i></button>
+            <div class="text-right my-3">
+                <button class="btn btn-danger float-left d-inline-block d-sm-none"><i class="far fa-trash-alt"></i></button>
+                <button class="btn px-5 btn-outline-success float-right"><?= Yii::t('app', 'Buy')?></button>
+            </div>
+        </div>
     </div>
 </div>

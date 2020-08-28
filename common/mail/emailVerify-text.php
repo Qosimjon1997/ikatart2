@@ -13,8 +13,8 @@ if($isUser == 1) {
 }
 
 ?>
-Hello <?= $user->email ?>,
+<?= Yii::t('app', 'Hello') . $user->email ?>,
 
-Follow the link below to verify your email:
+<?= Yii::t('app', 'Follow the link below to verify your email') ?>:
 
 <?= $verifyLink ?>

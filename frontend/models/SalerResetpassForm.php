@@ -26,6 +26,15 @@ class SalerResetpassForm extends Model
         ];
     }
 
+    public function attributeLabels()
+    {
+        return [
+            'oldpassword' => Yii::t('app', 'Old Password'),
+            'newpassword' => Yii::t('app', 'New Password'),
+            'newpasswordconfirm' => Yii::t('app', 'Confirm New Password'),
+        ];
+    }
+
     public function valid($model) {
         if($this->validate()) {
             if($this->newpassword === $this->newpasswordconfirm && strlen($this->newpassword) > 7) {

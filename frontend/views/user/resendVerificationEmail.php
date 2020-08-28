@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($model, 'email')->textInput([
                 'autofocus' => true,
                 'class' => 'form-control',
-                'placeholder' => 'Email'
+                'placeholder' => Yii::t('app', 'Email')
             ]) ?>
 
             <div class="form-group">
