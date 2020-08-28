@@ -1,3 +1,6 @@
+.header-w{
+	max-width: 1550px;
+}
 img.logo{
   max-width: 200px;
 }
@@ -8,6 +11,11 @@ img.logo{
     vertical-align: center;
 }
 
+.head-info {
+	font-size: 16px;
+	color: rgb(103, 3, 128) !important ;
+	font-weight: 600 !important;
+}
 .btn-group .dropdown-menu.show {
 	max-width: 100px;
 	width: 100px;
@@ -16,4 +24,7 @@ img.logo{
 .header-collor a
 {
   color: rgb(103, 3, 128);
+}
+.btn-w{
+	float: right;
 }

@@ -14,8 +14,8 @@
 
 .form-box .search-icon {
   position: absolute;
-  top: 8px;
-  right: 50px;
+  top: 10px;
+  right: 45px;
 }
 
 .form-box .search-icon button {
@@ -26,8 +26,8 @@
 
 .dropdown-menu {
 	position: absolute;
-    top: 50px;
-    left: 10px;
+    top: 55px;
+    left: 2px;
     right: 10px;
     width: 98%;
     padding: 0;
@@ -35,6 +35,15 @@
     border: 0;
     overflow: hidden;
     padding-bottom: 20px;
+}
+.navbar-nav li a{
+ text-decoration: none;
+  font-size: 16px;
+  color: #006f;
+  padding: 19px 8px;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+
 }
 
 .navbar-nav li:hover > ul.dropdown-menu {
@@ -59,6 +68,14 @@
 
 .navbar {
 	position: relative;
+	max-width: 1450px;
+}
+.nav-link
+{
+	padding: 0 !important;
+	margin: 0 !important;
+	color: #60cf !important;
+	cursor: pointer;
 }
 
 .card-item {
@@ -103,7 +120,17 @@
 }
 
 .line {
-	border: 3px solid #750991;
+	border:  solid #750991ff;
 	width: 100%;
 	margin-bottom: 6px;
+}
+	.navbar .cart .shop-cart{
+color: #90f;
+font-size: 25px;
+padding: 9px;
+}
+.navbar .cart .shop-cart:hover{
+color: #60f;
+font-size: 25px;
+padding: 9px;
 }

@@ -34,20 +34,25 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 <!-- Header -->
 <div class="wrapper">
-    <header class="row justify-content-between align-items-center w-100 m-0 p-0">
-        <div class=" col-12 col-sm-4 text-center">
+    <header class="row justify-content-between align-items-center m-auto p-0 header-w">
+        <div class=" col-12 col-sm-4 col-lg-7 col-md-4 text-center text-md-left ">
             <a href="/"><img class="logo" src="/frontend/web/img/logo/logo.png" alt="logo"></a>
         </div>
-        <div class="text-center col-12 col-sm-8 col-md-7 col-lg-6 small row m-0 justify-content-around align-items-center">
-            <div class="row col-8 justify-content-around m-0">
-                <div class="col-6">
-                    <a syle="color: rgb(103, 3, 128);" href="#" class="text-primary text-decoration-none header-collor"><i class="fa fa-user-cog" aria-hidden="true" ></i><?= Yii::t('app', 'Contacts')?></a>
+        <div class="text-center col-12 col-sm-8 col-lg-5 col-md-8 small row m-0 p-0 pt-sm-5 justify-content-around align-items-center">
+            <div class="row col-8 justify-content-around m-0 p-0">
+                <div class=" d-none m-0 p-0 d-lg-block">
+                    <a syle="color: rgb(103, 3, 128);" href="#" class="text-primary text-decoration-none header-collor head-info">
+                        <i class="fa fa-phone" aria-hidden="true" ></i><?= Yii::t('app', '+998902129288')?></a>
                 </div>
-                <div class="col-6">
+                <div class=" m-0 p-0 ">
+                    <a syle="color: rgb(103, 3, 128);" href="#" class="text-primary text-decoration-none header-collor head-info">
+                        <i class="fa fa-user-cog" aria-hidden="true" ></i><?= Yii::t('app', 'Contacts')?></a>
+                </div>
+                <div class=" m-0 p-0 ">
                     <?php
                     if(Yii::$app->user2->isGuest) {
                         echo Html::a('<i class="fa fa-sign-in-alt" aria-hidden="true"></i>
-                        '. Yii::t('app', 'Login'), ['user/login'], ['class' => 'text-primary text-decoration-none header-collor']);
+                        '. Yii::t('app', 'Login'), ['user/login'], ['class' => 'text-primary text-decoration-none header-collor head-info']);
                     } else {
                         echo '<div class="btn-group">
                                 <a class="btn dropdown-toggle p-0 text-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -63,10 +68,10 @@ AppAsset::register($this);
                 </div>
             </div>
 
-            <div class="col-4 row justify-content-around m-0 align-items-center">
-                <div class="btn-group col-6">
+            <div class="col-4  justify-content-around m-0 p-0 align-items-center">
+                <div class="btn-group  m-0 p-2 ">
                     <!-- CONVERT MONEY -->
-                    <a class="btn dropdown-toggle p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="btn dropdown-toggle p-0 head-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?= '<img src="/frontend/web/img/mony.png" class="icons"> $' ?>
                     </a>
                     <div class="dropdown-menu">
@@ -81,8 +86,8 @@ AppAsset::register($this);
                     ?>
                     </div>
                 </div>
-                <div class="btn-group col-6">
-                    <a class="btn dropdown-toggle p-0 " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="btn-group  m-0 p-2 ">
+                    <a class="btn dropdown-toggle p-0 head-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?= '<img src="/frontend/web/img/'.$val. '.png" class="icons"> ' . $lan[$val] ?>
                     </a>
                     <div class="dropdown-menu">
@@ -104,8 +109,8 @@ AppAsset::register($this);
     <!-- Header /- -->
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light w-100 m-0">
-        <button class="navbar-toggler border-0" style="outline: 0 none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-light w-100 m-auto">
+        <button class="navbar-toggler p-0 border-0" style="outline: 0 none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="d-block d-lg-none">
@@ -125,7 +130,7 @@ AppAsset::register($this);
 
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Interior Decorating Items</a>
+                    <a class="dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Interior Decorating Items</a>
 
                     <ul class="dropdown-menu bg-light row" aria-labelledby="navbarDropdownMenuLink">
                         <div class="line"></div>
@@ -200,7 +205,7 @@ AppAsset::register($this);
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Interior Decorating Items 2</a>
+                    <a class="dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Interior Decorating Items 2</a>
 
                     <ul class="dropdown-menu bg-light row" aria-labelledby="navbarDropdownMenuLink">
                         <div class="line"></div>
@@ -266,7 +271,7 @@ AppAsset::register($this);
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Interior Decorating Items 3</a>
+                    <a class="dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Interior Decorating Items 3</a>
 
                     <ul class="dropdown-menu bg-light row" aria-labelledby="navbarDropdownMenuLink">
                         <div class="line"></div>
@@ -335,13 +340,15 @@ AppAsset::register($this);
             <div class="row justify-content-end align-items-center">
                 <div class="form-box col form-inline my-2 my-lg-0 border-danger">
                     <?php $form = ActiveForm::begin(['action' => '/site/search']) ?>
-                    <?= $form->field($search, 'search')->textInput(['placeholder' => Yii::t('app', 'Search here'), 'class' => 'search-input border border-primary mt-3 mt-sm-0'])->label(false) ?>
+                    <?= $form->field($search, 'search')->textInput(['placeholder' => Yii::t('app', 'Search here ....'), 'class' => 'search-input border border-primary mt-3 mt-sm-0'])->label(false) ?>
                     <div class="search-icon mt-3 mt-sm-0">
                         <?= Html::submitButton('<i class="fas fa-search special-tag"></i>', ['class' => 'position-absolute']) ?>
                     </div>
                     <?php ActiveForm::end(); ?>
                 </div>
-                <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'text-primary']) ?>
+                <div class="cart">
+                     <?= Html::a('<i class="fas fa-shopping-cart shop-cart"></i>', ['/'], ['class' => 'text-primary']) ?>
+                </div>
             </div>
         </div>
     </nav>

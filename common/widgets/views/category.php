@@ -5,7 +5,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 CategoryAsset::register($this);
 ?>
-<h2 class="text-blue text-center m-5">Works by regions</h2>
+<h2 class="text-blue text-center m-2">Works by regions</h2>
 <?php Pjax::begin(['enablePushState' => false]); ?>
 <div class="row mx-sm-4">
   <div class="col-6 col-sm-4 col-md-3 my-2">
