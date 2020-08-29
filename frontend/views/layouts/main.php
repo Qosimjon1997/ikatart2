@@ -156,9 +156,11 @@ AppAsset::register($this);
                                     <ul class="list-group list-group-flush">
                                     <?php 
                                         $modelItem = Category::find()->where(['category_id'=>$value->id])->all();
-                                        foreach ($modelItem as $valueItem) { ?>
+                                        // var_dump($value->id);
+                                        foreach ($modelItem as $valueItem) { 
+                                            ?>
                                         <li class="list-group-item bg-light">
-                                            <a class="nav-link"><?php $valueItem->name?></a>
+                                            <?= Html::a('<i class="nav-link">' . $valueItem->name . '</i>', Url::to(['product/scategory', 'id' => $valueItem->id])) ?>
                                         </li>
                                         <?php } ?>
                                     </ul>
