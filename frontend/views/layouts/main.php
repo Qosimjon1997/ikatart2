@@ -11,6 +11,8 @@ use common\widgets\NavigationWidget;
 use yii\helpers\Url;
 use yii\bootstrap4\ActiveForm;
 use frontend\models\Search;
+use backend\models\Category;
+use backend\models\Product;
 
 $search = new Search();
 $lan = Yii::$app->params['languages'];
@@ -127,215 +129,77 @@ AppAsset::register($this);
                 <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'text-primary']) ?>
             </div>
         </div>
+
+
+
+
+
+
+
+
+
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Interior Decorating Items</a>
 
-                    <ul class="dropdown-menu bg-light row" aria-labelledby="navbarDropdownMenuLink">
-                        <div class="line"></div>
-                        <li class="col-12 col-md-3">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Vases And Jugs</a>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Decorative Candle Holders</a>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Hookahs</a>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Uzbek Ceramic Plates</a>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Oriental Miniature</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="col-12 col-md-3">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Woodcarving Goods</a>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Ikat Pillows</a>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Roller Pillows</a>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Uzbek Pouffes</a>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Suzani Pillows</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="col-12 col-md-6 d-none d-md-block">
-                            <div class="row m-0">
-                                <div class="col-6">
-                                    <div class="card-item bg-light">
-                                        <?= Html::a(Html::img('/frontend/web/img/menu/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], ['class' => '']) ?>
-                                        <div class="card-label p-2">
-                                            <div class="card-name">Pillow</div>
-                                            <div class="card-price text-success">$40.00</div>
-                                        </div>
+                <?php 
+                    $model = Category::find()->where(['category_id'=>null])->all();
 
-                                        <div class="card-pane m-0">
-                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-block text-center btn-blue']) ?>
+                    foreach ($model as $value) { ?>
+
+                        <li class="nav-item">
+                
+                            <a class="dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $value->name?></a>
+
+                            <ul class="dropdown-menu bg-light row" aria-labelledby="navbarDropdownMenuLink">
+                                <div class="line"></div>
+                                <li class="col-12 col-md-3">
+                                    <ul class="list-group list-group-flush">
+                                    <?php 
+                                        $modelItem = Category::find()->where(['category_id'=>$value->id])->all();
+                                        foreach ($modelItem as $valueItem) { ?>
+                                        <li class="list-group-item bg-light">
+                                            <a class="nav-link"><?php $valueItem->name?></a>
+                                        </li>
+                                        <?php } ?>
+                                    </ul>
+                                </li>
+
+
+
+                            
+                                <li class="col-12 col-md-6 d-none d-md-block">
+                                    <div class="row m-0">
+                                    <?php 
+                                        $modelImage = Product::find()->where(['category_id'=>$value->id])->limit(2)->all();
+                                        foreach ($modelImage as $valueImage) {
+                                    
+                                        ?>
+                                        <div class="col-6">
+                                            <div class="card-item bg-light">
+                                            <?php Html::a(Html::img('/backend/web/upimages/' . $valueImage->images[0]->path, ['alt' => $valueImage->name, 'class' => 'card-image']), Url::to(['product/buy', 'id' => $valueImage->id]), []) ?>
+                                                <div class="card-label p-2">
+                                                    <div class="card-name"><?php $valueImage->name?></div>
+                                                    <div class="card-price text-success">$<?php $valueImage->price?></div>
+                                                </div>
+
+                                                <div class="card-pane m-0">
+                                                <?= Html::a('<i class="fas fa-shopping-cart"></i>', Url::to(['basket/add', 'id' => $valueImage->id]), ['class' => 'btn btn-block text-center btn-blue']) ?>
+                                                </div>
+                                            </div>
                                         </div>
+                                        <?php } ?>
+                                        
                                     </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="card-item bg-light">
-                                        <?= Html::a(Html::img('/frontend/web/img/menu/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], ['class' => '']) ?>
-                                        <div class="card-label p-2">
-                                            <div class="card-name">Pillow</div>
-                                            <div class="card-price text-success">$40.00</div>
-                                        </div>
+                                </li>
 
-                                        <div class="card-pane m-0">
-                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-block text-center btn-blue']) ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Interior Decorating Items 2</a>
-
-                    <ul class="dropdown-menu bg-light row" aria-labelledby="navbarDropdownMenuLink">
-                        <div class="line"></div>
-                        <li class="col-12 col-md-3">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Vases And Jugs</a>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Decorative Candle Holders</a>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Hookahs</a>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Uzbek Ceramic Plates</a>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Oriental Miniature</a>
-                                </li>
                             </ul>
-                        </li>
-                        <li class="col-12 col-md-3">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Woodcarving Goods</a>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Ikat Pillows</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="col-12 col-md-6 d-none d-md-block">
-                            <div class="row m-0">
-                                <div class="col-6">
-                                    <div class="card-item bg-light">
-                                        <?= Html::a(Html::img('/frontend/web/img/menu/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], ['class' => '']) ?>
-                                        <div class="card-label p-2">
-                                            <div class="card-name">Pillow</div>
-                                            <div class="card-price text-success">$40.00</div>
-                                        </div>
 
-                                        <div class="card-pane m-0">
-                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-block text-center btn-blue']) ?>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="card-item bg-light">
-                                        <?= Html::a(Html::img('/frontend/web/img/menu/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], ['class' => '']) ?>
-                                        <div class="card-label p-2">
-                                            <div class="card-name">Pillow</div>
-                                            <div class="card-price text-success">$40.00</div>
-                                        </div>
-
-                                        <div class="card-pane m-0">
-                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-block text-center btn-blue']) ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Interior Decorating Items 3</a>
-
-                    <ul class="dropdown-menu bg-light row" aria-labelledby="navbarDropdownMenuLink">
-                        <div class="line"></div>
-                        <li class="col-12 col-md-3">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Vases And Jugs</a>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Decorative Candle Holders</a>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Hookahs</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="col-12 col-md-3">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Woodcarving Goods</a>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Ikat Pillows</a>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <a class="nav-link">Roller Pillows</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="col-12 col-md-6 d-none d-md-block">
-                            <div class="row m-0">
-                                <div class="col-6">
-                                    <div class="card-item bg-light">
-                                        <?= Html::a(Html::img('/frontend/web/img/menu/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], ['class' => '']) ?>
-                                        <div class="card-label p-2">
-                                            <div class="card-name">Pillow</div>
-                                            <div class="card-price text-success">$40.00</div>
-                                        </div>
-
-                                        <div class="card-pane m-0">
-                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-block text-center btn-blue']) ?>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="card-item bg-light">
-                                        <?= Html::a(Html::img('/frontend/web/img/menu/1.jpg', ['alt' => 'product name', 'class' => 'card-image']), ['/'], ['class' => '']) ?>
-                                        <div class="card-label p-2">
-                                            <div class="card-name">Pillow</div>
-                                            <div class="card-price text-success">$40.00</div>
-                                        </div>
-
-                                        <div class="card-pane m-0">
-                                            <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'btn btn-block text-center btn-blue']) ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
+                    <?php } ?>
             </ul>
         </div>
+
+
 
          <div class="d-none d-lg-block">
             <div class="row justify-content-end align-items-center">

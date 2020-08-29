@@ -36,7 +36,7 @@ class Cards extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['number', 'expirationdate', 'cvv', 'holder', 'cardtype_id'], 'required'],
+            // [['number', 'expirationdate', 'cvv', 'holder', 'cardtype_id'], 'required'],
             [['expirationdate', 'cvv', 'Saler_id', 'cardtype_id', 'user_id'], 'integer'],
             [['number', 'holder'], 'string', 'max' => 255],
             [['Saler_id'], 'exist', 'skipOnError' => true, 'targetClass' => Saler::className(), 'targetAttribute' => ['Saler_id' => 'id']],
