@@ -6,6 +6,7 @@ use Yii;
 use backend\models\Product;
 use backend\models\Address;
 use backend\models\Cards;
+use backend\models\Category;
 use backend\models\Order;
 use backend\models\Productnamelanguages;
 use backend\models\Productlanguages;
@@ -96,22 +97,99 @@ class ProductController extends Controller
 
     }
 
+    public function actionTest()
+    {
+        $model1 = new Address();
+        $model2 = new Cards();
+        $model3 = new Category();
+        
+         if(Yii::$app->request->post('submit')=='1')
+         {
+            $model1->load(Yii::$app->request->post());
+            var_dump($model1->address);
+         }
+         if(Yii::$app->request->post('submit')=='2')
+         {
+            $model2->load(Yii::$app->request->post());
+            var_dump($model2->number);
+         }
+         if(Yii::$app->request->post('submit')=='3')
+         {
+            $model3->load(Yii::$app->request->post());
+             var_dump($model3->name);
+            //  return '3';
+         }
+
+        return $this->render('test', [
+            'model1' => $model1,
+            'model2' => $model2,
+            'model3' => $model3,
+        ]);
+        
+    }
+
+    public function actionScategory($id)
+    {
+        $model = Product::find()->where(['category_id'=>$id,'isActive'=>1])->all();
+
+        return $this->render('scategory', [
+            'model' => $model,
+            
+        ]);
+    }
+
     public function actionConfirm()
     {       
-        // $addressCount = Address::find()->where(['user_id'=>Yii::$app->user2->id])->count();
-        $address = Address :: find()->with('country')->where(['user_id'=>Yii::$app->user2->id])->all();
-        // var_dump($address);
-        $card = Cards::find()->where(['user_id'=>Yii::$app->user2->id])->all();
-        // var_dump($card);
-        $modelOrder = new Order();
-        $modelCards = new Cards();
-        return $this->render('confirm', [
-            'address' => $address,
-            'card' => $card,
-            'modelOrder' => $modelOrder,
-            'modelCards' => $modelCards,
-        ]);
-
+        if(!Yii::$app->user2->isGuest)
+        {
+            $address = Address :: find()->with('country')->where(['user_id'=>Yii::$app->user2->id])->all();
+            $card = Cards::find()->where(['user_id'=>Yii::$app->user2->id])->all();
+            $modelOrder = new Order();
+            $modelCards = new Cards();
+            
+            $newCard = new Cards();
+            $newAddress = new Address();
+    
+            if(Yii::$app->request->post('submit')=='btnCard')
+             {
+                $newCard->load(Yii::$app->request->post());
+                $newCard->user_id=Yii::$app->user2->id;
+                $newCard->save();
+                // var_dump($newCard);
+                return $this->redirect(['confirm']);
+             }
+             if(Yii::$app->request->post('submit')=='btnAddress')
+             {
+                $newAddress->load(Yii::$app->request->post());
+                
+                $newAddress->user_id=Yii::$app->user2->id;
+                
+                $newAddress->save();
+    
+                return $this->redirect(['confirm']);
+             }
+             if(Yii::$app->request->post('submit')=='btnConf')
+             {
+                 
+                //  Confirm all
+                 return '3';
+             }
+    
+            return $this->render('confirm', [
+                'address' => $address,
+                'card' => $card,
+                'modelOrder' => $modelOrder,
+                'modelCards' => $modelCards,
+                'newAddress' => $newAddress,
+                'newCard' => $newCard,
+            ]);
+    
+        }
+        else
+        {
+            return $this->redirect(['user/login']);
+        }
+        
     }
 
     /**

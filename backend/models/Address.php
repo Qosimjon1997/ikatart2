@@ -8,12 +8,13 @@ use Yii;
  * This is the model class for table "address".
  *
  * @property int $id
- * @property int $country_id
- * @property int $region_id
  * @property string $address
  * @property int $user_id
+ * @property int $country_id
  *
+ * @property Country $country
  * @property User $user
+ * @property Order[] $orders
  */
 class Address extends \yii\db\ActiveRecord
 {
@@ -31,9 +32,10 @@ class Address extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['country_id', 'region_id', 'address', 'user_id'], 'required'],
-            [['country_id', 'region_id', 'user_id'], 'integer'],
+            // [['address', 'user_id', 'country_id'], 'required'],
+            [['user_id', 'country_id'], 'integer'],
             [['address'], 'string', 'max' => 255],
+            [['country_id'], 'exist', 'skipOnError' => true, 'targetClass' => Country::className(), 'targetAttribute' => ['country_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
@@ -45,11 +47,20 @@ class Address extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'country_id' => Yii::t('app', 'Country ID'),
-            'region_id' => Yii::t('app', 'Region ID'),
             'address' => Yii::t('app', 'Address'),
             'user_id' => Yii::t('app', 'User ID'),
+            'country_id' => Yii::t('app', 'Country ID'),
         ];
+    }
+
+    /**
+     * Gets query for [[Country]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCountry()
+    {
+        return $this->hasOne(Country::className(), ['id' => 'country_id']);
     }
 
     /**
@@ -63,22 +74,12 @@ class Address extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Order]].
+     * Gets query for [[Orders]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getOrder()
+    public function getOrders()
     {
         return $this->hasMany(Order::className(), ['address_id' => 'id']);
-    }
-
-    /**
-     * Gets query for [[Country]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getCountry()
-    {
-        return $this->hasOne(Country::className(), ['id' => 'country_id']);
     }
 }
