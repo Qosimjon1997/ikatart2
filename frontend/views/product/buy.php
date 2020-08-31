@@ -29,10 +29,10 @@ BuyAsset::register($this);
     <div class="col-12 col-md-6">
       <?php
         $info;
-        $name;
+        $product_name;
         foreach($model->productnamelanguages as $name_lan) {
           if($name_lan->language->shortname == $val) {
-            $name = $name_lan->name;
+            $product_name = $name_lan->name;
           }
         }
 
@@ -42,7 +42,7 @@ BuyAsset::register($this);
           }
         }
       ?>
-      <h1><?= $name ?></h1>
+      <h1><?= $product_name ?></h1>
       <p class="text-justify"><i><?= $info ?></i></p>
       <div class="row m-0 p-0 justify-content-between">
         <div class="col-6 m-0 p-0">
