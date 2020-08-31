@@ -98,14 +98,12 @@ class BasketController extends Controller
        
         if(!Yii::$app->user2->isGuest)
         {
-            $postType = $this->findPostType();
             $model = $this->findList(Yii::$app->user2->id);
-            $modelimgs = $this->findImage($model->product_id);
-
+            $posttype = $this->findPostType();
+            
             return $this->render('index',[
                 'model' => $model,
-                'modelimgs'=>$modelimgs,
-                'postType'=>$postType,
+                'posttype'=>$posttype,
             ]);
         }
 
@@ -154,7 +152,7 @@ class BasketController extends Controller
 
     protected function findList($id)
     {
-        if (($model = Basket::findAll(['user_id' => $id])) !== null) {
+        if (($model = Basket::find(['user_id' => $id])->all()) !== null) {
             return $model;
         }
 

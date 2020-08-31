@@ -172,20 +172,21 @@ AppAsset::register($this);
                                 <li class="col-12 col-md-6 d-none d-md-block">
                                     <div class="row m-0">
                                     <?php 
-                                        $modelImage = Product::find()->where(['category_id'=>$value->id])->limit(2)->all();
-                                        foreach ($modelImage as $valueImage) {
-                                    
-                                        ?>
+                                        $childCategory = Category::find()->where(['category_id'=>$value->id])->all();
+                                        foreach ($childCategory as $valueProduct) {
+                                          $prod = Product::find()->where(['category_id'=>$valueProduct->id,'isActive'=>1])->one();
+                                          
+                                          ?>
                                         <div class="col-6">
                                             <div class="card-item bg-light">
-                                            <?php Html::a(Html::img('/backend/web/upimages/' . $valueImage->images[0]->path, ['alt' => $valueImage->name, 'class' => 'card-image']), Url::to(['product/buy', 'id' => $valueImage->id]), []) ?>
-                                                <div class="card-label p-2">
-                                                    <div class="card-name"><?php $valueImage->name?></div>
-                                                    <div class="card-price text-success">$<?php $valueImage->price?></div>
-                                                </div>
+                                            <?= Html::a(Html::img('/backend/web/upimages/' . $prod->images[0]->path, ['alt' => $name, 'class' => 'card-image']), Url::to(['/product/buy', 'id' => $prod->id]), []) ?>
+                                            <div class="card-label p-2">
+                                                <div class="card-name"><?php echo $prod->name?></div>
+                                                <div class="card-price text-success">$<?php echo $prod->price?></div>
+                                            </div>
 
                                                 <div class="card-pane m-0">
-                                                <?= Html::a('<i class="fas fa-shopping-cart"></i>', Url::to(['basket/add', 'id' => $valueImage->id]), ['class' => 'btn btn-block text-center btn-blue']) ?>
+                                                <?= Html::a('<i class="fas fa-shopping-cart"></i>', Url::to(['basket/add', 'id' => $prod->id]), ['class' => 'btn btn-block text-center btn-blue']) ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -214,7 +215,7 @@ AppAsset::register($this);
                     <?php ActiveForm::end(); ?>
                 </div>
                 <div class="cart">
-                     <?= Html::a('<i class="fas fa-shopping-cart shop-cart"></i>', ['/'], ['class' => 'text-primary']) ?>
+                     <?= Html::a('<i class="fas fa-shopping-cart shop-cart"></i>', Url::to(['basket/index']), ['class' => 'text-primary']) ?>
                 </div>
             </div>
         </div>
