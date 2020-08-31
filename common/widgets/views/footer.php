@@ -5,7 +5,7 @@ FooterAsset::register($this);
 
 <!-- Footer Start-->
 <section class="footer-section bg-secondary">
-  <div class="w-100 p-3 py-5">
+  <div class="w-100 p-3 px-5 py-5">
     <div class="row m-0 justify-content-center">
       <div class="col-12 col-sm-6 col-md-4">
         <div class="footer-widget about-widget">
