@@ -60,12 +60,12 @@ AppAsset::register($this);
                                 <a style="font-size: 25px;" class="btn dropdown-toggle p-0 text-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-user-circle"></i>
                                 </a>
-                                <div class="dropdown-menu">
-                                    <button type="submit" class="dropdown-item" name="lan" value = "button">1</button>
-                                    <button type="submit" class="dropdown-item" name="lan" value = "button">2</button>
-                                    <button type="submit" class="dropdown-item" name="lan" value = "button">3</button>
-                                    <button type="submit" class="dropdown-item" name="lan" value = "button">4</button>
-                                </div>
+                                <div class="dropdown-menu">' . 
+                                    Html::a('My basket', Url::to(['basket/list']), ['class' => 'btn btn-block text-center btn-blue dropdown-item']).
+                                    Html::a('Settings', Url::to(['user/settings']), ['class' => 'btn btn-block text-center btn-blue dropdown-item']).
+                                    Html::a('Log out', Url::to(['user/logout']), ['class' => 'btn btn-block text-center btn-blue dropdown-item'])
+                                    
+                                . '</div>
                             </div>';
                     } ?>
                 </div>
