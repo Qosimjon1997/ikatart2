@@ -197,7 +197,7 @@ return [
     'Create Cards' => 'Karta qo\'shish',
     'Create Order' => 'Buyurtma qo\'shish',
     'Cvv' => 'Cvv',
-    'Delivery to anywhere in the world' => 'dunyo bo\'ylab eltish xizmati',
+    'Delivery to anywhere in the world' => 'Dunyo bo\'ylab eltish xizmati',
     'Edit' => 'Tahrirlash',
     'Fast delivery service' => 'Tezkor eltish xizmati',
     'Follow the link below to reset your password' => 'Parolingizni o\'zgartirish uchun quyidagi havolaga o\'ting',
