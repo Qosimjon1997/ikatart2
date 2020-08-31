@@ -71,7 +71,7 @@ BuyAsset::register($this);
   </div>
 </div>
 
-<h2 class="text-blue text-center mt-5 pt-5"><?= Yii::t('app', 'Related Products') ?></h2>
+<h2 class="text-blue text-center m-0 pt-3"><?= Yii::t('app', 'Related Products') ?></h2>
 <div class="container-fluid p-5 m-auto w-100">
   <div class="owl-slide owl-carousel owl-theme owl-carousel-blog row justify-content-center m-auto">
     <?php foreach ($modelcarusel as $item){

@@ -42,7 +42,7 @@ AppAsset::register($this);
             <div class="row col-8 justify-content-around m-0 p-0">
                 <div class=" d-none m-0 p-0 d-lg-block">
                     <a syle="color: rgb(103, 3, 128);" href="#" class="text-primary text-decoration-none header-collor head-info">
-                        <i class="fa fa-phone" aria-hidden="true" ></i><?= Yii::t('app', '+998902129288')?></a>
+                        <i class="fa fa-phone" aria-hidden="true" ></i><?= Yii::t('app', '+998 (90)-212-92-88')?></a>
                 </div>
                 <div class=" m-0 p-0 ">
                     <a syle="color: rgb(103, 3, 128);" href="#" class="text-primary text-decoration-none header-collor head-info">
