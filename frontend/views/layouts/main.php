@@ -13,11 +13,20 @@ use yii\bootstrap4\ActiveForm;
 use frontend\models\Search;
 use backend\models\Category;
 use backend\models\Product;
+use backend\models\Language;
 
 $search = new Search();
 $lan = Yii::$app->params['languages'];
-$val = strtolower(Yii::$app->language);
 
+$lan_id;
+$val = strtolower(Yii::$app->language);
+$languages = Language::find()->all();
+
+foreach ($languages as $language) {
+    if($language->shortname == $val) {
+        $lan_id = $language->id;
+    }
+}
 
 AppAsset::register($this);
 ?>
@@ -130,51 +139,56 @@ AppAsset::register($this);
             </div>
         </div>
 
-
-
-
-
-
-
-
-
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-                <?php 
-                    $model = Category::find()->where(['category_id'=>null])->all();
-
-                    foreach ($model as $value) { ?>
+                <?php
+                    $model = Category::find()->with('categories.categorylanguages', 'categorylanguages')->where(['category_id' => null])->all();
+                    foreach ($model as $value) {
+                        $parent_cateogry_name;
+                        foreach ($value->categorylanguages as $category_lang) {
+                            if($category_lang->language_id == $lan_id){
+                                $parent_cateogry_name = $category_lang->name;
+                                break;
+                            }
+                        }
+                        ?>
 
                         <li class="nav-item">
-                
-                            <a class="dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $value->name?></a>
+
+                            <a class="dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $parent_cateogry_name?></a>
 
                             <ul class="dropdown-menu bg-light row" aria-labelledby="navbarDropdownMenuLink">
                                 <div class="line"></div>
                                 <li class="col-12 col-md-3">
                                     <ul class="list-group list-group-flush">
-                                    <?php 
-                                        $modelItem = Category::find()->where(['category_id'=>$value->id])->all();
-                                        // var_dump($value->id);
-                                        foreach ($modelItem as $valueItem) { 
+                                    <?php
+
+
+
+                                        foreach ($value->categories as $sub_category) {
+                                            foreach ($sub_category->categorylanguages as $category_lang) {
+                                                $child_cateogry_name;
+                                                if($category_lang->language_id == $lan_id){
+                                                    $child_cateogry_name = $category_lang->name;
+                                                    break;
+                                                }
+                                            }
                                             ?>
                                         <li class="list-group-item bg-light">
-                                            <?= Html::a('<i class="nav-link">' . $valueItem->name . '</i>', Url::to(['product/scategory', 'id' => $valueItem->id])) ?>
+                                            <?= Html::a('<i class="nav-link">' . $child_cateogry_name . '</i>', Url::to(['product/scategory', 'id' => $sub_category->id])) ?>
                                         </li>
                                         <?php } ?>
                                     </ul>
                                 </li>
 
 
-
-                            
                                 <li class="col-12 col-md-6 d-none d-md-block">
                                     <div class="row m-0">
-                                    <?php 
+                                    <?php
                                         $modelImage = Product::find()->where(['category_id'=>$value->id])->limit(2)->all();
                                         foreach ($modelImage as $valueImage) {
-                                    
+
                                         ?>
                                         <div class="col-6">
                                             <div class="card-item bg-light">
@@ -190,7 +204,7 @@ AppAsset::register($this);
                                             </div>
                                         </div>
                                         <?php } ?>
-                                        
+
                                     </div>
                                 </li>
 

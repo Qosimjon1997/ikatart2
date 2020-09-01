@@ -102,7 +102,7 @@ class ProductController extends Controller
         $model1 = new Address();
         $model2 = new Cards();
         $model3 = new Category();
-        
+
          if(Yii::$app->request->post('submit')=='1')
          {
             $model1->load(Yii::$app->request->post());
@@ -125,31 +125,31 @@ class ProductController extends Controller
             'model2' => $model2,
             'model3' => $model3,
         ]);
-        
+
     }
 
     public function actionScategory($id)
     {
-        $model = Product::find()->where(['category_id'=>$id,'isActive'=>1])->all();
+        $model = Product::find()->where(['category_id' => $id,'isActive' => 1])->all();
 
         return $this->render('scategory', [
             'model' => $model,
-            
+
         ]);
     }
 
     public function actionConfirm()
-    {       
+    {
         if(!Yii::$app->user2->isGuest)
         {
             $address = Address :: find()->with('country')->where(['user_id'=>Yii::$app->user2->id])->all();
             $card = Cards::find()->where(['user_id'=>Yii::$app->user2->id])->all();
             $modelOrder = new Order();
             $modelCards = new Cards();
-            
+
             $newCard = new Cards();
             $newAddress = new Address();
-    
+
             if(Yii::$app->request->post('submit')=='btnCard')
              {
                 $newCard->load(Yii::$app->request->post());
@@ -161,20 +161,20 @@ class ProductController extends Controller
              if(Yii::$app->request->post('submit')=='btnAddress')
              {
                 $newAddress->load(Yii::$app->request->post());
-                
+
                 $newAddress->user_id=Yii::$app->user2->id;
-                
+
                 $newAddress->save();
-    
+
                 return $this->redirect(['confirm']);
              }
              if(Yii::$app->request->post('submit')=='btnConf')
              {
-                 
+
                 //  Confirm all
                  return '3';
              }
-    
+
             return $this->render('confirm', [
                 'address' => $address,
                 'card' => $card,
@@ -183,13 +183,13 @@ class ProductController extends Controller
                 'newAddress' => $newAddress,
                 'newCard' => $newCard,
             ]);
-    
+
         }
         else
         {
             return $this->redirect(['user/login']);
         }
-        
+
     }
 
     /**
@@ -346,7 +346,9 @@ class ProductController extends Controller
     public function actionDelete($id)
     {
         $this->layout = 'salerlayout';
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id)
+        $model->isActive = 2;
+        $model->save();
 
         return $this->redirect(['index']);
     }

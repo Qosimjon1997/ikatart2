@@ -34,51 +34,13 @@ class SalerController extends Controller
     /**
      * {@inheritdoc}
      */
-    /*public function behaviors()
+    public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
-                'rules' => [
-                    [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
-    */
-
-    public function behaviors()
-    {
-	    return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'user'=>'saler', // this user object defined in web.php
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                    [
-                        'allow' => true,
-                        // 'actions' => ['login'],
-                        'roles' => ['?'],
-                    ],
                 ],
             ],
         ];
@@ -175,7 +137,7 @@ class SalerController extends Controller
         if(!Yii::$app->saler->isGuest)
         {
             Yii::$app->saler->logout();
-            return $this->goHome();
+            return $this->redirect(['login']);
         }
     }
 
