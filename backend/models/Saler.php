@@ -134,7 +134,7 @@ class Saler extends ActiveRecord implements IdentityInterface
     /**
      * {@inheritdoc}
      */
-public static function findIdentity($id)
+    public static function findIdentity($id)
     {
         return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
     }

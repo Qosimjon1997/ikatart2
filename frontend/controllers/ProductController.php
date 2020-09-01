@@ -97,37 +97,6 @@ class ProductController extends Controller
 
     }
 
-    public function actionTest()
-    {
-        $model1 = new Address();
-        $model2 = new Cards();
-        $model3 = new Category();
-
-         if(Yii::$app->request->post('submit')=='1')
-         {
-            $model1->load(Yii::$app->request->post());
-            var_dump($model1->address);
-         }
-         if(Yii::$app->request->post('submit')=='2')
-         {
-            $model2->load(Yii::$app->request->post());
-            var_dump($model2->number);
-         }
-         if(Yii::$app->request->post('submit')=='3')
-         {
-            $model3->load(Yii::$app->request->post());
-             var_dump($model3->name);
-            //  return '3';
-         }
-
-        return $this->render('test', [
-            'model1' => $model1,
-            'model2' => $model2,
-            'model3' => $model3,
-        ]);
-
-    }
-
     public function actionScategory($id)
     {
         $model = Product::find()->where(['category_id' => $id,'isActive' => 1])->all();
