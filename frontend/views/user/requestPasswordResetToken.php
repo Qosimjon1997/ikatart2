@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
       <div id="formContent">
         <div class="row form-header justify-content-around p-3 align-items-center">
             <div class="col">
-                <?= Html::tag('h3',  Html::encode($user->title), ['class' => 'text-info']) ?>
+                <?= Html::tag('h3',  Html::encode($this->title), ['class' => 'text-info']) ?>
             </div>
         </div>
         <?php $form = ActiveForm::begin([
