@@ -46,8 +46,8 @@ BuyAsset::register($this);
       <p class="text-justify"><i><?= $info ?></i></p>
       <div class="row m-0 p-0 justify-content-between">
         <div class="col-6 m-0 p-0">
-          <div><i class="text-danger"><?= Yii::t('app', 'Price') ?>: </i><b><?= $model->price ?>$</b></div>
-          <div><i class="text-danger"><?= Yii::t('app', 'Shipping Price') ?>: </i><b>50.00$</b></div>
+          <div><i class="text-danger"><?= Yii::t('app', 'Price') ?>: </i><b id=productPrice><?= $model->price ?></b>$</div>
+          <div><i class="text-danger"><?= Yii::t('app', 'Shipping Price') ?>: </i><b id=shippingPrice>100</b>$</div>
         </div>
         <div class="col-6 m-0 p-0">
           <div class="input-group counter float-right">
@@ -62,7 +62,8 @@ BuyAsset::register($this);
         </div>
       </div>
       <p class="py-4">
-        <i class="text-danger"><?= Yii::t('app', 'Total') ?>: </i><b>500$</b>
+        <i class="text-danger"><?= Yii::t('app', 'Total') ?>: </i><b id=totalPrice></b>$
+        <?php ?>
       </p>
       <div class="my-4">
         <button class="btn btn-outline-success px-5" onclick="oybek()"><?= Yii::t('app', 'Pay') ?></button>
@@ -172,6 +173,65 @@ $script = <<< JS
             }
         }
       });
+
+      var easyzoom = $('.easyzoom').easyZoom();
+      var easyzoomAPI = easyzoom.data("easyZoom");
+      $('.rest-img').click(function() {
+        var src = $(this).attr('src');
+        var image = document.getElementById('img-zoom');
+        var link = document.getElementById('img-link');
+        image.src = src;
+        link.href = src;
+        easyzoomAPI.swap(image.src, src);
+      });
+
+      window.addEventListener('resize', function(event){
+        zoomControl();
+      });
+
+      $(window).on('load', function(event){
+        zoomControl();
+        myFunction();
+      });
+
+      function zoomControl() {
+        var width = $(window).width();
+        if(width < 768) {
+          $('#zoom').removeClass('easyzoom--adjacent');
+          $('#zoom').addClass('easyzoom--overlay');
+        } else {
+          $('#zoom').addClass('easyzoom--adjacent');
+          $('#zoom').removeClass('easyzoom--overlay');
+        }
+      }
+
+      function myFunction()
+      {
+        var price = parseInt(document.getElementById('productPrice').innerText);
+        var shipPrice=parseInt(document.getElementById("shippingPrice").innerText);
+        
+        var c = parseInt($('#qty_input').val());
+        var t = ((price * c)+shipPrice);
+        console.log(t);
+        document.getElementById("totalPrice").innerHTML = (t);
+      }
+
+      $('#qty_input').prop('disabled', true);
+
+      $('#plus-btn').click(function(){
+        $('#qty_input').val(parseInt($('#qty_input').val()) + 1 );
+        myFunction();
+      });
+
+      $('#minus-btn').click(function(){
+        $('#qty_input').val(parseInt($('#qty_input').val()) - 1 );
+        if ($('#qty_input').val() == 0) {
+          $('#qty_input').val(1);
+        }
+        myFunction();
+      });
+    });
+
 JS;
 $this->registerJs($script);
 ?>
