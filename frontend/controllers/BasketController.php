@@ -85,7 +85,7 @@ class BasketController extends Controller
 
 			Yii::$app->session->set('basket', $flash);
     	}
-        return $this->goBack();
+        return $this->redirect(['basket/index']);
     }
 
 
@@ -105,6 +105,10 @@ class BasketController extends Controller
                 'model' => $model,
                 'posttype'=>$posttype,
             ]);
+        }
+        else
+        {
+            return $this->redirect(['user/login']);
         }
 
     }
