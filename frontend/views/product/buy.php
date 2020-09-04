@@ -66,7 +66,45 @@ BuyAsset::register($this);
         <?php ?>
       </p>
       <div class="my-4">
-        <button class="btn btn-outline-success px-5"><?= Yii::t('app', 'Pay') ?></button>
+        <button class="btn btn-outline-success px-5" onclick="oybek()"><?= Yii::t('app', 'Pay') ?></button>
+         <div class="back" id="salom">
+                    <div class="login-box">
+                      <h2>Excuse me</h2>
+                      <a class="close" onclick="oybek1()"><i class="fas fa-times"></i></a>
+                      <form>
+                        <div class="user-box">
+                          <!-- <input type="text" name="" required=""> -->
+                          <label>Kechirasiz hozirda saytimiz test rejimda to'lliq tugalanmagan agarda bizdan biror
+                            narsa olmoqchi bo'lsangiz quydagi manzillarga murojat qiling</label>
+                        </div>
+                        <!-- <div class="user-box">
+                          <input type="password" name="" required="">
+                          <label>Password</label>
+                        </div> -->
+                        <a href="#">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          +998 (90) 224-43-36
+                        </a>
+                        <a href="#">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          ueshonqulov652@gmail.com
+                        </a>
+                        <a href="#">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          ueshonqulov@bk.ru
+                        </a>
+                      </form>
+                    </div>
+                  </div>
       </div>
     </div>
   </div>
@@ -193,6 +231,18 @@ $script = <<< JS
         myFunction();
       });
     });
+
 JS;
 $this->registerJs($script);
 ?>
+
+<script type="text/javascript">
+  function oybek(){
+    var modal = document.getElementById("salom");
+    modal.style.display="block";
+  }
+  function oybek1(){
+    var modal = document.getElementById("salom");
+    modal.style.display="none";
+  }
+</script>

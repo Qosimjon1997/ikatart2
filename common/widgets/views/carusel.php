@@ -58,17 +58,17 @@ $script = <<< JS
         responsive:{
             0:{ // breakpoint from 0 up - small smartphones
                 items:2,
-                nav:true,
+                nav:false,
                 loop:true
             },
             570:{  // breakpoint from 480 up - smartphones // landscape
                 items:3,
-                nav:true,
+                nav:false,
                 loop:true
             },
             990:{ // breakpoint from 768 up - tablets
                 items:4,
-                nav:true,
+                nav:false,
                 loop:true
             },
         }
