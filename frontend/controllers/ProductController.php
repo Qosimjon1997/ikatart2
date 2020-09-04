@@ -103,7 +103,6 @@ class ProductController extends Controller
 
         return $this->render('scategory', [
             'model' => $model,
-
         ]);
     }
 
@@ -315,7 +314,7 @@ class ProductController extends Controller
     public function actionDelete($id)
     {
         $this->layout = 'salerlayout';
-        $model = $this->findModel($id)
+        $model = $this->findModel($id);
         $model->isActive = 2;
         $model->save();
 

@@ -69,11 +69,11 @@ AppAsset::register($this);
                                 <a style="font-size: 25px;" class="btn dropdown-toggle p-0 text-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-user-circle"></i>
                                 </a>
-                                <div class="dropdown-menu">' . 
+                                <div class="dropdown-menu">' .
                                     Html::a('My basket', Url::to(['basket/list']), ['class' => 'btn btn-block text-center btn-blue dropdown-item']).
                                     Html::a('Settings', Url::to(['user/settings']), ['class' => 'btn btn-block text-center btn-blue dropdown-item']).
                                     Html::a('Log out', Url::to(['user/logout']), ['class' => 'btn btn-block text-center btn-blue dropdown-item'])
-                                    
+
                                 . '</div>
                             </div>';
                     } ?>
@@ -160,11 +160,9 @@ AppAsset::register($this);
 
                             <ul class="dropdown-menu bg-light row" aria-labelledby="navbarDropdownMenuLink">
                                 <div class="line"></div>
-                                <li class="col-12 col-md-3">
+                                <li class="col-12 col-md-6">
                                     <ul class="list-group list-group-flush">
                                     <?php
-
-
 
                                         foreach ($value->categories as $sub_category) {
                                             foreach ($sub_category->categorylanguages as $category_lang) {
@@ -182,22 +180,26 @@ AppAsset::register($this);
                                     </ul>
                                 </li>
 
-
                                 <li class="col-12 col-md-6 d-none d-md-block">
                                     <div class="row m-0">
 
-                                    <?php 
-                                        $childCategory = Category::find()->where(['category_id'=>$value->id])->all();
-                                        foreach ($childCategory as $valueProduct) {
-                                          $prod = Product::find()->where(['category_id'=>$valueProduct->id,'isActive'=>1])->one();
-                                          
+                                    <?php
+                                        $valueProduct = $value->categories[0];
+                                        $prods = Product::find()->with('productnamelanguages')->where(['category_id'=>$valueProduct->id,'isActive'=>1])->limit(2)->all();
+                                        foreach ($prods as $prod) {
+                                            $product_name;
+                                            foreach($prod->productnamelanguages as $name_lan) {
+                                              if($name_lan->language_id == $lan_id) {
+                                                $product_name = $name_lan->name;
+                                              }
+                                            }
                                           ?>
 
                                         <div class="col-6">
                                             <div class="card-item bg-light">
-                                            <?= Html::a(Html::img('/backend/web/upimages/' . $prod->images[0]->path, ['alt' => $name, 'class' => 'card-image']), Url::to(['/product/buy', 'id' => $prod->id]), []) ?>
+                                            <?= Html::a(Html::img('/backend/web/upimages/' . $prod->images[0]->path, ['alt' => $product_name, 'class' => 'card-image']), Url::to(['/product/buy', 'id' => $prod->id]), []) ?>
                                             <div class="card-label p-2">
-                                                <div class="card-name"><?php echo $prod->name?></div>
+                                                <div class="card-name"><?php echo $product_name?></div>
                                                 <div class="card-price text-success">$<?php echo $prod->price?></div>
                                             </div>
 
