@@ -86,21 +86,15 @@ BuyAsset::register($this);
                           <span></span>
                           <span></span>
                           <span></span>
-                          +998 (90) 224-43-36
+                          +998 (90)-224-43-36
+                          +998 (91)-525-14-55
                         </a>
                         <a href="#">
                           <span></span>
                           <span></span>
                           <span></span>
                           <span></span>
-                          ueshonqulov652@gmail.com
-                        </a>
-                        <a href="#">
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                          ueshonqulov@bk.ru
+                          samren.ikat@gmail.com
                         </a>
                       </form>
                     </div>

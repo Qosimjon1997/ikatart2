@@ -50,10 +50,10 @@ AppAsset::register($this);
             <a href="/"><img class="logo" src="/frontend/web/img/logo/logo.png" alt="logo"></a>
         </div>
         <div class="text-center col-12 col-sm-8 col-lg-5 col-md-8 small row m-0 p-0 pt-sm-5 justify-content-around align-items-center">
-            <div class="row col-8 justify-content-around m-0 p-0">
+            <div class="row col-8 justify-content-around m-0 p-0 pt-2">
                 <div class=" d-none m-0 p-0 d-lg-block">
                     <a syle="color: rgb(103, 3, 128);" href="#" class="text-primary text-decoration-none header-collor head-info">
-                        <i class="fa fa-phone" aria-hidden="true" ></i><?= Yii::t('app', '+998 (90)-212-92-88')?></a>
+                        <i class="fa fa-phone" aria-hidden="true" ></i><?= Yii::t('app', '+998 (90)-224-43-36')?></a>
                 </div>
                 <div class=" m-0 p-0 ">
                     <a syle="color: rgb(103, 3, 128);" href="#" class="text-primary text-decoration-none header-collor head-info">
@@ -66,13 +66,12 @@ AppAsset::register($this);
                         '. Yii::t('app', 'Login'), ['user/login'], ['class' => 'text-primary text-decoration-none header-collor head-info']);
                     } else {
                         echo '<div class="btn-group p-0 m-0">
-                                <a style="font-size: 25px;" class="btn dropdown-toggle p-0 text-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a style="font-size: 20px;" class="btn dropdown-toggle p-0 text-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-user-circle"></i>
                                 </a>
                                 <div class="dropdown-menu">' .
-                                    Html::a('My basket', Url::to(['basket/list']), ['class' => 'btn btn-block text-center btn-blue dropdown-item']).
-                                    Html::a('Settings', Url::to(['user/settings']), ['class' => 'btn btn-block text-center btn-blue dropdown-item']).
-                                    Html::a('Log out', Url::to(['user/logout']), ['class' => 'btn btn-block text-center btn-blue dropdown-item'])
+                                    Html::a('Settings', Url::to(['user/settings']), ['class' => 'btn btn-block text-md-left  dropdown-item']).
+                                    Html::a('Log out', Url::to(['user/logout']), ['class' => 'btn btn-block text-md-left  dropdown-item'])
 
                                 . '</div>
                             </div>';
@@ -140,7 +139,7 @@ AppAsset::register($this);
         </div>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0" >
 
                 <?php
 
@@ -162,7 +161,7 @@ AppAsset::register($this);
 
                             <ul class="dropdown-menu bg-light row" aria-labelledby="navbarDropdownMenuLink">
                                 <div class="line"></div>
-                                <li class="col-12 col-md-6">
+                                <li class="col-12 col-md-3 p-2 m-0">
                                     <ul class="list-group list-group-flush">
                                     <?php
 
@@ -177,20 +176,20 @@ AppAsset::register($this);
                                             }
 
                                             ?>
-                                        <li class="list-group-item bg-light">
-                                            <?= Html::a('<i class="nav-link">' . $child_cateogry_name . '</i>', Url::to(['product/scategory', 'id' => $sub_category->id])) ?>
+                                        <li class="list-group-item bg-light border-0 pl-4 pt-0 m-0">
+                                            <?= Html::a('<i class="">' . $child_cateogry_name . '</i>', Url::to(['product/scategory', 'id' => $sub_category->id])) ?>
                                         </li>
                                         <?php } ?>
                                     </ul>
                                 </li>
 
 
-                                <li class="col-12 col-md-6 d-none d-md-block">
+                                <li class="col-12 col-md-9 d-none d-md-block">
                                     <div class="row m-0">
 
                                     <?php
                                         $valueProduct = $value->categories[0];
-                                        $prods = Product::find()->with('productnamelanguages')->where(['category_id'=>$valueProduct->id,'isActive'=>1])->limit(2)->all();
+                                        $prods = Product::find()->with('productnamelanguages')->where(['category_id'=>$valueProduct->id,'isActive'=>1])->limit(3)->all();
                                         foreach ($prods as $prod) {
                                             $product_name;
                                             foreach($prod->productnamelanguages as $name_lan) {
@@ -200,7 +199,7 @@ AppAsset::register($this);
                                             }
                                           ?>
 
-                                        <div class="col-6">
+                                        <div class="col-4">
                                             <div class="card-item bg-light">
                                             <?= Html::a(Html::img('/backend/web/upimages/' . $prod->images[0]->path, ['alt' => $product_name, 'class' => 'card-image']), Url::to(['/product/buy', 'id' => $prod->id]), []) ?>
                                             <div class="card-label p-2">
