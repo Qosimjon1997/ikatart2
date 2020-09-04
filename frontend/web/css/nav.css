@@ -71,11 +71,14 @@
 }
 .nav-link
 {
+	align-items: baseline;
+	align-content: center;
 	padding: 0 !important;
 	top: 0;
 	margin: 0 !important;
 	color: #60cf !important;
 	cursor: pointer;
+
 }
 
 .card-item {
