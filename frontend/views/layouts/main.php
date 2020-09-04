@@ -135,7 +135,7 @@ AppAsset::register($this);
                     </div>
                     <?php ActiveForm::end(); ?>
                 </div>
-                <?= Html::a('<i class="fas fa-shopping-cart"></i>', ['/'], ['class' => 'text-primary']) ?>
+                <?= Html::a('<i class="fas fa-shopping-cart shop-cart"></i>', Url::to(['basket/index']), ['class' => 'text-primary']) ?>
             </div>
         </div>
 
