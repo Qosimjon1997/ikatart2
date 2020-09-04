@@ -60,11 +60,11 @@ AppAsset::register($this);
                                 <a style="font-size: 25px;" class="btn dropdown-toggle p-0 text-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-user-circle"></i>
                                 </a>
-                                <div class="dropdown-menu">' . 
+                                <div class="dropdown-menu">' .
                                     Html::a('My basket', Url::to(['basket/list']), ['class' => 'btn btn-block text-center btn-blue dropdown-item']).
                                     Html::a('Settings', Url::to(['user/settings']), ['class' => 'btn btn-block text-center btn-blue dropdown-item']).
                                     Html::a('Log out', Url::to(['user/logout']), ['class' => 'btn btn-block text-center btn-blue dropdown-item'])
-                                    
+
                                 . '</div>
                             </div>';
                     } ?>
@@ -141,23 +141,23 @@ AppAsset::register($this);
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-                <?php 
+                <?php
                     $model = Category::find()->where(['category_id'=>null])->all();
 
                     foreach ($model as $value) { ?>
 
                         <li class="nav-item">
-                
+
                             <a class="dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $value->name?></a>
 
                             <ul class="dropdown-menu bg-light row" aria-labelledby="navbarDropdownMenuLink">
                                 <div class="line"></div>
                                 <li class="col-12 col-md-3">
                                     <ul class="list-group list-group-flush">
-                                    <?php 
+                                    <?php
                                         $modelItem = Category::find()->where(['category_id'=>$value->id])->all();
                                         // var_dump($value->id);
-                                        foreach ($modelItem as $valueItem) { 
+                                        foreach ($modelItem as $valueItem) {
                                             ?>
                                         <li class="list-group-item bg-light">
                                             <?= Html::a('<i class="nav-link">' . $valueItem->name . '</i>', Url::to(['product/scategory', 'id' => $valueItem->id])) ?>
@@ -168,14 +168,14 @@ AppAsset::register($this);
 
 
 
-                            
+
                                 <li class="col-12 col-md-6 d-none d-md-block">
                                     <div class="row m-0">
-                                    <?php 
+                                    <?php
                                         $childCategory = Category::find()->where(['category_id'=>$value->id])->all();
                                         foreach ($childCategory as $valueProduct) {
                                           $prod = Product::find()->where(['category_id'=>$valueProduct->id,'isActive'=>1])->one();
-                                          
+
                                           ?>
                                         <div class="col-6">
                                             <div class="card-item bg-light">
@@ -191,7 +191,7 @@ AppAsset::register($this);
                                             </div>
                                         </div>
                                         <?php } ?>
-                                        
+
                                     </div>
                                 </li>
 
