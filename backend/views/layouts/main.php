@@ -37,7 +37,7 @@ AppAsset::register($this);
             ],
         ]);
         $menuItems [] = '<li class="nav-item">'
-            . Html::a(Yii::t('app', 'Home'), ['/admin'], ['class' => 'text-white nav-link p-3'])
+            . Html::a(Yii::t('app', 'Home'), ['comp/workers/index'], ['class' => 'text-white nav-link p-3'])
             . '</li>';
         $menuItems[] = '<li class="nav-item">'
             . Html::beginForm(['comp/admin/logout'], 'post')
