@@ -44,29 +44,12 @@ class UserController extends Controller
     public function behaviors()
     {
 	    return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'user' => Yii::$app->user,
-                'only' => ['logout', 'signup'],
-                'rules' => [
-                    [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['post'],
                 ],
             ],
-            // 'verbs' => [
-            //     'class' => VerbFilter::className(),
-            //     'actions' => [
-            //         'logout' => ['post'],
-            //     ],
-            // ],
         ];
     }
 
@@ -110,7 +93,7 @@ class UserController extends Controller
                     $basket->save();
                 }
             }
-            
+
 
             Yii::$app->session->remove('basket');
             return $this->goHome();
@@ -192,15 +175,15 @@ class UserController extends Controller
     {
         if (!Yii::$app->user2->isGuest) {
             $user = $this->findModel(Yii::$app->user2->id);
-            
+
             if($user->load(Yii::$app->request->post())) {
-                $user->firstname = 
+                $user->firstname =
                 Yii::$app->session->setFlash('success', Yii::t('app', 'My information reseted'));
             }
 
             $model=new UserResetpassForm();
 
-            
+
             if($model->load(Yii::$app->request->post()) && $model->valid($user)) {
                 $user->password = $model->newpassword;
                 Yii::$app->session->setFlash('success', Yii::t('app', 'Password reseted'));

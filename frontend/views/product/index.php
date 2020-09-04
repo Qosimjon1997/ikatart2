@@ -29,9 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'price',
-            //'oldprice',
-            //'percent',
-            //'Saler_id',
             'category.name',
             'isActive',
             'info:ntext',
@@ -39,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{view} {update} '. ($isActive === 1 ? '{delete}': '{activate}'),
+                'template' => '{view} {update} {delete}',
                 'buttons' => [
                     //view button
                     'view' => function ($url, $model) {
@@ -54,17 +51,11 @@ $this->params['breadcrumbs'][] = $this->title;
                         ]);
                     },
 
-                    // 'delete' => function ($url, $model) {
-                    //     return Html::a('<span class="fa fa-trash"></span>', $url, [
-                    //                 'title' => Yii::t('app', 'Delete'), 'data-method' => 'post',
-                    //     ]);
-                    // },
-
-                    // 'activate' => function ($url, $model) {
-                    //     return Html::a('<span class="fa fa-plus"></span>', $url, [
-                    //                 'title' => Yii::t('app', 'Activate'), 'data-method' => 'post',
-                    //     ]);
-                    // },
+                    'delete' => function ($url, $model) {
+                        return Html::a('<span class="fa fa-trash"></span>', $url, [
+                                    'title' => Yii::t('app', 'Delete'), 'data-method' => 'post',
+                        ]);
+                    },
                 ],
             ],
         ],

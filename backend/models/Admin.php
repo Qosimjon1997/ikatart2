@@ -29,7 +29,7 @@ class Admin extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return [
             [['username', 'password'], 'required'],
-            [['username'], 'string', 'max' => 45, 'unique'],
+            [['username'], 'string', 'max' => 45],
             [['password'], 'string', 'max' => 255],
         ];
     }
@@ -45,8 +45,6 @@ class Admin extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             'password' => Yii::t('app', 'Password'),
         ];
     }
-
-
 
     /**
      * {@inheritdoc}

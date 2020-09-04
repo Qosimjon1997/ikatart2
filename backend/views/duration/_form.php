@@ -17,9 +17,9 @@ use backend\models\Posttype;
 
     <?= $form->field($model, 'day')->textInput() ?>
 
-    <?= $form->field($model, 'zone_id')->dropDownList(ArrayHelper::map(Zone::find()->all(),'id','zone'),) ?>
+    <?= $form->field($model, 'zone_id')->dropDownList(ArrayHelper::map(Zone::find()->all(),'id','zone')) ?>
 
-    <?= $form->field($model, 'posttype_id')->dropDownList(ArrayHelper::map(Posttype::find()->all(),'id','name'),) ?>
+    <?= $form->field($model, 'posttype_id')->dropDownList(ArrayHelper::map(Posttype::find()->all(),'id','name')) ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
