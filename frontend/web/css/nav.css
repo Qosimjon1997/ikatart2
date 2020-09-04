@@ -65,7 +65,6 @@
     text-decoration: underline;
     transform: rotate(-90deg);
 }
-
 .navbar {
 	position: relative;
 	max-width: 1450px;
@@ -73,6 +72,7 @@
 .nav-link
 {
 	padding: 0 !important;
+	top: 0;
 	margin: 0 !important;
 	color: #60cf !important;
 	cursor: pointer;
@@ -131,7 +131,7 @@
 }
 .card-item .card-pane a:hover {
 	text-decoration: none;
-	font-size: 28px;
+	font-size: 26px;
 	color: #420066;
 }
 .line {
@@ -146,7 +146,7 @@
 }
 .navbar .cart .shop-cart:hover{
 	color: #60f;
-	font-size: 35px;
+	font-size: 25px;
 	padding: 9px;
 }
 

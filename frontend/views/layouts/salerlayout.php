@@ -34,39 +34,36 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 <!-- Header -->
 <div class="wrapper">
-    <header class="row justify-content-between align-items-center w-100 m-0 p-0">
-        <div class=" col-12 col-sm-4 text-center">
+     <header class="row justify-content-between align-items-center m-auto p-0 header-w">
+        <div class=" col-12 col-sm-4 col-lg-7 col-md-4 text-center text-md-left ">
             <a href="/"><img class="logo" src="/frontend/web/img/logo/logo.png" alt="logo"></a>
         </div>
-        <div class="text-center col-12 col-sm-8 col-md-7 col-lg-6 small row m-0 justify-content-around align-items-center">
-            <div class="row col-8 justify-content-around m-0">
-                <div class="col-6">
-                    <a syle="color: rgb(103, 3, 128);" href="#" class="text-primary text-decoration-none header-collor"><i class="fa fa-user-cog" aria-hidden="true" ></i><?= Yii::t('app', 'Contacts')?></a>
+        <div class="text-center col-12 col-sm-8 col-lg-5 col-md-8 small row m-0 p-0 pt-sm-5 justify-content-around align-items-center">
+            <div class="row col-8 justify-content-around m-0 p-0">
+                <div class=" d-none m-0 p-0 d-lg-block">
+                    <a syle="color: rgb(103, 3, 128);" href="#" class="text-primary text-decoration-none header-collor head-info">
+                        <i class="fa fa-phone" aria-hidden="true" ></i><?= Yii::t('app', '+998 (90)-212-92-88')?></a>
                 </div>
-                <div class="col-6">
+                <div class=" m-0 p-0 ">
+                    <a syle="color: rgb(103, 3, 128);" href="#" class="text-primary text-decoration-none header-collor head-info">
+                        <i class="fa fa-user-cog" aria-hidden="true" ></i><?= Yii::t('app', 'Contacts')?></a>
+                </div>
+                <div class=" m-0 p-0 ">
                     <?php
                     if(Yii::$app->user2->isGuest) {
                         echo Html::a('<i class="fa fa-sign-in-alt" aria-hidden="true"></i>
-                        '. Yii::t('app', 'Login'), ['saler/login'], ['class' => 'text-primary text-decoration-none header-collor']);
+                        '. Yii::t('app', 'Login'), ['saler/login'], ['class' => 'text-primary text-decoration-none header-collor head-info']);
                     } else {
-                        echo '<div class="btn-group">
-                                <a class="btn dropdown-toggle p-0 text-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-user"></i>
-                                </a>
-                                <div class="dropdown-menu">
-                                    <button type="submit" class="dropdown-item" name="lan" value = "button"></button>
-                                    <button type="submit" class="dropdown-item" name="lan" value = "button"></button>
-                                    <button type="submit" class="dropdown-item" name="lan" value = "button"></button>
-                                </div>
-                            </div>';
+                        echo Html::a('<i class="fa fa-sign-in-alt" aria-hidden="true"></i>
+                        '. Yii::t('app', 'Logout'), ['saler/logout'], ['class' => 'text-primary text-decoration-none header-collor head-info']);
                     } ?>
                 </div>
             </div>
 
-            <div class="col-4 row justify-content-around m-0 align-items-center">
-                <div class="btn-group col-6">
+            <div class="col-4  justify-content-around m-0 p-0 align-items-center">
+                <div class="btn-group  m-0 p-2 ">
                     <!-- CONVERT MONEY -->
-                    <a class="btn dropdown-toggle p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="btn dropdown-toggle p-0 head-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?= '<img src="/frontend/web/img/mony.png" class="icons"> $' ?>
                     </a>
                     <div class="dropdown-menu">
@@ -81,8 +78,8 @@ AppAsset::register($this);
                     ?>
                     </div>
                 </div>
-                <div class="btn-group col-6">
-                    <a class="btn dropdown-toggle p-0 " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="btn-group  m-0 p-2 ">
+                    <a class="btn dropdown-toggle p-0 head-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?= '<img src="/frontend/web/img/'.$val. '.png" class="icons"> ' . $lan[$val] ?>
                     </a>
                     <div class="dropdown-menu">

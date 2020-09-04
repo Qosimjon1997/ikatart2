@@ -143,6 +143,7 @@ AppAsset::register($this);
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
                 <?php
+
                     $model = Category::find()->with('categories.categorylanguages', 'categorylanguages')->where(['category_id' => null])->all();
                     foreach ($model as $value) {
                         $parent_cateogry_name;
@@ -158,11 +159,13 @@ AppAsset::register($this);
 
                             <a class="dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $parent_cateogry_name?></a>
 
+
                             <ul class="dropdown-menu bg-light row" aria-labelledby="navbarDropdownMenuLink">
                                 <div class="line"></div>
                                 <li class="col-12 col-md-6">
                                     <ul class="list-group list-group-flush">
                                     <?php
+
 
                                         foreach ($value->categories as $sub_category) {
                                             foreach ($sub_category->categorylanguages as $category_lang) {
@@ -172,6 +175,7 @@ AppAsset::register($this);
                                                     break;
                                                 }
                                             }
+
                                             ?>
                                         <li class="list-group-item bg-light">
                                             <?= Html::a('<i class="nav-link">' . $child_cateogry_name . '</i>', Url::to(['product/scategory', 'id' => $sub_category->id])) ?>
@@ -179,6 +183,7 @@ AppAsset::register($this);
                                         <?php } ?>
                                     </ul>
                                 </li>
+
 
                                 <li class="col-12 col-md-6 d-none d-md-block">
                                     <div class="row m-0">

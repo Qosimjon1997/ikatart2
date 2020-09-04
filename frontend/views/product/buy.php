@@ -65,7 +65,45 @@ BuyAsset::register($this);
         <i class="text-danger"><?= Yii::t('app', 'Total') ?>: </i><b>500$</b>
       </p>
       <div class="my-4">
-        <button class="btn btn-outline-success px-5"><?= Yii::t('app', 'Pay') ?></button>
+        <button class="btn btn-outline-success px-5" onclick="oybek()"><?= Yii::t('app', 'Pay') ?></button>
+         <div class="back" id="salom">
+                    <div class="login-box">
+                      <h2>Excuse me</h2>
+                      <a class="close" onclick="oybek1()"><i class="fas fa-times"></i></a>
+                      <form>
+                        <div class="user-box">
+                          <!-- <input type="text" name="" required=""> -->
+                          <label>Kechirasiz hozirda saytimiz test rejimda to'lliq tugalanmagan agarda bizdan biror
+                            narsa olmoqchi bo'lsangiz quydagi manzillarga murojat qiling</label>
+                        </div>
+                        <!-- <div class="user-box">
+                          <input type="password" name="" required="">
+                          <label>Password</label>
+                        </div> -->
+                        <a href="#">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          +998 (90) 224-43-36
+                        </a>
+                        <a href="#">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          ueshonqulov652@gmail.com
+                        </a>
+                        <a href="#">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          ueshonqulov@bk.ru
+                        </a>
+                      </form>
+                    </div>
+                  </div>
       </div>
     </div>
   </div>
@@ -134,50 +172,17 @@ $script = <<< JS
             }
         }
       });
-
-      var easyzoom = $('.easyzoom').easyZoom();
-      var easyzoomAPI = easyzoom.data("easyZoom");
-      $('.rest-img').click(function() {
-        var src = $(this).attr('src');
-        var image = document.getElementById('img-zoom');
-        var link = document.getElementById('img-link');
-        image.src = src;
-        link.href = src;
-        easyzoomAPI.swap(image.src, src);
-      });
-
-      window.addEventListener('resize', function(event){
-        zoomControl();
-      });
-
-      $(window).on('load', function(event){
-        zoomControl();
-      });
-
-      function zoomControl() {
-        var width = $(window).width();
-        if(width < 768) {
-          $('#zoom').removeClass('easyzoom--adjacent');
-          $('#zoom').addClass('easyzoom--overlay');
-        } else {
-          $('#zoom').addClass('easyzoom--adjacent');
-          $('#zoom').removeClass('easyzoom--overlay');
-        }
-      }
-
-      $('#qty_input').prop('disabled', true);
-
-      $('#plus-btn').click(function(){
-        $('#qty_input').val(parseInt($('#qty_input').val()) + 1 );
-      });
-
-      $('#minus-btn').click(function(){
-        $('#qty_input').val(parseInt($('#qty_input').val()) - 1 );
-        if ($('#qty_input').val() == 0) {
-          $('#qty_input').val(1);
-        }
-      });
-    });
 JS;
 $this->registerJs($script);
 ?>
+
+<script type="text/javascript">
+  function oybek(){
+    var modal = document.getElementById("salom");
+    modal.style.display="block";
+  }
+  function oybek1(){
+    var modal = document.getElementById("salom");
+    modal.style.display="none";
+  }
+</script>
