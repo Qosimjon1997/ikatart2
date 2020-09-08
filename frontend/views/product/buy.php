@@ -206,7 +206,8 @@ $script = <<< JS
         
         var c = parseInt($('#qty_input').val());
         var t = ((price * c)+shipPrice);
-        
+
+
         document.getElementById("totalPrice").innerHTML = (t);
       }
 
