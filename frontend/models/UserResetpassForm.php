@@ -21,7 +21,7 @@ class UserResetpassForm extends Model
     public function rules()
     {
         return [
-            [['oldpassword', 'newpassword','newpasswordconfirm'],'string', 'min'=>8],
+            [['oldpassword', 'newpassword','newpasswordconfirm'],'string', 'min'=>6],
             [['newpassword','newpasswordconfirm'], 'filter', 'filter'=>'trim'],
         ];
     }
@@ -37,7 +37,7 @@ class UserResetpassForm extends Model
 
     public function valid($model) {
         if($this->validate()) {
-            if($this->newpassword === $this->newpasswordconfirm && strlen($this->newpassword) > 7) {
+            if($this->newpassword === $this->newpasswordconfirm) {
                 if(Yii::$app->security->validatePassword($this->oldpassword, $model->password)){
                     $this->newpassword = Yii::$app->security->generatePasswordHash($this->newpassword);
                     return true;

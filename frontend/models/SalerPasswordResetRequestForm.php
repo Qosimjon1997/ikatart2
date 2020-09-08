@@ -57,7 +57,7 @@ class SalerPasswordResetRequestForm extends Model
             ->mailer
             ->compose(
                 ['html' => 'passwordResetToken-html', 'text' => 'passwordResetToken-text'],
-                ['user' => $saler, 'isUser' => 0, 'isSaler' => 1],
+                ['user' => $saler, 'isUser' => 0, 'isSaler' => 1]
             )
             ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name])
             ->setTo($this->email)

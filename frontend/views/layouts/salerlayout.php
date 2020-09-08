@@ -50,11 +50,11 @@ AppAsset::register($this);
                 </div>
                 <div class=" m-0 p-0 ">
                     <?php
-                    if(Yii::$app->user2->isGuest) {
+                    if(Yii::$app->saler->isGuest) {
                         echo Html::a('<i class="fa fa-sign-in-alt" aria-hidden="true"></i>
                         '. Yii::t('app', 'Login'), ['saler/login'], ['class' => 'text-primary text-decoration-none header-collor head-info']);
                     } else {
-                        echo Html::a('<i class="fa fa-sign-in-alt" aria-hidden="true"></i>
+                        echo Html::a('<i class="fa fa-sign-out-alt" aria-hidden="true"></i>
                         '. Yii::t('app', 'Logout'), ['saler/logout'], ['class' => 'text-primary text-decoration-none header-collor head-info']);
                     } ?>
                 </div>
