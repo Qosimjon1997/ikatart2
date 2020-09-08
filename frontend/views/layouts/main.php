@@ -12,12 +12,12 @@ use yii\helpers\Url;
 use yii\bootstrap4\ActiveForm;
 use frontend\models\Search;
 use backend\models\Category;
+use backend\models\Currency;
 use backend\models\Product;
 use backend\models\Language;
 
 $search = new Search();
 $lan = Yii::$app->params['languages'];
-
 $lan_id;
 $val = strtolower(Yii::$app->language);
 $languages = Language::find()->all();
@@ -83,15 +83,16 @@ AppAsset::register($this);
                 <div class="btn-group  m-0 p-2 ">
                     <!-- CONVERT MONEY -->
                     <a class="btn dropdown-toggle p-0 head-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <?= '<img src="/frontend/web/img/mony.png" class="icons"> $' ?>
+                        <?= '<img src="/frontend/web/img/mony.png" class="icons"> ' . Yii::$app->currency->name ?>
                     </a>
                     <div class="dropdown-menu">
                     <?php
-                        $form = ActiveForm::begin(['action' => '/money/index']);
+                        $currency = Currency::find()->all();
+                        $form = ActiveForm::begin(['action' => '/currency/index']);
 
-                        foreach ($lan as $key => $value) {
+                        foreach ($currency as $key => $value) {
                             echo '
-                            <button type="submit" class="dropdown-item" name="lan" value = "'.$key.'">$</button>';
+                            <button type="submit" class="dropdown-item" name="currency" value = "' . $value->shortname.'">' . $value->name . '</button>';
                         }
                         ActiveForm::end();
                     ?>
@@ -190,8 +191,9 @@ AppAsset::register($this);
                                     <?php
                                         $valueProduct = $value->categories[0];
                                         $prods = Product::find()->with('productnamelanguages')->where(['category_id'=>$valueProduct->id,'isActive'=>1])->limit(3)->all();
+                                        $product_name;
                                         foreach ($prods as $prod) {
-                                            $product_name;
+
                                             foreach($prod->productnamelanguages as $name_lan) {
                                               if($name_lan->language_id == $lan_id) {
                                                 $product_name = $name_lan->name;
@@ -204,7 +206,7 @@ AppAsset::register($this);
                                             <?= Html::a(Html::img('/backend/web/upimages/' . $prod->images[0]->path, ['alt' => $product_name, 'class' => 'card-image']), Url::to(['/product/buy', 'id' => $prod->id]), []) ?>
                                             <div class="card-label p-2">
                                                 <div class="card-name"><?php echo $product_name?></div>
-                                                <div class="card-price text-success">$<?php echo $prod->price?></div>
+                                                <div class="card-price text-success"><?php echo Yii::$app->currency->convert('usd', $prod->price) ?></div>
                                             </div>
 
                                                 <div class="card-pane m-0">

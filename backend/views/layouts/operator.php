@@ -82,6 +82,11 @@ AppAsset::register($this);
                         'url' => 'mainproduct/index',
                     ],
                     [
+                        'label' => Yii::t('app', 'currency'),
+                        'icon' => 'fa fa-list',
+                        'url' => 'currency/index',
+                    ],
+                    [
                         'label' => Yii::t('app', 'toptypes'),
                         'icon' => 'fa fa-list',
                         'url' => 'toptype/index',

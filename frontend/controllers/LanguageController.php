@@ -29,6 +29,10 @@ class LanguageController extends Controller
             ]);
             \Yii::$app->response->cookies->add($languageCookie);
         }
-        return $this->goBack();
+        if(Yii::$app->request->referrer){
+            return $this->redirect(Yii::$app->request->referrer);
+        }else{
+          return $this->goHome();
+        }
     }
 }

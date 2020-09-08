@@ -14,6 +14,7 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => [
         'log',
+        'currency',
         [
             'class' => 'frontend\components\LanguageSelector',
             'supportedLanguages' => ['en', 'ru', 'uz', 'sp', 'fr', 'it'],
@@ -23,7 +24,7 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
-            //'baseUrl' => '',
+            'baseUrl' => '',
         ],
         'user' => [
             'class'=>'yii\web\User',
@@ -65,14 +66,16 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-
-        // 'urlManager' => [
-        //     'enablePrettyUrl' => true,
-        //     'showScriptName' => false,
-        //     'rules' => [
-        //         '<alias:\w+>' => 'site/<alias>',
-        //     ],
-        // ],
+        'currency' => [
+            'class' => 'frontend\components\CurrencySelector',
+        ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                '<alias:\w+>' => 'site/<alias>',
+            ],
+        ],
     ],
     'params' => $params,
 ];

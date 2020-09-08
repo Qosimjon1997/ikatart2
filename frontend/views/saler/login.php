@@ -7,7 +7,7 @@
 use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
 
-$this->title = Yii::t('app', 'Login');
+$this->title = Yii::t('app', 'Saler');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-login">
@@ -17,9 +17,11 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="col">
                 <?= Html::tag('h3', $this->title, ['class' => 'text-info text-decoration-none']) ?>
             </div>
-            <div class="col">
-                <span> <?= Yii::t('app', 'New saler?') ?> </span>
+        	 <div class="col">
                 <?= Html::a(Yii::t('app', 'Register'), ['saler/signup'], ['class' => 'text-info text-decoration-none']) ?>
+            </div>
+             <div class="col">
+                <?= Html::a(Yii::t('app', 'User'), ['user/login'], ['class' => 'text-info text-decoration-none']) ?>
             </div>
         </div>
         <?php $form = ActiveForm::begin([

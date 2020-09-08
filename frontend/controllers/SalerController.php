@@ -55,7 +55,7 @@ class SalerController extends Controller
             return false;
         }
 
-        if(Yii::$app->saler->isGuest && $this->action->id != 'login') {
+        if(Yii::$app->saler->isGuest && !($this->action->id == 'login' || $this->action->id == 'signup')) {
             return $this->redirect(['login']);
         }
 

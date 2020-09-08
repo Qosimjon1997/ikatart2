@@ -11,11 +11,11 @@ use common\widgets\Alert;
 use yii\helpers\Url;
 use yii\bootstrap4\ActiveForm;
 use frontend\models\Search;
+use backend\models\Currency;
 
 $search = new Search();
 $lan = Yii::$app->params['languages'];
 $val = strtolower(Yii::$app->language);
-
 
 AppAsset::register($this);
 ?>
@@ -50,11 +50,11 @@ AppAsset::register($this);
                 </div>
                 <div class=" m-0 p-0 ">
                     <?php
-                    if(Yii::$app->user2->isGuest) {
+                    if(Yii::$app->saler->isGuest) {
                         echo Html::a('<i class="fa fa-sign-in-alt" aria-hidden="true"></i>
                         '. Yii::t('app', 'Login'), ['saler/login'], ['class' => 'text-primary text-decoration-none header-collor head-info']);
                     } else {
-                        echo Html::a('<i class="fa fa-sign-in-alt" aria-hidden="true"></i>
+                        echo Html::a('<i class="fa fa-sign-out-alt" aria-hidden="true"></i>
                         '. Yii::t('app', 'Logout'), ['saler/logout'], ['class' => 'text-primary text-decoration-none header-collor head-info']);
                     } ?>
                 </div>
@@ -64,15 +64,16 @@ AppAsset::register($this);
                 <div class="btn-group  m-0 p-2 ">
                     <!-- CONVERT MONEY -->
                     <a class="btn dropdown-toggle p-0 head-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <?= '<img src="/frontend/web/img/mony.png" class="icons"> $' ?>
+                        <?= '<img src="/frontend/web/img/mony.png" class="icons"> ' . Yii::$app->currency->name ?>
                     </a>
                     <div class="dropdown-menu">
                     <?php
-                        $form = ActiveForm::begin(['action' => '/money/index']);
+                        $currency = Currency::find()->all();
+                        $form = ActiveForm::begin(['action' => '/currency/index']);
 
-                        foreach ($lan as $key => $value) {
+                        foreach ($currency as $key => $value) {
                             echo '
-                            <button type="submit" class="dropdown-item" name="lan" value = "'.$key.'">$</button>';
+                            <button type="submit" class="dropdown-item" name="currency" value = "' . $value->shortname.'">' . $value->name . '</button>';
                         }
                         ActiveForm::end();
                     ?>

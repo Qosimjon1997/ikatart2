@@ -11,7 +11,7 @@ use backend\models\Category;
 
 <div class="category-form">
     <?php
-    	$categories = Category::find()->all();
+    	$categories = Category::find()->where(['category_id' => null])->all();
     	$category = [null => ''];
 	    foreach ($categories as $categ) {
 	    	$category[$categ['id']] = $categ->name;
