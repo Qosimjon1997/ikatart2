@@ -14,6 +14,7 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => [
         'log',
+        'currency',
         [
             'class' => 'frontend\components\LanguageSelector',
             'supportedLanguages' => ['en', 'ru', 'uz', 'sp', 'fr', 'it'],
@@ -65,7 +66,9 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-
+        'currency' => [
+            'class' => 'frontend\components\CurrencySelector',
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
