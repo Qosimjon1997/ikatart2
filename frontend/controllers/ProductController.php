@@ -99,7 +99,7 @@ class ProductController extends Controller
 
     public function actionScategory($id)
     {
-        $model = Product::find()->where(['category_id' => $id,'isActive' => 1])->all();
+        $model = Product::find()->where(['category_id' => $id,'isActive' => 1])->orderBy(['price'=>SORT_ASC,])->all();
 
         return $this->render('scategory', [
             'model' => $model,
@@ -339,13 +339,10 @@ class ProductController extends Controller
 
     protected function findModelForCarusel($model)
     {
-        if (($model = Product::find()
-            ->with('images')
-            ->where(['and', 'category_id' => $model->category_id,
-                    ['and', 'isActive' => 1,
-                    ['<>', 'id', $model->id]]])
-            ->all()) !== null) {
-            return $model;
+        
+        if(($model1=Product::find()->where(['isActive'=>1,'category_id' => $model->category_id])->all()) !== null)
+        {
+            return $model1;
         }
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
