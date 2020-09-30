@@ -5,30 +5,50 @@ use backend\models\Mainproduct;
 use backend\models\Product;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use backend\models\Language;
 CategoryAsset::register($this);
+
+$lan_id;
+$val = strtolower(Yii::$app->language);
+$languages = Language::find()->all();
+
+foreach ($languages as $language) {
+    if($language->shortname == $val) {
+        $lan_id = $language->id;
+    }
+}
+
 ?>
 
 <h2 class="text-blue text-center m-1"><?= Yii::t('app', 'Works by regions')?></h2>
 <?php Pjax::begin(['enablePushState' => false]); ?>
+
+
 <div class="row mx-sm-4">
-
 <?php
-    $model = Mainproduct::find()->joinwith('product')->where(['product.isActive'=>1])->all();
-    foreach ($model as $value) {
+    
+    $prods = Mainproduct::find()->joinwith('product')->where(['product.isActive'=>1])->orderBy(['product.price'=>SORT_ASC])->all();
+    $product_name;
+    foreach ($prods as $prod) {
 
-        ?>
+        foreach($prod->product->productnamelanguages as $name_lan) {
+            if($name_lan->language_id == $lan_id) {
+                $product_name = $name_lan->name;
+            }
+        }
+?>
 
 
 <div class="col-6 col-md-4 col-lg-3 my-2">
     <div class="card-item bg-light box-shadow-blue">
-      <?= Html::a(Html::img('/backend/web/upimages/' . $value->product->images[0]->path, ['alt' => $value->product->name, 'class' => 'card-image']), Url::to(['/product/buy', 'id' => $value->product_id]), []) ?>
+    <?= Html::a(Html::img('/backend/web/upimages/' . $prod->product->images[0]->path, ['alt' => $product_name, 'class' => 'card-image']), Url::to(['/product/buy', 'id' => $prod->product->id]), []) ?>
       <div class="card-label p-2">
-          <div class="card-name"><?php echo $value->product->name?></div>
-          <div class="card-price text-success">$<?php echo $value->product->price?></div>
+        <div class="card-name"><?php echo $product_name ?></div>
+        <div class="card-price text-success"><?= Yii::$app->currency->convert('dollar', $prod->product->price) ?></div>
       </div>
 
       <div class="card-pane m-0">
-          <?= Html::a('<i class="fas fa-shopping-cart"></i>', Url::to(['basket/add', 'id' => $value->product_id]), ['class' => 'btn btn-block text-center btn-blue']) ?>
+        <?= Html::a('<i class="fas fa-shopping-cart"></i>', Url::to(['basket/add', 'id' => $prod->product->id]), ['class' => 'btn btn-block text-center btn-blue']) ?>
       </div>
     </div>
   </div>

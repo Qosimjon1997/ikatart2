@@ -18,7 +18,7 @@ class ProductSearch extends Product
     public function rules()
     {
         return [
-            [['id', 'price', 'oldprice', 'percent', 'Saler_id', 'category_id', 'isActive', 'mass_id'], 'integer'],
+            [['id', 'price', 'oldprice', 'percent', 'Saler_id', 'category_id', 'isActive', 'mass'], 'integer'],
             [['name', 'info'], 'safe'],
         ];
     }
@@ -43,7 +43,7 @@ class ProductSearch extends Product
     {
         $params = [];
         if(isset($isActive)){
-            $params['isActive'] = $isActive;
+            $params['product.isActive'] = $isActive;
         }
 
         if(isset($id)){
@@ -53,7 +53,6 @@ class ProductSearch extends Product
         $query = Product::find()
             ->joinwith('saler')
             ->joinWith('category')
-            ->joinWith('mass')
             ->where($params);
 
 
@@ -75,11 +74,6 @@ class ProductSearch extends Product
             'desc' => ['category.name' => SORT_DESC]
         ];
 
-        $dataProvider->sort->attributes['mass.mass'] = [
-            'asc' => ['mass.mass' => SORT_ASC],
-            'desc' => ['mass.mass' => SORT_DESC]
-        ];
-
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
@@ -95,8 +89,7 @@ class ProductSearch extends Product
             'Saler_id' => $this->Saler_id,
             'category_id' => $this->category_id,
             'isActive' => $this->isActive,
-            'mass_id' => $this->mass_id,
-            'mass.mass' => $this->mass->mass,
+            'mass' => $this->mass,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])

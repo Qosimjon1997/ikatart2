@@ -30,6 +30,7 @@ class Admin extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         return [
             [['username', 'password'], 'required'],
             [['username'], 'string', 'max' => 45],
+			[['username'], 'unique'],
             [['password'], 'string', 'max' => 255],
         ];
     }

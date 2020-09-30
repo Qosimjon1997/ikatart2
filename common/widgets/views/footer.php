@@ -30,17 +30,17 @@ FooterAsset::register($this);
           </div>
           <div class="con-info" style="width: 500px;">
             <span><?= Yii::t('app', 'Email') ?>:</span>
-            <p>ikat-art@gmail.com</p>
+            <p>samren.ikat@gmail.com</p>
           </div>
           <div class="con-info">
             <span><?= Yii::t('app', 'Technical support') ?>:</span>
-            <p>+998 97 929-18-00</p>
+            <p>-------------</p>
           </div>
           <div class="social-links">
-            <a href="#" class="instagram"><i class="fab fa-2x fa-instagram"></i></a>
-            <a href="#" class="google-plus"><i class="fab fa-2x fa-google-plus"></i></a>
-            <a href="#" class="facebook"><i class="fab fa-2x fa-facebook-square"></i></a>
-            <a href="#" class="youtube"><i class="fab fa-2x fa-youtube-square"></i></a>
+            <a href="https://www.instagram.com/samrenikat/" class="instagram"><i class="fab fa-2x fa-instagram"></i></a>
+            <a href="mailto:samren.ikat@gmail.com" class="google-plus"><i class="fab fa-2x fa-google-plus"></i></a>
+            <a href="https://www.facebook.com/groups/327580638317938/" class="facebook"><i class="fab fa-2x fa-facebook-square"></i></a>
+            <a href="https://www.youtube.com/channel/UCUf9AcbXqlIVwFiAgqOta-Q/?guided_help_flow=5" class="youtube"><i class="fab fa-2x fa-youtube-square"></i></a>
           </div>
         </div>
       </div>

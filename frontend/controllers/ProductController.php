@@ -14,6 +14,8 @@ use backend\models\Language;
 use backend\models\Images;
 use backend\models\UploadImage;
 use backend\models\ProductSearch;
+use backend\models\Mass;
+use backend\models\Pricelist;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -74,7 +76,7 @@ class ProductController extends Controller
         if(!Yii::$app->saler->isGuest)
         {
             $searchModel = new ProductSearch();
-            $dataProvider = $searchModel->search(Yii::$app->request->queryParams, null ,Yii::$app->saler->id);
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams, [0, 1] ,Yii::$app->saler->id);
 
             return $this->render('index', [
                 'searchModel' => $searchModel,
@@ -93,13 +95,13 @@ class ProductController extends Controller
             'model' => $model,
             'modelcarusel' => $modelcarusel,
         ]);
-        // var_dump($image2->path);
 
     }
+	
 
     public function actionScategory($id)
     {
-        $model = Product::find()->where(['category_id' => $id,'isActive' => 1])->orderBy(['price'=>SORT_ASC,])->all();
+        $model = Product::find()->with('productnamelanguages', 'productlanguages')->where(['category_id' => $id,'isActive' => 1])->orderBy(['price'=>SORT_ASC,])->all();
 
         return $this->render('scategory', [
             'model' => $model,
@@ -264,10 +266,6 @@ class ProductController extends Controller
             $image[0] = new Images();
         }
 
-
-
-
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             if(count($product_name) == 0) {
                 $product_name[0] = new Productnamelanguages();
@@ -296,6 +294,9 @@ class ProductController extends Controller
 
             return $this->redirect(['view', 'id' => $model->id]);
         }
+		
+		$model->name = $product_name[0]->name;
+		$model->info = $product_info[0]->name;
 
         return $this->render('update', [
             'model' => $model,

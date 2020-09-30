@@ -38,6 +38,8 @@ AppAsset::register($this);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php $this->registerCsrfMetaTags() ?>
+	<meta name="google-site-verification" content="ipMREOtn12mOAseQp1_anCGOmIkGt2IisMr3gIQuB2s" />
+	<meta name="yandex-verification" content="8697e772fa5674d1" />
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
@@ -55,10 +57,10 @@ AppAsset::register($this);
                     <a syle="color: rgb(103, 3, 128);" href="#" class="text-primary text-decoration-none header-collor head-info">
                         <i class="fa fa-phone" aria-hidden="true" ></i><?= Yii::t('app', '+998 (90)-224-43-36')?></a>
                 </div>
-                <div class=" m-0 p-0 ">
+                <!-- <div class=" m-0 p-0 ">
                     <a syle="color: rgb(103, 3, 128);" href="#" class="text-primary text-decoration-none header-collor head-info">
-                        <i class="fa fa-user-cog" aria-hidden="true" ></i><?= Yii::t('app', 'Contacts')?></a>
-                </div>
+                        <i class="fa fa-user-cog" style="padding-right: 5px" aria-hidden="true" ></i><?= Yii::t('app', 'Contacts')?></a>
+                </div> -->
                 <div class=" m-0 p-0 ">
                     <?php
                     if(Yii::$app->user2->isGuest) {
@@ -71,7 +73,7 @@ AppAsset::register($this);
                                 </a>
                                 <div class="dropdown-menu">' .
                                     Html::a('Settings', Url::to(['user/settings']), ['class' => 'btn btn-block text-md-left  dropdown-item']).
-                                    Html::a('Log out', Url::to(['user/logout']), ['class' => 'btn btn-block text-md-left  dropdown-item'])
+                                    Html::a('Log out', Url::to(['user/logout']), ['class' => 'btn btn-block text-md-left  dropdown-item', 'data-method' => 'post'])
 
                                 . '</div>
                             </div>';
@@ -83,7 +85,7 @@ AppAsset::register($this);
                 <div class="btn-group  m-0 p-2 ">
                     <!-- CONVERT MONEY -->
                     <a class="btn dropdown-toggle p-0 head-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <?= '<img src="/frontend/web/img/mony.png" class="icons"> ' . Yii::$app->currency->name ?>
+						<i class="fas fa-<?= Yii::$app->currency->shortname ?>-sign"></i>
                     </a>
                     <div class="dropdown-menu">
                     <?php
@@ -91,8 +93,9 @@ AppAsset::register($this);
                         $form = ActiveForm::begin(['action' => '/currency/index']);
 
                         foreach ($currency as $key => $value) {
+							if($value->shortname != 'uzs')
                             echo '
-                            <button type="submit" class="dropdown-item" name="currency" value = "' . $value->shortname.'">' . $value->name . '</button>';
+                            <button type="submit" class="dropdown-item" name="currency" value = "' . $value->shortname.'"><i class="fas fa-'. $value->shortname .'-sign"></i></button>';
                         }
                         ActiveForm::end();
                     ?>
@@ -127,14 +130,14 @@ AppAsset::register($this);
         </button>
         <div class="d-block d-lg-none">
             <div class="row justify-content-end align-items-center m-0">
-                <div class="form-box col form-inline my-2 my-lg-0 border-danger">
+                <!-- <div class="form-box col form-inline my-2 my-lg-0 border-danger">
                     <?php $form = ActiveForm::begin(['action' => '/site/search']) ?>
                     <?= $form->field($search, 'search')->textInput(['placeholder' => Yii::t('app', 'Search here'), 'class' => 'search-input border border-primary mt-3 mt-sm-0'])->label(false) ?>
                     <div class="search-icon mt-3 mt-sm-0">
                         <?= Html::submitButton('<i class="fas fa-search special-tag"></i>', ['class' => 'position-absolute']) ?>
                     </div>
                     <?php ActiveForm::end(); ?>
-                </div>
+                </div> -->
                 <?= Html::a('<i class="fas fa-shopping-cart shop-cart"></i>', Url::to(['basket/index']), ['class' => 'text-primary']) ?>
             </div>
         </div>
@@ -143,8 +146,7 @@ AppAsset::register($this);
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0" >
 
                 <?php
-
-                    $model = Category::find()->with('categories.categorylanguages', 'categorylanguages')->where(['category_id' => null])->all();
+					$model = Category::find()->with(['categories' => function (\yii\db\ActiveQuery $query) { $query->andWhere('isActive = 1'); }, 'categories.categorylanguages', 'categorylanguages'])->where(['category_id' => null, 'isActive' => 1])->orderBy(['category.order' => SORT_ASC])->all();
                     foreach ($model as $value) {
                         $parent_cateogry_name;
                         foreach ($value->categorylanguages as $category_lang) {
@@ -153,19 +155,21 @@ AppAsset::register($this);
                                 break;
                             }
                         }
+
+
                         ?>
 
                         <li class="nav-item">
-
-                            <a class="dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $parent_cateogry_name?></a>
-
-
-                            <ul class="dropdown-menu bg-light row" aria-labelledby="navbarDropdownMenuLink">
+							<?php
+							if(count($value->categories) > 0)
+							{
+								?>
+								<a class="dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $parent_cateogry_name?></a>
+							<ul class="dropdown-menu bg-light row" aria-labelledby="navbarDropdownMenuLink">
                                 <div class="line"></div>
                                 <li class="col-12 col-md-3 p-2 m-0">
                                     <ul class="list-group list-group-flush">
                                     <?php
-
 
                                         foreach ($value->categories as $sub_category) {
                                             foreach ($sub_category->categorylanguages as $category_lang) {
@@ -175,6 +179,7 @@ AppAsset::register($this);
                                                     break;
                                                 }
                                             }
+
 
                                             ?>
                                         <li class="list-group-item bg-light border-0 pl-4 pt-0 m-0">
@@ -206,7 +211,7 @@ AppAsset::register($this);
                                             <?= Html::a(Html::img('/backend/web/upimages/' . $prod->images[0]->path, ['alt' => $product_name, 'class' => 'card-image']), Url::to(['/product/buy', 'id' => $prod->id]), []) ?>
                                             <div class="card-label p-2">
                                                 <div class="card-name"><?php echo $product_name?></div>
-                                                <div class="card-price text-success"><?php echo Yii::$app->currency->convert('usd', $prod->price) ?></div>
+                                                <div class="card-price text-success"><?= Yii::$app->currency->convert('dollar', $prod->price) ?></div>
                                             </div>
 
                                                 <div class="card-pane m-0">
@@ -220,9 +225,24 @@ AppAsset::register($this);
                                 </li>
 
                             </ul>
+							<?php
+							}
+							else
+							{
+							?>
+								<a class="dropdown-toggle" href="/product/scategory?id=<?php echo $value->id ?>" aria-expanded="false"><?= $parent_cateogry_name?></a>
+							<?php
+							}
+							?>
+
+
+
 
                         </li>
+
                     <?php } ?>
+				<li><?= Html::a(Yii::t('app', 'Craftsman'), Url::to(['/site/craftsman'])) ?></li>
+
             </ul>
         </div>
 
@@ -230,14 +250,14 @@ AppAsset::register($this);
 
          <div class="d-none d-lg-block">
             <div class="row justify-content-end align-items-center">
-                <div class="form-box col form-inline my-2 my-lg-0 border-danger">
+                <!-- <div class="form-box col form-inline my-2 my-lg-0 border-danger">
                     <?php $form = ActiveForm::begin(['action' => '/site/search']) ?>
                     <?= $form->field($search, 'search')->textInput(['placeholder' => Yii::t('app', 'Search here ....'), 'class' => 'search-input border border-primary mt-3 mt-sm-0'])->label(false) ?>
                     <div class="search-icon mt-3 mt-sm-0">
                         <?= Html::submitButton('<i class="fas fa-search special-tag"></i>', ['class' => 'position-absolute']) ?>
                     </div>
                     <?php ActiveForm::end(); ?>
-                </div>
+                </div> -->
                 <div class="cart">
                      <?= Html::a('<i class="fas fa-shopping-cart shop-cart"></i>', Url::to(['basket/index']), ['class' => 'text-primary']) ?>
                 </div>

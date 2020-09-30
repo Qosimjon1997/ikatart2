@@ -95,8 +95,10 @@
 .card-item a .card-image {
 	max-width: 100%;
 	width: 100%;
+	margin: auto;
+	height: 85%;
 	max-height: 100%;
-	object-fit: contain;
+	/*object-fit: ;*/
 	transition: 0.5s;
 	position: absolute;
 	bottom: 3.5rem;
@@ -119,7 +121,7 @@
 }
 
 .card-item:hover a .card-image {
-	transform: scale(1.1, 1.1) translate(5px, 15px);
+	transform: scale(1.1, 1.1) translate(5px, 8px);
 }
 
 .card-item:hover .card-pane {

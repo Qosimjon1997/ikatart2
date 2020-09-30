@@ -206,7 +206,7 @@ class SalerController extends Controller
                 Yii::$app->session->setFlash('success', Yii::t('app', 'Password reseted'));
             }
             if ($saler->load(Yii::$app->request->post()) && $saler->save()){
-                // var_dump($saler);
+                 
                 if(Yii::$app->request->isPost){
 
                     $img->imageFile = UploadedFile::getInstance($img, 'imageFile');
@@ -215,9 +215,11 @@ class SalerController extends Controller
                             $image[0]->path = $img->upload();
                             $image[0]->save();
                         } else {
-                            $image = new Images();
-                            $image->path = $img->upload();
-                            $image->saler_id = $saler->id;
+                            $image[0] = new Images();
+                            $image[0]->path = $img->upload();
+                            $image[0]->saler_id = $saler->id;
+							$image[0]->main = 1;
+							$image[0]->save();
                         }
                     }
                 }

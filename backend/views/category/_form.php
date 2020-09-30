@@ -30,8 +30,8 @@ use backend\models\Category;
         }
 
     ?>
-
-    <?= '<div class="col-lg-12">'.$form->field($model, 'category_id')->dropDownList($category, ['options' => ['class' => 'form-control']]).'</div></div>' ?>
+	<?= '<div class="col-lg-12">' . $form->field($model, 'isActive')->checkbox() . '</div>' ?>
+    <?= '<div class="col-lg-12">' . $form->field($model, 'category_id')->dropDownList($category, ['options' => ['class' => 'form-control']]). '</div></div>' ?>
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
     </div>

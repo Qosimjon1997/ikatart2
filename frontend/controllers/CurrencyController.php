@@ -1,7 +1,7 @@
 <?php
 
 namespace frontend\controllers;
-
+use Yii;
 class CurrencyController extends \yii\web\Controller
 {
     public function actionIndex()

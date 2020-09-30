@@ -48,12 +48,11 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'price', 'category_id', 'isActive', 'info', 'mass_id'], 'required'],
-            [['price', 'oldprice', 'percent', 'Saler_id', 'category_id', 'isActive', 'mass_id'], 'integer'],
+            [['price', 'oldprice', 'percent', 'Saler_id', 'category_id', 'isActive', 'mass'], 'integer'],
             [['info'], 'string'],
             [['name'], 'string', 'max' => 255],
             [['Saler_id'], 'exist', 'skipOnError' => true, 'targetClass' => Saler::className(), 'targetAttribute' => ['Saler_id' => 'id']],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
-            [['mass_id'], 'exist', 'skipOnError' => true, 'targetClass' => Mass::className(), 'targetAttribute' => ['mass_id' => 'id']],
         ];
     }
 
@@ -72,7 +71,7 @@ class Product extends \yii\db\ActiveRecord
             'category_id' => Yii::t('app', 'Category ID'),
             'isActive' => Yii::t('app', 'Is Active'),
             'info' => Yii::t('app', 'Info'),
-            'mass_id' => Yii::t('app', 'Mass ID'),
+            'mass' => Yii::t('app', 'Mass ID'),
         ];
     }
 
@@ -144,16 +143,6 @@ class Product extends \yii\db\ActiveRecord
     public function getCategory()
     {
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
-    }
-
-    /**
-     * Gets query for [[Mass]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getMass()
-    {
-        return $this->hasOne(Mass::className(), ['id' => 'mass_id']);
     }
 
     /**

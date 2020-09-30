@@ -44,10 +44,10 @@ AppAsset::register($this);
                     <a syle="color: rgb(103, 3, 128);" href="#" class="text-primary text-decoration-none header-collor head-info">
                         <i class="fa fa-phone" aria-hidden="true" ></i><?= Yii::t('app', '+998 (90)-212-92-88')?></a>
                 </div>
-                <div class=" m-0 p-0 ">
+                <!-- <div class=" m-0 p-0 ">
                     <a syle="color: rgb(103, 3, 128);" href="#" class="text-primary text-decoration-none header-collor head-info">
                         <i class="fa fa-user-cog" aria-hidden="true" ></i><?= Yii::t('app', 'Contacts')?></a>
-                </div>
+                </div> -->
                 <div class=" m-0 p-0 ">
                     <?php
                     if(Yii::$app->saler->isGuest) {
@@ -55,7 +55,7 @@ AppAsset::register($this);
                         '. Yii::t('app', 'Login'), ['saler/login'], ['class' => 'text-primary text-decoration-none header-collor head-info']);
                     } else {
                         echo Html::a('<i class="fa fa-sign-out-alt" aria-hidden="true"></i>
-                        '. Yii::t('app', 'Logout'), ['saler/logout'], ['class' => 'text-primary text-decoration-none header-collor head-info']);
+                        '. Yii::t('app', 'Logout'), ['saler/logout'], ['class' => 'text-primary text-decoration-none header-collor head-info', 'data-method' => 'post']);
                     } ?>
                 </div>
             </div>
@@ -64,7 +64,7 @@ AppAsset::register($this);
                 <div class="btn-group  m-0 p-2 ">
                     <!-- CONVERT MONEY -->
                     <a class="btn dropdown-toggle p-0 head-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <?= '<img src="/frontend/web/img/mony.png" class="icons"> ' . Yii::$app->currency->name ?>
+						<i class="fas fa-<?= Yii::$app->currency->shortname ?>-sign"></i>
                     </a>
                     <div class="dropdown-menu">
                     <?php
@@ -72,8 +72,9 @@ AppAsset::register($this);
                         $form = ActiveForm::begin(['action' => '/currency/index']);
 
                         foreach ($currency as $key => $value) {
+							if($value->shortname != 'uzs')
                             echo '
-                            <button type="submit" class="dropdown-item" name="currency" value = "' . $value->shortname.'">' . $value->name . '</button>';
+                            <button type="submit" class="dropdown-item" name="currency" value = "' . $value->shortname.'"><i class="fas fa-'. $value->shortname .'-sign"></i></button>';
                         }
                         ActiveForm::end();
                     ?>

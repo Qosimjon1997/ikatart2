@@ -5,6 +5,7 @@ namespace frontend\components;
 use yii\base\BootstrapInterface;
 use backend\models\Currency;
 use yii\base\Component;
+use yii\base\Exception;
 use Yii;
 
 class CurrencySelector implements BootstrapInterface
@@ -19,7 +20,7 @@ class CurrencySelector implements BootstrapInterface
         $preferredCurrency = isset(Yii::$app->request->cookies['currency']) ? (string)Yii::$app->request->cookies['currency'] : null;
 
         if (empty($preferredCurrency)) {
-            $preferredCurrency = 'usd';
+            $preferredCurrency = 'dollar';
         }
 
         $currency = Currency::find()->where(['shortname' => $preferredCurrency])->all();
@@ -36,18 +37,17 @@ class CurrencySelector implements BootstrapInterface
      * @param string $shortname
      * @return integer converted sum
      */
-    public function convert($shortname = 'usd', $sum = 0) {
+    public function convert($shortname, $sum = 1) {
 
         // get given currency
         $currency = Currency::find()->where(['shortname' => $shortname])->all();
-
-        if(isset($currency)){
-            // convert sum to usd according given currency
+        if(count($currency) > 0){
+            // convert sum to dollar according given currency
             $usd = $sum / $currency[0]->koeficent;
 
-            // convert usd to current currency
+            // convert dollar to current currency
             $current = ceil($usd * Yii::$app->currency->koeficent);
-            return $current;
+            return '<i class="fas fa-' . Yii::$app->currency->shortname . '-sign"></i> ' . $current;
 
         } else {
             throw new Exception(Yii::t('app', "Given currency was not found"), 1);
