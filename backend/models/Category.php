@@ -33,8 +33,8 @@ class Category extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            // [['name'], 'required'],
-            [['category_id'], 'integer'],
+            [['name'], 'unique'],
+            [['category_id', 'isActive'], 'integer'],
             [['name', 'categoryFilter'], 'string', 'max' => 255],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
         ];

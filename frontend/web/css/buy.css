@@ -1,10 +1,13 @@
 .easyzoom .zoom-image {
   border-radius:  0 !important;
-  max-width: 100%;
-  /*width: 100%;*/
   max-height: 400px;
+  max-width: 400px;
   object-fit: contain;
   object-position: 0 0;
+}
+
+.easyzoom-flyout img {
+	max-width: 600px;
 }
 
 .rest-img {

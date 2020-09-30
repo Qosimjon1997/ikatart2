@@ -30,6 +30,7 @@ class Country extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'zone_id'], 'required'],
+			[['name'], 'unique'],
             [['zone_id'], 'integer'],
             [['name'], 'string', 'max' => 45],
             [['zone_id'], 'exist', 'skipOnError' => true, 'targetClass' => Zone::className(), 'targetAttribute' => ['zone_id' => 'id']],

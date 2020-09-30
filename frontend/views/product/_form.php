@@ -22,7 +22,7 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'info')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'mass_id')->dropDownList(ArrayHelper::map(Mass::find()->all(),'id','mass'),['prompt'=>'Massa ']) ?>
+    <?= $form->field($model, 'mass')->textInput() ?>
     <div class="row justify-content-between">
         <div class="col-12 col-md-4">
         <?= $form->field($modelimage, 'imageFile')->fileInput([

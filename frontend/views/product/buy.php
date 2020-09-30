@@ -4,9 +4,12 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\widgets\ActiveForm;
 use yii\helpers\Url;
+use backend\models\Language;
 
 $val = Yii::$app->language;
 BuyAsset::register($this);
+
+
 ?>
 <div class="bg-light my-5 w-100 py-5 m-auto">
   <div class="row p-0 m-0">
@@ -46,9 +49,10 @@ BuyAsset::register($this);
       <p class="text-justify"><i><?= $info ?></i></p>
       <div class="row m-0 p-0 justify-content-between">
         <div class="col-6 m-0 p-0">
-          <div><i class="text-danger"><?= Yii::t('app', 'Price') ?>: </i><b id=productPrice><?= $model->price ?></b>$</div>
-          <div><i class="text-danger"><?= Yii::t('app', 'Shipping Price') ?>: </i><b id=shippingPrice>100</b>$</div>
+          <div><i class="text-danger"><?= Yii::t('app', 'Price') ?>: </i><b id=productPrice><?= Yii::$app->currency->convert('dollar', $model->price)?></b></div>
+			<div class="d-none"><i class="text-danger"><?= Yii::t('app', 'One Mass') ?>: </i><b id=oneMass><?php echo $model->mass?></b></div>
         </div>
+		  
         <div class="col-6 m-0 p-0">
           <div class="input-group counter float-right">
             <div class="input-group-prepend">
@@ -61,10 +65,20 @@ BuyAsset::register($this);
           </div>
         </div>
       </div>
+		<!-- Massasi uchun joy  -->
+		
+		
       <p class="py-4">
-        <i class="text-danger"><?= Yii::t('app', 'Total') ?>: </i><b id=totalPrice></b>$
-        <?php ?>
+        <i class="text-danger"><?= Yii::t('app', 'Total') ?>: </i><i class="fas fa-<?= Yii::$app->currency->shortname ?>-sign"></i> <b id=totalPrice></b>
+		  <br/>
+		  <i class="text-danger"><?= Yii::t('app', 'Mass') ?>: </i><b id=totalMass></b> gr.
       </p>
+				
+		<p class="py-4">
+        <i class="text-danger"><?= Yii::t('app', 'Saler') ?>: </i><?= Html::a( $model->saler->firstname . ' ' . $model->saler->secondname, Url::to(['/site/craftsman', 'id' => $model->saler->id])) ?>
+      </p>
+		
+		
       <div class="my-4">
         <button class="btn btn-outline-success px-5" onclick="oybek()"><?= Yii::t('app', 'Pay') ?></button>
          <div class="back" id="salom">
@@ -119,7 +133,7 @@ BuyAsset::register($this);
       <?= Html::a(Html::img('/backend/web/upimages/' . $item->images[0]->path, ['alt' => $name, 'class' => 'card-image']), Url::to(['/product/buy', 'id' => $item->id]), []) ?>
       <div class="card-label p-2">
           <div class="card-name"><?= $name ?></div>
-          <div class="card-price text-success"><?= $item->price ?>$</div>
+          <div class="card-price text-success"><?= Yii::$app->currency->convert('dollar', $item->price)?></div>
       </div>
 
       <div class="card-pane m-0">
@@ -202,12 +216,14 @@ $script = <<< JS
       function myFunction()
       {
         var price = parseInt(document.getElementById('productPrice').innerText);
-        var shipPrice=parseInt(document.getElementById("shippingPrice").innerText);
+        var oneMasss = parseInt(document.getElementById('oneMass').innerText);
         
         var c = parseInt($('#qty_input').val());
-        var t = ((price * c)+shipPrice);
+        var t = ((price * c));
+		var y = ((oneMasss * c));
         
         document.getElementById("totalPrice").innerHTML = (t);
+		document.getElementById("totalMass").innerHTML = (y);
       }
 
       $('#qty_input').prop('disabled', true);

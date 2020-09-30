@@ -65,6 +65,7 @@ class CategorySearch extends Category
         $query->andFilterWhere([
             'id' => $this->id,
             'category_id' => $this->category_id,
+			'isActive' => $this->isActive,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])

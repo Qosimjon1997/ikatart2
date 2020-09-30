@@ -31,7 +31,7 @@ class Cardtype extends \yii\db\ActiveRecord
             [['name'], 'required'],
             [['id'], 'integer'],
             [['name'], 'string', 'max' => 45],
-            [['id'], 'unique'],
+            [['id', 'name'], 'unique'],
         ];
     }
 

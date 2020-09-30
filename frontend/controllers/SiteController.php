@@ -12,6 +12,8 @@ use frontend\models\Search;
 use frontend\models\ContactForm;
 
 use backend\models\Language;
+use backend\models\Saler;
+use backend\models\Product;
 use backend\models\Productnamelanguages;
 /**
  * Site controller
@@ -115,6 +117,30 @@ class SiteController extends Controller
      *
      * @return mixed
      */
+
+	public function actionCraftsman($id = null)
+    {
+		$model;
+		$one = false;
+		if(strlen($id) > 0 && intval($id) > 0) {
+			$one = true;
+			$model = Saler::find()->with(['images', 'salarhistorylanguages', 'products', 'products.images', 'products.productnamelanguages', 'products.productlanguages'])->where(['id' => $id])->all();
+		} else {
+			$model = Saler::find()->with('images', 'salarhistorylanguages')->orderBy(['saler.firstname' => SORT_ASC])->all();
+		}
+        return $this->render('craft',[
+			'model' => $model,
+			'one' => $one,
+		]);
+    }
+
+    /**
+     * Displays contact page.
+     *
+     * @return mixed
+     */
+
+
     public function actionContact()
     {
         $model = new ContactForm();
@@ -161,5 +187,12 @@ class SiteController extends Controller
         }
         // print_r($products);
         return $this->render('search', ['products' => $products]);
+    }
+
+	public function actionInActiveProducts() {
+
+        $products = Product::find()->with('images')->joinWith('saler')->where('mass < 40')->andWhere('isActive = 1')->orderBy('saler.email ASC')->all();
+
+        return $this->render('inactiveproducts', ['products' => $products]);
     }
 }

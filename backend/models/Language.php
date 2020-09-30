@@ -43,6 +43,7 @@ class Language extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'shortname'], 'required'],
+			[['name', 'shortname'], 'unique'],
             [['name', 'shortname'], 'string', 'max' => 45],
         ];
     }

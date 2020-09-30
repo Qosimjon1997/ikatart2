@@ -37,7 +37,7 @@ class SalerResetpassForm extends Model
 
     public function valid($model) {
         if($this->validate()) {
-            if($this->newpassword === $this->newpasswordconfirm) {
+            if($this->newpassword === $this->newpasswordconfirm && $this->oldpassword != '') {
                 if(Yii::$app->security->validatePassword($this->oldpassword, $model->password)){
                     $this->newpassword = Yii::$app->security->generatePasswordHash($this->newpassword);
                     return true;

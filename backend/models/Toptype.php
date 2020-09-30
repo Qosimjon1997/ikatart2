@@ -30,6 +30,7 @@ class Toptype extends \yii\db\ActiveRecord
     {
         return [
             [['day', 'price'], 'required'],
+			[['day'], 'unique'],
             [['day', 'price'], 'integer'],
         ];
     }
